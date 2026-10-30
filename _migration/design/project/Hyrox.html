@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Préparation Hyrox à Bruxelles · Xmile CrossFit Woluwe</title>
+<meta name="description" content="Prépare ton Hyrox à Woluwe, à l'est de Bruxelles : salle affiliée Hyrox Training Club, cours tous niveaux encadrés 6 jours sur 7. Séance d'essai gratuite.">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/effects.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/styles.css">
+<link rel="stylesheet" href="site/xm-site.css">
+<link rel="stylesheet" href="site/xm-pages.css">
+<link rel="stylesheet" href="site/xm-v2.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/_ds_bundle.js"></script>
+<script src="site/image-slot.js"></script>
+<script src="site/video-slot.js"></script>
+</head>
+<body class="v2">
+<div id="hdr-root"></div>
+<main>
+<section class="hero" aria-labelledby="h1">
+<div class="hero-slab on-dark" id="hero-slab" data-vs-host="" data-m="hero">
+<div class="hero-bg"><image-slot id="ph-hero-hyrox" shape="rect" src="assets/endurance.jpg" placeholder="Une membre en sweat vert rame à l'ergomètre pendant une séance Hyrox"></image-slot><video data-vslot="hero-hyrox" src="assets/video-hyrox.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+<div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/#cours">Nos cours</a></li><li aria-current="page">Hyrox</li></ol></nav></div>
+<div class="hero-main">
+<h1 class="disp hero-h1 vh" id="h1">Préparation Hyrox <span class="acc">à Bruxelles</span></h1>
+<p class="hero-sub">Des cours dédiés à l'Hyrox, en groupe et avec un coach : la programmation officielle Hyrox et des séances construites par nos coachs pour gagner en condition physique et en temps.</p>
+<div class="hero-bar"><a class="btn btn-primary btn-lg" href="/seance-essai/">Réserve ta séance d'essai<span class="ic i-arrow-up-right"></span></a><a class="tlink" href="#horaires">Voir les horaires<span class="ic i-arrow-down"></span></a><ul class="vh-facts"><li><strong>Training Club</strong><span>salle affiliée Hyrox</span></li><li><strong>Tous niveaux</strong><span>débutant ou confirmé</span></li><li><strong>6 jours sur 7</strong><span>le midi, le soir et le dimanche</span></li></ul></div>
+</div>
+</div>
+</section>
+<div id="root"></div>
+</main>
+<div id="ftr-root"></div>
+<script type="text/babel" src="site/xm-shared.jsx"></script>
+<script type="text/babel" src="site/xm-chrome.jsx"></script>
+<script type="text/babel" src="site/xm-blocks.jsx"></script>
+<script type="text/babel" src="site/xm-blocks-2.jsx"></script>
+<script type="text/babel" src="site/xm-v2.jsx"></script>
+<script type="text/babel">
+function HyroxPage() {
+  return <>
+    <StackSection eyebrow="Pour qui ?" title={<>Pas besoin d'être <span className="acc">coureur</span></>} items={[
+      { t: 'Tu découvres l\'Hyrox', d: 'Tu apprends le format à ton rythme, sans pression de chrono.' },
+      { t: 'Tu viens de la course', d: 'Le cardio, tu l\'as. On travaille la force et les stations.' },
+      { t: 'Tu fais du CrossFit', d: 'On ajoute le volume de course et la gestion de l\'allure.' },
+    ]} after={<TLink href="/hyrox/debutant/">L'Hyrox pour débutants</TLink>} aside={<Photo id="hyrox-sourire" src="assets/hyrox-sourire.jpg" alt="Une membre saute de joie devant le logo Xmile, les air bikes alignés derrière elle" />} />
+
+    <HyroxPrep />
+
+    <PinTrack bg={{ id: 'deroule-hyrox', src: 'assets/hyrox-wallball.jpg', alt: 'Photo de fond : une membre aux wall balls pendant le cours Hyrox' }} id="deroule" eyebrow="Déroulé d'un cours" title={<>Une heure, <span className="acc">course et stations</span></>} items={[
+      { t: 'Échauffement', d: 'Course légère et mobilité, le corps se met en route.' },
+      { t: 'Technique', d: 'Le coach te montre les stations du jour et règle ta charge.' },
+      { t: 'Bloc principal', hot: true, d: 'Course et stations qui s\'enchaînent, chacun à son allure.' },
+      { t: 'Retour au calme', d: 'On souffle, on s\'étire et on regarde les temps.' },
+    ]} note="Tu débutes ? Le coach adapte les distances, les charges et les stations à ton niveau." />
+
+    <Sec labelledby="t-duo">
+      <div className="duo3">
+        <div className="duo3-head">
+          <span className="eyebrow" style={{ margin: 0 }}>En duo</span>
+          <h2 className="disp h2" id="t-duo">Trouve ton <span className="acc">binôme</span> de course dans la salle</h2>
+        </div>
+        <Slot id="deux-membres-en-duo-hyrox-l-un-pousse-le-sled-l-" src="assets/hyrox-duo.jpg">Deux membres se tapent dans la main pendant un passage en duo Hyrox</Slot>
+        <div className="duo3-copy">
+          <p>L'Hyrox se court aussi à deux, en se partageant les stations. Au cours, tu t'entraînes avec des gens qui visent les mêmes courses que toi : c'est le meilleur endroit pour trouver ton partenaire.</p>
+          <TLink href="/hyrox/duo/">L'Hyrox en duo</TLink>
+        </div>
+      </div>
+    </Sec>
+
+    <CourseCoaches course="hyrox" alt title={<>Ils préparent <span className="acc">ta course</span></>} lead="Ils règlent ton allure, corrigent tes passages aux stations et suivent tes temps d'une semaine à l'autre." />
+
+    <ScheduleSection course="hyrox" title={<>Choisis <span className="acc">ton créneau</span></>} lead="Pour une séance d'essai, choisis un cours Hyrox encadré, pas un créneau Free Access." tables={[XM_SCHEDULE.hyrox]} />
+
+    <PricesSection course="hyrox" highlight="unlimited" lead="Une seule grille pour tous les cours adultes. Si tu combines Hyrox et CrossFit dans la semaine, l'Unlimited te donne accès à tout." />
+
+    <Reviews flush />
+
+    <FaqSection title={<>Avant ta <span className="acc">première course</span></>} items={[
+      { q: 'Je ne cours pas vite, je peux faire de l\'Hyrox ?', a: <p>Oui. Chacun court à son allure et le coach adapte les stations. La course se travaille séance après séance, comme le reste.</p> },
+      { q: 'Faut-il être inscrit à une course pour suivre le cours ?', a: <p>Non. Le cours est ouvert à tous, que tu aies une course en vue ou pas. Le format est une très bonne façon de s'entraîner, même sans dossard.</p> },
+      { q: 'Quelle différence avec le CrossFit ?', a: <p>L'Hyrox suit toujours le même format : course et stations, avec une grosse part d'endurance. Le CrossFit change de WOD chaque jour et travaille plus la gymnastique et l'haltérophilie. Les deux se complètent et sont dans la même grille de tarifs.</p> },
+      { q: 'Je débute, le cours est fait pour moi ?', a: <p>Oui. Débutant ou sportif accompli, tout le monde suit le même cours et le coach adapte l'allure, les charges et les stations. Chacun y trouve un challenge à sa taille.</p> },
+      { q: 'Qu\'est-ce que je dois apporter ?', a: <><p>Une tenue de sport, des chaussures de course qui tiennent bien le pied et une gourde. Le matériel des stations, on l'a. On a des vestiaires femmes et hommes, avec des douches pour après ton cours.</p></> },
+    ]} />
+
+    <NextCourses current="hyrox" />
+
+    <FinalCta title="Ta première course commence ici" text="Séance d'essai gratuite et sans engagement. Choisis un créneau Hyrox, le coach adapte l'allure et les charges à ton niveau." />
+  </>;
+}
+mountPage(<HyroxPage />, '/preparation-hyrox/');
+</script>
+<script src="site/xm-motion.js"></script>
+</body>
+</html>

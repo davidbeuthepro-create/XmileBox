@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team building sportif à Bruxelles, près de Zaventem · Xmile CrossFit Woluwe</title>
+<meta name="description" content="Team building sportif à l'est de Bruxelles, à côté de Zaventem et de l'aéroport : WOD par équipes, relais Hyrox, initiation. Tous niveaux, encadré par nos coachs. Sur devis.">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/effects.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/styles.css">
+<link rel="stylesheet" href="site/xm-site.css">
+<link rel="stylesheet" href="site/xm-pages.css">
+<link rel="stylesheet" href="site/xm-v2.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/_ds_bundle.js"></script>
+<script src="site/image-slot.js"></script>
+<script src="site/video-slot.js"></script>
+</head>
+<body class="v2">
+<div id="hdr-root"></div>
+<main>
+<section class="hero" aria-labelledby="h1">
+<div class="hero-slab on-dark" id="hero-slab" data-vs-host="" data-m="hero">
+<div class="hero-bg"><image-slot id="ph-hero-teambuilding" shape="rect" src="assets/crossfit-tous-ensemble.png" placeholder="Un groupe, mains au sol, qui s'encourage pendant un exercice par équipes"></image-slot><video data-vslot="hero-teambuilding" src="assets/video-teambuilding-hero.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+<div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Team building</li></ol></nav></div>
+<div class="hero-main">
+<h1 class="disp hero-h1 vh" id="h1">Team building sportif <span class="acc">à Bruxelles</span></h1>
+<p class="hero-sub">L'effort partagé soude une équipe plus qu'un afterwork. Sportifs ou pas, tout le monde participe, chacun à son niveau, encadré par nos coachs. Pour les équipes de Woluwe, Zaventem et de l'est de Bruxelles.</p>
+<div class="hero-bar"><a class="btn btn-primary btn-lg" href="#devis">Demander un devis<span class="ic i-arrow-down"></span></a><a class="tlink" href="#formats">Voir les formats<span class="ic i-arrow-down"></span></a><ul class="vh-facts"><li><strong>Sur devis</strong><span>selon ton groupe et le format</span></li><li><strong>Tous niveaux</strong><span>sportifs ou non</span></li><li><strong>Parking gratuit</strong><span>à la box</span></li></ul></div>
+</div>
+</div>
+</section>
+<div id="root"></div>
+</main>
+<div id="ftr-root"></div>
+<script type="text/babel" src="site/xm-shared.jsx"></script>
+<script type="text/babel" src="site/xm-chrome.jsx"></script>
+<script type="text/babel" src="site/xm-blocks.jsx"></script>
+<script type="text/babel" src="site/xm-blocks-2.jsx"></script>
+<script type="text/babel" src="site/xm-v2.jsx"></script>
+<script type="text/babel">
+const TB_FORMATS = [
+  { n: '01', t: 'WOD par équipes', bg: 'var(--xm-orange-500)', fg: 'var(--xm-green-950)', d: 'Un entraînement où chaque équipe se partage les reps. Chacun fait sa part à son niveau, l\'équipe termine ensemble.' },
+  { n: '02', t: 'Simulation Hyrox en relais', bg: 'var(--xm-green-950)', fg: '#fff', d: 'Course et stations Hyrox en relais : rameur, sled, wall balls. Un format compétitif, mais où tout le monde a sa place.' },
+  { n: '03', t: 'Initiation et lounge', bg: 'var(--xm-chalk)', fg: 'var(--xm-green-950)', d: 'Une initiation encadrée aux mouvements de base, puis un moment convivial au lounge pour souffler et refaire la séance.' },
+];
+function TeamBuildingPage() {
+  const { Icon } = XM;
+  return <>
+    <section className="tb-refs" aria-labelledby="t-refs">
+      <div className="wrap tb-refs-in">
+        <h2 className="tb-refs-t" id="t-refs">Elles ont choisi Xmile pour souder leur équipe</h2>
+        <ul className="tb-refs-logos">
+          <li><img src="assets/logo-tb-heycharlie.png" alt="Hey Charlie" style={{ height: 30 }} /></li>
+          <li><img src="assets/logo-tb-abchive.png" alt="ABC Hive Cheerleaders" style={{ height: 76 }} /></li>
+          <li><img src="assets/logo-tb-giants.png" alt="Giants" style={{ height: 26 }} /></li>
+          <li><img src="assets/logo-tb-qkdb.png" alt="Qwan Ki Do Belgium Federation" style={{ height: 80 }} /></li>
+        </ul>
+      </div>
+    </section>
+
+    <StackSection eyebrow="Pour qui ?" title={<>Pour toutes les équipes, <span className="acc">sportives ou pas</span></>} lead="Pas de prérequis, pas de niveau minimum. Les coachs adaptent chaque mouvement pour que tout le monde participe." checks={['Tous niveaux, aucun prérequis', 'Encadré par nos coachs du début à la fin', 'Groupe de 5 à 30 personnes']} items={[
+      { t: 'Tu travailles aux RH', d: 'Un moment qui implique tout le monde, sans laisser personne sur le banc.' },
+      { t: 'Tu es office manager', d: 'Un format clé en main : on s\'occupe du programme, du matériel et de l\'encadrement.' },
+      { t: 'Tu manages une équipe', d: 'Une heure où l\'équipe gagne ensemble, chacun avec son rôle.' },
+    ]} after={<div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}><span className="eyebrow" style={{ margin: 0 }}>Les entreprises de la zone</span><ul className="zones"><li>Woluwe</li><li>Zaventem</li><li>Corporate Village</li><li>Aéroport</li><li>Diegem</li><li>Est de Bruxelles</li></ul></div>} />
+
+    <Sec labelledby="t-vid" className="sec-black on-dark">
+      <SecHead dark eyebrow="En vidéo" id="t-vid" title={<>Un team building <span className="acc">chez Xmile</span></>} lead="Lance la vidéo pour voir comment se passe une séance avec une équipe d'entreprise." />
+      <div className="v-media"><ClickVideo id="teambuilding-page" src="assets/video-teambuilding.mp4" label="Un team building chez Xmile" /></div>
+    </Sec>
+
+    <Sec id="formats" alt labelledby="t-fmt">
+      <SecHead eyebrow="Les formats" id="t-fmt" title={<>Trois formats, <span className="acc">très concrets</span></>} lead="Choisis celui qui ressemble à ton équipe, ou laisse-nous te conseiller dans le devis." />
+      <div className="fmts">{TB_FORMATS.map(f => <FormatCard key={f.n} f={f} />)}</div>
+    </Sec>
+
+    <PinTrack bg={{ id: 'deroule-teambuilding', src: 'assets/duo-high-five.jpg', alt: 'Photo de fond : une équipe pendant un team building' }} id="deroule" eyebrow="Déroulé type" title={<>Du vestiaire <span className="acc">au lounge</span></>} lead="Un exemple de déroulé, ajusté ensuite à ton format et à la taille du groupe." items={[
+      { where: 'On se présente', t: 'Accueil', d: 'On accueille ton équipe, on forme les groupes et on explique le programme.' },
+      { where: 'Tous ensemble', t: 'Échauffement', d: 'Tout le monde ensemble, guidé par les coachs, pour apprendre les mouvements du jour.' },
+      { where: 'Par équipes', t: 'Le défi', hot: true, d: 'Le format choisi, par équipes, chacun à son niveau.' },
+      { where: 'Après l\'effort', t: 'Le lounge', d: 'On souffle, on refait la séance et on profite du moment.' },
+    ]} />
+
+    <Sec flush labelledby="t-well">
+      <div className="pair">
+        <article className="pcard">
+          <span className="eyebrow" style={{ margin: 0 }}>Option bien-être</span>
+          <h2 className="disp" id="t-well">Avec les kinés du <span className="acc">Health Lab</span></h2>
+          <p>Le Xmile Health Lab est à la même adresse. En option, ses kinés peuvent compléter la séance : récupération, conseils posture pour le travail de bureau.</p>
+          <div className="actions"><BtnLink href={XM_FACTS.healthLab} external variant="outline" icon="arrow-up-right">Le Health Lab</BtnLink></div>
+        </article>
+        <article className="pcard dark on-dark">
+          <span className="eyebrow" style={{ margin: 0 }}>Accès</span>
+          <h2 className="disp">À deux pas <span className="acc">de ton bureau</span></h2>
+          <ul className="incl" style={{ gridTemplateColumns: '1fr', borderTop: 0 }}>
+            <li style={{ padding: '12px 0', borderLeft: 0 }}><p><strong style={{ color: '#fff' }}>Depuis le Corporate Village</strong> : 10 minutes en voiture</p></li>
+            <li style={{ padding: '12px 0', borderLeft: 0, borderTop: '1px solid var(--border-on-dark)' }}><p><strong style={{ color: '#fff' }}>Depuis l'aéroport</strong> : 12 minutes en voiture</p></li>
+            <li style={{ padding: '12px 0', borderLeft: 0, borderTop: '1px solid var(--border-on-dark)' }}><p><strong style={{ color: '#fff' }}>{XM_FACTS.parking}</strong>, {XM_FACTS.street}, {XM_FACTS.city}</p></li>
+          </ul>
+          <div className="actions"><BtnLink href={XM_FACTS.googleFiche} external variant="light" icon="arrow-up-right">Itinéraire Google Maps</BtnLink></div>
+        </article>
+      </div>
+    </Sec>
+
+    <FaqSection title={<>Les questions <span className="acc">avant de réserver</span></>} lead="Une question qui n'est pas dans la liste ? Écris-nous ou appelle, on te répond directement." items={[
+      { q: 'Faut-il un niveau sportif ?', a: <p>Non. Les coachs adaptent chaque mouvement, et les formats sont pensés pour que tout le monde participe, sportif ou non.</p> },
+      { q: 'Quelle tenue prévoir ?', a: <p>Une tenue de sport, des baskets propres et une gourde. Le matériel est fourni.</p> },
+      { q: 'Combien de participants au minimum et au maximum ?', a: <p>De 5 à 30 personnes.</p> },
+      { q: 'En semaine, en journée ou en soirée ?', a: <p>En matinée, en journée, en soirée et même le week-end. On s'adapte à ton équipe : le team building peut aussi avoir lieu en dehors des heures d'ouverture habituelles de la box.</p> },
+      { q: 'Dans quelle langue sont donnés les cours ?', a: <p>Le team building peut être donné en français ou en anglais.</p> },
+    ]} />
+
+    <Sec id="devis" alt labelledby="t-quote">
+      <div className="quote-wrap">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <span className="eyebrow" style={{ margin: 0 }}>Demande de devis</span>
+          <h2 className="disp h2" id="t-quote">Parle-nous de <span className="acc">ton équipe</span></h2>
+          <p className="lead">Pas de prix affiché : chaque devis dépend du format, du nombre de participants et de la date. Remplis le formulaire, on revient vers toi avec une proposition.</p>
+          <div className="faq-contact">
+            <a href={XM_FACTS.phoneHref}><Icon name="phone" size={18} color="var(--xm-orange-600)" />{XM_FACTS.phone}</a>
+            <a href={'mailto:' + XM_FACTS.email}><Icon name="mail" size={18} color="var(--xm-orange-600)" />{XM_FACTS.email}</a>
+          </div>
+        </div>
+        <QuoteForm formats={TB_FORMATS.map(f => f.t)} />
+      </div>
+    </Sec>
+  </>;
+}
+mountPage(<TeamBuildingPage />, '/team-building/');
+</script>
+<script src="site/xm-motion.js"></script>
+</body>
+</html>

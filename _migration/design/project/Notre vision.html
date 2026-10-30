@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notre vision · Xmile CrossFit, Woluwe</title>
+<meta name="description" content="L'histoire de Marine et Yannick, ce qu'on croit chez Xmile et toute l'équipe de coachs de la box de CrossFit et Hyrox à Woluwe, à l'est de Bruxelles.">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/effects.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/styles.css">
+<link rel="stylesheet" href="site/xm-site.css">
+<link rel="stylesheet" href="site/xm-pages.css">
+<link rel="stylesheet" href="site/xm-v2.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/_ds_bundle.js"></script>
+<script src="site/image-slot.js"></script>
+<script src="site/video-slot.js"></script>
+</head>
+<body class="v2">
+<div id="hdr-root"></div>
+<main>
+<section class="hero" aria-labelledby="h1">
+<div class="hero-slab on-dark" id="hero-slab" data-vs-host="" data-m="hero">
+<div class="hero-bg"><video data-vslot="hero-vision" src="assets/video-vision.mp4" poster="assets/crossfit-tous-ensemble.png" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+<div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Notre vision</li></ol></nav></div>
+<div class="hero-main">
+<h1 class="disp hero-h1 vh" id="h1">Une box pour s'entraîner <span class="acc">ensemble</span></h1>
+<p class="hero-sub">Xmile, c'est d'abord l'histoire de Marine et Yannick. Pourquoi ils ont ouvert la box, ce qu'on y croit, et les coachs qui t'y accueillent.</p>
+<div class="hero-bar"><a class="btn btn-primary btn-lg" href="#histoire">Voir leur histoire<span class="ic i-arrow-down"></span></a><a class="tlink" href="#equipe">Rencontrer l'équipe<span class="ic i-arrow-down"></span></a><ul class="vh-facts"><li><strong>Marine et Yannick</strong><span>à l'origine de la box</span></li><li><strong>15 coachs</strong><span>dans l'équipe</span></li><li><strong>Woluwe</strong><span>la box et le Health Lab</span></li></ul></div>
+</div>
+</div>
+</section>
+<div id="root"></div>
+</main>
+<div id="ftr-root"></div>
+<script type="text/babel" src="site/xm-shared.jsx"></script>
+<script type="text/babel" src="site/xm-chrome.jsx"></script>
+<script type="text/babel" src="site/xm-blocks.jsx"></script>
+<script type="text/babel" src="site/xm-blocks-2.jsx"></script>
+<script type="text/babel" src="site/xm-v2.jsx"></script>
+<script type="text/babel">
+const VALUES = [
+  ['Encadrement', 'Ton coach réduit la charge avant que tu aies besoin de le demander.'],
+  ['Communauté', 'Le dernier à finir le WOD n\'est jamais seul.'],
+  ['Dépassement', 'Ta première traction arrive un mardi soir, et tu n\'es pas le seul à la fêter.'],
+  ['Respect', 'Le débutant et le compétiteur font le même WOD, chacun à sa charge. Personne ne compare.'],
+  ['Intégrité', 'Une rep mal faite ne compte pas. On préfère te voir progresser lentement que te voir te blesser.'],
+  ['Passion', 'Ton coach a toujours un conseil pour que tu évites la blessure, et le « no rep ».'],
+];
+const SMILES = [
+  ['kettlebell', 'Une membre sourit, kettlebell tendue au-dessus de la tête'],
+  ['groupe', 'Une membre sourit au milieu du groupe avant le début du cours'],
+  ['peace', 'Une membre fait un signe de paix en riant, après la séance'],
+  ['abdos', 'Deux membres rient pendant leurs abdos, médecine-ball en main'],
+  ['barre', 'Un membre éclate de rire, accroupi devant sa barre chargée'],
+  ['anneaux', 'Un membre rit entre deux séries aux anneaux'],
+];
+// Valeurs : bloc épinglé, une valeur à la fois selon le scroll (le mot se remplit d'orange en arrivant). Clic sur un nom = aller à la valeur.
+function ValueScroller({ items, head }) {
+  const ref = React.useRef(null), vid = React.useRef(null), [cur, setCur] = React.useState(0);
+  React.useEffect(() => {
+    const v = vid.current; if (!v) return; v.muted = true;
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause(); });
+    io.observe(v); return () => io.disconnect();
+  }, []);
+  React.useEffect(() => {
+    let raf = 0;
+    const tick = () => { raf = 0; const el = ref.current; if (!el) return; const r = el.getBoundingClientRect(), span = el.offsetHeight - innerHeight; const p = span > 0 ? Math.min(.999, Math.max(0, -r.top / span)) : 0; setCur(Math.floor(p * items.length)); };
+    const on = () => { if (!raf) raf = requestAnimationFrame(tick); };
+    addEventListener('scroll', on, { passive: true }); addEventListener('resize', on); tick();
+    return () => { removeEventListener('scroll', on); removeEventListener('resize', on); cancelAnimationFrame(raf); };
+  }, [items.length]);
+  const go = i => { const el = ref.current; if (!el) return; const top = el.getBoundingClientRect().top + scrollY, span = el.offsetHeight - innerHeight; scrollTo({ top: top + span * (i + .5) / items.length, behavior: 'smooth' }); };
+  return <div className="vsc" ref={ref} style={{ '--n': items.length }}>
+    <div className="vsc-pin">
+      <div className="vsc-bg" aria-hidden="true"><video ref={vid} data-vslot="hero-accueil" src="assets/video-ambiance.mp4" muted loop playsInline preload="metadata" /></div>
+      <div className="vsc-side">
+        {head}
+        <ol className="vsc-nav">{items.map(([n], i) => <li key={n}><button type="button" className={i === cur ? 'on' : i < cur ? 'past' : ''} onClick={() => go(i)} aria-current={i === cur || undefined}><span className="vsc-x" aria-hidden="true"></span>{n}</button></li>)}</ol>
+      </div>
+      <ul className="vsc-stage">{items.map(([n, t], i) => <li key={n} data-st={i === cur ? 'on' : i < cur ? 'past' : 'next'} aria-hidden={i !== cur || undefined}>
+        <h3 className="disp vsc-w">{n}</h3>
+        <p>{t}</p>
+      </li>)}</ul>
+    </div>
+  </div>;
+}
+function VisionPage() {
+  return <>
+    <Sec id="histoire" labelledby="t-story">
+      <SecHead eyebrow="Leur histoire" id="t-story" title={<>Marine et Yannick, <span className="acc">à l'origine</span> de la box</>} lead="Ils racontent eux-mêmes pourquoi ils ont ouvert Xmile. Lance la vidéo, le son est prévu pour." />
+      <div className="story-full">
+        <VideoFacade center id="histoire" src="assets/video-histoire.mp4" poster="assets/groupe-membres.jpg" posterAlt="Photo de groupe des membres de Xmile devant le logo peint sur le mur de la box" label="L'histoire de Marine et Yannick" />
+      </div>
+    </Sec>
+
+    <Sec id="sourire" alt labelledby="t-smile">
+      <SecHead eyebrow="Le nom de la box" id="t-smile" title={<>Xmile, comme <span className="acc">smile</span></>} lead="Le nom de la box vient aussi du sourire. Celui qu'on attrape sous une kettlebell, au sol pendant les abdos ou entre deux séries aux anneaux." />
+      <ul className="smile-row">{SMILES.map(([k, alt]) => <li key={k}><Photo id={'sourire-' + k} src={'assets/sourire-' + k + '.jpg'} alt={alt} /></li>)}</ul>
+    </Sec>
+
+    <Sec id="valeurs" labelledby="t-valeurs">
+      <ValueScroller items={VALUES} head={<div className="vsc-head"><span className="eyebrow" style={{ margin: 0 }}>Ce qu'on croit</span><h2 className="disp h2" id="t-valeurs">Six valeurs, <span className="acc">six scènes</span></h2><p className="lead">Plutôt que de les afficher au mur, voilà à quoi elles ressemblent pendant un cours.</p></div>} />
+    </Sec>
+
+    <CoachSection id="equipe" eyebrow="L'équipe" title={<>Toute <span className="acc">l'équipe</span></>} lead="Des personnes avant d'être des diplômes. Tu les rencontres dès ta séance d'essai." />
+
+    <Sec alt labelledby="t-life">
+      <SecHead eyebrow="La vie de la box" id="t-life" title={<>Une semaine <span className="acc">chez Xmile</span></>} lead="Des WOD, des records, des fous rires au sol et des photos de groupe devant le mur." />
+      <div className="mosaic">
+        <Photo id="vision-photo-01" className="m-tall" src="assets/duo-high-five.jpg" pos="50% 40%" alt="Deux membres se tapent dans la main en souriant après un WOD" />
+        <Photo id="vision-photo-02" className="m-wide" src="assets/crossfit-tous-ensemble.png" pos="50% 50%" alt="Un groupe de membres, mains au sol, s'encourage en riant pendant un exercice collectif" />
+        <Photo id="vision-photo-03" className="m-tall" src="assets/handstand-walk.jpg" pos="50% 50%" alt="Une membre marche sur les mains dans la box" />
+        <Photo id="vision-photo-04" src="assets/mobilite.jpg" pos="50% 35%" alt="Deux membres font leurs étirements côte à côte sur le sol de la box" />
+        <Photo id="vision-photo-05" src="assets/gymnastique.jpg" pos="50% 30%" alt="Une membre sourit, suspendue aux anneaux de gymnastique" />
+        <Photo id="vision-photo-06" className="m-wide" src="assets/groupe-membres.jpg" pos="50% 50%" alt="Photo de groupe des membres de Xmile devant le logo peint sur le mur de la box" />
+        <Photo id="vision-photo-07" className="m-wide" src="assets/duo-medecine-ball.png" pos="50% 40%" alt="Deux membres rient pendant un exercice d'abdominaux avec un médecine-ball" />
+      </div>
+    </Sec>
+
+    <Sec labelledby="t-lab">
+      <div className="pair">
+        <article className="pcard">
+          <span className="eyebrow" style={{ margin: 0 }}>Xmile Health Lab</span>
+          <h2 className="disp" id="t-lab">Ton kiné est <span className="acc">juste à côté</span> de ta box</h2>
+          <p>Kiné, soins sportifs et récupération, à la même adresse. Une gêne à l'épaule le mardi, un rendez-vous le mercredi, et ton coach adapte le WOD du jeudi.</p>
+          <div className="actions"><BtnLink href={XM_FACTS.healthLab} external variant="outline" icon="arrow-up-right">Découvrir le Health Lab</BtnLink></div>
+        </article>
+        <Slot id="un-kine-du-health-lab-qui-travaille-l-epaule-d-u" style={{ minHeight: 320 }}>Un kiné du Health Lab qui travaille l'épaule d'un membre, la box visible en arrière-plan</Slot>
+      </div>
+    </Sec>
+
+    <FinalCta />
+  </>;
+}
+mountPage(<VisionPage />, '/notre-vision/');
+</script>
+<script src="site/xm-motion.js"></script>
+</body>
+</html>

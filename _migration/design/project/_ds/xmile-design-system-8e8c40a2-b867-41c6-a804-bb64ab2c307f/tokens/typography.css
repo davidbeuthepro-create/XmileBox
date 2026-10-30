@@ -1,0 +1,10 @@
+:root{
+--font-display:"Bebas Neue","Anton",Impact,sans-serif;
+--font-ui:"Barlow Condensed","Arial Narrow",sans-serif;
+--font-body:"Barlow",system-ui,sans-serif;
+--fs-hero:clamp(56px,8vw,112px);/* @kind font */--fs-h1:64px;--fs-h2:44px;--fs-h3:30px;--fs-h4:22px;
+--fs-lead:19px;--fs-body:16px;--fs-small:14px;--fs-label:13px;--fs-micro:11px;
+--lh-display:.92;/* @kind font */--lh-tight:1.1;/* @kind font */--lh-body:1.55;/* @kind font */
+--ls-display:.01em;--ls-label:.06em;--ls-caps:.12em;
+--fw-regular:400;/* @kind font */--fw-medium:500;/* @kind font */--fw-semibold:600;/* @kind font */--fw-bold:700;/* @kind font */
+}

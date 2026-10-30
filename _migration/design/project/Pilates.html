@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cours de Pilates à Bruxelles · Xmile CrossFit Woluwe</title>
+<meta name="description" content="Cours de Pilates chez Xmile à Woluwe, à l'est de Bruxelles : le mardi et le jeudi avec Coach Fe. Un cours par semaine inclus dans l'abonnement Unlimited, inscriptions via Sportigo.">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/effects.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/styles.css">
+<link rel="stylesheet" href="site/xm-site.css">
+<link rel="stylesheet" href="site/xm-pages.css">
+<link rel="stylesheet" href="site/xm-v2.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/_ds_bundle.js"></script>
+<script src="site/image-slot.js"></script>
+<script src="site/video-slot.js"></script>
+</head>
+<body class="v2">
+<div id="hdr-root"></div>
+<main>
+<section class="hero" aria-labelledby="h1">
+<div class="hero-slab on-dark" id="hero-slab" data-vs-host="" data-m="hero">
+<div class="hero-bg"><image-slot id="ph-hero-pilates" shape="rect" placeholder="Photo à faire : un cours de Pilates à la box, Coach Fe qui corrige une posture"></image-slot><video data-vslot="hero-pilates" src="assets/video-pilates.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+<div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/#cours">Nos cours</a></li><li aria-current="page">Pilates</li></ol></nav></div>
+<div class="hero-main">
+<h1 class="disp hero-h1 vh" id="h1">Cours de Pilates <span class="acc">à Bruxelles</span></h1>
+<p class="hero-sub">Un tronc plus solide, une meilleure posture et plus de mobilité. Tu apprends à gainer, à respirer et à contrôler chaque mouvement, au sol, en petit groupe avec Coach Fe.</p>
+<div class="hero-bar"><a class="btn btn-primary btn-lg" href="#horaires">Réserve ton cours<span class="ic i-arrow-down"></span></a><a class="tlink" href="#tarifs">Inclus dans ton abonnement ?<span class="ic i-arrow-down"></span></a><ul class="vh-facts"><li><strong>Nouveau</strong><span>depuis le 15 octobre</span></li><li><strong>Mar et jeu</strong><span>avec Coach Fe</span></li><li><strong>1 cours / sem.</strong><span>inclus dans l'Unlimited</span></li></ul></div>
+</div>
+</div>
+</section>
+<div id="root"></div>
+</main>
+<div id="ftr-root"></div>
+<script type="text/babel" src="site/xm-shared.jsx"></script>
+<script type="text/babel" src="site/xm-chrome.jsx"></script>
+<script type="text/babel" src="site/xm-blocks.jsx"></script>
+<script type="text/babel" src="site/xm-blocks-2.jsx"></script>
+<script type="text/babel" src="site/xm-v2.jsx"></script>
+<script type="text/babel">
+function PilatesContact() {
+  const { Icon } = XM;
+  return <span className="faq-contact" style={{ flexDirection: 'row', flexWrap: 'wrap', gap: '8px 20px' }}>
+    <a href={XM_FACTS.phoneHref}><Icon name="phone" size={18} color="var(--xm-orange-600)" />{XM_FACTS.phone}</a>
+    <a href={'mailto:' + XM_FACTS.email}><Icon name="mail" size={18} color="var(--xm-orange-600)" />{XM_FACTS.email}</a>
+  </span>;
+}
+function PilatesPage() {
+  return <>
+    <StackSection eyebrow="Pour qui ?" title={<>Le Pilates, <span className="acc">à côté</span> de tes WODs</>} items={[
+      { t: 'Tu fais du CrossFit ou de l\'Hyrox', d: 'Gainage et mobilité entre deux séances intenses.' },
+      { t: 'Tu n\'en as jamais fait', d: 'Coach Fe explique chaque exercice, au sol, sans charge.' },
+      { t: 'Tu en veux plus', d: 'La carte 10 séances Pilates, sur commande.' },
+    ]} after={<Photo id="pilates-pourqui" alt="Cours de Pilates chez Xmile" className="pq-photo" />} />
+
+    <Sec labelledby="t-work">
+      <div className="split">
+        <div className="split-copy">
+          <span className="eyebrow" style={{ margin: 0 }}>Ce que tu vas travailler</span>
+          <h2 className="disp h2" id="t-work">Le corps <span className="acc">en profondeur</span></h2>
+          <ol className="tips">
+            <li><h3>Le gainage</h3><p>Les muscles profonds du tronc, ceux qui tiennent ta posture sous la barre comme en course.</p></li>
+            <li><h3>La posture</h3><p>L'alignement du dos, du bassin et des épaules, exercice après exercice.</p></li>
+            <li><h3>La mobilité</h3><p>Des hanches et des épaules plus libres, pour mieux bouger dans tes autres cours.</p></li>
+            <li><h3>La respiration</h3><p>Chaque mouvement se cale sur le souffle, ce qui aide à garder le contrôle.</p></li>
+          </ol>
+        </div>
+        <Slot id="pilates-cours">Un cours de Pilates à la box, des membres sur tapis, Coach Fe qui montre l'exercice</Slot>
+      </div>
+    </Sec>
+
+    <CourseCoaches course="pilates" alt title={<>Avec <span className="acc">Coach Fe</span></>} lead="Coach Fe encadre les cours de Pilates, le mardi et le jeudi." />
+
+    <ScheduleSection course="pilates" title={<>Choisis <span className="acc">ton créneau</span></>} lead="Les cours ont lieu le mardi de 18h30 à 19h30 et le jeudi à 17h30. Les inscriptions se font directement via Sportigo." tables={[XM_SCHEDULE.pilates]} />
+
+    <PricesSection course="pilates" highlight="unlimited" lead="Une seule grille pour tous les cours adultes. Avec l'Unlimited, un cours de Pilates par semaine est inclus, sans supplément." />
+
+    <Reviews flush />
+
+    <FaqSection title={<>Avant ton <span className="acc">premier cours</span></>} items={[
+      { q: 'Le Pilates est inclus dans mon abonnement ?', a: <><p>Avec l'Unlimited, oui : un cours de Pilates par semaine est inclus, sans supplément.</p><p>Avec l'abonnement 2x / semaine ou une carte de 10 séances CrossFit, les cours de Pilates ne sont pas inclus.</p></> },
+      { q: 'Je veux faire plus d\'un cours de Pilates par semaine.', a: <><p>Une carte de 10 séances Pilates est disponible sur commande. Contacte-nous pour plus d'informations et pour la commander.</p><p><PilatesContact /></p></> },
+      { q: 'Comment je m\'inscris à un cours ?', a: <p>Directement via Sportigo, comme pour les autres cours de la box. Les créneaux du mardi et du jeudi apparaissent dans le planning.</p> },
+      { q: 'Je n\'ai jamais fait de Pilates, je peux venir ?', a: <><p>Oui. Le cours est encadré par Coach Fe du début à la fin, qui montre chaque exercice et corrige ta position.</p><p><Todo>À CONFIRMER : cours ouvert à tous les niveaux</Todo></p></> },
+      { q: 'Qu\'est-ce que je dois apporter ?', a: <><p>Une tenue dans laquelle tu bouges bien et une gourde.</p><p><Todo>À CONFIRMER : tapis fournis, chaussettes antidérapantes conseillées</Todo></p></> },
+    ]} />
+
+    <NextCourses current="pilates" />
+
+    <FinalCta title="Ton premier cours de Pilates" text="Le mardi et le jeudi avec Coach Fe. Choisis ton créneau et inscris-toi directement via Sportigo." href="#horaires" label="Réserve ton cours" />
+
+    
+  </>;
+}
+mountPage(<PilatesPage />, '/pilates/');
+</script>
+<script src="site/xm-motion.js"></script>
+</body>
+</html>

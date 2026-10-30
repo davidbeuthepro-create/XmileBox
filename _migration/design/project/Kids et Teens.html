@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CrossFit Kids & Teens à Bruxelles, de 6 à 16 ans · Xmile CrossFit Woluwe</title>
+<meta name="description" content="CrossFit Kids (6-10 ans) et Teens (11-16 ans) à Woluwe, à l'est de Bruxelles. Un créneau fixe chaque semaine, le même coach, le Passeport Athlète. Saison de septembre à juin.">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/effects.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/styles.css">
+<link rel="stylesheet" href="site/xm-site.css">
+<link rel="stylesheet" href="site/xm-pages.css">
+<link rel="stylesheet" href="site/xm-v2.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/_ds_bundle.js"></script>
+<script src="site/image-slot.js"></script>
+<script src="site/video-slot.js"></script>
+</head>
+<body class="v2">
+<div id="hdr-root"></div>
+<main>
+<section class="hero" aria-labelledby="h1">
+<div class="hero-slab on-dark" id="hero-slab" data-vs-host="" data-m="hero">
+<div class="hero-bg"><image-slot id="ph-hero-kids" shape="rect" src="assets/kids.jpg" placeholder="Un coach Xmile accroupi donne une consigne à deux enfants, cadrés sans leur visage"></image-slot><video data-vslot="hero-kids" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+<div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/#cours">Nos cours</a></li><li aria-current="page">Kids &amp; Teens</li></ol></nav></div>
+<div class="hero-main">
+<h1 class="disp hero-h1 vh" id="h1">CrossFit Kids &amp; Teens <span class="acc">à Bruxelles</span></h1>
+<p class="hero-sub">De 6 à 16 ans, ton enfant s'entraîne sur un créneau fixe chaque semaine. Il retrouve les mêmes copains et le même coach, et apprend à courir, sauter, porter et grimper avec une technique propre.</p>
+<div class="hero-bar"><a class="btn btn-primary btn-lg" href="#inscription">Inscrire mon enfant<span class="ic i-arrow-down"></span></a><a class="tlink" href="#tarifs">Voir les tarifs<span class="ic i-arrow-down"></span></a><ul class="vh-facts"><li><strong>6 - 10 ans</strong><span>CrossFit Kids</span></li><li><strong>11 - 16 ans</strong><span>CrossFit Teens</span></li><li><strong>Créneau fixe</strong><span>mêmes copains, même coach</span></li></ul></div>
+</div>
+</div>
+</section>
+<div id="root"></div>
+</main>
+<div id="ftr-root"></div>
+<script type="text/babel" src="site/xm-shared.jsx"></script>
+<script type="text/babel" src="site/xm-chrome.jsx"></script>
+<script type="text/babel" src="site/xm-blocks.jsx"></script>
+<script type="text/babel" src="site/xm-blocks-2.jsx"></script>
+<script type="text/babel" src="site/xm-v2.jsx"></script>
+<script type="text/babel">
+function Group({ age, name, d, data, bg, fg, dark }) {
+  return <Notch bg={bg} fg={fg} className={dark ? 'dark-n' : ''}>
+    <div className="tile">
+      <span className="tile-meta">{name}</span>
+      <span className="group-age disp">{age}</span>
+      <p>{d}</p>
+      <ul className="group-slots">{data.rows.map(([day, [time, what]]) => <li key={day}><strong>{day}</strong><span>{time} · {what}</span></li>)}</ul>
+    </div>
+  </Notch>;
+}
+function Passport() {
+  const { Icon } = XM;
+  return <figure className="passport" style={{ margin: 0 }} aria-label="Illustration du Passeport Athlète : une carte avec des badges à faire tamponner">
+    <div className="passport-top"><img src="assets/logo-white.png" alt="" /><span className="passport-title">Passeport<br />Athlète</span></div>
+    <div className="passport-name"><span>Prénom</span><span></span></div>
+    <div className="stamps">{Array.from({ length: 12 }, (_, i) => <span key={i} className={'stamp' + (i < 5 ? ' on' : '')}>{i < 5 ? <Icon name="check" size={22} /> : null}</span>)}</div>
+  </figure>;
+}
+function KidsPage() {
+  const { Icon } = XM;
+  return <>
+    <StackSection id="principe" eyebrow="Le principe" title={<>Un créneau fixe, <span className="acc">les mêmes copains</span></>} items={[
+      { t: 'Les mêmes copains chaque semaine', d: 'Le même groupe d\'enfants, semaine après semaine.' },
+      { t: 'Des coachs qui donnent leur passion', d: 'Ils connaissent chaque enfant et sa progression.' },
+      { t: 'Un moment rien qu\'à eux', d: 'Dans leur semaine, un temps pour se dépasser : le mercredi, le samedi, ou les deux.' },
+    ]} aside={<Photo id="kids-bear-crawl" src="assets/kids-bear-crawl.jpg" alt="Un groupe d'enfants avance à quatre pattes sur le sol de la box, sous le regard du coach" />} />
+
+    <Sec alt labelledby="t-groups">
+      <SecHead eyebrow="Deux groupes d'âge" id="t-groups" title={<>Kids et <span className="acc">Teens</span></>} lead="Chaque groupe a deux séances par semaine : le mercredi endurance et force, le samedi CrossFit. Tu choisis l'une, l'autre ou les deux." />
+      <div className="groups">
+        <Group age="6 - 10 ans" name="CrossFit Kids" bg="var(--xm-orange-500)" fg="var(--xm-green-950)" data={XM_SCHEDULE.kids} d="Courir, sauter, ramper, lancer : les bases du mouvement, sous forme de jeux et de défis." />
+        <Group age="11 - 16 ans" name="CrossFit Teens" bg="var(--xm-green-950)" fg="#fff" dark data={XM_SCHEDULE.teens} d="Les vrais mouvements du CrossFit, appris avec une technique propre et des charges adaptées à leur âge." />
+      </div>
+    </Sec>
+
+    <Sec labelledby="t-pass">
+      <div className="passport-wrap">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <span className="eyebrow" style={{ margin: 0 }}>Le Passeport Athlète</span>
+          <h2 className="disp h2" id="t-pass">Chaque progrès <span className="acc">mérite son badge</span></h2>
+          <p className="lead">Chaque enfant a son Passeport Athlète. Quand il réussit un nouveau mouvement, il le fait badger. Il voit ses progrès noir sur blanc, et il a envie de revenir pour le suivant.</p>
+          <p><Todo>À COMPLÉTER : liste des badges du passeport</Todo></p>
+        </div>
+        <Passport />
+      </div>
+    </Sec>
+
+    <Sec alt labelledby="t-safe">
+      <SecHead eyebrow="Sécurité et encadrement" id="t-safe" title={<>Ce qui compte <span className="acc">pour toi</span></>} lead="Tu confies ton enfant à un coach. Voilà comment on s'en occupe." />
+      <div className="kid-safe">
+      <ul className="incl">
+        <li><h3>Encadrement</h3><p>Un coach dédié à chaque groupe, attentif à chaque enfant.</p></li>
+        <li><h3>Charges adaptées</h3><p>Le poids du corps d'abord. Les charges arrivent progressivement, adaptées à l'âge et au gabarit.</p></li>
+        <li><h3>La technique avant tout</h3><p>On apprend le mouvement avant de le chronométrer.</p></li>
+      </ul>
+      <div className="kid-safe-ph">
+        <Photo id="kids-coach" src="assets/kids-coach.jpg" alt="Le coach explique l'exercice suivant à un groupe d'enfants réunis autour de lui" />
+        <Photo id="kids-plots" src="assets/kids-plots.jpg" alt="Des enfants accroupis posent leurs plots au sol avant un exercice" />
+      </div>
+      </div>
+    </Sec>
+
+    <CourseCoaches course="kids" title={<>Le coach <span className="acc">de ton enfant</span></>} lead="Celles et ceux qui encadrent les groupes Kids et Teens." />
+
+    <ScheduleSection course="kids" id="inscription" eyebrow="Inscription" title={<>Inscrire <span className="acc">mon enfant</span></>} spgTitle="Réserve son créneau" hint="Clique sur un créneau Kids ou Teens pour réserver." tables={[XM_SCHEDULE.kids, XM_SCHEDULE.teens]} />
+
+    <Sec id="tarifs" labelledby="t-tarifs">
+      <SecHead eyebrow="Tarifs Kids & Teens" id="t-tarifs" title={<>Les tarifs <span className="acc">de la saison</span></>} lead="Le tarif dépend du nombre de séances par semaine. La saison suit l'année scolaire, de septembre à juin." />
+      <KidsPriceGrid />
+      <div className="price-cta"><BtnLink href="#inscription" variant="dark" icon="arrow-down">Inscrire mon enfant</BtnLink></div>
+    </Sec>
+
+    <Reviews flush />
+
+    <FaqSection title={<>Les questions <span className="acc">des parents</span></>} items={[
+      { q: 'Mon enfant n\'est pas sportif, il peut venir ?', a: <p>Oui. Le cours n'est pas réservé aux enfants déjà sportifs. Chacun avance à son rythme, et le coach adapte chaque exercice.</p> },
+      { q: 'Le CrossFit, ce n\'est pas trop dur pour un enfant ?', a: <p>Le cours Kids n'est pas une version réduite du cours adulte. Les mouvements, les volumes et les charges sont pensés pour leur âge, et le coach adapte à chaque enfant.</p> },
+      { q: 'Il peut changer de créneau en cours de saison ?', a: <p><Todo>À COMPLÉTER : règle pour changer de créneau en cours de saison</Todo></p> },
+      { q: 'Comment se passe le paiement ?', a: <p>Par domiciliation chaque mois, ou en deux fois : septembre à janvier, puis février à juin. À partir du deuxième enfant de la même famille, -10 %.</p> },
+      { q: 'Qu\'est-ce qu\'il doit apporter ?', a: <p>Une tenue de sport, des baskets propres et une gourde.</p> },
+    ]} />
+
+    <NextCourses current="kids" />
+
+    <FinalCta title="Inscris ton enfant à son créneau" text="Le mercredi, le samedi ou les deux. Il retrouve chaque semaine le même groupe et le même coach." href="#inscription" label="Inscrire mon enfant" />
+
+    
+  </>;
+}
+mountPage(<KidsPage />, '/kids-teens/');
+</script>
+<script src="site/xm-motion.js"></script>
+</body>
+</html>

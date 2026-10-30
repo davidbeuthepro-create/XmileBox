@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page locale · Xmile CrossFit</title>
+<meta name="description" content="Xmile, box de CrossFit et Hyrox à Woluwe, à l'est de Bruxelles.">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/effects.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/styles.css">
+<link rel="stylesheet" href="site/xm-site.css">
+<link rel="stylesheet" href="site/xm-pages.css">
+<link rel="stylesheet" href="site/xm-v2.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/_ds_bundle.js"></script>
+<script src="site/image-slot.js"></script>
+<script src="site/video-slot.js"></script>
+</head>
+<body class="v2">
+<div id="hdr-root"></div>
+<main>
+<div id="root"></div>
+</main>
+<div id="ftr-root"></div>
+<script type="text/babel" src="site/xm-shared.jsx"></script>
+<script type="text/babel" src="site/xm-chrome.jsx"></script>
+<script type="text/babel" src="site/xm-blocks.jsx"></script>
+<script type="text/babel" src="site/xm-blocks-2.jsx"></script>
+<script type="text/babel" src="site/xm-v2.jsx"></script>
+<script type="text/babel" src="site/xm-local-cf.jsx"></script>
+<script type="text/babel" src="site/xm-local-cf2.jsx"></script>
+<script type="text/babel" src="site/xm-local-cf3.jsx"></script>
+<script type="text/babel" src="site/xm-local-cf4.jsx"></script>
+<script type="text/babel" src="site/xm-local-hx.jsx"></script>
+<script type="text/babel" src="site/xm-local-hx2.jsx"></script>
+<script type="text/babel" src="site/xm-local-hx3.jsx"></script>
+<script type="text/babel" src="site/xm-local-hx4.jsx"></script>
+<script type="text/babel" src="site/xm-local.jsx"></script>
+<script type="text/babel">
+// Gabarit unique des pages locales : ?p=crossfit-evere, ?p=hyrox-debutant… (en production, un fichier HTML statique par URL)
+const xlAll = window.XM_LP || [];
+const xlPage = xlAll.find(x => x.slug === new URLSearchParams(location.search).get('p')) || xlAll[0];
+mountPage(<><LocalPage l={xlPage} /><LocalPreviewPicker cur={xlPage.slug} /></>, xlPage.course === 'hyrox' ? '/preparation-hyrox/' : '/crossfit/');
+</script>
+<script src="site/xm-motion.js"></script>
+</body>
+</html>

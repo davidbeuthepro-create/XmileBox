@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="design_doc_mode" content="canvas">
+<title>Accueil Xmile · desktop et mobile</title>
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<style>
+body{margin:0}
+.frame{position:absolute;top:40px}
+.frame h2{margin:0 0 14px;font:600 22px/1 "Barlow Condensed",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#11261F}
+.frame h2 span{color:#5E6D67;font-weight:500}
+.frame .card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 1px 2px rgba(17,38,31,.08)}
+.frame iframe{display:block;border:0;width:100%;height:4000px}
+</style>
+</head>
+<body>
+<section class="frame" style="left:40px;width:1440px" data-screen-label="Accueil desktop"><h2>Accueil · desktop <span>1440 px</span></h2><div class="card"><iframe src="Accueil.html" title="Accueil desktop" scrolling="no"></iframe></div></section>
+<section class="frame" style="left:1560px;width:390px" data-screen-label="Accueil mobile"><h2>Accueil · mobile <span>390 px</span></h2><div class="card"><iframe src="Accueil.html" title="Accueil mobile" scrolling="no"></iframe></div></section>
+<script>
+document.querySelectorAll('iframe').forEach(f=>{
+  const fit=()=>{try{const d=f.contentDocument;if(!d||!d.body)return;const h=Math.max(d.documentElement.scrollHeight,d.body.scrollHeight);if(h>200&&Math.abs(f.offsetHeight-h)>4)f.style.height=h+'px'}catch(e){}};
+  f.addEventListener('load',()=>{let n=0;const t=setInterval(()=>{fit();if(++n>40)clearInterval(t)},250)});
+});
+</script>
+</body>
+</html>

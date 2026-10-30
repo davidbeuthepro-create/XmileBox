@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Séance d'essai gratuite de CrossFit et Hyrox à Bruxelles · Xmile CrossFit Woluwe</title>
+<meta name="description" content="Réserve ta séance d'essai gratuite et sans engagement chez Xmile, à Woluwe, à l'est de Bruxelles. Un cours encadré d'1 h en CrossFit, Hyrox ou haltérophilie, tous niveaux.">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/effects.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/styles.css">
+<link rel="stylesheet" href="site/xm-site.css">
+<link rel="stylesheet" href="site/xm-pages.css">
+<link rel="stylesheet" href="site/xm-v2.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/_ds_bundle.js"></script>
+<script src="site/image-slot.js"></script>
+<script src="site/video-slot.js"></script>
+</head>
+<body class="v2">
+<div id="hdr-root"></div>
+<main>
+<section class="hero" aria-labelledby="h1">
+<div class="hero-slab on-dark" id="hero-slab" data-vs-host="" data-m="hero">
+<div class="hero-bg"><video data-vslot="hero-essai" src="assets/video-ambiance.mp4" poster="assets/crossfit-tous-ensemble.png" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+<div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Séance d'essai</li></ol></nav></div>
+<div class="hero-main">
+<h1 class="disp hero-h1 vh" id="h1">Ta séance d'essai gratuite <span class="acc">à Bruxelles</span></h1>
+<p class="hero-sub">Une heure de cours encadré, gratuite et sans engagement. Choisis un créneau CrossFit, Hyrox ou Haltérophilie : un coach t'accueille et adapte tout à ton niveau.</p>
+<div class="hero-bar"><a class="btn btn-primary btn-lg" href="#reserver">Choisir mon créneau<span class="ic i-arrow-down"></span></a><ul class="vh-facts"><li><strong>Gratuite</strong><span>et sans engagement</span></li><li><strong>1 h</strong><span>de cours encadré</span></li><li><strong>Tous niveaux</strong><span>charges adaptées</span></li></ul></div>
+</div>
+</div>
+</section>
+<div id="root"></div>
+</main>
+<div id="ftr-root"></div>
+<script type="text/babel" src="site/xm-shared.jsx"></script>
+<script type="text/babel" src="site/xm-chrome.jsx"></script>
+<script type="text/babel" src="site/xm-blocks.jsx"></script>
+<script type="text/babel" src="site/xm-blocks-2.jsx"></script>
+<script type="text/babel" src="site/xm-v2.jsx"></script>
+<script type="text/babel">
+function TrialPage() {
+  const { Icon } = XM;
+  return <>
+    <StackSection id="attente" eyebrow="Ce qui t'attend" title={<>Ta première heure, <span className="acc">sans surprise</span></>} lead="Tu n'as rien à prouver. Tu viens, tu essaies, et tu décides ensuite." items={[
+      { t: 'L\'accueil', d: 'Arrive un peu en avance. On te fait visiter et on te présente au coach et au groupe.' },
+      { t: 'Le coach', d: 'Il regarde comment tu bouges, adapte chaque mouvement et reste avec toi pendant toute la séance.' },
+      { t: '1 heure', d: 'Échauffement, technique, entraînement, puis on papote un peu. Le même cours que les autres, dans ta version.' },
+      { t: 'Quoi apporter', d: 'Une tenue de sport, des baskets propres et une gourde. Le matériel, on l\'a.' },
+    ]} />
+
+    <Sec id="reserver" alt labelledby="t-book">
+      <SecHead eyebrow="Réservation" id="t-book" title={<>Choisis <span className="acc">ton créneau</span></>} lead="Clique sur un créneau dans le planning, le formulaire de réservation s'ouvre." />
+      <div className="reass-row" style={{ marginBottom: 18, background: 'var(--surface-accent)', color: 'var(--xm-green-950)' }}>
+        <p style={{ display: 'flex', gap: 12, alignItems: 'flex-start', font: '600 17px/1.45 var(--font-body)', maxWidth: '70ch' }}><Icon name="info" size={22} style={{ marginTop: 2 }} />Choisis un cours encadré : CrossFit, Hyrox ou Haltérophilie. Pas un créneau Free Access, qui se fait sans coach.</p>
+      </div>
+      <SportigoFrame title="Planning de la semaine" hint="Clique sur un cours encadré pour réserver ta séance d'essai." />
+    </Sec>
+
+    <section className="sec-tight" aria-label="Réassurance">
+      <div className="wrap">
+        <div className="reass-row on-dark">
+          <ul>
+            <li><Icon name="check" size={18} color="var(--xm-orange-500)" />Gratuite</li>
+            <li><Icon name="check" size={18} color="var(--xm-orange-500)" />Sans engagement</li>
+            <li><Icon name="check" size={18} color="var(--xm-orange-500)" />Tous niveaux</li>
+          </ul>
+          <GoogleBadge />
+        </div>
+      </div>
+    </section>
+
+    <FaqSection title={<>Avant de <span className="acc">réserver</span></>} items={[
+      { q: 'Je ne suis pas assez en forme pour une séance d\'essai.', a: <><p>C'est exactement pour ça que la séance est encadrée. Chaque mouvement a une version plus simple, chaque charge s'adapte, et le coach reste avec toi.</p><p>Personne ne te compare aux autres.</p></> },
+      { q: 'C\'est vraiment gratuit ?', a: <p>Oui, la séance d'essai est gratuite et sans engagement. Si tu continues ensuite, tu choisis ta formule, avec des frais d'inscription uniques de 50 €.</p> },
+      { q: 'Quel cours choisir pour commencer ?', a: <p>Le CrossFit est la porte d'entrée la plus complète. Si tu as un objectif précis, choisis directement Hyrox ou Haltérophilie. Évite les créneaux Free Access, qui se font sans coach.</p> },
+      { q: 'Et pour mon enfant ?', a: <p>Les cours Kids (6-10 ans) et Teens (11-16 ans) ont leurs propres créneaux. Tout est expliqué sur la page <a href="/kids-teens/">Kids & Teens</a>.</p> },
+      { q: 'Je dois annuler, comment faire ?', a: <p><Todo>À COMPLÉTER : comment annuler ou déplacer une séance d'essai</Todo></p> },
+    ]} />
+
+    <FinalCta title="Comment venir" text="On est à Woluwe, à l'est de Bruxelles. Le parking est gratuit." cta={false} />
+  </>;
+}
+mountPage(<TrialPage />, '/seance-essai/');
+</script>
+<script src="site/xm-motion.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CrossFit &amp; Hyrox à Bruxelles · Xmile CrossFit Woluwe</title>
+<meta name="description" content="Box de CrossFit, Hyrox et haltérophilie à Woluwe, à l'est de Bruxelles. Premier cours encadré, tous niveaux, séance d'essai gratuite et sans engagement.">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/effects.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/styles.css">
+<link rel="stylesheet" href="site/xm-site.css">
+<link rel="stylesheet" href="site/xm-pages.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/_ds_bundle.js"></script>
+<script src="site/image-slot.js"></script>
+<script src="site/video-slot.js"></script>
+</head>
+<body>
+<div id="hdr-root"></div>
+<main>
+<section class="hero" aria-labelledby="h1">
+<div class="hero-slab on-dark" id="hero-slab" data-vs-host="">
+<div class="hero-bg"><video id="hero-video" data-vslot="hero-accueil" src="assets/video-ambiance.mp4" poster="assets/crossfit-tous-ensemble.png" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+<div class="hero-main">
+<h1 class="disp hero-h1" id="h1">CrossFit &amp; <span class="acc">Hyrox</span> à Bruxelles</h1>
+<p class="hero-sub">On s'entraîne ensemble, dans des sports qui te poussent un peu plus loin à chaque séance. Que tu découvres ou que tu changes de box, un coach t'encadre dès le premier cours.</p>
+<div class="hero-bar">
+<a class="btn btn-primary btn-lg" href="/seance-essai/">Réserve ta séance d'essai<span aria-hidden="true" class="ic" style="width:20px;height:20px;background:currentColor;-webkit-mask:url(https://unpkg.com/lucide-static@0.460.0/icons/chevron-right.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@0.460.0/icons/chevron-right.svg) center/contain no-repeat"></span></a>
+<div class="hero-reass"><span><span aria-hidden="true" class="ic" style="width:15px;height:15px;background:var(--xm-orange-500);-webkit-mask:url(https://unpkg.com/lucide-static@0.460.0/icons/check.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@0.460.0/icons/check.svg) center/contain no-repeat"></span>Première séance gratuite</span><span><span aria-hidden="true" class="ic" style="width:15px;height:15px;background:var(--xm-orange-500);-webkit-mask:url(https://unpkg.com/lucide-static@0.460.0/icons/check.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@0.460.0/icons/check.svg) center/contain no-repeat"></span>Sans engagement</span><span><span aria-hidden="true" class="ic" style="width:15px;height:15px;background:var(--xm-orange-500);-webkit-mask:url(https://unpkg.com/lucide-static@0.460.0/icons/check.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@0.460.0/icons/check.svg) center/contain no-repeat"></span>Tous niveaux</span><span><span aria-hidden="true" class="ic" style="width:15px;height:15px;background:var(--xm-orange-500);-webkit-mask:url(https://unpkg.com/lucide-static@0.460.0/icons/check.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@0.460.0/icons/check.svg) center/contain no-repeat"></span>Parking facile &amp; gratuit</span></div>
+<div class="hero-badge ti-badge"><script defer async src="https://cdn.trustindex.io/loader.js?ac5db5f82d638307d2661141b00"></script></div>
+</div>
+</div>
+</div>
+</section>
+<div id="root"></div>
+</main>
+<div id="ftr-root"></div>
+<script>
+(function(){var s=document.getElementById('hero-slab'),v=document.getElementById('hero-video'),raf=0;
+v.muted=true;var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});
+function upd(){raf=0;var p=Math.min(1,Math.max(0,window.scrollY/(window.innerHeight*.45)));s.style.setProperty('--p',p.toFixed(3));}
+function on(){if(!raf)raf=requestAnimationFrame(upd);}
+upd();addEventListener('scroll',on,{passive:true});addEventListener('resize',on);})();
+</script>
+<script type="text/babel" src="site/xm-shared.jsx"></script>
+<script type="text/babel" src="site/xm-chrome.jsx"></script>
+<script type="text/babel" src="site/xm-blocks.jsx"></script>
+<script type="text/babel" src="site/xm-blocks-2.jsx"></script>
+<script type="text/babel" src="site/xm-home.jsx"></script>
+<script type="text/babel" src="site/xm-home-2.jsx"></script>
+<script type="text/babel">
+ReactDOM.createRoot(document.getElementById('hdr-root')).render(<Header current="/" />);
+ReactDOM.createRoot(document.getElementById('root')).render(<HomePage />);
+ReactDOM.createRoot(document.getElementById('ftr-root')).render(<Footer />);
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Haltérophilie, Strongman et Powerlifting à Bruxelles · Xmile CrossFit Woluwe</title>
+<meta name="description" content="Haltérophilie olympique, Strongman et Powerlifting à Woluwe, à l'est de Bruxelles. Du débutant au compétiteur, cours encadrés 4 fois par semaine. Séance d'essai gratuite.">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/effects.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/styles.css">
+<link rel="stylesheet" href="site/xm-site.css">
+<link rel="stylesheet" href="site/xm-pages.css">
+<link rel="stylesheet" href="site/xm-v2.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/_ds_bundle.js"></script>
+<script src="site/image-slot.js"></script>
+<script src="site/video-slot.js"></script>
+</head>
+<body class="v2">
+<div id="hdr-root"></div>
+<main>
+<section class="hero" aria-labelledby="h1">
+<div class="hero-slab on-dark" id="hero-slab" data-vs-host="" data-m="hero">
+<div class="hero-bg"><image-slot id="ph-hero-halterophilie" shape="rect" src="assets/halterophilie.jpg" placeholder="Un membre en t-shirt Xmile se prépare à soulever une barre chargée, d'autres membres l'observent en attendant leur tour"></image-slot><video data-vslot="hero-halterophilie" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+<div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/#cours">Nos cours</a></li><li aria-current="page">Haltérophilie</li></ol></nav></div>
+<div class="hero-main">
+<h1 class="disp hero-h1 vh" id="h1">Haltérophilie <span class="acc">à Bruxelles</span></h1>
+<p class="hero-sub">Arraché, épaulé-jeté, squat, soulevé de terre : deux disciplines de force, encadrées par des coachs spécialisés. On part de la technique, et la barre se charge quand tu es prêt.</p>
+<div class="hero-bar"><a class="btn btn-primary btn-lg" href="/seance-essai/">Réserve ta séance d'essai<span class="ic i-arrow-up-right"></span></a><a class="tlink" href="#horaires">Voir les horaires<span class="ic i-arrow-down"></span></a><ul class="vh-facts"><li><strong>2 disciplines</strong><span>olympique, Strongman / Powerlifting</span></li><li><strong>4 séances</strong><span>par semaine</span></li><li><strong>Tous niveaux</strong><span>du débutant au compétiteur</span></li></ul></div>
+</div>
+</div>
+</section>
+<div id="root"></div>
+</main>
+<div id="ftr-root"></div>
+<script type="text/babel" src="site/xm-shared.jsx"></script>
+<script type="text/babel" src="site/xm-chrome.jsx"></script>
+<script type="text/babel" src="site/xm-blocks.jsx"></script>
+<script type="text/babel" src="site/xm-blocks-2.jsx"></script>
+<script type="text/babel" src="site/xm-v2.jsx"></script>
+<script type="text/babel">
+function HalteroPage() {
+  return <>
+    <StackSection eyebrow="Pour qui ?" title={<>On ne commence pas fort, <span className="acc">on commence propre</span></>} items={[
+      { t: 'Jamais touché une barre', d: 'Positions à vide, la charge vient ensuite.' },
+      { t: 'Tu fais du CrossFit', d: 'Des arrachés et des épaulés plus solides.' },
+      { t: 'Tu vises la compétition', d: 'Programmation individuelle et suivi des charges.' },
+    ]} />
+
+    <Sec alt labelledby="t-olymp">
+      <div className="split">
+        <Slot id="un-membre-en-reception-d-arrache-barre-au-dessus">Un membre en réception d'arraché, barre au-dessus de la tête, le coach à côté qui observe</Slot>
+        <div className="split-copy">
+          <span className="eyebrow" style={{ margin: 0 }}>Discipline 1</span>
+          <h2 className="disp h2" id="t-olymp">Haltérophilie <span className="acc">olympique</span></h2>
+          <ul className="lifts"><li>Arraché</li><li>Épaulé-jeté</li></ul>
+          <p>Deux mouvements où la vitesse et la technique comptent autant que la force. On les découpe en positions, on les répète à vide, puis on charge progressivement.</p>
+          <SchedTable data={XM_SCHEDULE.halterophilie} />
+        </div>
+      </div>
+    </Sec>
+
+    <Sec labelledby="t-power">
+      <div className="split rev">
+        <Slot id="un-membre-au-squat-lourd-deux-membres-derriere-l">Un membre au squat lourd, deux membres derrière lui qui assurent la barre et l'encouragent</Slot>
+        <div className="split-copy">
+          <span className="eyebrow" style={{ margin: 0 }}>Discipline 2</span>
+          <h2 className="disp h2" id="t-power">Strongman <span className="acc">et Powerlifting</span></h2>
+          <ul className="lifts"><li>Squat</li><li>Développé couché</li><li>Soulevé de terre</li><li>Épreuves strongman</li></ul>
+          <p>Trois mouvements de force pure, et des épreuves strongman pour varier. Le samedi matin, c'est l'heure où on cherche ses records, encouragé par ceux qui attendent leur tour à la barre.</p>
+          <SchedTable data={XM_SCHEDULE.strongman} />
+        </div>
+      </div>
+    </Sec>
+
+    <PinTrack bg={{ id: 'deroule-halterophilie', src: 'assets/groupe-membres.jpg', alt: 'Photo de fond : une séance d\'haltérophilie à la box' }} id="progression" eyebrow="Ta progression" title={<>Du débutant <span className="acc">au compétiteur</span></>} items={[
+      { t: 'La technique', d: 'Positions et placements, à vide ou léger.' },
+      { t: 'La force', d: 'Des cycles de charges, suivis séance après séance.' },
+      { t: 'La compétition', hot: true, d: 'Pour ceux qui veulent monter sur un plateau.' },
+    ]} />
+
+    <CourseCoaches course="halterophilie" title={<>L'équipe <span className="acc">force</span></>} lead="Les coachs qui encadrent l'haltérophilie olympique, le Strongman et le Powerlifting." />
+
+    <ScheduleSection course="halterophilie" title={<>Choisis <span className="acc">ton créneau</span></>} lead="Pour une séance d'essai, choisis un cours Haltérophilie ou Strongman / Powerlifting encadré, pas un créneau Free Access." tables={[XM_SCHEDULE.halterophilie, XM_SCHEDULE.strongman]} />
+
+    <PricesSection course="halterophilie" highlight="easy" lead="Une seule grille pour tous les cours adultes. Pour une ou deux séances de force par semaine, l'Easy Peasy suffit." />
+
+    <Reviews flush />
+
+    <FaqSection title={<>Avant ta <span className="acc">première barre</span></>} items={[
+      { q: 'Je ne suis pas assez fort pour l\'haltérophilie.', a: <p>Personne ne l'est au départ. Les premières séances se font à vide ou avec des charges légères, et le coach adapte la progression à chacun.</p> },
+      { q: 'C\'est mauvais pour le dos ?', a: <p>Ce qui protège ton dos, c'est la technique. C'est pour ça qu'on la travaille avant la charge, et que le coach corrige chaque répétition. Une gêne ? Le Xmile Health Lab (kiné) est à la même adresse.</p> },
+      { q: 'Quelle différence entre haltérophilie et Powerlifting ?', a: <p>L'haltérophilie olympique, c'est l'arraché et l'épaulé-jeté : des mouvements rapides et techniques. Le Powerlifting, c'est le squat, le développé couché et le soulevé de terre : de la force pure, plus lente.</p> },
+      { q: 'Je peux combiner avec le CrossFit ?', a: <p>Oui, c'est la même grille de tarifs. Avec l'Unlimited, tu as accès à tous les cours.</p> },
+      { q: 'Faut-il des chaussures spéciales ?', a: <p>Pas pour commencer : des baskets plates et stables suffisent. Si tu continues, des chaussures d'haltérophilie aident pour le squat et les mouvements olympiques.</p> },
+    ]} />
+
+    <NextCourses current="halterophilie" />
+
+    <FinalCta title="Viens soulever ta première barre" text="Séance d'essai gratuite et sans engagement. Choisis un créneau Haltérophilie ou Strongman / Powerlifting, on commence par la technique." />
+
+    
+  </>;
+}
+mountPage(<HalteroPage />, '/halterophilie/');
+</script>
+<script src="site/xm-motion.js"></script>
+</body>
+</html>

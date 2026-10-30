@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cours de CrossFit à Bruxelles · Xmile CrossFit Woluwe</title>
+<meta name="description" content="Cours de CrossFit d'1 h encadrés par un coach à Woluwe, à l'est de Bruxelles. Tous niveaux, jusqu'à 6 créneaux par jour, Team WOD le samedi. Séance d'essai gratuite.">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/tokens/effects.css">
+<link rel="stylesheet" href="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/styles.css">
+<link rel="stylesheet" href="site/xm-site.css">
+<link rel="stylesheet" href="site/xm-pages.css">
+<link rel="stylesheet" href="site/xm-v2.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/xmile-design-system-8e8c40a2-b867-41c6-a804-bb64ab2c307f/_ds_bundle.js"></script>
+<script src="site/image-slot.js"></script>
+<script src="site/video-slot.js"></script>
+</head>
+<body class="v2">
+<div id="hdr-root"></div>
+<main>
+<section class="hero" aria-labelledby="h1">
+<div class="hero-slab on-dark" id="hero-slab" data-vs-host="" data-m="hero">
+<div class="hero-bg"><image-slot id="ph-hero-crossfit" shape="rect" src="assets/depassement-de-soi.jpg" placeholder="Pendant un WOD en duo, un membre saute par-dessus sa partenaire qui enchaîne un burpee"></image-slot><video data-vslot="hero-crossfit" src="assets/video-ambiance.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+<div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/#cours">Nos cours</a></li><li aria-current="page">CrossFit</li></ol></nav></div>
+<div class="hero-main">
+<h1 class="disp hero-h1 vh" id="h1">Cours de CrossFit <span class="acc">à Bruxelles</span></h1>
+<p class="hero-sub">Une heure en groupe, encadrée par un coach, avec un WOD différent chaque jour. Chaque mouvement et chaque charge s'adaptent à toi, que ce soit ta première séance ou ta centième.</p>
+<div class="hero-bar"><a class="btn btn-primary btn-lg" href="/seance-essai/">Réserve ta séance d'essai<span class="ic i-arrow-up-right"></span></a><a class="tlink" href="#horaires">Voir les horaires<span class="ic i-arrow-down"></span></a><ul class="vh-facts"><li><strong>1 h</strong><span>encadrée par un coach</span></li><li><strong>Lun au ven</strong><span>jusqu'à 6 cours par jour</span></li><li><strong>Samedi</strong><span>Team WOD par équipes</span></li></ul></div>
+</div>
+</div>
+</section>
+<div id="root"></div>
+</main>
+<div id="ftr-root"></div>
+<script type="text/babel" src="site/xm-shared.jsx"></script>
+<script type="text/babel" src="site/xm-chrome.jsx"></script>
+<script type="text/babel" src="site/xm-blocks.jsx"></script>
+<script type="text/babel" src="site/xm-blocks-2.jsx"></script>
+<script type="text/babel" src="site/xm-v2.jsx"></script>
+<script type="text/babel">
+function CrossFitPage() {
+  return <>
+    <StackSection eyebrow="Pour qui ?" title={<>Un cours pour toi, <span className="acc">quel que soit</span> ton niveau</>} items={[
+      { t: 'Tu débutes', d: 'On t\'apprend chaque mouvement, charges légères au début.' },
+      { t: 'Tu as déjà pratiqué', d: 'Programmation variée, matériel Rogue, cours de 6h30 à 20h.' },
+      { t: 'Tu viens d\'un autre sport', d: 'Tu gardes ta base et tu ajoutes force, cardio, gymnastique et mobilité.' },
+    ]} after={<TLink href="/crossfit/debutant/">Le CrossFit pour débutants</TLink>} />
+
+    <PinTrack bg={{ id: 'deroule-crossfit', src: 'assets/depassement-de-soi.jpg', alt: 'Photo de fond : un WOD en cours à la box' }} id="deroule" eyebrow="Déroulé d'une séance" title={<>Une heure, <span className="acc">quatre temps</span></>} items={[
+      { t: 'Échauffement', d: 'Cardio et articulations prêts pour le jour.' },
+      { t: 'Technique', d: 'Le mouvement du jour, et tu choisis ta charge.' },
+      { t: 'WOD', hot: true, d: 'Chronométré, chacun dans sa version.' },
+      { t: 'Post WOD', d: 'On papote un peu du WOD et beaucoup du reste.' },
+    ]} />
+
+    <Sec labelledby="t-work">
+      <SecHead eyebrow="Ce que tu vas travailler" id="t-work" title={<>Quatre qualités, <span className="acc">une seule heure</span></>} lead="Le WOD change chaque jour. Au fil de la semaine, il touche toujours ces quatre qualités." />
+      <WorkGrid items={[
+        { t: 'Gymnastique', d: 'Tractions, anneaux, appuis renversés. On commence par les bases, avec des élastiques si besoin.', src: 'assets/gymnastique.jpg', alt: 'Une membre sourit, suspendue aux anneaux de gymnastique', pos: '50% 35%' },
+        { t: 'Force', d: 'Squats, soulevés de terre, développés. Des charges qui suivent ta progression.', src: 'assets/halterophilie.jpg', alt: 'Un membre en t-shirt Xmile se prépare à soulever une barre chargée', pos: '45% 45%' },
+        { t: 'Cardio', d: 'Rameurs, SkiErg, BikeErg, Echo Bike, Assault Bike, Air Runner, et de la course.', src: 'assets/endurance.jpg', alt: 'Une membre en sweat vert rame à l\'ergomètre', pos: '50% 30%' },
+        { t: 'Mobilité', d: 'Pour bouger mieux, plus longtemps, et récupérer d\'une séance à l\'autre.', src: 'assets/mobilite-2.jpg', alt: 'Deux membres font un exercice de mobilité au sol, bras tendu vers le plafond', pos: '50% 40%' },
+      ]} />
+    </Sec>
+
+    <Sec labelledby="t-side">
+      <SecHead eyebrow="À côté des cours" id="t-side" title={<>Tout ce qu'il y a <span className="acc">autour du WOD</span></>} />
+      <div className="side">
+        <article className="side-team">
+          <Photo id="crossfit-photo-01" src="assets/crossfit-tous-ensemble.png" alt="Un groupe de membres, mains au sol, s'encourage en riant pendant un exercice collectif" />
+          <div className="side-team-copy">
+            <span className="eyebrow" style={{ margin: 0 }}>Le samedi</span>
+            <h3 className="disp side-t">Le Team WOD</h3>
+            <p>Le WOD se fait par équipes : on se partage les reps, on se passe le relais et on termine ensemble. Ouvert à tous les niveaux.</p>
+            <div className="when"><span>9h</span><span>10h</span><span>11h</span></div>
+          </div>
+        </article>
+        <article className="side-card">
+          <span className="eyebrow" style={{ margin: 0 }}>Free Access</span>
+          <h3 className="disp side-t">Ton créneau en plus</h3>
+          <p>Pour refaire un mouvement, travailler un point faible ou rattraper un WOD manqué. Inclus dans toutes les formules adultes, sous conditions de bonne pratique et de sécurité.</p>
+        </article>
+        <article className="side-card dark on-dark">
+          <span className="eyebrow" style={{ margin: 0 }}>Le lounge</span>
+          <h3 className="disp side-t">On reste après la séance</h3>
+          <p>Une salle de détente pour souffler et discuter : boissons, plats, kicker, jeux de société.</p>
+        </article>
+        <article className="side-card orange">
+          <span className="eyebrow" style={{ margin: 0 }}>Xmile Health Lab</span>
+          <h3 className="disp side-t">Le bien-être du sportif</h3>
+          <p>Un centre dédié au sportif, à la même adresse : soins de recovery, kinésithérapie, ostéopathie, nutrition.</p>
+          <div className="actions"><BtnLink href={XM_FACTS.healthLab} external variant="dark" icon="arrow-up-right">Découvrir le Health Lab</BtnLink></div>
+        </article>
+      </div>
+    </Sec>
+
+    <CourseCoaches course="crossfit" alt title={<>Ils encadrent <span className="acc">tes WOD</span></>} lead="Ils corrigent ta technique, adaptent tes charges et savent où tu en es d'une semaine à l'autre." />
+
+    <ScheduleSection course="crossfit" title={<>Choisis <span className="acc">ton créneau</span></>} lead="Pour une séance d'essai, choisis un cours CrossFit encadré, pas un créneau Free Access." tables={[XM_SCHEDULE.crossfit, XM_SCHEDULE.teamwod]} />
+
+    <PricesSection course="crossfit" highlight="unlimited" tag="Notre conseil" lead="Une seule grille pour tous les cours adultes. Dès 3 WOD par semaine, l'Unlimited revient moins cher à la séance." />
+
+    <Reviews flush />
+
+    <FaqSection title={<>Avant ton <span className="acc">premier WOD</span></>} items={[
+      { q: 'Je ne suis pas assez en forme pour le CrossFit.', a: <><p>C'est justement pour ça que le cours est encadré. Chaque mouvement a une version plus simple, chaque charge s'adapte, et le coach est à côté de toi pendant toute la séance.</p><p>Personne ne te compare aux autres. La forme vient en venant.</p></> },
+      { q: 'Je ne connais aucun mouvement, c\'est un problème ?', a: <p>Non. Chaque séance commence par une partie technique où le coach décompose les mouvements du jour. Tu les apprends avant de les mettre dans le WOD.</p> },
+      { q: 'Combien de fois par semaine venir ?', a: <p>Deux séances par semaine suffisent pour progresser et prendre le rythme, c'est la formule Easy Peasy à 79 € par mois. Si tu viens trois fois ou plus, l'Unlimited à 115 € par mois revient moins cher à la séance.</p> },
+      { q: 'Quelle différence entre un WOD et le Free Access ?', a: <p>Le WOD est un cours encadré par un coach, avec un programme et un groupe. Le Free Access est un créneau libre pour t'entraîner seul, inclus dans les formules adultes sous conditions de bonne pratique et de sécurité.</p> },
+      { q: 'Qu\'est-ce que je dois apporter ?', a: <><p>Une tenue dans laquelle tu bouges bien, des baskets propres et une gourde. Le matériel, on l'a. On a des vestiaires femmes et hommes, avec des douches pour après ton cours.</p></> },
+    ]} />
+
+    <NextCourses current="crossfit" />
+
+    <FinalCta title="Ton premier WOD t'attend" text="Séance d'essai gratuite et sans engagement. Choisis un créneau CrossFit, un coach t'accueille et adapte tout à ton niveau." />
+  </>;
+}
+mountPage(<CrossFitPage />, '/crossfit/');
+</script>
+<script src="site/xm-motion.js"></script>
+</body>
+</html>
