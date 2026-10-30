@@ -1,0 +1,76 @@
+---
+layout: layouts/base.njk
+permalink: /seance-essai/
+title: "Séance d'essai gratuite de CrossFit et Hyrox à Bruxelles · Xmile CrossFit Woluwe"
+description: "Réserve ta séance d'essai gratuite et sans engagement chez Xmile, à Woluwe, à l'est de Bruxelles. Un cours encadré d'1 h en CrossFit, Hyrox ou haltérophilie, tous niveaux."
+bodyClass: v2
+scripts: [v2]
+date: git Last Modified
+---
+{%- from "partials/macros.njk" import secHead, btn -%}
+{%- set hero = {
+  h1: "Ta séance d'essai gratuite <span class=\"acc\">à Bruxelles</span>",
+  sub: "Une heure de cours encadré, gratuite et sans engagement. Choisis un créneau CrossFit, Hyrox ou Haltérophilie : un coach t'accueille et adapte tout à ton niveau.",
+  facts: [["Gratuite", "et sans engagement"], ["1 h", "de cours encadré"], ["Tous niveaux", "charges adaptées"]] } -%}
+{#- Pas de second lien sous le bouton sur cette page -#}
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-slab on-dark" id="hero-slab" data-m="hero">
+    <div class="hero-bg"><video src="/assets/video/ambiance.mp4" poster="{% imgUrl { src: 'crossfit-tous-ensemble.png', widths: [960] } %}" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+    <div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Séance d'essai</li></ol></nav></div>
+    <div class="hero-main">
+      <h1 class="disp hero-h1 vh" id="h1">{{ hero.h1 | safe }}</h1>
+      <p class="hero-sub">{{ hero.sub }}</p>
+      <div class="hero-bar">
+        {{ btn("#reserver", "Choisir mon créneau", "primary", "lg", "arrow-down") }}
+        <ul class="vh-facts">{% for f in hero.facts %}<li><strong>{{ f[0] }}</strong><span>{{ f[1] }}</span></li>{% endfor %}</ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- set pq = { id: "attente", eyebrow: "Ce qui t'attend", title: "Ta première heure, <span class=\"acc\">sans surprise</span>", lead: "Tu n'as rien à prouver. Tu viens, tu essaies, et tu décides ensuite.",
+  items: [
+    { t: "L'accueil", d: "Arrive un peu en avance. On te fait visiter et on te présente au coach et au groupe." },
+    { t: "Le coach", d: "Il regarde comment tu bouges, adapte chaque mouvement et reste avec toi pendant toute la séance." },
+    { t: "1 heure", d: "Échauffement, technique, entraînement, puis on papote un peu. Le même cours que les autres, dans ta version." },
+    { t: "Quoi apporter", d: "Une tenue de sport, des baskets propres et une gourde. Le matériel, on l'a." }
+  ] } -%}
+{% include "partials/pq-section.njk" %}
+
+<section class="sec" id="reserver" aria-labelledby="t-book" style="background:var(--bg-alt)">
+  <div class="wrap">
+    {{ secHead("Réservation", "Choisis <span class=\"acc\">ton créneau</span>", "t-book", "Clique sur un créneau dans le planning, le formulaire de réservation s'ouvre.") }}
+    <div class="reass-row" style="margin-bottom:18px;background:var(--surface-accent);color:var(--xm-green-950)">
+      <p style="display:flex;gap:12px;align-items:flex-start;font:600 17px/1.45 var(--font-body);max-width:70ch"><span style="margin-top:2px">{% icon "info", 22 %}</span>Choisis un cours encadré : CrossFit, Hyrox ou Haltérophilie. Pas un créneau Free Access, qui se fait sans coach.</p>
+    </div>
+    {#- Planning Sportigo non filtré : toutes les disciplines, un seul widget sur la page -#}
+    {%- set spgCourse = "" -%}{%- set spgTitle = "Planning de la semaine" -%}{%- set spgHint = "Clique sur un cours encadré pour réserver ta séance d'essai." -%}{%- set spgEager = true -%}
+    {% include "partials/sportigo.njk" %}
+  </div>
+</section>
+
+<section class="sec-tight" aria-label="Réassurance">
+  <div class="wrap">
+    <div class="reass-row on-dark">
+      <ul>
+        <li>{% icon "check", 18, "ic-orange" %}Gratuite</li>
+        <li>{% icon "check", 18, "ic-orange" %}Sans engagement</li>
+        <li>{% icon "check", 18, "ic-orange" %}Tous niveaux</li>
+      </ul>
+      {% set dark = true %}{% include "partials/badge-google.njk" %}
+    </div>
+  </div>
+</section>
+
+{%- set faqTitle = "Avant de <span class=\"acc\">réserver</span>" -%}{%- set faqLead = "" -%}{%- set faqFlush = false -%}
+{%- set faqItems = [
+  { q: "Je ne suis pas assez en forme pour une séance d'essai.", a: "<p>C'est exactement pour ça que la séance est encadrée. Chaque mouvement a une version plus simple, chaque charge s'adapte, et le coach reste avec toi.</p><p>Personne ne te compare aux autres.</p>" },
+  { q: "C'est vraiment gratuit ?", a: "<p>Oui, la séance d'essai est gratuite et sans engagement. Si tu continues ensuite, tu choisis ta formule, avec des frais d'inscription uniques de 50 €.</p>" },
+  { q: "Quel cours choisir pour commencer ?", a: "<p>Le CrossFit est la porte d'entrée la plus complète. Si tu as un objectif précis, choisis directement Hyrox ou Haltérophilie. Évite les créneaux Free Access, qui se font sans coach.</p>" },
+  { q: "Et pour mon enfant ?", a: "<p>Les cours Kids (6-10 ans) et Teens (11-16 ans) ont leurs propres créneaux. Tout est expliqué sur la page <a href=\"/kids-teens/\">Kids &amp; Teens</a>.</p>" },
+  { q: "Je dois annuler, comment faire ?", a: "<p><span class=\"todo\">[À COMPLÉTER : comment annuler ou déplacer une séance d'essai]</span></p>" }
+] -%}
+{% include "partials/faq.njk" %}
+
+{% set finalTitle = "Comment venir" %}{% set finalText = "On est à Woluwe, à l'est de Bruxelles. Le parking est gratuit." %}{% set finalCta = false %}
+{% include "partials/final-cta.njk" %}

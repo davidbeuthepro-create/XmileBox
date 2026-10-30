@@ -6,13 +6,13 @@ description: "Envie d’une salle de sport à Woluwe qui motive vraiment ? Déco
 
 Salle de sport à Woluwe
 
-# Votre salle de sport et CrossFit à Woluwe
+# Ta salle de sport et CrossFit à Woluwe
 
-Ce qu'on vous propose
+Ce qu'on te propose
 
 ## Des cours variés, adaptés et 100% efficace
 
-Notre mission, c’est de rendre le sport à Woluwe simple à suivre, structuré et accessible. Vous choisissez une formule, vous venez en tenue et on vous encadre. Les séances sont toujours encadrées, quel que soit votre niveau. Nos coachs corrigent, adaptent et motivent. On ne cherche pas la performance à tout prix, on vise une vraie progression sur la durée. Voici les différents types de cours que nous proposons dans notre salle de sport à Woluwe :
+Notre mission, c’est de rendre le sport à Woluwe simple à suivre, structuré et accessible. Tu choisis une formule, tu viens en tenue et on t’encadre. Les séances sont toujours encadrées, quel que soit ton niveau. Nos coachs corrigent, adaptent et motivent. On ne cherche pas la performance à tout prix, on vise une vraie progression sur la durée. Voici les différents types de cours que nous proposons dans notre salle de sport à Woluwe :
 
 ### Des cours pour les débutants à Woluwe
 
@@ -34,49 +34,49 @@ Nos horaires
 
 ## Des cours de CrossFit accessibles toute la journée à Woluwe
 
-Vous avez un emploi du temps chargé ? Nos horaires sont faits pour vous : matin, midi, soir, en semaine ou le week-end.
+Tu as un emploi du temps chargé ? Nos horaires sont faits pour toi : matin, midi, soir, en semaine ou le week-end.
 
 Témoignages
 
 ## Ils en parlent mieux que nous
 
-Découvrez ce que vivent nos membres au quotidien : leurs ressentis, leurs progrès et ce qui rend Xmile unique à leurs yeux.
+Découvre ce que vivent nos membres au quotidien : leurs ressentis, leurs progrès et ce qui rend Xmile unique à leurs yeux.
 
 Inscription
 
-## Testez notre club de sport à Woluwe
+## Teste notre club de sport à Woluwe
 
-Vous hésitez encore ? Vous vous demandez si c’est pour vous ? Le meilleur moyen, c’est de venir faire un essai. Vous réservez, vous venez, vous testez. Choisissez un créneau dans notre planning, réservez votre séance d’essai en ligne, puis rendez-vous dans notre box et c’est parti !
+Tu hésites encore ? Tu te demandes si c’est pour toi ? Le meilleur moyen, c’est de venir faire un essai. Tu réserves, tu viens, tu testes. Choisis un créneau dans notre planning, réserve ta séance d’essai en ligne, puis rends-toi dans notre box et c’est parti !
 
-Salle de sport près de Woluwe-Saint-Lambert : découvrez Xmile !
+Salle de sport près de Woluwe-Saint-Lambert : découvre Xmile !
 
-Vous cherchez une salle de sport à Woluwe-Saint-Lambert ou à Woluwe-Saint-Étienne capable de vous offrir un vrai suivi ? Située Avenue du Péage 63 à Sint-Stevens-Woluwe, à la limite de Woluwe-Saint-Lambert, Xmile CrossFit vous propose une approche différente du fitness : un encadrement professionnel, du matériel haut de gamme et une communauté soudée
+Tu cherches une salle de sport à Woluwe-Saint-Lambert ou à Woluwe-Saint-Étienne capable de t’offrir un vrai suivi ? Située Avenue du Péage 63 à Sint-Stevens-Woluwe, à la limite de Woluwe-Saint-Lambert, Xmile CrossFit te propose une approche différente du fitness : un encadrement professionnel, du matériel haut de gamme et une communauté soudée
 
 ## Pourquoi s’entraîner chez Xmile ?
 
-Quand vous venez chez nous, l’objectif est clair : progresser dans un centre de fitness où chaque séance vous fait avancer vers vos objectifs, que ce soit gagner en force, améliorer votre condition ou simplement bouger régulièrement.
+Quand tu viens chez nous, l’objectif est clair : progresser dans un centre de fitness où chaque séance te fait avancer vers tes objectifs, que ce soit gagner en force, améliorer ta condition ou simplement bouger régulièrement.
 
 ### Un accompagnement professionnel avec 11 coachs expérimentés
 
-Notre salle met à votre disposition plusieurs coachs certifiés. Ils vous guident :
+Notre salle met à ta disposition plusieurs coachs certifiés. Ils te guident :
 
 - Sur la technique correcte des mouvements.
-- Sur l’intensité adaptée à votre niveau.
+- Sur l’intensité adaptée à ton niveau.
 - Lors des cours collectifs ou en petits groupes.
 
-L’équipe ne vous lâche pas dans une salle et vous laisse faire. Chaque coach est là pour ajuster, corriger et éviter que vous fassiez des erreurs qui freinent vos progrès.
+L’équipe ne te lâche pas dans une salle et te laisse faire. Chaque coach est là pour ajuster, corriger et éviter que tu fasses des erreurs qui freinent tes progrès.
 
 ### Une ambiance familiale qui motive réellement
 
-L’ambiance dans notre salle de sport à Woluwe n’est pas froide ou impersonnelle. Vous vous entraînez dans un groupe où chacun se connaît, où chacun encourage l’autre et où la progression de chacun compte. Cette dynamique rend vos séances plus simples à suivre régulièrement.
+L’ambiance dans notre salle de sport à Woluwe n’est pas froide ou impersonnelle. Tu t’entraînes dans un groupe où chacun se connaît, où chacun encourage l’autre et où la progression de chacun compte. Cette dynamique rend tes séances plus simples à suivre régulièrement.
 
 ### Des équipements de haute qualité (Rogue)
 
-Dans notre studio d’entraînement, vous n’utilisez pas de vieux appareils ou de matériel improvisé. Nous utilisons des équipements de la marque Rogue, qui sont robustes et conçus pour des entraînements variés : barres, haltères, rameurs, bikes et outils utilisés dans CrossFit. Cela permet de varier vos séances tout en restant performant.
+Dans notre studio d’entraînement, tu n’utilises pas de vieux appareils ou de matériel improvisé. Nous utilisons des équipements de la marque Rogue, qui sont robustes et conçus pour des entraînements variés : barres, haltères, rameurs, bikes et outils utilisés dans CrossFit. Cela permet de varier tes séances tout en restant performant.
 
 Nos types de cours
 
-Voici les principales formules de cours que vous trouverez dans notre salle de sport à Woluwe :
+Voici les principales formules de cours que tu trouveras dans notre salle de sport à Woluwe :
 
 ### Cours CrossFit
 
@@ -84,7 +84,7 @@ Le cœur de notre offre repose sur des séances de CrossFit planifiées. Chaque 
 
 ### Préparation physique inspirée de l’Hyrox
 
-Pour ceux qui s’intéressent à une forme de préparation plus ciblée, nous proposons des sessions orientées type Hyrox. Elles mêlent force et endurance dans des séquences de travail spécifiques, prévues pour améliorer vos performances sur des formats d’effort longs.
+Pour ceux qui s’intéressent à une forme de préparation plus ciblée, nous proposons des sessions orientées type Hyrox. Elles mêlent force et endurance dans des séquences de travail spécifiques, prévues pour améliorer tes performances sur des formats d’effort longs.
 
 ### CrossFit Teens & Kids
 
@@ -92,7 +92,7 @@ Les jeunes ont leur propre espace d’entraînement avec des mouvements adaptés
 
 ### Free Access toute la journée
 
-En plus des cours encadrés, vous pouvez aussi venir vous entraîner de façon autonome. L’accès libre vous permet d’organiser vos séances selon votre emploi du temps. Si jamais vous avez une question, un coach est à portée pour vous aider à optimiser votre travail.
+En plus des cours encadrés, tu peux aussi venir t’entraîner de façon autonome. L’accès libre te permet d’organiser tes séances selon ton emploi du temps. Si jamais tu as une question, un coach est à portée pour t’aider à optimiser ton travail.
 
 ## Rejoindre notre salle de sport à Woluwe : comment ça se passe ?
 
@@ -104,28 +104,28 @@ La première étape consiste à réserver une séance d’essai. Cette séance p
 
 Concrètement :
 
-- Vous choisissez un créneau disponible.
-- Vous venez avec une tenue de sport classique.
-- Le coach prend le temps de vous accueillir et de vous expliquer la séance.
+- Tu choisis un créneau disponible.
+- Tu viens avec une tenue de sport classique.
+- Le coach prend le temps de t’accueillir et de t’expliquer la séance.
 
-Aucun niveau requis. Le but est de vous faire bouger sans pression.
+Aucun niveau requis. Le but est de te faire bouger sans pression.
 
 ### Bénéficier d’un suivi personnalisé
 
-Dès votre premier passage, le coach observe votre manière de bouger. Il adapte les charges, les exercices et le rythme selon vos capacités actuelles.
+Dès ton premier passage, le coach observe ta manière de bouger. Il adapte les charges, les exercices et le rythme selon tes capacités actuelles.
 
 Ce suivi repose sur trois points simples :
 
-- Comprendre vos habitudes sportives.
-- Identifier vos limites actuelles.
+- Comprendre tes habitudes sportives.
+- Identifier tes limites actuelles.
 - Ajuster les séances pour progresser sans forcer inutilement.
 
-Vous n’êtes jamais laissé seul face à un programme que vous ne comprenez pas.
+Tu n’es jamais laissé seul face à un programme que tu ne comprends pas.
 
 ### Passer du test à l’abonnement mensuel
 
-Après la séance d’essai, l’objectif est clair : voir si la pratique vous convient sur le long terme.
+Après la séance d’essai, l’objectif est clair : voir si la pratique te convient sur le long terme.
 
-Si vous décidez de continuer, plusieurs formules d’abonnement existent, avec un accès aux cours collectifs et au free access.
+Si tu décides de continuer, plusieurs formules d’abonnement existent, avec un accès aux cours collectifs et au free access.
 
-Aucun discours compliqué. Vous choisissez ce qui correspond à votre rythme de vie et à votre fréquence d’entraînement.
+Aucun discours compliqué. Tu choisis ce qui correspond à ton rythme de vie et à ta fréquence d’entraînement.

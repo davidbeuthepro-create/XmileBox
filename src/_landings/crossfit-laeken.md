@@ -6,13 +6,13 @@ description: "Vous cherchez une box de CrossFit près de Laeken ? Xmile vous acc
 
 Box près de Laeken
 
-# CrossFit près de Laeken : dépassez-vous dans un cadre motivant
+# CrossFit près de Laeken : dépasse-toi dans un cadre motivant
 
-Ce qu'on vous propose
+Ce qu'on te propose
 
 ## Des cours variés, adaptés et 100% efficace
 
-Notre priorité est simple : vous offrir un environnement qui vous pousse à vous dépasser, tout en respectant votre rythme et vos capacités. Nos coachs sont présents pour vous montrer les bons gestes, corriger votre posture et vous motiver à aller un peu plus loin que ce que vous pensiez.
+Notre priorité est simple : t’offrir un environnement qui te pousse à te dépasser, tout en respectant ton rythme et tes capacités. Nos coachs sont présents pour te montrer les bons gestes, corriger ta posture et te motiver à aller un peu plus loin que ce que tu pensais.
 
 ### Des cours pour les débutants près de Laeken
 
@@ -34,23 +34,23 @@ Nos horaires
 
 ## Des cours de CrossFit toute la journée à 2 pas de Laeken
 
-Vous avez un emploi du temps chargé ? Pas de problème. Nous proposons des séances le matin, à midi, le soir, en semaine comme le week-end. Il y a toujours un moment pour bouger, même avec une journée bien remplie.
+Tu as un emploi du temps chargé ? Pas de problème. Nous proposons des séances le matin, à midi, le soir, en semaine comme le week-end. Il y a toujours un moment pour bouger, même avec une journée bien remplie.
 
 Témoignages
 
 ## Ils en parlent mieux que nous
 
-Découvrez ce que vivent nos membres au quotidien : leurs ressentis, leurs progrès et ce qui rend Xmile unique à leurs yeux.
+Découvre ce que vivent nos membres au quotidien : leurs ressentis, leurs progrès et ce qui rend Xmile unique à leurs yeux.
 
 Inscription
 
-## Et si vous testiez le CrossFit dans notre salle près de Laeken ?
+## Et si tu testais le CrossFit dans notre salle près de Laeken ?
 
-Envie de reprendre le sport ou de trouver un cadre motivant pour vos entraînements ? Venez découvrir notre salle proche de Laeken. Nos équipements sont là pour vous faire progresser et nos coachs vous accompagnent à chaque étape. Faites le premier pas : réservez votre séance dès maintenant.
+Envie de reprendre le sport ou de trouver un cadre motivant pour tes entraînements ? Viens découvrir notre salle proche de Laeken. Nos équipements sont là pour te faire progresser et nos coachs t’accompagnent à chaque étape. Fais le premier pas : réserve ta séance dès maintenant.
 
-## Du matériel de qualité pour vos séances de CrossFit
+## Du matériel de qualité pour tes séances de CrossFit
 
-Dans notre salle de CrossFit près de Laeken, vous vous entraînez avec du matériel de qualité et performant. La plupart de nos équipements sont signés Rogue, une marque de référence dans le monde du CrossFit. Vous y trouverez tout ce qu’il faut pour varier les entraînements et travailler chaque aspect de votre condition physique :
+Dans notre salle de CrossFit près de Laeken, tu t’entraînes avec du matériel de qualité et performant. La plupart de nos équipements sont signés Rogue, une marque de référence dans le monde du CrossFit. Tu y trouveras tout ce qu’il faut pour varier les entraînements et travailler chaque aspect de ta condition physique :
 
 - Rameurs pour l’endurance
 - BikeErg pour le cardio
@@ -62,11 +62,11 @@ Dans notre salle de CrossFit près de Laeken, vous vous entraînez avec du maté
 
 Voici pourquoi de plus en plus de personnes choisissent de faire du CrossFit avec nous :
 
-- Vous progressez, quel que soit votre niveau de départ
-- Vous êtes accompagné par un coach à chaque séance
-- Vous ne vous ennuyez jamais : les entraînements changent chaque jour
-- Vous travaillez tout votre corps : force, cardio, mobilité
-- Vous vous entraînez dans un groupe qui vous motive et vous pousse vers l’avant
+- Tu progresses, quel que soit ton niveau de départ
+- Tu es accompagné par un coach à chaque séance
+- Tu ne t’ennuies jamais : les entraînements changent chaque jour
+- Tu travailles tout ton corps : force, cardio, mobilité
+- Tu t’entraînes dans un groupe qui te motive et te pousse vers l’avant
 
 Le CrossFit, c’est une façon de se sentir mieux, de se vider la tête et de progresser dans une ambiance simple et motivante.
 

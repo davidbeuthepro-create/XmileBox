@@ -6,17 +6,17 @@ description: "Rejoignez Xmile, box de CrossFit à Saint-Gilles : cours adaptés,
 
 Box à Saint-Gilles
 
-# Crossfit Saint-Gilles : Découvrez la box Xmile
+# Crossfit Saint-Gilles : Découvre la box Xmile
 
-Ce qu'on vous propose
+Ce qu'on te propose
 
 ## Des cours variés, adaptés et 100% efficace
 
-Notre mission, c’est de rendre le CrossFit à Saint-Gilles simple à suivre, structuré et accessible. Vous choisissez une formule, vous venez en tenue et on vous encadre. Les séances sont toujours encadrées, quel que soit votre niveau. Nos coachs corrigent, adaptent et motivent. On ne cherche pas la performance à tout prix, on vise une vraie progression sur la durée. Voici les différents types de cours que nous proposons dans notre box à Saint-Gilles :
+Notre mission, c’est de rendre le CrossFit à Saint-Gilles simple à suivre, structuré et accessible. Tu choisis une formule, tu viens en tenue et on t’encadre. Les séances sont toujours encadrées, quel que soit ton niveau. Nos coachs corrigent, adaptent et motivent. On ne cherche pas la performance à tout prix, on vise une vraie progression sur la durée. Voici les différents types de cours que nous proposons dans notre box à Saint-Gilles :
 
 ### Débutant / Initiation
 
-Notre box de CrossFit à Saint-Gilles s’adresse aussi aux débutants. Les premières séances expliquent les bases : squat, tirage, poussée, course. Vous apprenez les gestes simples, vous prenez confiance et vous augmentez votre intensité petit à petit.
+Notre box de CrossFit à Saint-Gilles s’adresse aussi aux débutants. Les premières séances expliquent les bases : squat, tirage, poussée, course. Tu apprends les gestes simples, tu prends confiance et tu augmentes ton intensité petit à petit.
 
 ### Intermédiaire / Progression
 
@@ -28,39 +28,39 @@ Cours de CrossFit ludiques adaptés aux jeunes à Saint-Gilles. Objectif : bouge
 
 ### Un accès libre (“free access”) à notre salle à Woluwe
 
-En dehors des WOD encadrés, notre box de CrossFit à Saint-Gilles met à disposition des créneaux d’open gym. Vous pouvez répéter un mouvement, travailler une faiblesse ou simplement faire votre propre programme. Un coach est disponible pour répondre aux questions et assurer un cadre clair.
+En dehors des WOD encadrés, notre box de CrossFit à Saint-Gilles met à disposition des créneaux d’open gym. Tu peux répéter un mouvement, travailler une faiblesse ou simplement faire ton propre programme. Un coach est disponible pour répondre aux questions et assurer un cadre clair.
 
 Nos horaires
 
 ## Des cours de CrossFit accessibles toute la journée à Saint-Gilles
 
-Vous avez un emploi du temps chargé ? Nos horaires sont faits pour vous : matin, midi, soir, en semaine ou le week-end.
+Tu as un emploi du temps chargé ? Nos horaires sont faits pour toi : matin, midi, soir, en semaine ou le week-end.
 
 Témoignages
 
 ## Ils en parlent mieux que nous
 
-Découvrez ce que vivent nos membres au quotidien : leurs ressentis, leurs progrès et ce qui rend Xmile unique à leurs yeux.
+Découvre ce que vivent nos membres au quotidien : leurs ressentis, leurs progrès et ce qui rend Xmile unique à leurs yeux.
 
 Inscription
 
-## Testez le CrossFit à Saint-Gilles avec Xmile
+## Teste le CrossFit à Saint-Gilles avec Xmile
 
-Vous hésitez encore ? Vous vous demandez si c’est pour vous ? Le meilleur moyen, c’est de venir faire un essai. Vous réservez, vous venez, vous testez. Choisissez un créneau dans notre planning, réservez votre séance d’essai en ligne, puis rendez-vous dans notre box et c’est parti !
+Tu hésites encore ? Tu te demandes si c’est pour toi ? Le meilleur moyen, c’est de venir faire un essai. Tu réserves, tu viens, tu testes. Choisis un créneau dans notre planning, réserve ta séance d’essai en ligne, puis rends-toi dans notre box et c’est parti !
 
-Pourquoi devriez-vous choisir notre salle de CrossFit à Saint-Gilles ?
+Pourquoi devrais-tu choisir notre salle de CrossFit à Saint-Gilles ?
 
 ### Un coaching expert et personnalisé
 
-Chez Xmile, les séances de CrossFit sont encadrées par des coachs formés. Ils observent vos mouvements, corrigent votre posture et ajustent les exercices. Chaque détail compte pour progresser sans se blesser. Vous travaillez à votre rythme, mais avec un suivi constant.
+Chez Xmile, les séances de CrossFit sont encadrées par des coachs formés. Ils observent tes mouvements, corrigent ta posture et ajustent les exercices. Chaque détail compte pour progresser sans se blesser. Tu travailles à ton rythme, mais avec un suivi constant.
 
 ### Des séances variées et motivantes
 
-Un entraînement ne ressemble jamais au précédent. Notre salle de CrossFit à Saint-Gilles s’appuie sur des WODs (Workout of the Day) différents chaque jour. Un jour, vous alternez rameur et squats. Le lendemain, vous soulevez des barres, lancez un medball ou grimpez à la corde.
+Un entraînement ne ressemble jamais au précédent. Notre salle de CrossFit à Saint-Gilles s’appuie sur des WODs (Workout of the Day) différents chaque jour. Un jour, tu alternes rameur et squats. Le lendemain, tu soulèves des barres, lances un medball ou grimpes à la corde.
 
 ### Une ambiance de communauté forte
 
-Le CrossFit Xmile à Saint-Gilles, c’est bien plus qu’une simple salle ! Les membres se connaissent, s’encouragent et progressent ensemble. Vous partagez vos efforts, mais aussi vos réussites. Vous vous entraînez avec des personnes motivées qui, comme vous, cherchent à progresser et à rester régulières.
+Le CrossFit Xmile à Saint-Gilles, c’est bien plus qu’une simple salle ! Les membres se connaissent, s’encouragent et progressent ensemble. Tu partages tes efforts, mais aussi tes réussites. Tu t’entraînes avec des personnes motivées qui, comme toi, cherchent à progresser et à rester régulières.
 
 ### Infrastructure moderne & équipements adaptés
 
@@ -86,14 +86,14 @@ Notre box de CrossFit à Saint-Gilles propose plusieurs formules simples :
 - cartes de 10 séances pour plus de flexibilité
 - drop-in pour les visiteurs
 
-Ces options vous permettent de choisir le rythme qui correspond à vos besoins.
+Ces options te permettent de choisir le rythme qui correspond à tes besoins.
 
 ### Horaires & planning
 
-Les cours de CrossFit à Saint-Gilles sont organisés tôt le matin, en journée et en soirée. Vous pouvez vous entraîner avant le travail, pendant la pause ou après la journée. Le planning complet et actualisé est disponible en ligne.
+Les cours de CrossFit à Saint-Gilles sont organisés tôt le matin, en journée et en soirée. Tu peux t’entraîner avant le travail, pendant la pause ou après la journée. Le planning complet et actualisé est disponible en ligne.
 
-## Inscrivez-vous chez Xmile dès maintenant !
+## Inscris-toi chez Xmile dès maintenant !
 
-S’inscrire à notre salle de CrossFit à Saint-Gilles Xmile est simple. Vous réservez une séance d’essai, vous rencontrez nos coachs et vous découvrez l’ambiance de la box. Que vous soyez débutant, sportif confirmé ou parent intéressé par les cours Kids/Teens, vous trouverez un créneau qui vous convient.
+S’inscrire à notre salle de CrossFit à Saint-Gilles Xmile est simple. Tu réserves une séance d’essai, tu rencontres nos coachs et tu découvres l’ambiance de la box. Que tu sois débutant, sportif confirmé ou parent intéressé par les cours Kids/Teens, tu trouveras un créneau qui te convient.
 
-Alors, qu’attendez-vous pour rejoindre Xmile et passer à l’action ?
+Alors, qu’attends-tu pour rejoindre Xmile et passer à l’action ?
