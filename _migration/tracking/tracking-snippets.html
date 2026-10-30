@@ -1,0 +1,75 @@
+<!--
+  Tracking du site actuel, à reprendre tel quel sur le nouveau site.
+  Source : code de https://crossfitxmile.com relevé le 2026-10-02.
+-->
+
+<!-- 1. Dans le <head>, le plus haut possible -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-53R2TNZJ');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- 2. Juste après l'ouverture de <body> -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53R2TNZJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!--
+  3. Écouteur des événements du widget Sportigo vers le dataLayer.
+  Sans lui, les réservations d'essai faites dans le widget ne remontent plus dans GTM.
+  À charger sur toutes les pages qui contiennent le widget (avant ou après lui, peu importe).
+-->
+<script>
+  // Clics dans le widget (Shadow DOM)
+  document.addEventListener('shadowDomClick', function(event) {
+    const clickData = event.detail;
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        'event': 'sportigo.click',
+        'element_tag': clickData.tagName,
+        'element_id': clickData.id,
+        'element_class': clickData.className,
+        'element_text': clickData.textContent,
+        'element_href': clickData.href,
+        'element_path': clickData.elementPath,
+        'click_timestamp': clickData.timestamp,
+        'click_x': clickData.clientX,
+        'click_y': clickData.clientY,
+        'element_dataset': clickData.dataset
+      });
+    }
+  });
+
+  // Soumission du formulaire de réservation
+  document.addEventListener('sportigoFormSubmit', function(event) {
+    const formData = event.detail;
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        'event': 'sportigo.formSubmit',
+        'form_type': formData.formType,
+        'form_action': formData.formAction,
+        'form_data': formData.formData,
+        'form_timestamp': formData.timestamp
+      });
+    }
+  });
+
+  // Événements personnalisés Sportigo
+  document.addEventListener('sportigoCustomEvent', function(event) {
+    const eventData = event.detail;
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        'event': 'sportigo.custom',
+        'custom_event_type': eventData.eventType,
+        'custom_event_data': eventData.eventData,
+        'custom_timestamp': eventData.timestamp
+      });
+    }
+  });
+</script>

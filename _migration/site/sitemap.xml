@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap de la nouvelle arborescence (21 URLs indexables).
+  Pages légales (noindex) et endpoints /api/ volontairement absents.
+  Claude Code : ajouter <lastmod> au build avec la date réelle de modification de chaque page.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://crossfitxmile.com/</loc></url>
+
+  <url><loc>https://crossfitxmile.com/crossfit/</loc></url>
+  <url><loc>https://crossfitxmile.com/preparation-hyrox/</loc></url>
+  <url><loc>https://crossfitxmile.com/halterophilie/</loc></url>
+  <url><loc>https://crossfitxmile.com/kids-teens/</loc></url>
+  <url><loc>https://crossfitxmile.com/notre-vision/</loc></url>
+  <url><loc>https://crossfitxmile.com/team-building/</loc></url>
+  <url><loc>https://crossfitxmile.com/seance-essai/</loc></url>
+
+  <url><loc>https://crossfitxmile.com/cours-crossfit-debutant/</loc></url>
+  <url><loc>https://crossfitxmile.com/salle-de-sport-woluwe/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-bruxelles/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-woluwe/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-ixelles/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-schaerbeek/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-laeken/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-saint-gilles/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-evere/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-anderlecht/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-jette/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-zaventem/</loc></url>
+  <url><loc>https://crossfitxmile.com/crossfit-drogenbos/</loc></url>
+</urlset>
