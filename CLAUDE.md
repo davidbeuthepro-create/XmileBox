@@ -35,7 +35,7 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
 - Variable `SITE_ENV`, définie dans le workflow :
   - `test` (valeur actuelle) : `<meta name="robots" content="noindex, nofollow">` sur toutes les pages et `Header set X-Robots-Tag "noindex, nofollow"` en tête du `.htaccess`. Le `robots.txt` ne bloque rien d'autre que `/api/`, sinon Google ne verrait pas le noindex.
   - `production` (à la bascule) : comportement normal du pack, sans noindex.
-- Domaine de test : à noter ici lors de la première session.
+- Domaine de test : `lightsalmon-partridge-472537.hostingersite.com` (domaine temporaire Hostinger, site PHP/HTML vide).
 - Le site doit fonctionner sur n'importe quel domaine : liens internes et ressources en chemins racine (`/crossfit/`, `/assets/...`), jamais en URL absolue. Les règles du `.htaccess` propres au domaine (www vers sans www, etc.) ne s'appliquent qu'à `crossfitxmile.com` : le domaine de test ne doit jamais être redirigé vers la production.
 - Canonical toujours absolues vers `https://crossfitxmile.com/.../`, même en test.
 
