@@ -5,7 +5,7 @@
       <div class="dr-bg">{% slot { slot: dr.slot, src: dr.src, alt: dr.alt, todo: dr.alt, widths: [800, 1400, 2000], sizes: "(min-width: 1240px) 1240px, 100vw" } %}</div>
       <div class="dr-fade" aria-hidden="true"></div>
       <div class="dr-in">
-        <div class="dr-head"><span class="eyebrow">{{ dr.eyebrow }}</span><h2 class="disp dr-h" id="t-{{ dr.id }}">{{ dr.title | safe }}</h2></div>
+        <div class="dr-head"><span class="eyebrow">{{ dr.eyebrow }}</span><h2 class="disp dr-h" id="t-{{ dr.id }}">{{ dr.title | safe }}</h2>{% if dr.lead %}<p class="lead">{{ dr.lead }}</p>{% endif %}</div>
         <ol class="dr-steps" style="--n:{{ dr.items.length }}">
           {%- for e in dr.items %}
           <li class="dr-step{% if e.chaud %} hot{% endif %}" style="--k:{{ loop.index0 }}"><h3 class="disp dr-t">{{ e.t }}</h3>{% if e.d %}<p>{{ e.d }}</p>{% endif %}</li>

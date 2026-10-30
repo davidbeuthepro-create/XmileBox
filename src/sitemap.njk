@@ -4,7 +4,13 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{%- for p in collections.all | sort(false, false, "url") %}{% if p.url and not p.data.noindex and p.url != "/404.html" and p.url != "/sitemap.xml" and p.outputPath.endsWith(".html") %}
+{%- for p in collections.all | sort(false, false, "url") %}{% if p.url and not p.data.noindex and p.url != "/404.html" and p.url != "/sitemap.xml" and p.outputPath.endsWith(".html") and not p.data.pagination %}
   <url><loc>{{ env.baseUrl }}{{ p.url }}</loc><lastmod>{{ p.date | isoDate }}</lastmod></url>
 {%- endif %}{% endfor %}
+{%- for l in locales %}
+  <url><loc>{{ env.baseUrl }}{{ l.url }}</loc><lastmod>{{ lastmod.locales }}</lastmod></url>
+{%- endfor %}
+{%- for l in landings %}
+  <url><loc>{{ env.baseUrl }}{{ l.url }}</loc><lastmod>{{ lastmod.landings }}</lastmod></url>
+{%- endfor %}
 </urlset>

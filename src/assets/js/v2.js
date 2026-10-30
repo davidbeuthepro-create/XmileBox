@@ -97,3 +97,75 @@
     io.observe(el);
   });
 })();
+
+/* Vidéo en façade (Notre vision) : le fichier mp4 auto-hébergé n'est chargé qu'au clic */
+(() => {
+  document.querySelectorAll('[data-vfacade]').forEach(f => {
+    const v = f.querySelector('video'), b = f.querySelector('[data-vfacade-play]');
+    if (!v || !b) return;
+    b.addEventListener('click', () => { v.preload = 'auto'; v.controls = true; f.dataset.on = 'true'; const p = v.play(); if (p && p.catch) p.catch(() => {}); v.focus(); });
+  });
+})();
+
+/* Valeurs : bloc épinglé, une valeur à la fois selon le défilement */
+(() => {
+  const el = document.querySelector('[data-vsc]'); if (!el) return;
+  const RM = matchMedia('(prefers-reduced-motion: reduce)');
+  const items = [...el.querySelectorAll('.vsc-stage li')], btns = [...el.querySelectorAll('[data-vsc-go]')], vid = el.querySelector('video');
+  let cur = -1, raf = 0;
+  const set = i => {
+    if (i === cur) return; cur = i;
+    items.forEach((li, k) => { li.dataset.st = k === i ? 'on' : k < i ? 'past' : 'next'; });
+    btns.forEach((b, k) => { b.className = k === i ? 'on' : k < i ? 'past' : ''; if (k === i) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
+  };
+  const tick = () => { raf = 0; const r = el.getBoundingClientRect(), span = el.offsetHeight - innerHeight; const p = span > 0 ? Math.min(.999, Math.max(0, -r.top / span)) : 0; set(Math.floor(p * items.length)); };
+  const on = () => { if (!raf) raf = requestAnimationFrame(tick); };
+  addEventListener('scroll', on, { passive: true }); addEventListener('resize', on); tick();
+  btns.forEach(b => b.addEventListener('click', () => {
+    const i = +b.dataset.vscGo, top = el.getBoundingClientRect().top + scrollY, span = el.offsetHeight - innerHeight;
+    scrollTo({ top: top + span * (i + .5) / items.length, behavior: RM.matches ? 'auto' : 'smooth' });
+  }));
+  if (vid && 'IntersectionObserver' in window) {
+    vid.muted = true;
+    new IntersectionObserver(([e]) => { if (e.isIntersecting && !RM.matches) { const p = vid.play(); if (p && p.catch) p.catch(() => {}); } else vid.pause(); }).observe(vid);
+  }
+})();
+
+/* Formulaire de devis Team building : envoi vers api/devis.php, confirmation sans rechargement */
+(() => {
+  const wrap = document.querySelector('[data-quote]'); if (!wrap) return;
+  const form = wrap.querySelector('[data-quote-form]'), done = wrap.querySelector('[data-quote-done]'), err = wrap.querySelector('[data-quote-error]');
+  const stamp = form.elements.t; stamp.value = Date.now(); // heure d'ouverture : le serveur refuse un envoi trop rapide
+  const clear = () => { form.querySelectorAll('.fld[data-invalid]').forEach(f => { f.removeAttribute('data-invalid'); const m = f.querySelector('.fld-msg'); if (m) m.remove(); }); err.hidden = true; };
+  const mark = (name, msg) => {
+    const input = form.elements[name]; const f = input && input.closest('.fld'); if (!f) return;
+    f.setAttribute('data-invalid', ''); input.setAttribute('aria-invalid', 'true');
+    const m = document.createElement('span'); m.className = 'fld-msg'; m.textContent = msg; f.appendChild(m);
+  };
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); clear();
+    const bad = {};
+    ['company', 'name', 'email', 'size'].forEach(k => { if (!form.elements[k].value.trim()) bad[k] = 'Champ requis'; });
+    if (form.elements.email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.elements.email.value)) bad.email = 'Adresse email invalide';
+    if (Object.keys(bad).length) { Object.entries(bad).forEach(([k, m]) => mark(k, m)); form.elements[Object.keys(bad)[0]].focus(); return; }
+    const btn = form.querySelector('button[type=submit]'); btn.disabled = true;
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
+        done.querySelector('[data-q-name]').textContent = form.elements.name.value.trim().split(' ')[0];
+        done.querySelector('[data-q-email]').textContent = form.elements.email.value.trim();
+        done.querySelector('[data-q-company]').textContent = form.elements.company.value.trim();
+        form.hidden = true; done.hidden = false; done.focus && done.setAttribute('tabindex', '-1'); done.focus();
+        window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'devis_team_building' });
+      } else if (data.errors) {
+        Object.entries(data.errors).forEach(([k, m]) => mark(k, m));
+      } else {
+        err.textContent = data.error || 'L\'envoi a échoué. Réessaie dans un instant ou écris-nous directement par email.'; err.hidden = false;
+      }
+    } catch (x) {
+      err.textContent = 'L\'envoi a échoué. Vérifie ta connexion ou écris-nous directement par email.'; err.hidden = false;
+    }
+    btn.disabled = false;
+  });
+})();

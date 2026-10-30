@@ -1,0 +1,141 @@
+---
+layout: layouts/base.njk
+permalink: /team-building/
+title: "Team building sportif à Bruxelles, près de Zaventem · Xmile CrossFit Woluwe"
+description: "Team building sportif à l'est de Bruxelles, à côté de Zaventem et de l'aéroport : WOD par équipes, relais Hyrox, initiation. Tous niveaux, encadré par nos coachs. Sur devis."
+bodyClass: v2
+scripts: [v2]
+date: git Last Modified
+---
+{%- from "partials/macros.njk" import secHead, btn, tlink -%}
+{%- set hero = { slot: "ph-hero-teambuilding", src: "crossfit-tous-ensemble.png", alt: "Un groupe, mains au sol, qui s'encourage pendant un exercice par équipes", video: "/assets/video/teambuilding-hero.mp4", crumbs: [], crumb: "Team building",
+  h1: "Team building sportif <span class=\"acc\">à Bruxelles</span>",
+  sub: "L'effort partagé soude une équipe plus qu'un afterwork. Sportifs ou pas, tout le monde participe, chacun à son niveau, encadré par nos coachs. Pour les équipes de Woluwe, Zaventem et de l'est de Bruxelles.",
+  cta: { href: "#devis", label: "Demander un devis", icon: "arrow-down" }, link: { href: "#formats", label: "Voir les formats" },
+  facts: [["Sur devis", "selon ton groupe et le format"], ["Tous niveaux", "sportifs ou non"], ["Parking gratuit", "à la box"]] } -%}
+{% include "partials/hero-v2.njk" %}
+
+<section class="tb-refs" aria-labelledby="t-refs">
+  <div class="wrap tb-refs-in">
+    <h2 class="tb-refs-t" id="t-refs">Elles ont choisi Xmile pour souder leur équipe</h2>
+    <ul class="tb-refs-logos">
+      <li>{% img { src: "logo-tb-heycharlie.png", alt: "Hey Charlie", widths: [180, 360], sizes: "180px", attrs: { style: "height:30px" } } %}</li>
+      <li>{% img { src: "logo-tb-abchive.png", alt: "ABC Hive Cheerleaders", widths: [180, 360], sizes: "180px", attrs: { style: "height:76px" } } %}</li>
+      <li>{% img { src: "logo-tb-giants.png", alt: "Giants", widths: [180, 360], sizes: "180px", attrs: { style: "height:26px" } } %}</li>
+      <li>{% img { src: "logo-tb-qkdb.png", alt: "Qwan Ki Do Belgium Federation", widths: [180, 360], sizes: "180px", attrs: { style: "height:80px" } } %}</li>
+    </ul>
+  </div>
+</section>
+
+{% set afterHtml %}<div style="display:flex;flex-direction:column;gap:14px"><span class="eyebrow" style="margin:0">Les entreprises de la zone</span><ul class="zones"><li>Woluwe</li><li>Zaventem</li><li>Corporate Village</li><li>Aéroport</li><li>Diegem</li><li>Est de Bruxelles</li></ul></div>{% endset %}
+{%- set pq = { eyebrow: "Pour qui ?", title: "Pour toutes les équipes, <span class=\"acc\">sportives ou pas</span>", lead: "Pas de prérequis, pas de niveau minimum. Les coachs adaptent chaque mouvement pour que tout le monde participe.",
+  checks: ["Tous niveaux, aucun prérequis", "Encadré par nos coachs du début à la fin", "Groupe de 5 à 30 personnes"],
+  items: [{ t: "Tu travailles aux RH", d: "Un moment qui implique tout le monde, sans laisser personne sur le banc." }, { t: "Tu es office manager", d: "Un format clé en main : on s'occupe du programme, du matériel et de l'encadrement." }, { t: "Tu manages une équipe", d: "Une heure où l'équipe gagne ensemble, chacun avec son rôle." }],
+  after: afterHtml } -%}
+{% include "partials/pq-section.njk" %}
+
+<section class="sec sec-black on-dark" aria-labelledby="t-vid">
+  <div class="wrap">
+    {{ secHead("En vidéo", "Un team building <span class=\"acc\">chez Xmile</span>", "t-vid", "Lance la vidéo pour voir comment se passe une séance avec une équipe d'entreprise.", true) }}
+    <div class="v-media">{% set videoSrc = "/assets/video/teambuilding.mp4" %}{% set videoLabel = "Un team building chez Xmile" %}{% include "partials/click-video.njk" %}</div>
+  </div>
+</section>
+
+{%- set formats = [
+  { n: "01", t: "WOD par équipes", bg: "var(--xm-orange-500)", fg: "var(--xm-green-950)", d: "Un entraînement où chaque équipe se partage les reps. Chacun fait sa part à son niveau, l'équipe termine ensemble." },
+  { n: "02", t: "Simulation Hyrox en relais", bg: "var(--xm-green-950)", fg: "#fff", d: "Course et stations Hyrox en relais : rameur, sled, wall balls. Un format compétitif, mais où tout le monde a sa place." },
+  { n: "03", t: "Initiation et lounge", bg: "var(--xm-chalk)", fg: "var(--xm-green-950)", d: "Une initiation encadrée aux mouvements de base, puis un moment convivial au lounge pour souffler et refaire la séance." }
+] -%}
+<section class="sec" id="formats" aria-labelledby="t-fmt" style="background:var(--bg-alt)">
+  <div class="wrap">
+    {{ secHead("Les formats", "Trois formats, <span class=\"acc\">très concrets</span>", "t-fmt", "Choisis celui qui ressemble à ton équipe, ou laisse-nous te conseiller dans le devis.") }}
+    <div class="fmts">
+      {%- for f in formats %}
+      <div class="notch" style="--n-bg:{{ f.bg }};--n-fg:{{ f.fg }}"><div class="notch-body"><div class="tile fmt">
+        <span class="tile-meta">Format {{ f.n }}</span>
+        <h3 class="disp h3" style="color:inherit">{{ f.t }}</h3>
+        <p>{{ f.d }}</p>
+      </div></div></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{%- set dr = { id: "deroule", eyebrow: "Déroulé type", title: "Du vestiaire <span class=\"acc\">au lounge</span>", lead: "Un exemple de déroulé, ajusté ensuite à ton format et à la taille du groupe.", slot: "ph-deroule-teambuilding", src: "duo-high-five.jpg", alt: "Photo de fond : une équipe pendant un team building",
+  items: [{ t: "Accueil", d: "On accueille ton équipe, on forme les groupes et on explique le programme." }, { t: "Échauffement", d: "Tout le monde ensemble, guidé par les coachs, pour apprendre les mouvements du jour." }, { t: "Le défi", chaud: true, d: "Le format choisi, par équipes, chacun à son niveau." }, { t: "Le lounge", d: "On souffle, on refait la séance et on profite du moment." }] } -%}
+{% include "partials/pintrack.njk" %}
+
+<section class="sec" aria-label="Option bien-être et accès" style="padding-top:0">
+  <div class="wrap">
+    <div class="pair">
+      <article class="pcard">
+        <span class="eyebrow">Option bien-être</span>
+        <h2 class="disp" id="t-well">Avec les kinés du <span class="acc">Health Lab</span></h2>
+        <p>Le Xmile Health Lab est à la même adresse. En option, ses kinés peuvent compléter la séance : récupération, conseils posture pour le travail de bureau.</p>
+        <div class="actions">{{ btn(site.healthLab, "Le Health Lab", "outline", "", "arrow-up-right", true) }}</div>
+      </article>
+      <article class="pcard dark on-dark">
+        <span class="eyebrow">Accès</span>
+        <h2 class="disp">À deux pas <span class="acc">de ton bureau</span></h2>
+        <ul class="incl" style="grid-template-columns:1fr;border-top:0">
+          <li style="padding:12px 0;border-left:0"><p><strong style="color:#fff">Depuis le Corporate Village</strong> : 10 minutes en voiture</p></li>
+          <li style="padding:12px 0;border-left:0;border-top:1px solid var(--border-on-dark)"><p><strong style="color:#fff">Depuis l'aéroport</strong> : 12 minutes en voiture</p></li>
+          <li style="padding:12px 0;border-left:0;border-top:1px solid var(--border-on-dark)"><p><strong style="color:#fff">{{ site.adresse.parking }}</strong>, {{ site.adresse.rue }}, {{ site.adresse.ligneVille }}</p></li>
+        </ul>
+        <div class="actions">{{ btn(site.googleFiche, "Itinéraire Google Maps", "light", "", "arrow-up-right", true) }}</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{%- set faqTitle = "Les questions <span class=\"acc\">avant de réserver</span>" -%}{%- set faqLead = "Une question qui n'est pas dans la liste ? Écris-nous ou appelle, on te répond directement." -%}{%- set faqFlush = false -%}
+{%- set faqItems = [
+  { q: "Faut-il un niveau sportif ?", a: "<p>Non. Les coachs adaptent chaque mouvement, et les formats sont pensés pour que tout le monde participe, sportif ou non.</p>" },
+  { q: "Quelle tenue prévoir ?", a: "<p>Une tenue de sport, des baskets propres et une gourde. Le matériel est fourni.</p>" },
+  { q: "Combien de participants au minimum et au maximum ?", a: "<p>De 5 à 30 personnes.</p>" },
+  { q: "En semaine, en journée ou en soirée ?", a: "<p>En matinée, en journée, en soirée et même le week-end. On s'adapte à ton équipe : le team building peut aussi avoir lieu en dehors des heures d'ouverture habituelles de la box.</p>" },
+  { q: "Dans quelle langue sont donnés les cours ?", a: "<p>Le team building peut être donné en français ou en anglais.</p>" }
+] -%}
+{% include "partials/faq.njk" %}
+
+<section class="sec" id="devis" aria-labelledby="t-quote" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="quote-wrap">
+      <div class="quote-intro" style="display:flex;flex-direction:column;gap:20px">
+        <span class="eyebrow">Demande de devis</span>
+        <h2 class="disp h2" id="t-quote">Parle-nous de <span class="acc">ton équipe</span></h2>
+        <p class="lead">Pas de prix affiché : chaque devis dépend du format, du nombre de participants et de la date. Remplis le formulaire, on revient vers toi avec une proposition.</p>
+        <div class="faq-contact">
+          <a href="{{ site.telephoneHref }}">{% icon "phone", 18, "ic-acc" %}{{ site.telephone }}</a>
+          <a href="mailto:{{ site.email }}">{% icon "mail", 18, "ic-acc" %}{{ site.email }}</a>
+        </div>
+      </div>
+      <div data-quote>
+        <form class="qform" method="post" action="/api/devis.php" novalidate data-quote-form>
+          <div class="qgrid">
+            <label class="fld"><span>Entreprise *</span><input type="text" name="company" autocomplete="organization" required></label>
+            <label class="fld"><span>Nom et prénom *</span><input type="text" name="name" autocomplete="name" required></label>
+            <label class="fld"><span>Fonction</span><input type="text" name="role" placeholder="RH, office manager…" autocomplete="organization-title"></label>
+            <label class="fld"><span>Email professionnel *</span><input type="email" name="email" autocomplete="email" required></label>
+            <label class="fld"><span>Téléphone</span><input type="tel" name="phone" autocomplete="tel"></label>
+            <label class="fld"><span>Nombre de participants *</span><input type="number" name="size" min="1" max="1000" inputmode="numeric" required></label>
+            <label class="fld"><span>Période ou date souhaitée</span><input type="text" name="when" placeholder="Ex. un jeudi soir en mars"></label>
+            <label class="fld"><span>Format envisagé</span><span class="fld-sel"><select name="format">{% for f in formats %}<option>{{ f.t }}</option>{% endfor %}<option selected>Je ne sais pas encore</option></select></span></label>
+          </div>
+          <label class="qarea"><span>Message</span><textarea rows="4" name="msg" placeholder="Ce que tu veux pour ton équipe, contraintes, questions"></textarea></label>
+          <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <input type="hidden" name="t" value="">
+          <p class="qlegal">Ces informations servent uniquement à répondre à cette demande. Elles partent par e-mail et ne sont pas enregistrées sur le site. <a href="/politique-de-confidentialite/">Politique de confidentialité</a></p>
+          <p class="fld-err" role="alert" data-quote-error hidden></p>
+          <div class="qfoot"><button type="submit" class="btn btn-primary btn-lg">Envoyer ma demande de devis{% icon "arrow-up-right", 20 %}</button><span class="muted">* champs requis</span></div>
+        </form>
+        <div class="qform qform-done" role="status" data-quote-done hidden>
+          <span class="disc" style="width:56px;height:56px">{% icon "check", 26 %}</span>
+          <h3 class="disp h3">Merci <span data-q-name></span>, c'est envoyé</h3>
+          <p>On revient vers toi à <span data-q-email></span> sous {% todo "À VALIDER : 2 jours ouvrables" %} avec une proposition pour <span data-q-company></span>.</p>
+          <p class="muted">Une question urgente ? Appelle-nous au <a href="{{ site.telephoneHref }}">{{ site.telephone }}</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,116 @@
+---
+layout: layouts/base.njk
+permalink: /notre-vision/
+title: "Notre vision · Xmile CrossFit, Woluwe"
+description: "L'histoire de Marine et Yannick, ce qu'on croit chez Xmile et toute l'équipe de coachs de la box de CrossFit et Hyrox à Woluwe, à l'est de Bruxelles."
+bodyClass: v2
+scripts: [v2]
+date: git Last Modified
+---
+{%- from "partials/macros.njk" import secHead, btn, tlink, disc -%}
+{#- Nombre de coachs : calculé depuis coachs.json (personnes qui encadrent au moins une discipline) -#}
+{%- set encadrants = [] -%}{%- for c in coachs %}{% if c.disciplines.length %}{% set encadrants = (encadrants.push(c), encadrants) %}{% endif %}{% endfor -%}
+{%- set hero = { video: "/assets/video/vision.mp4", poster: "crossfit-tous-ensemble.png", crumbs: [], crumb: "Notre vision",
+  h1: "Une box pour s'entraîner <span class=\"acc\">ensemble</span>",
+  sub: "Xmile, c'est d'abord l'histoire de Marine et Yannick. Pourquoi ils ont ouvert la box, ce qu'on y croit, et les coachs qui t'y accueillent.",
+  cta: { href: "#histoire", label: "Voir leur histoire", icon: "arrow-down" }, link: { href: "#equipe", label: "Rencontrer l'équipe" },
+  facts: [["Marine et Yannick", "à l'origine de la box"], [encadrants.length + " coachs", "dans l'équipe"], ["Woluwe", "la box et le Health Lab"]] } -%}
+{% include "partials/hero-v2.njk" %}
+
+<section class="sec" id="histoire" aria-labelledby="t-story">
+  <div class="wrap">
+    {{ secHead("Leur histoire", "Marine et Yannick, <span class=\"acc\">à l'origine</span> de la box", "t-story", "Ils racontent eux-mêmes pourquoi ils ont ouvert Xmile. Lance la vidéo, le son est prévu pour.") }}
+    <div class="story-full">
+      <div class="vfacade center" data-vfacade data-on="false">
+        <video src="/assets/video/histoire.mp4" playsinline preload="none"></video>
+        <div class="vf-poster">{% slot { slot: "ph-affiche-histoire", src: "groupe-membres.jpg", alt: "Photo de groupe des membres de Xmile devant le logo peint sur le mur de la box", widths: [640, 1280], sizes: "(min-width: 1240px) 1240px, 100vw" } %}</div>
+        <button type="button" class="vfacade-play" data-vfacade-play aria-label="Lire la vidéo : L'histoire de Marine et Yannick">{{ disc("play", 112) }}<span class="label">L'histoire de Marine et Yannick</span></button>
+      </div>
+      <p class="story-note">{% todo "À COMPLÉTER : sous-titres de la vidéo (fichier .vtt)" %}</p>
+    </div>
+  </div>
+</section>
+
+{%- set sourires = [
+  ["kettlebell", "Une membre sourit, kettlebell tendue au-dessus de la tête"],
+  ["groupe", "Une membre sourit au milieu du groupe avant le début du cours"],
+  ["peace", "Une membre fait un signe de paix en riant, après la séance"],
+  ["abdos", "Deux membres rient pendant leurs abdos, médecine-ball en main"],
+  ["barre", "Un membre éclate de rire, accroupi devant sa barre chargée"],
+  ["anneaux", "Un membre rit entre deux séries aux anneaux"]
+] -%}
+<section class="sec" id="sourire" aria-labelledby="t-smile" style="background:var(--bg-alt)">
+  <div class="wrap">
+    {{ secHead("Le nom de la box", "Xmile, comme <span class=\"acc\">smile</span>", "t-smile", "Le nom de la box vient aussi du sourire. Celui qu'on attrape sous une kettlebell, au sol pendant les abdos ou entre deux séries aux anneaux.") }}
+    <ul class="smile-row">
+      {%- for s in sourires %}
+      <li><figure class="ph">{% slot { slot: "ph-sourire-" + s[0], src: "sourire-" + s[0] + ".jpg", alt: s[1], widths: [360, 720], sizes: "(min-width: 961px) 16vw, 45vw" } %}</figure></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{%- set valeurs = [
+  ["Encadrement", "Ton coach réduit la charge avant que tu aies besoin de le demander."],
+  ["Communauté", "Le dernier à finir le WOD n'est jamais seul."],
+  ["Dépassement", "Ta première traction arrive un mardi soir, et tu n'es pas le seul à la fêter."],
+  ["Respect", "Le débutant et le compétiteur font le même WOD, chacun à sa charge. Personne ne compare."],
+  ["Intégrité", "Une rep mal faite ne compte pas. On préfère te voir progresser lentement que te voir te blesser."],
+  ["Passion", "Ton coach a toujours un conseil pour que tu évites la blessure, et le « no rep »."]
+] -%}
+<section class="sec" id="valeurs" aria-labelledby="t-valeurs">
+  <div class="wrap">
+    <div class="vsc" data-vsc style="--n:{{ valeurs.length }}">
+      <div class="vsc-pin">
+        <div class="vsc-bg" aria-hidden="true"><video src="/assets/video/ambiance.mp4" muted loop playsinline preload="none"></video></div>
+        <div class="vsc-side">
+          <div class="vsc-head"><span class="eyebrow">Ce qu'on croit</span><h2 class="disp h2" id="t-valeurs">Six valeurs, <span class="acc">six scènes</span></h2><p class="lead">Plutôt que de les afficher au mur, voilà à quoi elles ressemblent pendant un cours.</p></div>
+          <ol class="vsc-nav">{% for v in valeurs %}<li><button type="button" data-vsc-go="{{ loop.index0 }}" class="{{ 'on' if loop.first }}"><span class="vsc-x" aria-hidden="true"></span>{{ v[0] }}</button></li>{% endfor %}</ol>
+        </div>
+        <ul class="vsc-stage">{% for v in valeurs %}<li data-st="{{ 'on' if loop.first else 'next' }}"><h3 class="disp vsc-w">{{ v[0] }}</h3><p>{{ v[1] }}</p></li>{% endfor %}</ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="equipe" aria-labelledby="t-equipe">
+  <div class="wrap">
+    {{ secHead("L'équipe", "Toute <span class=\"acc\">l'équipe</span>", "t-equipe", "Des personnes avant d'être des diplômes. Tu les rencontres dès ta séance d'essai.") }}
+    {% include "partials/coach-grid.njk" %}
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-life" style="background:var(--bg-alt)">
+  <div class="wrap">
+    {{ secHead("La vie de la box", "Une semaine <span class=\"acc\">chez Xmile</span>", "t-life", "Des WOD, des records, des fous rires au sol et des photos de groupe devant le mur.") }}
+    {%- set mosaique = [
+      { id: "01", cls: "m-tall", src: "duo-high-five.jpg", pos: "50% 40%", alt: "Deux membres se tapent dans la main en souriant après un WOD" },
+      { id: "02", cls: "m-wide", src: "crossfit-tous-ensemble.png", pos: "50% 50%", alt: "Un groupe de membres, mains au sol, s'encourage en riant pendant un exercice collectif" },
+      { id: "03", cls: "m-tall", src: "handstand-walk.jpg", pos: "50% 50%", alt: "Une membre marche sur les mains dans la box" },
+      { id: "04", cls: "", src: "mobilite.jpg", pos: "50% 35%", alt: "Deux membres font leurs étirements côte à côte sur le sol de la box" },
+      { id: "05", cls: "", src: "gymnastique.jpg", pos: "50% 30%", alt: "Une membre sourit, suspendue aux anneaux de gymnastique" },
+      { id: "06", cls: "m-wide", src: "groupe-membres.jpg", pos: "50% 50%", alt: "Photo de groupe des membres de Xmile devant le logo peint sur le mur de la box" },
+      { id: "07", cls: "m-wide", src: "duo-medecine-ball.png", pos: "50% 40%", alt: "Deux membres rient pendant un exercice d'abdominaux avec un médecine-ball" }
+    ] -%}
+    <div class="mosaic">
+      {%- for m in mosaique %}<figure class="ph {{ m.cls }}">{% slot { slot: "ph-vision-photo-" + m.id, src: m.src, pos: m.pos, alt: m.alt, widths: [480, 960], sizes: "(min-width: 961px) 40vw, 50vw" } %}</figure>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-lab">
+  <div class="wrap">
+    <div class="pair">
+      <article class="pcard">
+        <span class="eyebrow">Xmile Health Lab</span>
+        <h2 class="disp" id="t-lab">Ton kiné est <span class="acc">juste à côté</span> de ta box</h2>
+        <p>Kiné, soins sportifs et récupération, à la même adresse. Une gêne à l'épaule le mardi, un rendez-vous le mercredi, et ton coach adapte le WOD du jeudi.</p>
+        <div class="actions">{{ btn(site.healthLab, "Découvrir le Health Lab", "outline", "", "arrow-up-right", true) }}</div>
+      </article>
+      <div class="slot" style="min-height:320px">{% slot { slot: "ph-un-kine-du-health-lab-qui-travaille-l-epaule-d-u", alt: "Un kiné du Health Lab qui travaille l'épaule d'un membre, la box visible en arrière-plan", todo: "photo d'un kiné du Health Lab qui travaille l'épaule d'un membre", widths: [480, 960], sizes: "(min-width: 961px) 45vw, 90vw" } %}</div>
+    </div>
+  </div>
+</section>
+
+{% set finalTitle = "" %}{% set finalText = "" %}{% set finalHref = "" %}{% set finalLabel = "" %}
+{% include "partials/final-cta.njk" %}

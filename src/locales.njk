@@ -1,0 +1,157 @@
+---
+layout: layouts/base.njk
+bodyClass: v2
+scripts: [v2]
+date: git Last Modified
+pagination:
+  data: locales
+  size: 1
+  alias: l
+permalink: "{{ l.url }}"
+eleventyComputed:
+  title: "{{ l.metaTitle }}"
+  description: "{{ l.metaDesc }}"
+---
+{%- from "partials/macros.njk" import secHead, btn, tlink -%}
+{#- Gabarit unique des pages locales (29 pages), données dans src/_data/locales.json : chaque page a ses propres textes. -#}
+{%- set isH = (l.course == "hyrox") -%}
+{%- set hero = {
+  video: ("/assets/video/hyrox.mp4" if isH else "/assets/video/ambiance.mp4"), poster: "crossfit-tous-ensemble.png",
+  crumbs: [[("/preparation-hyrox/" if isH else "/crossfit/"), ("Hyrox" if isH else "CrossFit")]], crumb: l.crumb,
+  h1: (l.h1 | localH), sub: l.sub,
+  cta: { href: "/seance-essai/", label: "Réserve ta séance d'essai" }, link: { href: "#horaires", label: "Voir les horaires" },
+  facts: ([["Training Club", "salle affiliée Hyrox"], ["Tous niveaux", "débutant ou confirmé"], ["6 jours sur 7", "le midi, le soir et le dimanche"]] if isH else [["1 h", "encadrée par un coach"], ["Lun au ven", "jusqu'à 6 cours par jour"], ["Samedi", "Team WOD par équipes"]]) } -%}
+{% include "partials/hero-v2.njk" %}
+
+{% if not isH %}
+{#- ============ CrossFit : pour qui, déroulé, travail ============ -#}
+{%- set whoItems = [] -%}{%- for it in l.who.items %}{% set whoItems = (whoItems.push({ t: it[0], d: it[1] }), whoItems) %}{% endfor -%}
+{%- set pq = { eyebrow: "Pour qui ?", title: (l.who.h | localH), items: whoItems, after: (tlink("/cours-crossfit-debutant/", "Le CrossFit pour débutants") if l.slug != "crossfit-debutant" else "") } -%}
+{% include "partials/pq-section.njk" %}
+
+{%- set steps = ["Échauffement", "Technique", "WOD", "Post WOD"] -%}{%- set drItems = [] -%}
+{%- for t in steps %}{% set drItems = (drItems.push({ t: t, d: l.flow.d[loop.index0], chaud: (loop.index0 == 2) }), drItems) %}{% endfor -%}
+{%- set dr = { id: "deroule", eyebrow: "Déroulé d'une séance", title: (l.flow.h | localH), lead: l.flow.lead, slot: "ph-deroule-crossfit", src: "depassement-de-soi.jpg", alt: "Photo de fond : un WOD en cours à la box", items: drItems } -%}
+{% include "partials/pintrack.njk" %}
+
+{%- set qualites = [
+  { id: "gymnastique", t: "Gymnastique", src: "gymnastique.jpg", alt: "Une membre sourit, suspendue aux anneaux de gymnastique", pos: "50% 35%" },
+  { id: "force", t: "Force", src: "halterophilie.jpg", alt: "Un membre en t-shirt Xmile se prépare à soulever une barre chargée", pos: "45% 45%" },
+  { id: "cardio", t: "Cardio", src: "endurance.jpg", alt: "Une membre en sweat vert rame à l'ergomètre", pos: "50% 30%" },
+  { id: "mobilite", t: "Mobilité", src: "mobilite-2.jpg", alt: "Deux membres font un exercice de mobilité au sol, bras tendu vers le plafond", pos: "50% 40%" }
+] -%}
+<section class="sec" aria-labelledby="t-work">
+  <div class="wrap">
+    {{ secHead("Ce que tu vas travailler", (l.work.h | localH), "t-work", l.work.lead) }}
+    <ul class="work">
+      {%- for q in qualites %}
+      <li class="work-it">
+        <div class="slot">{% slot { slot: "ph-work-" + q.id, src: q.src, alt: q.alt, pos: q.pos, widths: [480, 800, 1100], sizes: "(min-width: 961px) 25vw, 50vw" } %}</div>
+        <h3 class="disp">{{ q.t }}</h3>
+        <p>{{ l.work.d[loop.index0] }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+{% else %}
+{#- ============ Hyrox : pour qui, préparation, déroulé ============ -#}
+{% set asideHtml %}<figure class="ph">{% slot { slot: "ph-hyrox-sourire", src: "hyrox-sourire.jpg", alt: "Une membre saute de joie devant le logo Xmile, les air bikes alignés derrière elle", widths: [480, 960], sizes: "(min-width: 961px) 45vw, 90vw" } %}</figure>{% endset %}
+{%- set whoItems = [] -%}{%- for it in l.who.items %}{% set whoItems = (whoItems.push({ t: it[0], d: it[1] }), whoItems) %}{% endfor -%}
+{%- set pq = { eyebrow: "Pour qui ?", title: (l.who.h | localH), items: whoItems, after: (tlink("/hyrox-debutant/", "L'Hyrox pour débutants") if l.slug != "hyrox-debutant" else ""), aside: asideHtml } -%}
+{% include "partials/pq-section.njk" %}
+
+{%- set prepTitle = (l.prep.h | localH) -%}{%- set prepLead = l.prep.lead -%}{%- set prepOff = l.prep.off -%}{%- set prepOwn = l.prep.own -%}
+{% include "partials/hyrox-prep.njk" %}
+
+{%- set steps = ["Échauffement", "Technique", "Bloc principal", "Retour au calme"] -%}{%- set drItems = [] -%}
+{%- for t in steps %}{% set drItems = (drItems.push({ t: t, d: l.ex.d[loop.index0], chaud: (loop.index0 == 2) }), drItems) %}{% endfor -%}
+{%- set dr = { id: "deroule", eyebrow: "Déroulé d'un cours", title: (l.ex.h | localH), slot: "ph-deroule-hyrox", src: "hyrox-wallball.jpg", alt: "Photo de fond : une membre aux wall balls pendant le cours Hyrox", items: drItems } -%}
+{% include "partials/pintrack.njk" %}
+{% endif %}
+
+{#- ============ Introduction locale + accès ============ -#}
+<section class="sec" aria-labelledby="t-intro">
+  <div class="wrap">
+    <div class="local-intro">
+      <div class="lintro-copy">
+        <span class="eyebrow">{{ l.intro.eb }}</span>
+        <h2 class="disp h2" id="t-intro">{{ l.intro.h | localH | safe }}</h2>
+        <p class="lead">{{ l.intro.lead }}</p>
+        <p>{{ l.intro.p }}</p>
+      </div>
+      <article class="lacc on-dark" id="acces-commune">
+        <span class="eyebrow">{{ ("Venir depuis " + l.commune) if l.commune else "Où on est" }}</span>
+        <h3 class="disp">{{ site.adresse.rue }}</h3>
+        <p>{{ site.adresse.ligneVille }} ({{ site.adresse.rueNl }})</p>
+        <div class="actions">{{ btn(site.googleFiche, "Itinéraire Google Maps", "light", "", "arrow-up-right", true) }}</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% if not isH %}
+{#- ============ CrossFit : autour du WOD ============ -#}
+<section class="sec" aria-labelledby="t-side">
+  <div class="wrap">
+    {{ secHead("À côté des cours", (l.side.h | localH), "t-side") }}
+    <div class="side">
+      <article class="side-team">
+        <figure class="ph">{% slot { slot: "ph-crossfit-photo-01", src: "crossfit-tous-ensemble.png", alt: "Un groupe de membres, mains au sol, s'encourage en riant pendant un exercice collectif", widths: [640, 1100, 1600], sizes: "(min-width: 961px) 60vw, 100vw" } %}</figure>
+        <div class="side-team-copy">
+          <span class="eyebrow">Le samedi</span>
+          <h3 class="disp side-t">Le Team WOD</h3>
+          <p>{{ l.side.team }}</p>
+          <div class="when">{% for h in horaires.blocs.teamwod.lignes[0].heures %}<span>{{ h }}</span>{% endfor %}</div>
+        </div>
+      </article>
+      <article class="side-card"><span class="eyebrow">Free Access</span><h3 class="disp side-t">Ton créneau en plus</h3><p>{{ l.side.free }}</p></article>
+      <article class="side-card dark on-dark"><span class="eyebrow">Le lounge</span><h3 class="disp side-t">On reste après la séance</h3><p>{{ l.side.lounge }}</p></article>
+      <article class="side-card orange"><span class="eyebrow">Xmile Health Lab</span><h3 class="disp side-t">Le bien-être du sportif</h3><p>{{ l.side.lab }}</p>
+        <div class="actions">{{ btn(site.healthLab, "Découvrir le Health Lab", "dark", "", "arrow-up-right", true) }}</div></article>
+    </div>
+  </div>
+</section>
+{% else %}
+{#- ============ Hyrox : en duo ============ -#}
+<section class="sec" aria-labelledby="t-duo">
+  <div class="wrap">
+    <div class="duo3">
+      <div class="duo3-head">
+        <span class="eyebrow">En duo</span>
+        <h2 class="disp h2" id="t-duo">{{ l.duo.h | localH | safe }}</h2>
+      </div>
+      <div class="slot">{% slot { slot: "ph-deux-membres-en-duo-hyrox-l-un-pousse-le-sled-l-", src: "hyrox-duo.jpg", alt: "Deux membres se tapent dans la main pendant un passage en duo Hyrox", widths: [480, 960], sizes: "(min-width: 961px) 30vw, 90vw" } %}</div>
+      <div class="duo3-copy">
+        {%- for t in (l.duo.p if l.duo.p | isArray else [l.duo.p]) %}<p>{{ t }}</p>{% endfor %}
+        {%- if l.slug != "hyrox-duo" %}{{ tlink("/hyrox-duo/", "S'entraîner à deux pour l'Hyrox") }}{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{#- ============ Coachs, horaires, tarifs, avis, FAQ ============ -#}
+{%- set coachCourse = l.course -%}{%- set coachId = "coachs" -%}{%- set coachEyebrow = "Les coachs" -%}
+{%- set coachTitle = (l.coach.h | localH) -%}{%- set coachLead = l.coach.lead -%}
+{%- set coachLink = false -%}{%- set coachTags = true -%}{%- set coachAlt = true -%}
+{% include "partials/coach-rail.njk" %}
+
+{%- set schedTitle = (l.sched.h | localH) -%}{%- set schedLead = l.sched.lead -%}
+{%- set schedBlocs = (["hyrox"] if isH else ["crossfit", "teamwod"]) -%}{%- set spgCourse = l.course -%}{%- set spgTitle = "" -%}{%- set spgHint = "" -%}{%- set spgEager = false -%}
+{% include "partials/schedule-section.njk" %}
+
+{%- set priceHighlight = (l.price.hl or "unlimited") -%}{%- set priceTag = "Notre conseil" -%}{%- set priceCourse = l.course -%}{%- set priceTitle = "" -%}{%- set priceLead = l.price.lead -%}
+{% include "partials/prices.njk" %}
+
+{% set reviewsFlush = true %}{% include "partials/reviews.njk" %}
+
+{%- set faqTitle = (l.faq.h | localH) -%}{%- set faqLead = "" -%}{%- set faqFlush = false -%}
+{%- set faqItems = [] -%}
+{%- for it in l.faq.items %}{% set faqItems = (faqItems.push({ q: it[0], a: (it[1] | localP) }), faqItems) %}{% endfor -%}
+{% include "partials/faq.njk" %}
+
+{% set currentCourse = l.course %}{% include "partials/next-courses.njk" %}
+
+{% set finalTitle = l.cta[0] %}{% set finalText = l.cta[1] %}{% set finalHref = "" %}{% set finalLabel = "" %}
+{% include "partials/final-cta.njk" %}

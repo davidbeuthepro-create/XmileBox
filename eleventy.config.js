@@ -92,6 +92,7 @@ function slotPicture(o) {
   const entry = o.slot ? photos[o.slot] : null;
   let file = o.src || null;
   if (entry && entry.file) file = entry.file;
+  if (!file && o.label) return `<div class="ph-empty" role="img" aria-label="${esc(o.alt || o.label)}"><span>${esc(o.label)}</span></div>`;
   if (!file) {
     return `<div class="ph-empty" role="img" aria-label="${esc(o.todo || o.alt || 'Photo à ajouter')}"><span class="todo">[À COMPLÉTER : ${esc(o.todo || o.alt || 'photo')}]</span></div>`;
   }
@@ -134,6 +135,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addShortcode('icon', (name, size, cls) => icon(name, size, cls));
   eleventyConfig.addShortcode('todo', text => `<span class="todo">[${esc(text)}]</span>`);
 
+  // Titres des pages locales : ["début", "mot orange", "fin"] -> HTML ; paragraphes : texte ou liste de textes -> <p>
+  eleventyConfig.addFilter('localH', h => Array.isArray(h) ? `${esc(h[0])} <span class="acc">${esc(h[1])}</span>${h[2] ? ' ' + esc(h[2]) : ''}` : esc(h));
+  eleventyConfig.addFilter('localP', a => (Array.isArray(a) ? a : [a]).map(t => `<p>${esc(t)}</p>`).join(''));
   eleventyConfig.addFilter('isArray', v => Array.isArray(v));
   eleventyConfig.addFilter('match', (s, re) => new RegExp(re).test(s));
   eleventyConfig.addFilter('json', v => JSON.stringify(v));

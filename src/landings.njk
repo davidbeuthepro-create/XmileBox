@@ -1,0 +1,56 @@
+---
+layout: layouts/base.njk
+bodyClass: v2
+scripts: [v2]
+date: git Last Modified
+pagination:
+  data: landings
+  size: 1
+  alias: l
+permalink: "{{ l.url }}"
+eleventyComputed:
+  title: "{{ l.metaTitle }}"
+  description: "{{ l.metaDesc }}"
+---
+{%- from "partials/macros.njk" import secHead, btn, tlink -%}
+{#- Pages locales conservées (Ixelles, Laeken, Saint-Gilles, Anderlecht, Jette, Drogenbos, salle de sport Woluwe) :
+    gabarit de la maquette, texte de _migration/landings/. Titre et description repris à l'identique. -#}
+{%- set hero = { video: "/assets/video/ambiance.mp4", poster: "crossfit-tous-ensemble.png",
+  crumbs: [["/crossfit/", "CrossFit"]], crumb: l.kicker, h1: l.h1,
+  cta: { href: "/seance-essai/", label: "Réserve ta séance d'essai" }, link: { href: "#horaires", label: "Voir les horaires" },
+  facts: [["1 h", "encadrée par un coach"], ["Lun au ven", "jusqu'à 6 cours par jour"], ["Samedi", "Team WOD par équipes"]] } -%}
+{% include "partials/hero-v2.njk" %}
+
+{%- for s in l.sections %}
+{%- if s.kind == "horaires" %}
+{%- set schedId = "horaires" -%}{%- set schedEyebrow = s.eyebrow -%}{%- set schedTitle = s.title -%}{%- set schedLead = s.text -%}
+{%- set schedBlocs = ["crossfit", "teamwod"] -%}{%- set spgCourse = "crossfit" -%}{%- set spgTitle = "" -%}{%- set spgHint = "" -%}{%- set spgEager = false -%}
+{% include "partials/schedule-section.njk" %}
+{%- elif s.kind == "avis" %}
+<section class="sec" aria-labelledby="t-s{{ loop.index }}" style="background:var(--bg-alt)">
+  <div class="wrap">
+    {{ secHead(s.eyebrow, s.title, "t-s" + loop.index, s.text) }}
+    <div class="ti-wrap" data-trustindex="{{ site.trustindexId }}"></div>
+    <div class="reviews-meta">{% include "partials/badge-google.njk" %}{{ tlink(avis.lien, "Voir tous les avis sur Google", true) }}</div>
+  </div>
+</section>
+{%- else %}
+<section class="sec" aria-labelledby="t-s{{ loop.index }}"{% if loop.index0 % 2 == 1 %} style="background:var(--bg-alt)"{% endif %}>
+  <div class="wrap">
+    <div class="land">
+      <div class="land-head">{% if s.eyebrow %}<span class="eyebrow">{{ s.eyebrow }}</span>{% endif %}<h2 class="disp h2" id="t-s{{ loop.index }}">{{ s.title }}</h2></div>
+      <div class="land-body">
+        {{ s.html | safe }}
+        {%- if s.kind == "inscription" %}<p class="land-cta">{{ btn("/seance-essai/", "Réserve ta séance d'essai", "primary", "lg", "arrow-up-right") }}</p>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif %}
+{%- endfor %}
+
+{%- set priceHighlight = "unlimited" -%}{%- set priceTag = "Notre conseil" -%}{%- set priceCourse = "crossfit" -%}{%- set priceTitle = "" -%}{%- set priceLead = "" -%}
+{% include "partials/prices.njk" %}
+
+{% set finalTitle = "" %}{% set finalText = "" %}{% set finalHref = "" %}{% set finalLabel = "" %}
+{% include "partials/final-cta.njk" %}
