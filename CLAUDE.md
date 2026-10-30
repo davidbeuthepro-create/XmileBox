@@ -41,13 +41,13 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
 
 ## Règles de contenu
 
-- Les textes sont ceux de la maquette. Ne pas les réécrire.
+- **La maquette est la référence pour tous les textes, landings et page Hyrox compris.** Ne pas les réécrire. En cas de conflit avec les règles 3 et 4 du README du pack, ce fichier l'emporte.
 - Tutoiement partout, sauf les pages légales (vouvoiement, c'est voulu). Aucun tiret cadratin.
 - Marqueurs `[À COMPLÉTER : …]`, `[À VALIDER : …]`, `[À CONFIRMER]` : conservés, visibles et surlignés. Ne jamais inventer de bio, chiffre, avis, logo ou événement.
 - Adresse identique partout : Avenue du Péage 63, 1932 Sint-Stevens-Woluwe. Écrire « aux portes de Bruxelles » ou « à Woluwe », jamais une adresse bruxelloise.
 - Aucun nom de coach en dur : tous les blocs coachs viennent de `coachs.json`, filtrés par discipline. Un départ = une entrée en moins, rien d'autre à toucher.
-- Landings : title, meta description, H1 et texte de `_migration/landings/*.md` repris à l'identique (règle 3 du README).
-- Hyrox : les sections longues de `_migration/pages-existantes/preparation-hyrox.md` sont conservées avec leurs H2/H3 (règle 4 du README).
+- Landings et `/preparation-hyrox/` : texte de la maquette. Du pack (`_migration/landings/*.md`, `_migration/pages-existantes/preparation-hyrox.md`), on garde le **title** et la **meta description** à l'identique, car ce sont eux qui rankent aujourd'hui. Le texte du pack ne sert que de secours pour une landing absente de la maquette.
+- Si une landing ou la page Hyrox de la maquette est nettement plus courte que le contenu actuel du pack, le signaler à David dans le résumé d'étape, sans rien changer de toi-même.
 
 ## Règles HTML et SEO
 
