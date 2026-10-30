@@ -1,0 +1,131 @@
+---
+layout: layouts/base.njk
+permalink: /kids-teens/
+title: "CrossFit Kids & Teens à Bruxelles, de 6 à 16 ans · Xmile CrossFit Woluwe"
+description: "CrossFit Kids (6-10 ans) et Teens (11-16 ans) à Woluwe, à l'est de Bruxelles. Un créneau fixe chaque semaine, le même coach, le Passeport Athlète. Saison de septembre à juin."
+bodyClass: v2
+scripts: [v2]
+date: git Last Modified
+---
+{%- from "partials/macros.njk" import secHead, btn, checks -%}
+{%- set hero = { slot: "ph-hero-kids", src: "kids.jpg", alt: "Un coach Xmile accroupi donne une consigne à deux enfants, cadrés sans leur visage", crumb: "Kids & Teens",
+  h1: "CrossFit Kids &amp; Teens <span class=\"acc\">à Bruxelles</span>",
+  sub: "De 6 à 16 ans, ton enfant s'entraîne sur un créneau fixe chaque semaine. Il retrouve les mêmes copains et le même coach, et apprend à courir, sauter, porter et grimper avec une technique propre.",
+  cta: { href: "#inscription", label: "Inscrire mon enfant", icon: "arrow-down" }, link: { href: "#tarifs", label: "Voir les tarifs" },
+  facts: [["6 - 10 ans", "CrossFit Kids"], ["11 - 16 ans", "CrossFit Teens"], ["Créneau fixe", "mêmes copains, même coach"]] } -%}
+{% include "partials/hero-v2.njk" %}
+
+{% set asideHtml %}<figure class="ph">{% slot { slot: "ph-kids-bear-crawl", src: "kids-bear-crawl.jpg", alt: "Un groupe d'enfants avance à quatre pattes sur le sol de la box, sous le regard du coach", widths: [480, 960], sizes: "(min-width: 961px) 45vw, 90vw" } %}</figure>{% endset %}
+{%- set pq = { id: "principe", eyebrow: "Le principe", title: "Un créneau fixe, <span class=\"acc\">les mêmes copains</span>",
+  items: [{ t: "Les mêmes copains chaque semaine", d: "Le même groupe d'enfants, semaine après semaine." }, { t: "Des coachs qui donnent leur passion", d: "Ils connaissent chaque enfant et sa progression." }, { t: "Un moment rien qu'à eux", d: "Dans leur semaine, un temps pour se dépasser : le mercredi, le samedi, ou les deux." }],
+  aside: asideHtml } -%}
+{% include "partials/pq-section.njk" %}
+
+{%- macro groupe(age, nom, texte, bloc, bg, fg, sombre) %}
+<div class="notch{% if sombre %} dark-n{% endif %}" style="--n-bg:{{ bg }};--n-fg:{{ fg }}"><div class="notch-body">
+  <div class="tile">
+    <span class="tile-meta">{{ nom }}</span>
+    <span class="group-age disp">{{ age }}</span>
+    <p>{{ texte }}</p>
+    <ul class="group-slots">{% for l in bloc.lignes %}<li><strong>{{ l.jour }}</strong><span>{{ l.heures[0] }} · {{ l.heures[1] }}</span></li>{% endfor %}</ul>
+  </div>
+</div></div>
+{%- endmacro %}
+<section class="sec" aria-labelledby="t-groups" style="background:var(--bg-alt)">
+  <div class="wrap">
+    {{ secHead("Deux groupes d'âge", "Kids et <span class=\"acc\">Teens</span>", "t-groups", "Chaque groupe a deux séances par semaine : le mercredi endurance et force, le samedi CrossFit. Tu choisis l'une, l'autre ou les deux.") }}
+    <div class="groups">
+      {{ groupe("6 - 10 ans", "CrossFit Kids", "Courir, sauter, ramper, lancer : les bases du mouvement, sous forme de jeux et de défis.", horaires.blocs.kids, "var(--xm-orange-500)", "var(--xm-green-950)", false) }}
+      {{ groupe("11 - 16 ans", "CrossFit Teens", "Les vrais mouvements du CrossFit, appris avec une technique propre et des charges adaptées à leur âge.", horaires.blocs.teens, "var(--xm-green-950)", "#fff", true) }}
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-pass">
+  <div class="wrap">
+    <div class="passport-wrap">
+      <div class="pass-copy" style="display:flex;flex-direction:column;gap:20px">
+        <span class="eyebrow">Le Passeport Athlète</span>
+        <h2 class="disp h2" id="t-pass">Chaque progrès <span class="acc">mérite son badge</span></h2>
+        <p class="lead">Chaque enfant a son Passeport Athlète. Quand il réussit un nouveau mouvement, il le fait badger. Il voit ses progrès noir sur blanc, et il a envie de revenir pour le suivant.</p>
+        <p>{% todo "À COMPLÉTER : liste des badges du passeport" %}</p>
+      </div>
+      <figure class="passport" style="margin:0" aria-label="Illustration du Passeport Athlète : une carte avec des badges à faire tamponner">
+        <div class="passport-top">{% img { src: "logo-white.png", alt: "", widths: [128, 256], sizes: "64px" } %}<span class="passport-title">Passeport<br>Athlète</span></div>
+        <div class="passport-name"><span>Prénom</span><span></span></div>
+        <div class="stamps">{% for i in range(0, 12) %}<span class="stamp{% if i < 5 %} on{% endif %}">{% if i < 5 %}{% icon "check", 22 %}{% endif %}</span>{% endfor %}</div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-safe" style="background:var(--bg-alt)">
+  <div class="wrap">
+    {{ secHead("Sécurité et encadrement", "Ce qui compte <span class=\"acc\">pour toi</span>", "t-safe", "Tu confies ton enfant à un coach. Voilà comment on s'en occupe.") }}
+    <div class="kid-safe">
+      <ul class="incl">
+        <li><h3>Encadrement</h3><p>Un coach dédié à chaque groupe, attentif à chaque enfant.</p></li>
+        <li><h3>Charges adaptées</h3><p>Le poids du corps d'abord. Les charges arrivent progressivement, adaptées à l'âge et au gabarit.</p></li>
+        <li><h3>La technique avant tout</h3><p>On apprend le mouvement avant de le chronométrer.</p></li>
+      </ul>
+      <div class="kid-safe-ph">
+        <figure class="ph">{% slot { slot: "ph-kids-coach", src: "kids-coach.jpg", alt: "Le coach explique l'exercice suivant à un groupe d'enfants réunis autour de lui", widths: [480, 960], sizes: "(min-width: 961px) 30vw, 90vw" } %}</figure>
+        <figure class="ph">{% slot { slot: "ph-kids-plots", src: "kids-plots.jpg", alt: "Des enfants accroupis posent leurs plots au sol avant un exercice", widths: [480, 960], sizes: "(min-width: 961px) 30vw, 90vw" } %}</figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- set coachCourse = "kids" -%}{%- set coachId = "coachs" -%}{%- set coachEyebrow = "Les coachs" -%}
+{%- set coachTitle = "Le coach <span class=\"acc\">de ton enfant</span>" -%}
+{%- set coachLead = "Celles et ceux qui encadrent les groupes Kids et Teens." -%}
+{%- set coachLink = false -%}{%- set coachTags = true -%}{%- set coachAlt = false -%}
+{% include "partials/coach-rail.njk" %}
+
+{%- set schedId = "inscription" -%}{%- set schedEyebrow = "Inscription" -%}
+{%- set schedTitle = "Inscrire <span class=\"acc\">mon enfant</span>" -%}{%- set schedLead = "" -%}
+{%- set schedBlocs = ["kids", "teens"] -%}{%- set spgCourse = "kids" -%}{%- set spgTitle = "Réserve son créneau" -%}{%- set spgHint = "Clique sur un créneau Kids ou Teens pour réserver." -%}{%- set spgEager = false -%}
+{% include "partials/schedule-section.njk" %}
+
+<section class="sec" id="tarifs" aria-labelledby="t-tarifs">
+  <div class="wrap">
+    {{ secHead("Tarifs Kids & Teens", "Les tarifs <span class=\"acc\">de la saison</span>", "t-tarifs", "Le tarif dépend du nombre de séances par semaine. La saison suit l'année scolaire, de septembre à juin.") }}
+    <div class="prices">
+      <div class="price-main kids">
+        {%- for p in tarifs.kids.formules %}
+        <article class="plan{% if loop.first %} hl{% endif %}">
+          <div class="plan-top"><h3 class="plan-name">{{ p.nom }}</h3>{% if p.etiquette %}<span class="plan-tag">{{ p.etiquette }}</span>{% endif %}</div>
+          <p class="plan-price">{{ p.prix }}<small>{{ p.periode }}</small></p>
+          <p class="plan-desc">{{ p.description }}</p>
+        </article>
+        {%- endfor %}
+        <article class="plan plan-note">
+          <h3 class="plan-name">{{ tarifs.kids.fratrie.nom }}</h3>
+          <p class="plan-price">{{ tarifs.kids.fratrie.prix }}<small>{{ tarifs.kids.fratrie.periode }}</small></p>
+          <p class="plan-desc">{{ tarifs.kids.fratrie.description }}</p>
+        </article>
+      </div>
+      <ul class="checks price-notes">
+        {%- for n in tarifs.kids.notes %}<li>{% icon "check", 18, "ck-ic" %}<span>{% if n.startsWith("todo:") %}{% todo n.slice(5) %}{% else %}{{ n }}{% endif %}</span></li>{% endfor %}
+      </ul>
+    </div>
+    <div class="price-cta">{{ btn("#inscription", "Inscrire mon enfant", "dark", "", "arrow-down") }}</div>
+  </div>
+</section>
+
+{% set reviewsFlush = true %}{% include "partials/reviews.njk" %}
+
+{%- set faqTitle = "Les questions <span class=\"acc\">des parents</span>" -%}{%- set faqLead = "" -%}{%- set faqFlush = false -%}
+{%- set faqItems = [
+  { q: "Mon enfant n'est pas sportif, il peut venir ?", a: "<p>Oui. Le cours n'est pas réservé aux enfants déjà sportifs. Chacun avance à son rythme, et le coach adapte chaque exercice.</p>" },
+  { q: "Le CrossFit, ce n'est pas trop dur pour un enfant ?", a: "<p>Le cours Kids n'est pas une version réduite du cours adulte. Les mouvements, les volumes et les charges sont pensés pour leur âge, et le coach adapte à chaque enfant.</p>" },
+  { q: "Il peut changer de créneau en cours de saison ?", a: "<p><span class=\"todo\">[À COMPLÉTER : règle pour changer de créneau en cours de saison]</span></p>" },
+  { q: "Comment se passe le paiement ?", a: "<p>Par domiciliation chaque mois, ou en deux fois : septembre à janvier, puis février à juin. À partir du deuxième enfant de la même famille, -10 %.</p>" },
+  { q: "Qu'est-ce qu'il doit apporter ?", a: "<p>Une tenue de sport, des baskets propres et une gourde.</p>" }
+] -%}
+{% include "partials/faq.njk" %}
+
+{% set currentCourse = "kids" %}{% include "partials/next-courses.njk" %}
+
+{% set finalTitle = "Inscris ton enfant à son créneau" %}{% set finalText = "Le mercredi, le samedi ou les deux. Il retrouve chaque semaine le même groupe et le même coach." %}{% set finalHref = "#inscription" %}{% set finalLabel = "Inscrire mon enfant" %}
+{% include "partials/final-cta.njk" %}

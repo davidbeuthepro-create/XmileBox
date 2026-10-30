@@ -1,8 +1,8 @@
 {#- Horaires en texte (lisibles par Google) + cadre Sportigo. Variables : schedTitle, schedLead, schedBlocs ["crossfit","teamwod"], spgCourse -#}
 {%- from "partials/macros.njk" import secHead -%}
-<section class="sec" id="horaires" aria-labelledby="t-horaires" style="background:var(--bg-alt)">
+<section class="sec" id="{{ schedId or 'horaires' }}" aria-labelledby="t-{{ schedId or 'horaires' }}" style="background:var(--bg-alt)">
   <div class="wrap">
-    {{ secHead("Horaires et réservation", schedTitle, "t-horaires", schedLead) }}
+    {{ secHead(schedEyebrow or "Horaires et réservation", schedTitle, "t-" + (schedId or "horaires"), schedLead) }}
     <div class="sched-grid">
       <div class="sched-list">
         {%- for b in schedBlocs %}{% set bloc = horaires.blocs[b] %}

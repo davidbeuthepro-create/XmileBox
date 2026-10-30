@@ -1,0 +1,25 @@
+{#- Hyrox : comment le cours prépare (programmation officielle + séances des coachs) + bande des 8 stations -#}
+{%- set stations = ["SkiErg", "Sled Push", "Sled Pull", "Burpee Broad Jumps", "Rameur", "Farmers Carry", "Sandbag Lunges", "Wall Balls"] -%}
+<section class="sec" id="preparation" aria-labelledby="t-prep">
+  <div class="wrap">
+    <div class="hxp">
+      <figure class="ph">{% slot { slot: "ph-hyrox-prep", src: "hyrox-prep.jpg", alt: "Une membre en sweat vert rame à l'ergomètre pendant une séance Hyrox", widths: [480, 960], sizes: "(min-width: 961px) 45vw, 90vw" } %}</figure>
+      <div class="hxp-copy">
+        <span class="eyebrow">Comment on te prépare</span>
+        <h2 class="disp h2" id="t-prep">Des cours <span class="acc">dédiés à l'Hyrox</span></h2>
+        <p class="lead">Deux types de séances dans la semaine, pour progresser jusqu'au jour de ta course.</p>
+        <ol class="tips hxp-tips">
+          <li><h3>La programmation officielle Hyrox</h3><p>Xmile est affiliée Hyrox Training Club : une partie des cours suit les séances programmées par Hyrox, sur les stations et les formats de la course.</p></li>
+          <li><h3>Les séances de nos coachs</h3><p>Construites par les coachs pour améliorer ta condition physique et ton temps : force, endurance, allure de course et transitions.</p></li>
+        </ol>
+      </div>
+    </div>
+    <div class="hxp-band">
+      <span class="hxp-band-l">Les 8 stations, travaillées en cours</span>
+      <div class="hxp-mq"><div class="hxp-track">
+        <ul class="hxp-row">{% for s in stations %}<li><span class="hxp-x" aria-hidden="true"></span>{{ s }}</li>{% endfor %}</ul>
+        <ul class="hxp-row" aria-hidden="true">{% for s in stations %}<li><span class="hxp-x" aria-hidden="true"></span>{{ s }}</li>{% endfor %}</ul>
+      </div></div>
+    </div>
+  </div>
+</section>

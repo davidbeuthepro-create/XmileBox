@@ -1,0 +1,17 @@
+{#- Hero des pages cours. Variable : hero {slot, src, alt, todo, video, crumb, h1, sub, cta {href,label,icon}, link {href,label}, facts [[valeur, légende]]} -#}
+{%- from "partials/macros.njk" import btn -%}
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-slab on-dark" id="hero-slab" data-m="hero">
+    <div class="hero-bg">{% slot { slot: hero.slot, src: hero.src, alt: hero.alt, todo: hero.todo, widths: [640, 1280, 1920], sizes: "100vw", eager: true } %}{% if hero.video %}<video src="{{ hero.video }}" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>{% endif %}</div>
+    <div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/#cours">Nos cours</a></li><li aria-current="page">{{ hero.crumb }}</li></ol></nav></div>
+    <div class="hero-main">
+      <h1 class="disp hero-h1 vh" id="h1">{{ hero.h1 | safe }}</h1>
+      <p class="hero-sub">{{ hero.sub }}</p>
+      <div class="hero-bar">
+        {{ btn(hero.cta.href, hero.cta.label, "primary", "lg", hero.cta.icon or "arrow-up-right") }}
+        <a class="tlink" href="{{ hero.link.href }}">{{ hero.link.label }}{% icon hero.link.icon or "arrow-down", 16 %}</a>
+        <ul class="vh-facts">{% for f in hero.facts %}<li><strong>{{ f[0] }}</strong><span>{{ f[1] }}</span></li>{% endfor %}</ul>
+      </div>
+    </div>
+  </div>
+</section>

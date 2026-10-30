@@ -1,0 +1,89 @@
+---
+layout: layouts/base.njk
+permalink: /halterophilie/
+title: "Haltérophilie, Strongman et Powerlifting à Bruxelles · Xmile CrossFit Woluwe"
+description: "Haltérophilie olympique, Strongman et Powerlifting à Woluwe, à l'est de Bruxelles. Du débutant au compétiteur, cours encadrés 4 fois par semaine. Séance d'essai gratuite."
+bodyClass: v2
+scripts: [v2]
+date: git Last Modified
+---
+{%- set hero = { slot: "ph-hero-halterophilie", src: "halterophilie.jpg", alt: "Un membre en t-shirt Xmile se prépare à soulever une barre chargée, d'autres membres l'observent en attendant leur tour", crumb: "Haltérophilie",
+  h1: "Haltérophilie <span class=\"acc\">à Bruxelles</span>",
+  sub: "Arraché, épaulé-jeté, squat, soulevé de terre : deux disciplines de force, encadrées par des coachs spécialisés. On part de la technique, et la barre se charge quand tu es prêt.",
+  cta: { href: "/seance-essai/", label: "Réserve ta séance d'essai" }, link: { href: "#horaires", label: "Voir les horaires" },
+  facts: [["2 disciplines", "olympique, Strongman / Powerlifting"], ["4 séances", "par semaine"], ["Tous niveaux", "du débutant au compétiteur"]] } -%}
+{% include "partials/hero-v2.njk" %}
+
+{%- set pq = { eyebrow: "Pour qui ?", title: "On ne commence pas fort, <span class=\"acc\">on commence propre</span>",
+  items: [{ t: "Jamais touché une barre", d: "Positions à vide, la charge vient ensuite." }, { t: "Tu fais du CrossFit", d: "Des arrachés et des épaulés plus solides." }, { t: "Tu vises la compétition", d: "Programmation individuelle et suivi des charges." }] } -%}
+{% include "partials/pq-section.njk" %}
+
+{%- macro tt(bloc) %}
+<div class="tt"><h3 class="tt-h">{{ bloc.titre }}</h3><dl>{% for l in bloc.lignes %}<div class="tt-row"><dt>{{ l.jour }}</dt><dd>{% for h in l.heures %}<span class="tt-t">{{ h }}</span>{% endfor %}</dd></div>{% endfor %}</dl></div>
+{%- endmacro %}
+
+<section class="sec" aria-labelledby="t-olymp" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="split">
+      <div class="slot">{% slot { slot: "ph-un-membre-en-reception-d-arrache-barre-au-dessus", alt: "Un membre en réception d'arraché, barre au-dessus de la tête, le coach à côté qui observe", todo: "photo d'un membre en réception d'arraché, barre au-dessus de la tête, le coach à côté qui observe", widths: [480, 960], sizes: "(min-width: 961px) 45vw, 90vw" } %}</div>
+      <div class="split-copy">
+        <span class="eyebrow">Discipline 1</span>
+        <h2 class="disp h2" id="t-olymp">Haltérophilie <span class="acc">olympique</span></h2>
+        <ul class="lifts"><li>Arraché</li><li>Épaulé-jeté</li></ul>
+        <p>Deux mouvements où la vitesse et la technique comptent autant que la force. On les découpe en positions, on les répète à vide, puis on charge progressivement.</p>
+        {{ tt(horaires.blocs.halterophilie) }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="t-power">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="slot">{% slot { slot: "ph-un-membre-au-squat-lourd-deux-membres-derriere-l", alt: "Un membre au squat lourd, deux membres derrière lui qui assurent la barre et l'encouragent", todo: "photo d'un membre au squat lourd, deux membres derrière lui qui assurent la barre", widths: [480, 960], sizes: "(min-width: 961px) 45vw, 90vw" } %}</div>
+      <div class="split-copy">
+        <span class="eyebrow">Discipline 2</span>
+        <h2 class="disp h2" id="t-power">Strongman <span class="acc">et Powerlifting</span></h2>
+        <ul class="lifts"><li>Squat</li><li>Développé couché</li><li>Soulevé de terre</li><li>Épreuves strongman</li></ul>
+        <p>Trois mouvements de force pure, et des épreuves strongman pour varier. Le samedi matin, c'est l'heure où on cherche ses records, encouragé par ceux qui attendent leur tour à la barre.</p>
+        {{ tt(horaires.blocs.strongman) }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- set dr = { id: "progression", eyebrow: "Ta progression", title: "Du débutant <span class=\"acc\">au compétiteur</span>", slot: "ph-deroule-halterophilie", src: "groupe-membres.jpg", alt: "Photo de fond : une séance d'haltérophilie à la box",
+  items: [{ t: "La technique", d: "Positions et placements, à vide ou léger." }, { t: "La force", d: "Des cycles de charges, suivis séance après séance." }, { t: "La compétition", chaud: true, d: "Pour ceux qui veulent monter sur un plateau." }] } -%}
+{% include "partials/pintrack.njk" %}
+
+{%- set coachCourse = "halterophilie" -%}{%- set coachId = "coachs" -%}{%- set coachEyebrow = "Les coachs" -%}
+{%- set coachTitle = "L'équipe <span class=\"acc\">force</span>" -%}
+{%- set coachLead = "Les coachs qui encadrent l'haltérophilie olympique, le Strongman et le Powerlifting." -%}
+{%- set coachLink = false -%}{%- set coachTags = true -%}{%- set coachAlt = false -%}
+{% include "partials/coach-rail.njk" %}
+
+{%- set schedTitle = "Choisis <span class=\"acc\">ton créneau</span>" -%}
+{%- set schedLead = "Pour une séance d'essai, choisis un cours Haltérophilie ou Strongman / Powerlifting encadré, pas un créneau Free Access." -%}
+{%- set schedBlocs = ["halterophilie", "strongman"] -%}{%- set spgCourse = "halterophilie" -%}{%- set spgTitle = "" -%}{%- set spgHint = "" -%}{%- set spgEager = false -%}
+{% include "partials/schedule-section.njk" %}
+
+{%- set priceHighlight = "easy" -%}{%- set priceTag = "Notre conseil" -%}{%- set priceCourse = "halterophilie" -%}{%- set priceTitle = "" -%}
+{%- set priceLead = "Une seule grille pour tous les cours adultes. Pour une ou deux séances de force par semaine, l'Easy Peasy suffit." -%}
+{% include "partials/prices.njk" %}
+
+{% set reviewsFlush = true %}{% include "partials/reviews.njk" %}
+
+{%- set faqTitle = "Avant ta <span class=\"acc\">première barre</span>" -%}{%- set faqLead = "" -%}{%- set faqFlush = false -%}
+{%- set faqItems = [
+  { q: "Je ne suis pas assez fort pour l'haltérophilie.", a: "<p>Personne ne l'est au départ. Les premières séances se font à vide ou avec des charges légères, et le coach adapte la progression à chacun.</p>" },
+  { q: "C'est mauvais pour le dos ?", a: "<p>Ce qui protège ton dos, c'est la technique. C'est pour ça qu'on la travaille avant la charge, et que le coach corrige chaque répétition. Une gêne ? Le Xmile Health Lab (kiné) est à la même adresse.</p>" },
+  { q: "Quelle différence entre haltérophilie et Powerlifting ?", a: "<p>L'haltérophilie olympique, c'est l'arraché et l'épaulé-jeté : des mouvements rapides et techniques. Le Powerlifting, c'est le squat, le développé couché et le soulevé de terre : de la force pure, plus lente.</p>" },
+  { q: "Je peux combiner avec le CrossFit ?", a: "<p>Oui, c'est la même grille de tarifs. Avec l'Unlimited, tu as accès à tous les cours.</p>" },
+  { q: "Faut-il des chaussures spéciales ?", a: "<p>Pas pour commencer : des baskets plates et stables suffisent. Si tu continues, des chaussures d'haltérophilie aident pour le squat et les mouvements olympiques.</p>" }
+] -%}
+{% include "partials/faq.njk" %}
+
+{% set currentCourse = "halterophilie" %}{% include "partials/next-courses.njk" %}
+
+{% set finalTitle = "Viens soulever ta première barre" %}{% set finalText = "Séance d'essai gratuite et sans engagement. Choisis un créneau Haltérophilie ou Strongman / Powerlifting, on commence par la technique." %}{% set finalHref = "" %}{% set finalLabel = "" %}
+{% include "partials/final-cta.njk" %}

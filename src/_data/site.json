@@ -28,13 +28,49 @@
   "googleFiche": "https://www.google.com/maps/search/?api=1&query=CrossFit+Xmile+Avenue+du+P%C3%A9age+63+1932+Sint-Stevens-Woluwe",
   "googleMapsEmbedQuery": "Avenue du Péage 63, 1932 Sint-Stevens-Woluwe",
   "ouverture": [
-    { "jours": "Lun - jeu", "heures": "6h30 - 21h", "schemaJours": ["Monday", "Tuesday", "Wednesday", "Thursday"], "ouvre": "06:30", "ferme": "21:00" },
-    { "jours": "Vendredi", "heures": "6h30 - 20h", "schemaJours": ["Friday"], "ouvre": "06:30", "ferme": "20:00" },
-    { "jours": "Samedi", "heures": "7h - 12h", "schemaJours": ["Saturday"], "ouvre": "07:00", "ferme": "12:00" },
-    { "jours": "Dimanche", "heures": "7h - 13h", "schemaJours": ["Sunday"], "ouvre": "07:00", "ferme": "13:00" }
+    {
+      "jours": "Lun - jeu",
+      "heures": "6h30 - 21h",
+      "schemaJours": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday"
+      ],
+      "ouvre": "06:30",
+      "ferme": "21:00"
+    },
+    {
+      "jours": "Vendredi",
+      "heures": "6h30 - 20h",
+      "schemaJours": [
+        "Friday"
+      ],
+      "ouvre": "06:30",
+      "ferme": "20:00"
+    },
+    {
+      "jours": "Samedi",
+      "heures": "7h - 12h",
+      "schemaJours": [
+        "Saturday"
+      ],
+      "ouvre": "07:00",
+      "ferme": "12:00"
+    },
+    {
+      "jours": "Dimanche",
+      "heures": "7h - 13h",
+      "schemaJours": [
+        "Sunday"
+      ],
+      "ouvre": "07:00",
+      "ferme": "13:00"
+    }
   ],
   "metaDefaut": {
     "titre": "CrossFit & Hyrox à Bruxelles · Xmile CrossFit Woluwe",
     "description": "Box de CrossFit, Hyrox et haltérophilie à Woluwe, à l'est de Bruxelles. Premier cours encadré, tous niveaux, séance d'essai gratuite et sans engagement."
-  }
+  },
+  "trustindexBadgeId": "ac5db5f82d638307d2661141b00"
 }

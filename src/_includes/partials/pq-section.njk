@@ -1,0 +1,20 @@
+{#- « Pour qui » : titre à gauche, profils à droite. Variable : pq {id, eyebrow, title, lead, items [{t,d}], after (HTML), aside (HTML : photo à droite), alt} -#}
+{%- set tid = "t-" + (pq.id or "who") -%}
+<section class="sec"{% if pq.id %} id="{{ pq.id }}"{% endif %} aria-labelledby="{{ tid }}"{% if pq.alt %} style="background:var(--bg-alt)"{% endif %}>
+  <div class="wrap">
+    <div class="pq{% if pq.aside %} pq-aside{% endif %}">
+      <div class="pq-head">
+        <span class="eyebrow">{{ pq.eyebrow }}</span>
+        <h2 class="disp h2" id="{{ tid }}">{{ pq.title | safe }}</h2>
+        {%- if pq.lead %}<p class="lead">{{ pq.lead }}</p>{% endif %}
+        {%- if pq.aside %}
+        <ul class="pq-list">{% for it in pq.items %}<li class="pq-it"><h3 class="disp pq-t">{{ it.t }}</h3>{% if it.d %}<p>{{ it.d }}</p>{% endif %}</li>{% endfor %}</ul>
+        {%- endif %}
+        {%- if pq.after %}<div class="pq-after">{{ pq.after | safe }}</div>{% endif %}
+      </div>
+      {%- if pq.aside %}{{ pq.aside | safe }}{% else %}
+      <ul class="pq-list">{% for it in pq.items %}<li class="pq-it"><h3 class="disp pq-t">{{ it.t }}</h3>{% if it.d %}<p>{{ it.d }}</p>{% endif %}</li>{% endfor %}</ul>
+      {%- endif %}
+    </div>
+  </div>
+</section>
