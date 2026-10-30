@@ -1,0 +1,61 @@
+{#- Grille tarifs adultes (src/_data/tarifs.json) + tableau « quel cours avec quelle formule ». Variables : priceHighlight, priceTag, priceCourse, priceTitle, priceLead -#}
+{%- from "partials/macros.njk" import secHead, btn, checks -%}
+{%- set t = tarifs.adultes -%}
+<section class="sec" id="tarifs" aria-labelledby="t-tarifs">
+  <div class="wrap">
+    {{ secHead("Tarifs", priceTitle or "Les <span class=\"acc\">tarifs</span>", "t-tarifs", priceLead or "Une seule grille pour tous les cours adultes. Tu choisis selon le nombre de séances par semaine.") }}
+    <div class="prices">
+      <div class="price-main">
+        {%- for p in t.formules %}{% if p.principale %}
+        <article class="plan{% if p.id == priceHighlight %} hl{% endif %}">
+          <div class="plan-top"><h3 class="plan-name">{{ p.nom }}</h3>{% if p.id == priceHighlight %}<span class="plan-tag">{{ priceTag or "Notre conseil" }}</span>{% endif %}</div>
+          <p class="plan-price">{{ p.prix }}<small>{{ p.periode }}</small></p>
+          <p class="plan-desc">{{ p.description }}</p>
+        </article>
+        {%- endif %}{% endfor %}
+      </div>
+      <div class="price-alt">
+        {%- for p in t.formules %}{% if not p.principale %}
+        <article class="plan-mini{% if p.id == priceHighlight %} hl{% endif %}"><div><h3>{{ p.nom }}</h3><p>{{ p.description }}</p></div><strong>{{ p.prix }}</strong></article>
+        {%- endif %}{% endfor %}
+        <article class="plan-mini"><div><h3>{{ t.partenaires.nom }}</h3><p>{{ t.partenaires.description }}</p></div><strong class="sm">{{ t.partenaires.prix }}</strong></article>
+      </div>
+      {{ checks(t.notes, "price-notes") }}
+      <div class="price-cta">{{ btn(site.boutiqueSportigo, "Je m'abonne", "dark", "", "arrow-up-right", true) }}{{ btn("/seance-essai/", "D'abord une séance d'essai", "outline") }}</div>
+    </div>
+    {%- if priceCourse %}
+    {% set cols = [] %}{% for g in t.acces.groupes %}{% for c in g[1] %}{% set cols = (cols.push(c), cols) %}{% endfor %}{% endfor %}
+    <div class="cmp">
+      <div class="cmp-head">
+        <h3 class="disp h3" id="t-cmp">Quel cours avec <span class="acc">quelle formule ?</span></h3>
+        <p>Coche ce que tu veux faire dans la semaine, et regarde quelle formule le couvre.</p>
+      </div>
+      <div class="cmp-wrap" role="region" aria-labelledby="t-cmp" tabindex="0">
+        <table class="cmp-t">
+          <thead>
+            <tr class="cmp-groups"><td></td>{% for g in t.acces.groupes %}<th scope="colgroup" colspan="{{ g[1].length }}">{{ g[0] }}</th>{% endfor %}</tr>
+            <tr class="cmp-cols"><td></td>{% for c in cols %}<th scope="col"{% if c == priceHighlight %} class="hl"{% endif %}>{{ t.acces.colonnes[c] }}</th>{% endfor %}</tr>
+          </thead>
+          <tbody>
+            {%- for r in t.acces.lignes %}
+            <tr class="{{ 'cur ' if r.cle == priceCourse }}{{ 'cmp-pricerow' if r.prix }}">
+              <th scope="row">{{ r.libelle }}{% if r.cle == priceCourse %}<span class="cmp-here">Ce cours</span>{% endif %}</th>
+              {%- for c in cols %}{% set v = r.v[c] %}
+              <td{% if c == priceHighlight %} class="hl"{% endif %}>
+                {%- if v === true %}<span class="cmp-yes" aria-hidden="true"></span><span class="sr">Inclus</span>
+                {%- elif v === false %}<span class="cmp-no" aria-hidden="true"></span><span class="sr">Non inclus</span>
+                {%- elif v | isArray %}<span class="cmp-price">{{ v[0] }}{% if v[1] %}<small>{{ v[1] }}</small>{% endif %}</span>
+                {%- elif v.startsWith("todo:") %}{% todo v.slice(5) %}
+                {%- else %}<span class="cmp-txt">{{ v }}</span>{% endif -%}
+              </td>
+              {%- endfor %}
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-foot">Kids &amp; Teens a sa propre grille de tarifs, sur la page <a href="/kids-teens/">Kids &amp; Teens</a>. La carte 10 séances Pilates est disponible sur commande : <a href="mailto:{{ site.email }}">contacte-nous</a>.</p>
+    </div>
+    {%- endif %}
+  </div>
+</section>

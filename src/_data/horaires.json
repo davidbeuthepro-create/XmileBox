@@ -1,0 +1,255 @@
+{
+ "sportigo": {
+  "crossfit": [
+   12379,
+   12381,
+   14019,
+   21468,
+   23372,
+   12447,
+   14020,
+   31172
+  ],
+  "hyrox": [
+   12382
+  ],
+  "halterophilie": [
+   13269,
+   13945
+  ],
+  "pilates": [
+   30741
+  ],
+  "kids": [
+   12668,
+   13356
+  ]
+ },
+ "planning": {
+  "crossfit": [
+   "crossfit",
+   "teamwod"
+  ],
+  "hyrox": [
+   "hyrox"
+  ],
+  "halterophilie": [
+   "halterophilie",
+   "strongman"
+  ],
+  "pilates": [
+   "pilates"
+  ],
+  "kids": [
+   "kids",
+   "teens"
+  ]
+ },
+ "blocs": {
+  "crossfit": {
+   "titre": "CrossFit WOD",
+   "lignes": [
+    {
+     "jour": "Lundi",
+     "heures": [
+      "6h30",
+      "12h30",
+      "17h",
+      "18h",
+      "19h",
+      "20h"
+     ]
+    },
+    {
+     "jour": "Mardi",
+     "heures": [
+      "6h30",
+      "12h30",
+      "17h",
+      "18h",
+      "19h",
+      "20h"
+     ]
+    },
+    {
+     "jour": "Mercredi",
+     "heures": [
+      "6h30",
+      "12h30",
+      "17h",
+      "18h",
+      "19h",
+      "20h"
+     ]
+    },
+    {
+     "jour": "Jeudi",
+     "heures": [
+      "6h30",
+      "12h",
+      "17h",
+      "18h",
+      "19h",
+      "20h"
+     ]
+    },
+    {
+     "jour": "Vendredi",
+     "heures": [
+      "6h30",
+      "12h30",
+      "17h",
+      "18h",
+      "19h"
+     ]
+    }
+   ]
+  },
+  "teamwod": {
+   "titre": "Team WOD",
+   "lignes": [
+    {
+     "jour": "Samedi",
+     "heures": [
+      "9h",
+      "10h",
+      "11h"
+     ]
+    }
+   ]
+  },
+  "hyrox": {
+   "titre": "Hyrox",
+   "lignes": [
+    {
+     "jour": "Lundi - jeudi",
+     "heures": [
+      "18h30",
+      "19h30"
+     ]
+    },
+    {
+     "jour": "Vendredi",
+     "heures": [
+      "12h",
+      "18h30"
+     ]
+    },
+    {
+     "jour": "Dimanche",
+     "heures": [
+      "10h",
+      "11h",
+      "12h"
+     ]
+    }
+   ]
+  },
+  "halterophilie": {
+   "titre": "Haltérophilie olympique",
+   "lignes": [
+    {
+     "jour": "Lun, mer, ven",
+     "heures": [
+      "17h30"
+     ]
+    }
+   ]
+  },
+  "strongman": {
+   "titre": "Strongman / Powerlifting",
+   "lignes": [
+    {
+     "jour": "Samedi",
+     "heures": [
+      "10h"
+     ]
+    }
+   ]
+  },
+  "pilates": {
+   "titre": "Pilates · Coach Fe",
+   "lignes": [
+    {
+     "jour": "Mardi",
+     "heures": [
+      "18h30 - 19h30"
+     ]
+    },
+    {
+     "jour": "Jeudi",
+     "heures": [
+      "17h30"
+     ]
+    }
+   ]
+  },
+  "kids": {
+   "titre": "Kids · 6-10 ans",
+   "lignes": [
+    {
+     "jour": "Mercredi",
+     "heures": [
+      "15h - 16h",
+      "Endurance et force"
+     ]
+    },
+    {
+     "jour": "Samedi",
+     "heures": [
+      "10h - 11h",
+      "CrossFit"
+     ]
+    }
+   ]
+  },
+  "teens": {
+   "titre": "Teens · 11-16 ans",
+   "lignes": [
+    {
+     "jour": "Mercredi",
+     "heures": [
+      "16h - 17h",
+      "Endurance et force"
+     ]
+    },
+    {
+     "jour": "Samedi",
+     "heures": [
+      "11h - 12h",
+      "CrossFit"
+     ]
+    }
+   ]
+  },
+  "free": {
+   "titre": "Free Access",
+   "lignes": [
+    {
+     "jour": "Lun et mar",
+     "heures": [
+      "7h - 21h"
+     ]
+    },
+    {
+     "jour": "Mer et jeu",
+     "heures": [
+      "7h - 20h30"
+     ]
+    },
+    {
+     "jour": "Vendredi",
+     "heures": [
+      "7h - 19h30"
+     ]
+    },
+    {
+     "jour": "Sam et dim",
+     "heures": [
+      "7h - 12h"
+     ]
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,28 @@
+{#- Consent Mode v2 (basique) : tout est refusé par défaut. GTM n'est chargé qu'après accord (mesure ou publicité),
+    donc aucun tag GA4, Google Ads ou Meta avant consentement. Le choix est lu dans le cookie xmile_consent (6 mois). -#}
+<script>
+document.documentElement.classList.add('js');
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
+window.xmConsent=(function(){
+  var DAYS=182,KEY='xmile_consent',loaded=false;
+  function read(){try{var m=document.cookie.match(/(?:^|; )xmile_consent=([^;]*)/);var raw=m?decodeURIComponent(m[1]):localStorage.getItem(KEY);var c=raw?JSON.parse(raw):null;return c&&c.t&&Date.now()-c.t<DAYS*864e5?c:null}catch(e){return null}}
+  function loadGtm(){if(loaded)return;loaded=true;
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ site.gtmId }}');}
+  function apply(c){
+    var a=c&&c.analytics?'granted':'denied',p=c&&c.ads?'granted':'denied';
+    gtag('consent','update',{analytics_storage:a,ad_storage:p,ad_user_data:p,ad_personalization:p});
+    if(c&&(c.analytics||c.ads))loadGtm();
+  }
+  function save(analytics,ads){
+    var c={v:1,t:Date.now(),analytics:!!analytics,ads:!!ads},s=JSON.stringify(c);
+    try{document.cookie=KEY+'='+encodeURIComponent(s)+'; max-age='+DAYS*86400+'; path=/; SameSite=Lax'}catch(e){}
+    try{localStorage.setItem(KEY,s)}catch(e){}
+    apply(c);
+    window.dispatchEvent(new CustomEvent('xm:consent',{detail:c}));
+    return c;
+  }
+  var stored=read();if(stored)apply(stored);
+  return {read:read,save:save};
+})();
+</script>

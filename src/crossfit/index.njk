@@ -1,0 +1,162 @@
+---
+layout: layouts/base.njk
+permalink: /crossfit/
+title: "Cours de CrossFit à Bruxelles · Xmile CrossFit Woluwe"
+description: "Cours de CrossFit d'1 h encadrés par un coach à Woluwe, à l'est de Bruxelles. Tous niveaux, jusqu'à 6 créneaux par jour, Team WOD le samedi. Séance d'essai gratuite."
+bodyClass: v2
+scripts: [v2]
+date: git Last Modified
+---
+{%- from "partials/macros.njk" import secHead, btn, tlink, checks -%}
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-slab on-dark" id="hero-slab" data-m="hero">
+    <div class="hero-bg">{% slot { slot: "ph-hero-crossfit", src: "depassement-de-soi.jpg", alt: "Pendant un WOD en duo, un membre saute par-dessus sa partenaire qui enchaîne un burpee", widths: [640, 1280, 1920], sizes: "100vw", eager: true } %}<video src="/assets/video/ambiance.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true" data-hero-video></video></div>
+    <div class="hero-top"><nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/#cours">Nos cours</a></li><li aria-current="page">CrossFit</li></ol></nav></div>
+    <div class="hero-main">
+      <h1 class="disp hero-h1 vh" id="h1">Cours de CrossFit <span class="acc">à Bruxelles</span></h1>
+      <p class="hero-sub">Une heure en groupe, encadrée par un coach, avec un WOD différent chaque jour. Chaque mouvement et chaque charge s'adaptent à toi, que ce soit ta première séance ou ta centième.</p>
+      <div class="hero-bar">
+        {{ btn("/seance-essai/", "Réserve ta séance d'essai", "primary", "lg", "arrow-up-right") }}
+        <a class="tlink" href="#horaires">Voir les horaires{% icon "arrow-down", 16 %}</a>
+        <ul class="vh-facts"><li><strong>1 h</strong><span>encadrée par un coach</span></li><li><strong>Lun au ven</strong><span>jusqu'à 6 cours par jour</span></li><li><strong>Samedi</strong><span>Team WOD par équipes</span></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+{#- ============ Pour qui ============ -#}
+<section class="sec" aria-labelledby="t-who">
+  <div class="wrap">
+    <div class="pq">
+      <div class="pq-head">
+        <span class="eyebrow">Pour qui ?</span>
+        <h2 class="disp h2" id="t-who">Un cours pour toi, <span class="acc">quel que soit</span> ton niveau</h2>
+        <div class="pq-after">{{ tlink("/cours-crossfit-debutant/", "Le CrossFit pour débutants") }}</div>
+      </div>
+      <ul class="pq-list">
+        <li class="pq-it"><h3 class="disp pq-t">Tu débutes</h3><p>On t'apprend chaque mouvement, charges légères au début.</p></li>
+        <li class="pq-it"><h3 class="disp pq-t">Tu as déjà pratiqué</h3><p>Programmation variée, matériel Rogue, cours de 6h30 à 20h.</p></li>
+        <li class="pq-it"><h3 class="disp pq-t">Tu viens d'un autre sport</h3><p>Tu gardes ta base et tu ajoutes force, cardio, gymnastique et mobilité.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{#- ============ Déroulé d'une séance ============ -#}
+{%- set etapes = [
+  { t: "Échauffement", d: "Cardio et articulations prêts pour le jour." },
+  { t: "Technique", d: "Le mouvement du jour, et tu choisis ta charge." },
+  { t: "WOD", chaud: true, d: "Chronométré, chacun dans sa version." },
+  { t: "Post WOD", d: "On papote un peu du WOD et beaucoup du reste." }
+] -%}
+<section class="sec dr-sec" id="deroule" aria-labelledby="t-deroule">
+  <div class="wrap">
+    <div class="dr on-dark" data-in="false" data-pintrack>
+      <div class="dr-bg">{% slot { slot: "ph-deroule-crossfit", src: "depassement-de-soi.jpg", alt: "Photo de fond : un WOD en cours à la box", widths: [800, 1400, 2000], sizes: "(min-width: 1240px) 1240px, 100vw" } %}</div>
+      <div class="dr-fade" aria-hidden="true"></div>
+      <div class="dr-in">
+        <div class="dr-head"><span class="eyebrow">Déroulé d'une séance</span><h2 class="disp dr-h" id="t-deroule">Une heure, <span class="acc">quatre temps</span></h2></div>
+        <ol class="dr-steps" style="--n:{{ etapes.length }}">
+          {%- for e in etapes %}
+          <li class="dr-step{% if e.chaud %} hot{% endif %}" style="--k:{{ loop.index0 }}"><h3 class="disp dr-t">{{ e.t }}</h3><p>{{ e.d }}</p></li>
+          {%- endfor %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+{#- ============ Ce que tu vas travailler ============ -#}
+{%- set qualites = [
+  { id: "gymnastique", t: "Gymnastique", d: "Tractions, anneaux, appuis renversés. On commence par les bases, avec des élastiques si besoin.", src: "gymnastique.jpg", alt: "Une membre sourit, suspendue aux anneaux de gymnastique", pos: "50% 35%" },
+  { id: "force", t: "Force", d: "Squats, soulevés de terre, développés. Des charges qui suivent ta progression.", src: "halterophilie.jpg", alt: "Un membre en t-shirt Xmile se prépare à soulever une barre chargée", pos: "45% 45%" },
+  { id: "cardio", t: "Cardio", d: "Rameurs, SkiErg, BikeErg, Echo Bike, Assault Bike, Air Runner, et de la course.", src: "endurance.jpg", alt: "Une membre en sweat vert rame à l'ergomètre", pos: "50% 30%" },
+  { id: "mobilite", t: "Mobilité", d: "Pour bouger mieux, plus longtemps, et récupérer d'une séance à l'autre.", src: "mobilite-2.jpg", alt: "Deux membres font un exercice de mobilité au sol, bras tendu vers le plafond", pos: "50% 40%" }
+] -%}
+<section class="sec" aria-labelledby="t-work">
+  <div class="wrap">
+    {{ secHead("Ce que tu vas travailler", "Quatre qualités, <span class=\"acc\">une seule heure</span>", "t-work", "Le WOD change chaque jour. Au fil de la semaine, il touche toujours ces quatre qualités.") }}
+    <ul class="work">
+      {%- for q in qualites %}
+      <li class="work-it">
+        <div class="slot">{% slot { slot: "ph-work-" + q.id, src: q.src, alt: q.alt, pos: q.pos, widths: [480, 800, 1100], sizes: "(min-width: 961px) 25vw, 50vw" } %}</div>
+        <h3 class="disp">{{ q.t }}</h3>
+        <p>{{ q.d }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{#- ============ Autour du WOD ============ -#}
+<section class="sec" aria-labelledby="t-side">
+  <div class="wrap">
+    {{ secHead("À côté des cours", "Tout ce qu'il y a <span class=\"acc\">autour du WOD</span>", "t-side") }}
+    <div class="side">
+      <article class="side-team">
+        <figure class="ph">{% slot { slot: "ph-crossfit-photo-01", src: "crossfit-tous-ensemble.png", alt: "Un groupe de membres, mains au sol, s'encourage en riant pendant un exercice collectif", widths: [640, 1100, 1600], sizes: "(min-width: 961px) 60vw, 100vw" } %}</figure>
+        <div class="side-team-copy">
+          <span class="eyebrow">Le samedi</span>
+          <h3 class="disp side-t">Le Team WOD</h3>
+          <p>Le WOD se fait par équipes : on se partage les reps, on se passe le relais et on termine ensemble. Ouvert à tous les niveaux.</p>
+          <div class="when">{% for h in horaires.blocs.teamwod.lignes[0].heures %}<span>{{ h }}</span>{% endfor %}</div>
+        </div>
+      </article>
+      <article class="side-card">
+        <span class="eyebrow">Free Access</span>
+        <h3 class="disp side-t">Ton créneau en plus</h3>
+        <p>Pour refaire un mouvement, travailler un point faible ou rattraper un WOD manqué. Inclus dans toutes les formules adultes, sous conditions de bonne pratique et de sécurité.</p>
+      </article>
+      <article class="side-card dark on-dark">
+        <span class="eyebrow">Le lounge</span>
+        <h3 class="disp side-t">On reste après la séance</h3>
+        <p>Une salle de détente pour souffler et discuter : boissons, plats, kicker, jeux de société.</p>
+      </article>
+      <article class="side-card orange">
+        <span class="eyebrow">Xmile Health Lab</span>
+        <h3 class="disp side-t">Le bien-être du sportif</h3>
+        <p>Un centre dédié au sportif, à la même adresse : soins de recovery, kinésithérapie, ostéopathie, nutrition.</p>
+        <div class="actions">{{ btn(site.healthLab, "Découvrir le Health Lab", "dark", "", "arrow-up-right", true) }}</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{#- ============ Coachs du cours (coachs.json filtré sur "crossfit") ============ -#}
+{%- set coachCourse = "crossfit" -%}{%- set coachId = "coachs" -%}{%- set coachEyebrow = "Les coachs" -%}
+{%- set coachTitle = "Ils encadrent <span class=\"acc\">tes WOD</span>" -%}
+{%- set coachLead = "Ils corrigent ta technique, adaptent tes charges et savent où tu en es d'une semaine à l'autre." -%}
+{%- set coachLink = false -%}{%- set coachTags = true -%}{%- set coachAlt = true -%}
+{% include "partials/coach-rail.njk" %}
+
+{#- ============ Horaires + Sportigo (planning filtré CrossFit) ============ -#}
+{%- set schedTitle = "Choisis <span class=\"acc\">ton créneau</span>" -%}
+{%- set schedLead = "Pour une séance d'essai, choisis un cours CrossFit encadré, pas un créneau Free Access." -%}
+{%- set schedBlocs = ["crossfit", "teamwod"] -%}
+{%- set spgCourse = "crossfit" -%}{%- set spgTitle = "" -%}{%- set spgHint = "" -%}{%- set spgEager = false -%}
+{% include "partials/schedule-section.njk" %}
+
+{#- ============ Tarifs ============ -#}
+{%- set priceHighlight = "unlimited" -%}{%- set priceTag = "Notre conseil" -%}{%- set priceCourse = "crossfit" -%}
+{%- set priceTitle = "" -%}
+{%- set priceLead = "Une seule grille pour tous les cours adultes. Dès 3 WOD par semaine, l'Unlimited revient moins cher à la séance." -%}
+{% include "partials/prices.njk" %}
+
+{% set reviewsFlush = true %}{% include "partials/reviews.njk" %}
+
+{#- ============ FAQ ============ -#}
+{%- set faqTitle = "Avant ton <span class=\"acc\">premier WOD</span>" -%}
+{%- set faqLead = "" -%}{%- set faqFlush = false -%}
+{%- set faqItems = [
+  { q: "Je ne suis pas assez en forme pour le CrossFit.", a: "<p>C'est justement pour ça que le cours est encadré. Chaque mouvement a une version plus simple, chaque charge s'adapte, et le coach est à côté de toi pendant toute la séance.</p><p>Personne ne te compare aux autres. La forme vient en venant.</p>" },
+  { q: "Je ne connais aucun mouvement, c'est un problème ?", a: "<p>Non. Chaque séance commence par une partie technique où le coach décompose les mouvements du jour. Tu les apprends avant de les mettre dans le WOD.</p>" },
+  { q: "Combien de fois par semaine venir ?", a: "<p>Deux séances par semaine suffisent pour progresser et prendre le rythme, c'est la formule Easy Peasy à 79 € par mois. Si tu viens trois fois ou plus, l'Unlimited à 115 € par mois revient moins cher à la séance.</p>" },
+  { q: "Quelle différence entre un WOD et le Free Access ?", a: "<p>Le WOD est un cours encadré par un coach, avec un programme et un groupe. Le Free Access est un créneau libre pour t'entraîner seul, inclus dans les formules adultes sous conditions de bonne pratique et de sécurité.</p>" },
+  { q: "Qu'est-ce que je dois apporter ?", a: "<p>Une tenue dans laquelle tu bouges bien, des baskets propres et une gourde. Le matériel, on l'a. On a des vestiaires femmes et hommes, avec des douches pour après ton cours.</p>" }
+] -%}
+{% include "partials/faq.njk" %}
+
+{% set currentCourse = "crossfit" %}{% include "partials/next-courses.njk" %}
+
+{% set finalTitle = "Ton premier WOD t'attend" %}{% set finalText = "Séance d'essai gratuite et sans engagement. Choisis un créneau CrossFit, un coach t'accueille et adapte tout à ton niveau." %}
+{% include "partials/final-cta.njk" %}

@@ -1,0 +1,34 @@
+{#- Bandeau cookies + panneau « Gérer mes cookies ». Textes : _migration/brief-pages-legales.md, repris mot pour mot. Affichés par main.js. -#}
+<div class="ck-pop" id="ck-pop" hidden>
+  <div class="ck-bar on-dark" role="dialog" aria-modal="true" aria-labelledby="ck-t" aria-describedby="ck-x">
+    <p class="ck-t" id="ck-t">Des cookies, seulement si tu es d'accord</p>
+    <p class="ck-x" id="ck-x">On aimerait savoir comment tu utilises le site et montrer nos pubs aux bonnes personnes. Les cookies de mesure et de pub ne se déclenchent qu'avec ton accord.</p>
+    <div class="ck-btns">
+      <button type="button" class="btn btn-primary ck-yes" data-ck-all>Tout accepter</button>
+      <button type="button" class="btn btn-light" data-ck-none>Tout refuser</button>
+      <button type="button" class="btn btn-light" data-consent-open>Personnaliser</button>
+    </div>
+    <a class="tlink" href="/politique-de-cookies/">Politique de cookies</a>
+  </div>
+</div>
+<div class="ck-dlg" id="ck-dlg" hidden>
+  <div class="ck-scrim" data-ck-close>
+    <div class="ck-panel" role="dialog" aria-modal="true" aria-labelledby="ck-dt">
+      <div class="ck-panel-head">
+        <h2 id="ck-dt">Gérer mes cookies</h2>
+        <button type="button" class="ibtn ibtn-outline" data-ck-close aria-label="Fermer">{% icon "x", 15 %}</button>
+      </div>
+      <p>Choisis ce que tu acceptes. Ton choix est gardé 6 mois et tu peux le changer à tout moment en bas de chaque page.</p>
+      <ul class="ck-cats">
+        <li><p><strong>Strictement nécessaires</strong> (toujours actifs) : fonctionnement du site, réservation des cours, mémorisation de ton choix.</p><button type="button" class="ck-sw" role="switch" aria-checked="true" aria-label="Strictement nécessaires" disabled><span class="ck-track"><span class="ck-knob"></span></span></button></li>
+        <li><p><strong>Mesure d'audience</strong> : pages vues et provenance des visites, pour améliorer le site (Google Analytics).</p><button type="button" class="ck-sw" role="switch" aria-checked="false" aria-label="Mesure d'audience" data-ck-cat="analytics"><span class="ck-track"><span class="ck-knob"></span></span></button></li>
+        <li><p><strong>Publicité</strong> : mesurer l'efficacité de nos pubs et montrer nos offres sur Google, Facebook et Instagram.</p><button type="button" class="ck-sw" role="switch" aria-checked="false" aria-label="Publicité" data-ck-cat="ads"><span class="ck-track"><span class="ck-knob"></span></span></button></li>
+      </ul>
+      <div class="ck-foot">
+        <button type="button" class="btn btn-dark" data-ck-save>Enregistrer mes choix</button>
+        <button type="button" class="btn btn-dark" data-ck-none>Tout refuser</button>
+        <button type="button" class="btn btn-dark" data-ck-all>Tout accepter</button>
+      </div>
+    </div>
+  </div>
+</div>

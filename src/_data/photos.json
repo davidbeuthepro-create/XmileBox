@@ -1,0 +1,371 @@
+{
+ "coach-yannick": {
+  "file": "photos/coach-yannick.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "coach-marine": {
+  "file": "photos/coach-marine.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "coach-nico": {
+  "file": "photos/coach-nico.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "coach-sinan": {
+  "file": "photos/coach-sinan.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "coach-ali": {
+  "file": "photos/coach-ali.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "coach-natsuko": {
+  "file": "photos/coach-natsuko.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "coach-mathieu": {
+  "file": "photos/coach-mathieu.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "coach-philippe": {
+  "file": "photos/coach-philippe.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-home-brunch": {
+  "file": "photos/home-brunch.webp",
+  "s": 1.258,
+  "x": 3.75,
+  "y": 6.6
+ },
+ "ph-home-evenements": {
+  "file": "photos/home-evenements.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-home-apero": {
+  "file": "photos/home-apero.webp",
+  "s": 1.153,
+  "x": -7.64,
+  "y": -0.56
+ },
+ "ph-home-competition": {
+  "file": "photos/home-competition.webp",
+  "s": 1.109,
+  "x": -3.57,
+  "y": -5.45
+ },
+ "ph-galerie-01": {
+  "file": "photos/galerie-01.webp",
+  "s": 1,
+  "x": 0,
+  "y": -9.82
+ },
+ "ph-galerie-02": {
+  "file": "photos/galerie-02.webp",
+  "s": 1,
+  "x": 0,
+  "y": -7.68
+ },
+ "ph-galerie-03": {
+  "file": "photos/galerie-03.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-galerie-06": {
+  "file": "photos/galerie-06.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-galerie-05": {
+  "file": "photos/galerie-05.webp",
+  "s": 1,
+  "x": 0,
+  "y": -3.05
+ },
+ "ph-galerie-04": {
+  "file": "photos/galerie-04.webp",
+  "s": 1,
+  "x": 0,
+  "y": -12.6
+ },
+ "ph-galerie-07": {
+  "file": "photos/galerie-07.webp",
+  "s": 1,
+  "x": 0,
+  "y": -1.37
+ },
+ "ph-galerie-09": {
+  "file": "photos/galerie-09.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-galerie-08": {
+  "file": "photos/galerie-08.webp",
+  "s": 1.355,
+  "x": -4.67,
+  "y": -2.34
+ },
+ "ph-galerie-10": {
+  "file": "photos/galerie-10.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-galerie-11": {
+  "file": "photos/galerie-11.webp",
+  "s": 1.156,
+  "x": -5.87,
+  "y": -10.4
+ },
+ "coach-alexander": {
+  "file": "photos/coach-alexander.webp",
+  "s": 1.289,
+  "x": 9.32,
+  "y": -1.68
+ },
+ "coach-alizee": {
+  "file": "photos/coach-alizee.webp",
+  "s": 1.379,
+  "x": -1.51,
+  "y": -27.77
+ },
+ "coach-amal": {
+  "file": "photos/coach-amal.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "coach-fe": {
+  "file": "photos/coach-fe.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "coach-maxime": {
+  "file": "photos/coach-maxime.webp",
+  "s": 1.205,
+  "x": 4.88,
+  "y": 3.43
+ },
+ "coach-quentin-k": {
+  "file": "photos/coach-quentin-k.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "coach-valeria": {
+  "file": "photos/coach-valeria.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-autres-crossfit": {
+  "file": "photos/autres-crossfit.webp",
+  "s": 1,
+  "x": 0,
+  "y": -5.38
+ },
+ "ph-autres-halterophilie": {
+  "s": 1,
+  "x": 0,
+  "y": -31.85
+ },
+ "ph-autres-hyrox": {
+  "file": "photos/autres-hyrox.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-autres-pilates": {
+  "s": 1.396,
+  "x": -1.32,
+  "y": -23.85
+ },
+ "ph-cours-crossfit": {
+  "file": "photos/cours-crossfit.webp",
+  "s": 1.052,
+  "x": 2.61,
+  "y": 10.81
+ },
+ "ph-cours-hyrox": {
+  "file": "photos/cours-hyrox.webp",
+  "s": 1,
+  "x": 0,
+  "y": -20.55
+ },
+ "ph-cours-kids-teens": {
+  "file": "photos/cours-kids-teens.webp",
+  "s": 1,
+  "x": 0,
+  "y": 18.88
+ },
+ "ph-cours-pilates": {
+  "file": "photos/cours-pilates.webp",
+  "s": 1.075,
+  "x": -3.67,
+  "y": -2.45
+ },
+ "ph-crossfit-photo-01": {
+  "file": "photos/crossfit-photo-01.webp",
+  "s": 1,
+  "x": 0,
+  "y": -6.58
+ },
+ "ph-deroule-crossfit": {
+  "file": "photos/deroule-crossfit.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-deroule-hyrox": {
+  "file": "photos/deroule-hyrox.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-deroule-teambuilding": {
+  "file": "photos/deroule-teambuilding.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-deux-membres-en-duo-hyrox-l-un-pousse-le-sled-l-": {
+  "file": "photos/deux-membres-en-duo-hyrox-l-un-pousse-le-sled-l-.webp",
+  "s": 1,
+  "x": 0,
+  "y": -1.35
+ },
+ "ph-galerie-12": {
+  "file": "photos/galerie-12.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-galerie-13": {
+  "file": "photos/galerie-13.webp",
+  "s": 1,
+  "x": 0,
+  "y": 7.65
+ },
+ "ph-galerie-14": {
+  "file": "photos/galerie-14.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-galerie-15": {
+  "file": "photos/galerie-15.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-hero-pilates": {
+  "file": "photos/hero-pilates.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-hyrox-prep": {
+  "file": "photos/hyrox-prep.webp",
+  "s": 1,
+  "x": 0,
+  "y": -6.38
+ },
+ "ph-nav-crossfit": {
+  "file": "photos/nav-crossfit.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-nav-halterophilie": {
+  "s": 1,
+  "x": 0,
+  "y": -14.73
+ },
+ "ph-nav-hyrox": {
+  "file": "photos/nav-hyrox.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-nav-pilates": {
+  "s": 1.289,
+  "x": 2.03,
+  "y": -13.02
+ },
+ "ph-pilates-cours": {
+  "file": "photos/pilates-cours.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-pilates-pourqui": {
+  "file": "photos/pilates-pourqui.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-un-kine-du-health-lab-qui-travaille-l-epaule-d-u": {
+  "file": "photos/un-kine-du-health-lab-qui-travaille-l-epaule-d-u.webp",
+  "s": 1,
+  "x": 0,
+  "y": -10.31
+ },
+ "ph-vision-photo-01": {
+  "s": 1,
+  "x": 10.38,
+  "y": 0
+ },
+ "ph-vision-photo-02": {
+  "file": "photos/vision-photo-02.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ },
+ "ph-vision-photo-03": {
+  "s": 1,
+  "x": -10.37,
+  "y": 0
+ },
+ "ph-vision-photo-05": {
+  "s": 1,
+  "x": 0,
+  "y": -9.72
+ },
+ "ph-vision-photo-06": {
+  "s": 1,
+  "x": 0,
+  "y": -25.24
+ },
+ "ph-vision-photo-07": {
+  "s": 1,
+  "x": 0,
+  "y": 16.09
+ },
+ "ph-work-cardio": {
+  "file": "photos/work-cardio.webp",
+  "s": 1,
+  "x": 0,
+  "y": 0
+ }
+}

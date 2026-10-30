@@ -1,0 +1,18 @@
+{#- Horaires en texte (lisibles par Google) + cadre Sportigo. Variables : schedTitle, schedLead, schedBlocs ["crossfit","teamwod"], spgCourse -#}
+{%- from "partials/macros.njk" import secHead -%}
+<section class="sec" id="horaires" aria-labelledby="t-horaires" style="background:var(--bg-alt)">
+  <div class="wrap">
+    {{ secHead("Horaires et réservation", schedTitle, "t-horaires", schedLead) }}
+    <div class="sched-grid">
+      <div class="sched-list">
+        {%- for b in schedBlocs %}{% set bloc = horaires.blocs[b] %}
+        <div class="tt">
+          <h3 class="tt-h">{{ bloc.titre }}</h3>
+          <dl>{% for l in bloc.lignes %}<div class="tt-row"><dt>{{ l.jour }}</dt><dd>{% for h in l.heures %}{% if h.startsWith("À COMPLÉTER") %}{% todo h %}{% else %}<span class="{{ 'tt-t' if h | match('\\d') else 'tt-k' }}">{{ h }}</span>{% endif %}{% endfor %}</dd></div>{% endfor %}</dl>
+        </div>
+        {%- endfor %}
+      </div>
+      {% include "partials/sportigo.njk" %}
+    </div>
+  </div>
+</section>

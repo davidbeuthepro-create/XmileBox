@@ -1,0 +1,11 @@
+{#- Vidéo auto-hébergée lue au clic (jamais d'embed YouTube ou Vimeo). Variables : videoSrc, videoLabel, videoSubs (optionnel, .vtt) -#}
+{%- from "partials/macros.njk" import disc -%}
+<div class="cvid" data-cvid>
+  <video src="{{ videoSrc }}#t=0.1" preload="metadata" playsinline>{% if videoSubs %}<track kind="subtitles" srclang="fr" label="Français" src="{{ videoSubs }}">{% endif %}</video>
+  <button type="button" class="cvid-start" data-cvid-start aria-label="Lire la vidéo : {{ videoLabel }}">{{ disc("play", 72) }}<span class="label">{{ videoLabel }}</span></button>
+  <div class="cvid-bar" hidden>
+    <button type="button" class="ibtn ibtn-dark" data-cvid-play aria-label="Lecture"><span data-ic-play>{% icon "play", 16 %}</span><span data-ic-pause hidden>{% icon "pause", 16 %}</span></button>
+    <button type="button" class="cvid-mute" data-cvid-mute aria-label="Couper le son"><span data-ic-vol>{% icon "volume-2", 20 %}</span><span data-ic-mute hidden>{% icon "volume-x", 20 %}</span></button>
+    <input type="range" min="0" max="1" step="0.05" value="0.8" data-cvid-vol aria-label="Volume">
+  </div>
+</div>

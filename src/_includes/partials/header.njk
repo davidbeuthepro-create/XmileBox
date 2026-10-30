@@ -1,0 +1,50 @@
+{%- set inCourses = false -%}
+{%- for c in navigation.cours %}{% if c.href == page.url %}{% set inCourses = true %}{% endif %}{% endfor -%}
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="hdr-logo" href="/" aria-label="Xmile CrossFit, accueil">{% img { src: "logo-orange.png", alt: "Logo Xmile CrossFit", widths: [160, 320], sizes: "120px", eager: true } %}</a>
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="nav-dd" data-open="false">
+        <button type="button" class="nav-dd-btn" data-current="{{ inCourses }}" aria-expanded="false" aria-controls="dd-cours">Nos cours {% icon "chevron-down", 16, "chev" %}</button>
+        <div class="dd-panel" id="dd-cours">
+          <ul class="wrap dd-grid">
+            {%- for c in navigation.cours %}
+            <li style="--i:{{ loop.index0 }}"><a class="dd-card" href="{{ c.href }}"{% if page.url == c.href %} aria-current="page"{% endif %}>
+              <span class="dd-ph"><figure class="ph">{% slot { slot: "ph-nav-" + c.cle, src: c.img.src, alt: c.img.alt, pos: c.img.pos, widths: [320, 640], sizes: "(min-width: 961px) 230px, 0px" } %}</figure></span>
+              <span class="dd-name">{{ c.nom }}{% icon "chevron-right", 18 %}</span>
+              <span class="dd-desc">{{ c.desc }}</span>
+            </a></li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </div>
+      {%- for m in navigation.menu %}
+      <a href="{{ m.href }}"{% if page.url == m.href %} aria-current="page"{% endif %}>{{ m.label }}</a>
+      {%- endfor %}
+      <a href="{{ site.healthLab }}" target="_blank" rel="noopener">Health Lab {% icon "arrow-up-right", 15 %}</a>
+    </nav>
+    <div class="hdr-cta">
+      <div class="hdr-social">
+        <a href="{{ site.instagram }}" target="_blank" rel="noopener" aria-label="Instagram de Xmile">{% icon "instagram", 18 %}</a>
+        <a href="{{ site.facebook }}" target="_blank" rel="noopener" aria-label="Facebook de Xmile">{% icon "facebook", 18 %}</a>
+      </div>
+      <a class="btn btn-primary" href="/seance-essai/">Séance d'essai</a>
+      <span class="burger"><button type="button" class="ibtn ibtn-dark" data-mnav-open aria-label="Ouvrir le menu" aria-controls="mnav" aria-expanded="false">{% icon "menu", 20 %}</button></span>
+    </div>
+  </div>
+</header>
+<div class="mnav" id="mnav" data-open="false" role="dialog" aria-label="Menu" aria-hidden="true" inert>
+  <div class="mnav-top">{% img { src: "logo-white.png", alt: "Logo Xmile CrossFit", widths: [160, 320], sizes: "120px" } %}<button type="button" class="ibtn ibtn-light" data-mnav-close aria-label="Fermer le menu">{% icon "x", 20 %}</button></div>
+  <div class="mnav-label">Nos cours</div>
+  <div class="mnav-sub">{% for c in navigation.cours %}<a href="{{ c.href }}">{{ c.nom }}{% icon "arrow-up-right", 18 %}</a>{% endfor %}</div>
+  {%- for m in navigation.menu %}
+  <a href="{{ m.href }}">{{ m.label }}</a>
+  {%- endfor %}
+  <a href="{{ site.healthLab }}" target="_blank" rel="noopener">Health Lab{% icon "arrow-up-right", 26 %}</a>
+  <a href="/seance-essai/">Séance d'essai<span style="color:var(--xm-orange-500)">{% icon "arrow-up-right", 26 %}</span></a>
+  <div class="mnav-social">
+    <a href="{{ site.instagram }}" target="_blank" rel="noopener">{% icon "instagram", 20 %}Instagram</a>
+    <a href="{{ site.facebook }}" target="_blank" rel="noopener">{% icon "facebook", 20 %}Facebook</a>
+  </div>
+</div>
+<div class="sticky-cta"><a class="btn btn-primary btn-full" href="/seance-essai/">Séance d'essai gratuite{% icon "arrow-up-right", 18 %}</a></div>

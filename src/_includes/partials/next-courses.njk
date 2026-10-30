@@ -1,0 +1,17 @@
+{#- « Nos autres cours » : cartes alternées vertes et orange. Variable : currentCourse -#}
+{%- from "partials/macros.njk" import secHead, disc -%}
+<section class="sec" aria-labelledby="t-others">
+  <div class="wrap">
+    {{ secHead("Une box, plusieurs façons de s'y mettre", "Nos autres <span class=\"acc\">cours</span>", "t-others", "Le même abonnement adulte pour tous les cours, sauf Kids & Teens qui a sa propre grille.") }}
+    <ul class="nx">
+      {%- set others = [] -%}
+      {%- for c in navigation.cours %}{% if c.cle != currentCourse %}{% set others = (others.push(c), others) %}{% endif %}{% endfor -%}
+      {%- for c in others %}
+      <li style="display:flex"><a class="nx-card {{ 'o' if loop.index0 % 2 else 'g' }}" href="{{ c.href }}" style="flex:1">
+        <div class="nx-media"><figure class="ph">{% slot { slot: "ph-autres-" + c.cle, src: c.img.src, alt: c.img.alt, pos: c.img.pos, widths: [480, 960], sizes: "(min-width: 961px) 25vw, 90vw" } %}</figure><h3 class="nx-name">{{ c.nom }}</h3></div>
+        <span class="nx-body"><span class="nx-desc">{{ c.desc }}</span><span class="nx-go">Découvrir{{ disc() }}</span></span>
+      </a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

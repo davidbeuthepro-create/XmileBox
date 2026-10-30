@@ -1,0 +1,77 @@
+name: Build et déploiement
+
+# Push sur main -> build Eleventy -> contenu de _site/ publié à la racine de la branche `deploy`.
+# Hostinger (déploiement Git de hPanel + webhook) tire la branche `deploy`. Ne jamais modifier cette branche à la main.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+env:
+  # test : noindex partout (meta + en-tête HTTP). À passer à `production` le jour de la bascule du domaine.
+  SITE_ENV: test
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # historique complet : <lastmod> du sitemap = dernière modification Git de chaque page
+
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Cache des images optimisées
+        uses: actions/cache@v4
+        with:
+          path: .cache/img
+          key: img-${{ hashFiles('src/assets/img/**') }}
+          restore-keys: img-
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Vérifier que le .htaccess est bien dans _site
+        run: test -f _site/.htaccess && test -f _site/index.html
+
+      - name: Publier _site/ sur la branche deploy
+        run: |
+          set -euo pipefail
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          rm -rf "$RUNNER_TEMP/deploy"
+          if git ls-remote --exit-code --heads "$REMOTE" deploy >/dev/null 2>&1; then
+            git clone --quiet --branch deploy --single-branch "$REMOTE" "$RUNNER_TEMP/deploy"
+          else
+            mkdir "$RUNNER_TEMP/deploy"
+            git -C "$RUNNER_TEMP/deploy" init --quiet --initial-branch=deploy
+            git -C "$RUNNER_TEMP/deploy" remote add origin "$REMOTE"
+          fi
+          # rsync copie aussi les fichiers cachés (.htaccess) ; --delete retire les pages disparues
+          rsync -a --delete --exclude '.git' _site/ "$RUNNER_TEMP/deploy/"
+          cd "$RUNNER_TEMP/deploy"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Aucun changement à publier."
+          else
+            git commit --quiet -m "Déploiement ${GITHUB_SHA::7}"
+            git push --quiet origin deploy
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

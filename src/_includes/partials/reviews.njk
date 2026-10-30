@@ -1,0 +1,12 @@
+{#- Bloc avis : widget Trustindex (chargé au défilement, hauteur réservée). Variable : reviewsFlush -#}
+{%- from "partials/macros.njk" import secHead, tlink -%}
+<section class="sec" aria-labelledby="t-rev" style="background:var(--bg-alt){% if reviewsFlush %};padding-top:var(--space-16){% endif %}">
+  <div class="wrap">
+    {{ secHead("Avis Google", "Ce que les membres <span class=\"acc\">en disent</span>", "t-rev", "On préfère laisser parler celles et ceux qui viennent chaque semaine. Les avis ci-dessous sont publiés sur notre fiche Google.") }}
+    <div class="ti-wrap" data-trustindex="{{ site.trustindexId }}"></div>
+    <div class="reviews-meta">
+      {% set dark = false %}{% include "partials/badge-google.njk" %}
+      {{ tlink(avis.lien, "Voir tous les avis sur Google", true) }}
+    </div>
+  </div>
+</section>

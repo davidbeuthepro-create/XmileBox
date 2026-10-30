@@ -1,0 +1,12 @@
+{#- Badge de note Google : HTML statique, valeurs dans src/_data/avis.json. variante : "dark" sur fond sombre. -#}
+<a class="gbadge{% if dark %} dark{% endif %}" href="{{ avis.lien }}" target="_blank" rel="noopener" aria-label="Avis Google de Xmile CrossFit">
+  <span class="gbadge-g" aria-hidden="true">G</span>
+  {%- if avis.note %}
+  <span class="gbadge-score">{{ avis.note }}</span>
+  <span class="gbadge-stars" aria-hidden="true">{% for i in range(0, 5) %}{% icon "star", 14 %}{% endfor %}</span>
+  <span class="gbadge-count">{{ avis.nombreAffiche }} avis Google</span>
+  {%- else %}
+  <span class="gbadge-count">Avis Google</span>
+  <span class="todo">[{{ avis.marqueur }}]</span>
+  {%- endif %}
+</a>

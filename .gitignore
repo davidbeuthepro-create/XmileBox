@@ -1,0 +1,6 @@
+node_modules/
+_site/
+.cache/
+xmile-config.php
+.env
+*.local.*

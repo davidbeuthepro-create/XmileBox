@@ -1,0 +1,236 @@
+{
+ "adultes": {
+  "formules": [
+   {
+    "id": "easy",
+    "principale": true,
+    "nom": "Easy Peasy",
+    "prix": "79 €",
+    "periode": "/ mois",
+    "description": "2 cours par semaine"
+   },
+   {
+    "id": "unlimited",
+    "principale": true,
+    "nom": "Unlimited",
+    "prix": "115 €",
+    "periode": "/ mois",
+    "description": "Accès illimité à tous les cours, dont 1 Pilates par semaine"
+   },
+   {
+    "id": "duo",
+    "principale": true,
+    "nom": "Unlimited Duo",
+    "prix": "199 €",
+    "periode": "/ mois",
+    "description": "Accès illimité pour un couple"
+   },
+   {
+    "id": "card10",
+    "nom": "Carte 10 séances",
+    "prix": "130 €",
+    "description": "Valable 3 mois, tous les cours sauf le Pilates"
+   },
+   {
+    "id": "drop",
+    "nom": "Drop-in",
+    "prix": "20 €",
+    "description": "La séance, sur réservation"
+   }
+  ],
+  "partenaires": {
+   "nom": "Partenaires",
+   "description": "Entreprises, étudiants, police et pompiers",
+   "prix": "Sur demande"
+  },
+  "notes": [
+   "Lounge & recovery et Free Access inclus dans toutes les formules (sous conditions de bonne pratique et de sécurité)",
+   "Frais d'inscription unique : 50 €",
+   "Ta mutuelle peut te rembourser jusqu'à 50 € par an",
+   "Séance d'essai gratuite et sans engagement"
+  ],
+  "acces": {
+   "groupes": [
+    [
+     "Abonnements mensuels",
+     [
+      "easy",
+      "unlimited",
+      "duo"
+     ]
+    ],
+    [
+     "À la séance",
+     [
+      "card10",
+      "drop",
+      "pilates10"
+     ]
+    ]
+   ],
+   "colonnes": {
+    "easy": "Easy Peasy",
+    "unlimited": "Unlimited",
+    "duo": "Unlimited Duo",
+    "card10": "Carte 10 séances",
+    "drop": "Drop-in",
+    "pilates10": "Carte 10 Pilates"
+   },
+   "lignes": [
+    {
+     "cle": "freq",
+     "libelle": "Séances",
+     "v": {
+      "easy": "2 / semaine",
+      "unlimited": "Illimité",
+      "duo": "Illimité, à deux",
+      "card10": "10, valables 3 mois",
+      "drop": "1 séance",
+      "pilates10": "10 séances Pilates"
+     }
+    },
+    {
+     "cle": "crossfit",
+     "libelle": "CrossFit",
+     "v": {
+      "easy": true,
+      "unlimited": true,
+      "duo": true,
+      "card10": true,
+      "drop": true,
+      "pilates10": false
+     }
+    },
+    {
+     "cle": "teamwod",
+     "libelle": "Team WOD du samedi",
+     "v": {
+      "easy": true,
+      "unlimited": true,
+      "duo": true,
+      "card10": true,
+      "drop": true,
+      "pilates10": false
+     }
+    },
+    {
+     "cle": "hyrox",
+     "libelle": "Hyrox",
+     "v": {
+      "easy": true,
+      "unlimited": true,
+      "duo": true,
+      "card10": true,
+      "drop": true,
+      "pilates10": false
+     }
+    },
+    {
+     "cle": "halterophilie",
+     "libelle": "Haltérophilie",
+     "v": {
+      "easy": true,
+      "unlimited": true,
+      "duo": true,
+      "card10": true,
+      "drop": true,
+      "pilates10": false
+     }
+    },
+    {
+     "cle": "pilates",
+     "libelle": "Pilates",
+     "v": {
+      "easy": false,
+      "unlimited": "1 / semaine",
+      "duo": "todo:À confirmer",
+      "card10": false,
+      "drop": false,
+      "pilates10": true
+     }
+    },
+    {
+     "cle": "free",
+     "libelle": "Free Access",
+     "v": {
+      "easy": true,
+      "unlimited": true,
+      "duo": true,
+      "card10": "Oui, compte comme 1 séance",
+      "drop": true,
+      "pilates10": false
+     }
+    },
+    {
+     "cle": "lounge",
+     "libelle": "Lounge & recovery",
+     "v": {
+      "easy": true,
+      "unlimited": true,
+      "duo": true,
+      "card10": true,
+      "drop": true,
+      "pilates10": true
+     }
+    },
+    {
+     "cle": "price",
+     "libelle": "Prix",
+     "prix": true,
+     "v": {
+      "easy": [
+       "79 €",
+       "/ mois"
+      ],
+      "unlimited": [
+       "115 €",
+       "/ mois"
+      ],
+      "duo": [
+       "199 €",
+       "/ mois"
+      ],
+      "card10": [
+       "130 €"
+      ],
+      "drop": [
+       "20 €"
+      ],
+      "pilates10": "todo:À compléter : prix"
+     }
+    }
+   ]
+  }
+ },
+ "kids": {
+  "formules": [
+   {
+    "id": "k1",
+    "nom": "1 séance par semaine",
+    "prix": "40 €",
+    "periode": "/ mois",
+    "description": "Le mercredi ou le samedi, toujours le même créneau.",
+    "etiquette": "Le créneau fixe"
+   },
+   {
+    "id": "k2",
+    "nom": "2 séances par semaine",
+    "prix": "55 €",
+    "periode": "/ mois",
+    "description": "Le mercredi et le samedi : endurance et force, puis CrossFit."
+   }
+  ],
+  "fratrie": {
+   "nom": "Frères et sœurs",
+   "prix": "-10 %",
+   "periode": "dès le 2e enfant",
+   "description": "De la même famille, sur l'abonnement du deuxième enfant et des suivants."
+  },
+  "notes": [
+   "Saison de septembre à juin",
+   "Paiement mensuel par domiciliation",
+   "Ou paiement semestriel : septembre à janvier, puis février à juin",
+   "todo:À CONFIRMER : cours d'essai gratuit pour les enfants"
+  ]
+ }
+}

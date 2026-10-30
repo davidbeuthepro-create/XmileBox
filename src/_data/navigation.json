@@ -1,0 +1,282 @@
+{
+ "cours": [
+  {
+   "cle": "crossfit",
+   "nom": "CrossFit",
+   "href": "/crossfit/",
+   "desc": "WOD d'1 h, tous niveaux, et Team WOD le samedi",
+   "img": {
+    "src": "depassement-de-soi.jpg",
+    "alt": "Un membre saute par-dessus une partenaire qui fait un burpee pendant un WOD en duo",
+    "pos": "50% 30%"
+   }
+  },
+  {
+   "cle": "hyrox",
+   "nom": "Hyrox",
+   "href": "/preparation-hyrox/",
+   "desc": "Hyrox Training Club, débutant ou confirmé",
+   "img": {
+    "src": "endurance.jpg",
+    "alt": "Une membre en sweat vert rame à l'ergomètre pendant une séance Hyrox",
+    "pos": "50% 30%"
+   }
+  },
+  {
+   "cle": "halterophilie",
+   "nom": "Haltérophilie",
+   "href": "/halterophilie/",
+   "desc": "Olympique, Strongman et Powerlifting",
+   "img": {
+    "src": "halterophilie.jpg",
+    "alt": "Un membre en t-shirt Xmile prépare un soulevé de terre, observé par d'autres membres",
+    "pos": "50% 45%"
+   }
+  },
+  {
+   "cle": "pilates",
+   "nom": "Pilates",
+   "href": "/pilates/",
+   "desc": "Mardi et jeudi, avec Coach Fe",
+   "img": {
+    "src": "pilates.jpg",
+    "alt": "Des membres sur leur tapis pendant un cours de Pilates à la box, jambes levées",
+    "pos": "50% 62%"
+   }
+  },
+  {
+   "cle": "kids",
+   "nom": "Kids & Teens",
+   "href": "/kids-teens/",
+   "desc": "De 6 à 16 ans, un créneau fixe chaque semaine",
+   "img": {
+    "src": "kids.jpg",
+    "alt": "Un coach Xmile accroupi donne une consigne à deux enfants, cadrés sans leur visage",
+    "pos": "50% 100%"
+   }
+  }
+ ],
+ "menu": [
+  {
+   "href": "/notre-vision/",
+   "label": "Notre vision"
+  },
+  {
+   "href": "/team-building/",
+   "label": "Team building"
+  }
+ ],
+ "piedDePage": [
+  {
+   "href": "/",
+   "label": "Accueil"
+  },
+  {
+   "href": "/crossfit/",
+   "label": "CrossFit"
+  },
+  {
+   "href": "/preparation-hyrox/",
+   "label": "Hyrox"
+  },
+  {
+   "href": "/halterophilie/",
+   "label": "Haltérophilie"
+  },
+  {
+   "href": "/pilates/",
+   "label": "Pilates"
+  },
+  {
+   "href": "/kids-teens/",
+   "label": "Kids & Teens"
+  },
+  {
+   "href": "/notre-vision/",
+   "label": "Notre vision"
+  },
+  {
+   "href": "/team-building/",
+   "label": "Team building"
+  },
+  {
+   "href": "/seance-essai/",
+   "label": "Séance d'essai"
+  }
+ ],
+ "legales": [
+  {
+   "href": "/mentions-legales/",
+   "label": "Mentions légales"
+  },
+  {
+   "href": "/politique-de-confidentialite/",
+   "label": "Politique de confidentialité"
+  },
+  {
+   "href": "/politique-de-cookies/",
+   "label": "Politique de cookies"
+  },
+  {
+   "href": "/conditions-generales/",
+   "label": "Conditions générales"
+  }
+ ],
+ "locales": {
+  "crossfit": [
+   {
+    "href": "/cours-crossfit-debutant/",
+    "label": "CrossFit débutant"
+   },
+   {
+    "href": "/crossfit-bruxelles/",
+    "label": "CrossFit Bruxelles"
+   },
+   {
+    "href": "/crossfit-woluwe/",
+    "label": "CrossFit Woluwe-Saint-Lambert"
+   },
+   {
+    "href": "/crossfit-woluwe-saint-pierre/",
+    "label": "CrossFit Woluwe-Saint-Pierre"
+   },
+   {
+    "href": "/crossfit-zaventem/",
+    "label": "CrossFit Zaventem"
+   },
+   {
+    "href": "/crossfit-kraainem/",
+    "label": "CrossFit Kraainem"
+   },
+   {
+    "href": "/crossfit-wezembeek-oppem/",
+    "label": "CrossFit Wezembeek-Oppem"
+   },
+   {
+    "href": "/crossfit-evere/",
+    "label": "CrossFit Evere"
+   },
+   {
+    "href": "/crossfit-schaerbeek/",
+    "label": "CrossFit Schaerbeek"
+   },
+   {
+    "href": "/crossfit-etterbeek/",
+    "label": "CrossFit Etterbeek"
+   },
+   {
+    "href": "/crossfit-machelen/",
+    "label": "CrossFit Machelen"
+   },
+   {
+    "href": "/crossfit-kortenberg/",
+    "label": "CrossFit Kortenberg"
+   },
+   {
+    "href": "/crossfit-tervuren/",
+    "label": "CrossFit Tervuren"
+   },
+   {
+    "href": "/crossfit-auderghem/",
+    "label": "CrossFit Auderghem"
+   },
+   {
+    "href": "/crossfit-ixelles/",
+    "label": "CrossFit Ixelles"
+   },
+   {
+    "href": "/crossfit-laeken/",
+    "label": "CrossFit Laeken"
+   },
+   {
+    "href": "/crossfit-saint-gilles/",
+    "label": "CrossFit Saint-Gilles"
+   },
+   {
+    "href": "/crossfit-anderlecht/",
+    "label": "CrossFit Anderlecht"
+   },
+   {
+    "href": "/crossfit-jette/",
+    "label": "CrossFit Jette"
+   },
+   {
+    "href": "/crossfit-drogenbos/",
+    "label": "CrossFit Drogenbos"
+   },
+   {
+    "href": "/salle-de-sport-woluwe/",
+    "label": "Salle de sport Woluwe"
+   }
+  ],
+  "hyrox": [
+   {
+    "href": "/hyrox-debutant/",
+    "label": "Hyrox débutant"
+   },
+   {
+    "href": "/hyrox-duo/",
+    "label": "Hyrox en duo"
+   },
+   {
+    "href": "/hyrox-bruxelles/",
+    "label": "Hyrox Bruxelles"
+   },
+   {
+    "href": "/hyrox-woluwe-saint-lambert/",
+    "label": "Hyrox Woluwe-Saint-Lambert"
+   },
+   {
+    "href": "/hyrox-woluwe-saint-pierre/",
+    "label": "Hyrox Woluwe-Saint-Pierre"
+   },
+   {
+    "href": "/hyrox-zaventem/",
+    "label": "Hyrox Zaventem"
+   },
+   {
+    "href": "/hyrox-kraainem/",
+    "label": "Hyrox Kraainem"
+   },
+   {
+    "href": "/hyrox-wezembeek-oppem/",
+    "label": "Hyrox Wezembeek-Oppem"
+   },
+   {
+    "href": "/hyrox-evere/",
+    "label": "Hyrox Evere"
+   },
+   {
+    "href": "/hyrox-schaerbeek/",
+    "label": "Hyrox Schaerbeek"
+   },
+   {
+    "href": "/hyrox-etterbeek/",
+    "label": "Hyrox Etterbeek"
+   },
+   {
+    "href": "/hyrox-machelen/",
+    "label": "Hyrox Machelen"
+   },
+   {
+    "href": "/hyrox-kortenberg/",
+    "label": "Hyrox Kortenberg"
+   },
+   {
+    "href": "/hyrox-tervuren/",
+    "label": "Hyrox Tervuren"
+   },
+   {
+    "href": "/hyrox-auderghem/",
+    "label": "Hyrox Auderghem"
+   }
+  ]
+ },
+ "nomsCours": {
+  "crossfit": "CrossFit",
+  "hyrox": "Hyrox",
+  "halterophilie": "Haltérophilie",
+  "pilates": "Pilates",
+  "kids": "Kids & Teens"
+ }
+}

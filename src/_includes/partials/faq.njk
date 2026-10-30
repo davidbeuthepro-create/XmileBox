@@ -1,0 +1,22 @@
+{#- FAQ : <details>/<summary>, réponses dans le HTML. Variables : faqTitle, faqLead, faqItems [{q, a}], faqFlush -#}
+<section class="sec" id="faq" aria-labelledby="t-faq"{% if faqFlush %} style="padding-top:0"{% endif %}>
+  <div class="wrap faq">
+    <div class="faq-intro">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2 class="disp h2" id="t-faq">{{ faqTitle | safe }}</h2>
+      <p class="lead">{{ faqLead or "Une question qui n'est pas dans la liste ? Écris-nous ou appelle, on répond nous-mêmes." }}</p>
+      <div class="faq-contact">
+        <a href="{{ site.telephoneHref }}">{% icon "phone", 18, "ic-acc" %}{{ site.telephone }}</a>
+        <a href="mailto:{{ site.email }}">{% icon "mail", 18, "ic-acc" %}{{ site.email }}</a>
+      </div>
+    </div>
+    <div class="faq-list">
+      {%- for it in faqItems %}
+      <details{% if loop.first %} open{% endif %}>
+        <summary>{{ it.q }}<span class="pm" aria-hidden="true">{% icon "plus", 16 %}</span></summary>
+        <div class="ans">{{ it.a | safe }}</div>
+      </details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>

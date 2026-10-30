@@ -1,0 +1,56 @@
+<footer class="ftr">
+  <div class="wrap">
+    <div class="slab ftr-slab on-dark">
+      <div class="ftr-top">
+        <div class="ftr-brand">
+          {% img { src: "logo-white.png", alt: "Logo Xmile CrossFit", widths: [160, 320], sizes: "140px" } %}
+          <p class="ftr-tag">Une box de CrossFit, Hyrox et haltérophilie à Woluwe, à l'est de Bruxelles.</p>
+          {% set dark = true %}{% include "partials/badge-google.njk" %}
+        </div>
+        <div class="ftr-col">
+          <h2>Nous trouver</h2>
+          <address>Xmile CrossFit<br>{{ site.adresse.rue }} ({{ site.adresse.rueNl }})<br>{{ site.adresse.ligneVille }}<br>{{ site.adresse.pays }}</address>
+          <p class="ftr-gap">{{ site.adresse.parking }}</p>
+          <p class="ftr-gap"><a href="{{ site.googleFiche }}" target="_blank" rel="noopener">Itinéraire Google Maps</a></p>
+        </div>
+        <div class="ftr-col">
+          <h2>Contact</h2>
+          <ul>
+            <li><a href="{{ site.telephoneHref }}">{{ site.telephone }}</a></li>
+            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          </ul>
+          <div class="social ftr-gap-l">
+            <a href="{{ site.instagram }}" target="_blank" rel="noopener" aria-label="Instagram {{ site.instagramPseudo }}">{% icon "instagram", 18 %}{{ site.instagramPseudo }}</a>
+            <a href="{{ site.facebook }}" target="_blank" rel="noopener" aria-label="Facebook CrossFit Xmile">{% icon "facebook", 18 %}CrossFit Xmile</a>
+          </div>
+          <h2 class="ftr-h-gap">Le site</h2>
+          <ul>
+            {%- for l in navigation.piedDePage %}
+            <li><a href="{{ l.href }}">{{ l.label }}</a></li>
+            {%- endfor %}
+            <li><a href="{{ site.boutiqueSportigo }}" target="_blank" rel="noopener">Je m'abonne</a></li>
+          </ul>
+        </div>
+        <div class="ftr-col">
+          <h2>Ouverture</h2>
+          <div class="ftr-hours">
+            {%- for o in site.ouverture %}<span class="ftr-d">{{ o.jours }}</span><span class="ftr-h">{{ o.heures }}</span>{% endfor %}
+          </div>
+          <h2 class="ftr-h-gap">À côté de la box</h2>
+          <p><a href="{{ site.healthLab }}" target="_blank" rel="noopener">Xmile Health Lab {% icon "arrow-up-right", 14 %}</a><br>Kiné, soins sportifs et récupération, même adresse.</p>
+        </div>
+      </div>
+      <details class="ftr-local">
+        <summary><span>CrossFit et Hyrox près de chez toi</span>{% icon "chevron-down", 20 %}</summary>
+        <div class="ftr-local-cols">
+          <div><h2>CrossFit</h2><ul>{% for l in navigation.locales.crossfit %}<li><a href="{{ l.href }}">{{ l.label }}</a></li>{% endfor %}</ul></div>
+          <div><h2>Hyrox</h2><ul>{% for l in navigation.locales.hyrox %}<li><a href="{{ l.href }}">{{ l.label }}</a></li>{% endfor %}</ul></div>
+        </div>
+      </details>
+      <div class="ftr-bottom">
+        <span>© Xmile CrossFit · N° d'entreprise {{ site.numeroEntreprise }}</span>
+        <ul>{% for l in navigation.legales %}<li><a href="{{ l.href }}">{{ l.label }}</a></li>{% endfor %}<li><button type="button" class="ftr-ck" data-consent-open>Gérer mes cookies</button></li></ul>
+      </div>
+    </div>
+  </div>
+</footer>

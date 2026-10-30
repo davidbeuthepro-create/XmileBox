@@ -1,0 +1,38 @@
+{#- Rail de coachs alimenté par src/_data/coachs.json. Variables : coachCourse (filtre par discipline, vide = tous), coachId, coachTitle, coachLead, coachAlt, coachTags (true = tags + certification, sinon disciplines), coachEyebrow, coachLink -#}
+{%- from "partials/macros.njk" import tlink -%}
+{%- set coachList = [] -%}
+{%- for c in coachs | sort(false, false, "ordre") %}{% if not coachCourse or coachCourse in c.disciplines %}{% set coachList = (coachList.push(c), coachList) %}{% endif %}{% endfor -%}
+<section class="sec" id="{{ coachId or 'coachs' }}" aria-labelledby="t-{{ coachId or 'coachs' }}"{% if coachAlt %} style="background:var(--bg-alt)"{% endif %}>
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">{{ coachEyebrow or "Les coachs" }}</span><h2 class="disp h2" id="t-{{ coachId or 'coachs' }}">{{ coachTitle | safe }}</h2></div>
+      <div class="sec-head-r">
+        {%- if coachLead %}<p class="lead">{{ coachLead | safe }}</p>{% endif %}
+        <div class="coach-ctl">
+          {%- if coachLink %}{{ tlink(coachLink.href, coachLink.label) }}{% endif %}
+          {%- if coachList.length > 3 %}
+          <div class="rail-ctrl"><button type="button" class="ibtn ibtn-outline" data-rail="-1" aria-label="Coachs précédents">{% icon "chevron-left", 17 %}</button><button type="button" class="ibtn ibtn-outline" data-rail="1" aria-label="Coachs suivants">{% icon "chevron-right", 17 %}</button></div>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+    {%- if coachList.length %}
+    <ul class="coach-rail" data-rail-list tabindex="0" aria-label="Coachs">
+      {%- for c in coachList %}
+      <li class="coach">
+        <div class="coach-pic slot">{% slot { slot: "coach-" + c.id, src: c.photo, alt: c.photoAlt, todo: "portrait de " + c.prenom + ", cadrage poitrine, fond mur de la box", widths: [320, 640], sizes: "(min-width: 1100px) 352px, 176px" } %}</div>
+        <h3 class="coach-name">{{ c.prenom }}</h3>
+        <span class="coach-role">{{ c.role }}</span>
+        {%- if coachTags %}
+        <ul class="ccard-tags">{% for t in c.tags %}<li>{{ t }}</li>{% endfor %}{% if c.certification %}<li class="cert">{{ c.certification }}</li>{% endif %}</ul>
+        {%- elif c.disciplines.length %}
+        <span class="coach-courses">{% for d in c.disciplines %}{{ navigation.nomsCours[d] }}{% if not loop.last %} · {% endif %}{% endfor %}</span>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <p>{% todo "À COMPLÉTER : quels coachs encadrent ce cours (ajouter la discipline dans coachs.json)" %}</p>
+    {%- endif %}
+  </div>
+</section>

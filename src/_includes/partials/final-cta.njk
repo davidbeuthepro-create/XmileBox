@@ -1,0 +1,30 @@
+{#- Bandeau final orange + adresse + carte en façade (chargée au clic seulement). Variables : finalTitle, finalText, finalCta (false pour masquer), finalHref, finalLabel -#}
+{%- from "partials/macros.njk" import btn -%}
+<section class="sec" id="acces" aria-labelledby="t-final" style="padding-top:0;padding-bottom:0">
+  <div class="wrap">
+    <div class="final">
+      <div class="final-copy">
+        <h2 class="disp h2" id="t-final">{{ finalTitle or "Ta place est prête. Viens essayer." }}</h2>
+        <p class="final-text">{{ finalText or "Une séance gratuite, sans engagement, avec un coach qui t'attend. Tu repars avec des courbatures et une idée claire de ce qui t'attend." }}</p>
+        {%- if finalCta != false %}
+        <div class="final-act">
+          {{ btn(finalHref or "/seance-essai/", finalLabel or "Réserve ta séance d'essai", "dark", "lg", "arrow-up-right") }}
+          {% set dark = false %}{% include "partials/badge-google.njk" %}
+        </div>
+        {%- endif %}
+        <div class="final-facts">
+          <div><h3>Adresse</h3><p>{{ site.adresse.rue }} ({{ site.adresse.rueNl }})<br>{{ site.adresse.ligneVille }}<br>{{ site.adresse.parking }}</p></div>
+          <div><h3>Ouverture</h3><ul>{% for o in site.ouverture %}<li>{{ o.jours }} : {{ o.heures }}</li>{% endfor %}</ul></div>
+        </div>
+      </div>
+      <div class="map" data-map data-src="https://maps.google.com/maps?q={{ site.googleMapsEmbedQuery | urlencode }}&z=15&output=embed" data-title="Plan d'accès : Xmile CrossFit, {{ site.googleMapsEmbedQuery }}">
+        <div class="map-facade on-dark">
+          <p class="map-addr">{{ site.adresse.rue }}<br>{{ site.adresse.ligneVille }}</p>
+          <button type="button" class="btn btn-light" data-map-open>{% icon "map", 18 %}Afficher la carte</button>
+          <p class="map-note">Google déposera ses propres cookies.</p>
+          <noscript><p class="map-note"><a href="{{ site.googleFiche }}">Voir l'itinéraire sur Google Maps</a></p></noscript>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

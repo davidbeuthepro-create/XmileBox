@@ -1,0 +1,26 @@
+{#- Petits composants réutilisables : titres de section, boutons, liens fléchés. -#}
+{% macro secHead(eyebrow, title, id, lead, dark) %}
+<div class="sec-head{% if dark %} on-dark{% endif %}">
+  <div>{% if eyebrow %}<span class="eyebrow">{{ eyebrow }}</span>{% endif %}<h2 class="disp h2"{% if id %} id="{{ id }}"{% endif %}>{{ title | safe }}</h2></div>
+  {%- if lead %}
+  <div class="sec-head-r"><p class="lead">{{ lead | safe }}</p>{{ caller() if caller else "" }}</div>
+  {%- endif %}
+</div>
+{% endmacro %}
+
+{% macro btn(href, label, variant="primary", size="", icon="", external=false, full=false, cls="") %}
+<a class="btn btn-{{ variant }}{% if size %} btn-{{ size }}{% endif %}{% if full %} btn-full{% endif %}{% if cls %} {{ cls }}{% endif %}" href="{{ href }}"{% if external %} target="_blank" rel="noopener"{% endif %}>{{ label | safe }}{% if icon %}{% icon icon, (20 if size == "lg" else 18) %}{% endif %}</a>
+{% endmacro %}
+
+{% macro tlink(href, label, external=false, icon="arrow-up-right") %}
+<a class="tlink" href="{{ href }}"{% if external %} target="_blank" rel="noopener"{% endif %}>{{ label }}{% icon icon, 16 %}</a>
+{% endmacro %}
+
+{% macro disc(icon="arrow-up-right", size=0) %}
+{%- set s = ((size * 0.42) | round) if size else 19 -%}
+<span class="disc" aria-hidden="true"{% if size %} style="width:{{ size }}px;height:{{ size }}px"{% endif %}>{% icon icon, s %}</span>
+{% endmacro %}
+
+{% macro checks(items, cls="") %}
+<ul class="checks {{ cls }}">{% for t in items %}<li>{% icon "check", 18, "ck-ic" %}<span>{{ t | safe }}</span></li>{% endfor %}</ul>
+{% endmacro %}

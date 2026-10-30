@@ -1,0 +1,207 @@
+---
+layout: layouts/base.njk
+permalink: /
+title: "CrossFit & Hyrox à Bruxelles · Xmile CrossFit Woluwe"
+description: "Box de CrossFit, Hyrox et haltérophilie à Woluwe, à l'est de Bruxelles. Premier cours encadré, tous niveaux, séance d'essai gratuite et sans engagement."
+scripts: [home]
+date: git Last Modified
+---
+{%- from "partials/macros.njk" import secHead, btn, tlink, disc, checks -%}
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-slab on-dark" id="hero-slab">
+    <div class="hero-bg"><video id="hero-video" src="/assets/video/hero-accueil.mp4" poster="{% imgUrl { src: 'crossfit-tous-ensemble.png', widths: [960] } %}" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></div>
+    <div class="hero-main">
+      <h1 class="disp hero-h1" id="h1">CrossFit &amp; <span class="acc">Hyrox</span> à Bruxelles</h1>
+      <p class="hero-sub">On s'entraîne ensemble, dans des sports qui te poussent un peu plus loin à chaque séance. Que tu découvres ou que tu changes de box, un coach t'encadre dès le premier cours.</p>
+      <div class="hero-bar">
+        {{ btn("/seance-essai/", "Réserve ta séance d'essai", "primary", "lg", "chevron-right") }}
+        <div class="hero-reass"><span>{% icon "check", 15, "ic-orange" %}Première séance gratuite</span><span>{% icon "check", 15, "ic-orange" %}Sans engagement</span><span>{% icon "check", 15, "ic-orange" %}Tous niveaux</span><span>{% icon "check", 15, "ic-orange" %}Parking facile &amp; gratuit</span></div>
+        <div class="hero-badge ti-badge">{% set dark = true %}{% include "partials/badge-google.njk" %}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{#- ============ Nos cours : plaques empilées ============ -#}
+{%- set tuiles = [
+  { nom: "CrossFit", href: "/crossfit/", ton: "g", sub: "Box affiliée CrossFit · Plan d'entraînement officiel", d: "Que tu débutes ou que tu sois expert, tu trouveras le challenge que tu cherches.", cle: "crossfit" },
+  { nom: "Hyrox", href: "/preparation-hyrox/", ton: "o", sub: "Partenaire officiel Hyrox Training Club", d: "Tu viens t'entraîner pour ton premier Hyrox ou pour performer sur les suivants.", cle: "hyrox" },
+  { nom: "Haltérophilie", href: "/halterophilie/", ton: "g", meta: "Lun, mer, ven 17h30 · sam 10h", d: "Des cours pour perfectionner ta technique et, pourquoi pas, te lancer en compétition.", cle: "halterophilie", pos: "50% 40%" },
+  { nom: "Pilates", href: "/pilates/", ton: "o", meta: "Mar et jeu · avec Coach Fe", d: "Gainage, posture, mobilité et respiration.", cle: "pilates", sansImage: true, alt: "Un cours de Pilates à la box avec Coach Fe", todo: "photo d'un cours de Pilates à la box avec Coach Fe" },
+  { nom: "Kids & Teens", href: "/kids-teens/", ton: "g", meta: "6-10 ans · 11-16 ans · mer et sam", d: "Qui a dit que le CrossFit ne pouvait pas s'apprendre tôt ? Encadrés par des pros du début à la fin, ils retrouvent leurs copains et copines chaque semaine.", cle: "kids" }
+] -%}
+{%- set slotsCours = { crossfit: "ph-cours-crossfit", hyrox: "ph-cours-hyrox", halterophilie: "ph-cours-halterophilie", pilates: "ph-cours-pilates", kids: "ph-cours-kids-teens" } -%}
+<section class="sec" id="cours" aria-labelledby="t-disc" style="background:var(--bg-alt)">
+  <div class="wrap">
+    {{ secHead("Nos cours", "Une box, <span class=\"acc\">cinq</span> façons de s'y mettre", "t-disc", "Chaque cours est encadré par un coach et se fait en groupe. Tu choisis ta discipline, le niveau s'adapte à toi.") }}
+    <div class="stk" data-stack>
+      {%- for t in tuiles %}{% set nc = navigation.cours | selectattr("cle", "equalto", t.cle) | first %}
+      <div class="stk-card {{ t.ton }}" style="--i:{{ loop.index0 }}">
+        <a class="stk-copy" href="{{ t.href }}">
+          {%- if t.sub %}<div class="stk-top"><span class="mark" aria-hidden="true"></span><span class="stk-meta">{{ t.sub }}</span></div>{% elif t.meta %}<div class="stk-top"><span class="mark" aria-hidden="true"></span><span class="stk-meta">{{ t.meta }}</span></div>{% endif %}
+          <h3 class="disp stk-name" style="--len:13">{{ t.nom }}</h3>
+          <div class="stk-foot"><p>{{ t.d }}</p><span class="stk-cta"><span class="stk-tag">Essai gratuit</span>Découvrir le cours{% icon "chevron-right", 18 %}</span></div>
+        </a>
+        <div class="stk-ph" data-stk-ph>{% slot { slot: slotsCours[t.cle], src: (nc.img.src if not t.sansImage), alt: (t.alt or nc.img.alt), pos: (t.pos or nc.img.pos), todo: t.todo, widths: [640, 1100, 1600], sizes: "(min-width: 961px) 58vw, 100vw" } %}</div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{#- ============ Par où commencer ============ -#}
+{%- set portes = [
+  { t: "Je débute", d: "Tu as une idée du CrossFit ou de l'Hyrox, sans plus ? Ton premier cours est encadré, chaque mouvement a sa version simplifiée et les charges s'adaptent à toi.", h: "/seance-essai/", to: "Ta séance d'essai" },
+  { t: "Je fais déjà du CrossFit", d: "Tu changes de box ? Jusqu'à six créneaux par jour du lundi au vendredi, du matériel Rogue, le Team WOD du samedi et le Free Access pour tes extras.", h: "/crossfit/", to: "Le cours CrossFit" },
+  { t: "Je prépare un Hyrox", d: "Tu veux préparer ta première course Hyrox ou juste être en meilleure forme ? Débutant ou sportif accompli, tu trouveras un challenge à ta taille.", h: "/preparation-hyrox/", to: "La préparation Hyrox" },
+  { t: "Pour mon enfant", d: "Kids de 6 à 10 ans, Teens de 11 à 16 ans. Le même créneau chaque semaine, avec le même coach.", h: "/kids-teens/", to: "Kids & Teens" }
+] -%}
+<section class="sec" aria-labelledby="t-doors" id="commencer">
+  <div class="wrap doors">
+    <div class="doors-intro">
+      <span class="eyebrow">Par où commencer ?</span>
+      <h2 class="disp h2" id="t-doors">Dis-nous d'où tu pars, <span class="acc">on s'occupe</span> du reste</h2>
+      <p class="lead">Pas besoin d'être en forme pour venir. C'est en venant qu'on se met en forme.</p>
+      <ul class="reass">
+        <li>{% icon "check", 18, "ic-acc" %}Charges et mouvements adaptés à ton niveau</li>
+        <li>{% icon "check", 18, "ic-acc" %}Un coach qui t'accompagne à chaque séance</li>
+        <li>{% icon "check", 18, "ic-acc" %}Séance d'essai gratuite, sans engagement</li>
+      </ul>
+    </div>
+    <ul class="doors-list">
+      {%- for p in portes %}
+      <li><a class="door" href="{{ p.h }}">
+        <span class="door-n" aria-hidden="true"></span>
+        <span class="door-t">{{ p.t }}</span>
+        {{ disc() }}
+        <p>{{ p.d }}</p>
+        <span class="door-to">{{ p.to }}{% icon "arrow-right", 16 %}</span>
+      </a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{#- ============ Coachs ============ -#}
+{%- set coachCourse = "" -%}{%- set coachId = "coach" -%}{%- set coachEyebrow = "L'équipe" -%}
+{%- set coachTitle = "Les coachs qui vont <span class=\"acc\">te suivre</span>" -%}
+{%- set coachLead = "Ils corrigent ta technique, adaptent tes charges et savent où tu en es. Tu les rencontres dès ta séance d'essai." -%}
+{%- set coachLink = { href: "/notre-vision/#equipe", label: "Découvrir toute l'équipe" } -%}
+{%- set coachTags = false -%}{%- set coachAlt = false -%}
+{% include "partials/coach-rail.njk" %}
+
+{#- ============ Ta première séance ============ -#}
+<section class="sec" aria-labelledby="t-steps" style="padding-top:0">
+  <div class="wrap">
+    <div class="slab first on-dark">
+      <div class="first-head">
+        <span class="eyebrow">Ta première séance</span>
+        <h2 class="disp h2" id="t-steps">Trois étapes, <span class="acc">c'est tout</span></h2>
+      </div>
+      <ol class="steps">
+        {%- for s in ["Tu réserves un créneau", "Un coach t'accueille", "Tu fais le WOD avec le groupe"] %}
+        <li class="step"><span class="step-n" aria-hidden="true"></span><h3 class="disp">{{ s }}</h3></li>
+        {%- endfor %}
+      </ol>
+      <div class="first-cta">{{ btn("/seance-essai/", "Réserve ta séance d'essai", "primary", "lg", "arrow-up-right") }}</div>
+    </div>
+  </div>
+</section>
+
+{% set reviewsFlush = false %}{% include "partials/reviews.njk" %}
+
+{#- ============ La vie de la box ============ -#}
+{%- set vie = [
+  { t: "Les sorties", ou: "Hors de la box", d: "Brunchs, repas : la séance se termine parfois à table, loin des barres. On parle un peu du WOD et beaucoup du reste.", slot: "ph-home-brunch", alt: "Une grande tablée de membres Xmile au restaurant, assiettes pleines, tout le monde rit", todo: "photo d'une tablée de membres au restaurant" },
+  { t: "Les événements", ou: "À la box", d: "Chaque année, la box fête son anniversaire avec la compétition Xmile. Pendant les CrossFit Open, les épreuves se font ici, devant toute la box. Et entre les deux, des apéros dînatoires pour mieux connaître ceux avec qui tu t'entraînes.", slot: "ph-home-evenements", src: "groupe-membres.jpg", alt: "Un événement de la box, des membres réunis et souriants" },
+  { t: "Les compétitions", ou: "On y va ensemble", chaud: true, d: "Quand un membre s'inscrit à une compétition, il n'y va pas seul. Ceux de la box sont au bord du plateau et crient plus fort que lui.", slot: "ph-home-competition", alt: "Des membres Xmile en bord de plateau qui encouragent un athlète de la box en compétition", todo: "photo de membres en bord de plateau lors d'une compétition" }
+] -%}
+<section class="lx on-dark" aria-labelledby="t-life" data-boxlife>
+  <div class="lx-pin">
+    <div class="wrap lx-head">
+      <div><span class="eyebrow">La vie de la box</span><h2 class="disp" id="t-life">On ne fait pas <span class="acc">que</span> des WODs</h2></div>
+      <p class="lead">Sorties, événements, compétitions : on se voit aussi quand la séance est finie.</p>
+    </div>
+    <div class="lx-track" data-lx-track tabindex="0" aria-label="La vie de la box">
+      {%- for it in vie %}
+      <article class="lx-card{% if it.chaud %} hot{% endif %}">
+        <div class="lx-media"><div class="slot">{% slot { slot: it.slot, src: it.src, alt: it.alt, todo: it.todo, widths: [640, 960, 1320], sizes: "(min-width: 961px) 46vw, 90vw" } %}</div></div>
+        <div class="lx-body">
+          <div class="lx-top"><span class="mark" aria-hidden="true"></span><span class="lx-where">{{ it.ou }}</span></div>
+          <h3 class="disp">{{ it.t }}</h3>
+          <p>{{ it.d }}</p>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+    <div class="wrap lx-foot" aria-hidden="true"><span class="lx-bar"><span data-lx-bar></span></span></div>
+  </div>
+</section>
+
+{#- ============ Galerie ============ -#}
+{%- set galerie = [
+  ["crossfit-tous-ensemble.png", "Le Team WOD, tout le groupe mains au sol", 7, 4, 2],
+  ["duo-high-five.jpg", "Deux membres se tapent dans la main après un WOD", 5, 2],
+  ["halterophilie.jpg", "Un membre prépare un soulevé de terre", 5, 2],
+  ["endurance.jpg", "Une membre rame à l'ergomètre pendant une séance Hyrox", 3, 3],
+  ["groupe-membres.jpg", "Les membres réunis devant le logo de la box", 5, 3, 2],
+  ["handstand-walk.jpg", "Un membre en marche sur les mains", 4, 3],
+  ["depassement-de-soi.jpg", "Un WOD en duo, saut par-dessus un burpee", 5, 2],
+  ["gymnastique.jpg", "Un membre aux anneaux pendant un cours", 7, 4, 2],
+  ["duo-medecine-ball.png", "Deux membres rient pendant un exercice au médecine-ball", 5, 2],
+  ["mobilite.jpg", "Un moment de mobilité en fin de séance", 5, 3],
+  ["kids.jpg", "Un coach donne une consigne à deux enfants", 3, 3],
+  ["mobilite-2.jpg", "Des étirements en groupe", 4, 3],
+  [null, "Une photo de la box à ajouter", 6, 3, 2],
+  [null, "Une photo de la box à ajouter", 3, 3],
+  [null, "Une photo de la box à ajouter", 3, 3]
+] -%}
+<section class="sec" aria-labelledby="t-gal" style="padding-bottom:0" data-gallery>
+  <div class="wrap">
+    {{ secHead("Galerie", "La box, <span class=\"acc\">en vrai</span>", "t-gal", "Les cours, les événements, les gens : un aperçu avant de venir voir par toi-même.") }}
+    <div class="gal" id="galerie" data-open="false">
+      {%- for g in galerie %}
+      <div class="slot gal-it{% if loop.index0 >= 6 %} more{% endif %}" style="--c:{{ g[2] }};--r:{{ g[3] }};--mc:{{ g[4] or 1 }};--k:{{ loop.index0 - 6 }}">{% slot { slot: "ph-galerie-" + (("0" + loop.index) if loop.index < 10 else loop.index), src: g[0], alt: g[1], todo: g[1], widths: [480, 960, 1320], sizes: "(min-width: 1240px) " + (g[2] * 100) + "px, (min-width: 961px) " + (g[2] * 8) + "vw, " + (50 if (g[4] or 1) == 1 else 100) + "vw" } %}</div>
+      {%- endfor %}
+    </div>
+    <div class="gal-foot">
+      <button type="button" class="btn btn-outline" aria-expanded="false" aria-controls="galerie" data-gal-toggle><span data-gal-label>Voir plus de photos</span><span data-gal-ic>{% icon "chevron-down", 18 %}</span></button>
+      <span class="gal-count" data-gal-count>6 / 15 photos</span>
+    </div>
+  </div>
+</section>
+
+{#- ============ Health Lab + Entreprises ============ -#}
+<section class="sec" aria-label="Xmile Health Lab et entreprises">
+  <div class="wrap duo">
+    <article class="duo-card light">
+      <span class="eyebrow">Xmile Health Lab</span>
+      <h2 class="disp h2" style="font-size:clamp(38px,3.6vw,52px)">Ton kiné est <span class="acc">juste à côté</span> de ta box</h2>
+      <p>Kiné, soins sportifs et récupération, à la même adresse. Une gêne à l'épaule le mardi, un rendez-vous le mercredi, et ton coach adapte le WOD du jeudi.</p>
+      <div class="actions">{{ btn(site.healthLab, "Découvrir le Health Lab", "outline", "", "arrow-up-right", true) }}</div>
+      {% set videoSrc = "/assets/video/healthlab.mp4" %}{% set videoLabel = "Le Health Lab en vidéo" %}{% include "partials/click-video.njk" %}
+    </article>
+    <article class="duo-card slab on-dark">
+      <span class="eyebrow">Entreprises</span>
+      <h2 class="disp h2" style="font-size:clamp(38px,3.6vw,52px)">Un team building où <span class="acc">tout le monde</span> participe</h2>
+      <p>Un WOD par équipes soude plus qu'un afterwork. Sportifs ou pas, chacun bouge à son niveau, encadré par nos coachs. Pour les équipes de Woluwe, Zaventem et de l'est de Bruxelles, sur devis.</p>
+      <div class="actions">{{ btn("/team-building/", "Le team building sportif", "light", "", "arrow-up-right") }}</div>
+      {% set videoSrc = "/assets/video/teambuilding.mp4" %}{% set videoLabel = "Un team building chez Xmile" %}{% include "partials/click-video.njk" %}
+    </article>
+  </div>
+</section>
+
+{#- ============ FAQ ============ -#}
+{%- set faqTitle = "Avant ta <span class=\"acc\">première</span> séance" -%}
+{%- set faqLead = "" -%}
+{%- set faqFlush = true -%}
+{%- set faqItems = [
+  { q: "Je ne suis pas assez en forme pour commencer.", a: "<p>C'est la question qu'on entend le plus, et la réponse est toujours la même : viens quand même. Chaque mouvement a une version plus simple, chaque charge s'adapte, et ton premier cours est encadré par un coach.</p><p>Personne ne te compare aux autres. Ici, la forme vient en venant.</p>" },
+  { q: "Je dois venir combien de fois par semaine ?", a: "<p>Deux séances par semaine suffisent pour progresser et prendre le rythme : c'est la formule Easy Peasy, à 79 € par mois. Si tu veux venir plus souvent, l'Unlimited à 115 € par mois t'ouvre tous les cours.</p><p>Tu préfères ne pas t'abonner ? La carte de 10 séances (130 €, valable 3 mois) ou le drop-in à 20 € la séance.</p>" },
+  { q: "Qu'est-ce que je dois apporter ?", a: "<p>Une tenue dans laquelle tu bouges bien, des baskets propres et une gourde. Le matériel, on l'a. On a des vestiaires femmes et hommes, avec des douches pour après ton cours.</p>" },
+  { q: "Je dois m'engager ?", a: "<p>Non. La séance d'essai est gratuite et sans engagement. Si tu continues, il y a des frais d'inscription uniques de 50 €, et ta mutuelle peut te rembourser jusqu'à 50 € par an.</p>" },
+  { q: "Comment venir à la box ?", a: "<p>On est " + site.adresse.rue + " (" + site.adresse.rueNl + "), " + site.adresse.ligneVille + ", à Woluwe, à l'est de Bruxelles. Le parking est gratuit.</p>" }
+] -%}
+{% include "partials/faq.njk" %}
+
+{% set finalTitle = "" %}{% include "partials/final-cta.njk" %}

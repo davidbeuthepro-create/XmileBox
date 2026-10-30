@@ -1,0 +1,24 @@
+{
+  "name": "crossfit-xmile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site statique crossfitxmile.com (Eleventy 3)",
+  "scripts": {
+    "build": "node -e \"require(\\\"fs\\\").rmSync(\\\"_site\\\",{recursive:true,force:true})\" && eleventy",
+    "start": "eleventy --serve",
+    "build:prod": "SITE_ENV=production eleventy"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^6.0.0",
+    "@fontsource/barlow": "^5.2.0",
+    "@fontsource/barlow-condensed": "^5.2.0",
+    "@fontsource/bebas-neue": "^5.2.0",
+    "lightningcss": "^1.33.0",
+    "lucide-static": "0.460.0"
+  },
+  "type": "module"
+}

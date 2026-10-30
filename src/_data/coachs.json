@@ -1,0 +1,296 @@
+[
+ {
+  "ordre": 1,
+  "id": "marine",
+  "prenom": "Marine",
+  "role": "Co-propriétaire, coach",
+  "disciplines": [
+   "crossfit"
+  ],
+  "tags": [
+   "CrossFit",
+   "Gestion de la box"
+  ],
+  "certification": "CrossFit - Level 1",
+  "bio": null,
+  "photo": "photos/coach-marine.webp",
+  "photoAlt": "Portrait de Marine, co-propriétaire, coach chez Xmile"
+ },
+ {
+  "ordre": 2,
+  "id": "yannick",
+  "prenom": "Yannick",
+  "role": "Co-propriétaire",
+  "disciplines": [],
+  "tags": [
+   "Gestion de la box"
+  ],
+  "certification": null,
+  "bio": null,
+  "photo": "photos/coach-yannick.webp",
+  "photoAlt": "Portrait de Yannick, co-propriétaire chez Xmile"
+ },
+ {
+  "ordre": 3,
+  "id": "nico",
+  "prenom": "Nico",
+  "role": "Head coach",
+  "disciplines": [
+   "crossfit"
+  ],
+  "tags": [
+   "CrossFit",
+   "Personal training"
+  ],
+  "certification": "CrossFit - Level 1",
+  "bio": null,
+  "photo": "photos/coach-nico.webp",
+  "photoAlt": "Portrait de Nico, head coach chez Xmile"
+ },
+ {
+  "ordre": 4,
+  "id": "quentin",
+  "prenom": "Quentin M.",
+  "role": "Coach",
+  "disciplines": [
+   "crossfit",
+   "kids"
+  ],
+  "tags": [
+   "CrossFit",
+   "Kids & Teens",
+   "Gymnastique",
+   "Personal training"
+  ],
+  "certification": "CrossFit - Level 3",
+  "bio": null,
+  "photo": "coach-quentin-portrait.jpg",
+  "photoAlt": "Quentin, coach chez Xmile, sourit en poussant un sled chargé dans la box"
+ },
+ {
+  "ordre": 5,
+  "id": "amal",
+  "prenom": "Amal",
+  "role": "Coach",
+  "disciplines": [
+   "crossfit"
+  ],
+  "tags": [
+   "CrossFit"
+  ],
+  "certification": "CrossFit - Level 1",
+  "bio": null,
+  "photo": "photos/coach-amal.webp",
+  "photoAlt": "Portrait de Amal, coach chez Xmile"
+ },
+ {
+  "ordre": 6,
+  "id": "sinan",
+  "prenom": "Sinan",
+  "role": "Coach",
+  "disciplines": [
+   "crossfit"
+  ],
+  "tags": [
+   "CrossFit",
+   "Personal training"
+  ],
+  "certification": "CrossFit - Level 1",
+  "bio": null,
+  "photo": "photos/coach-sinan.webp",
+  "photoAlt": "Portrait de Sinan, coach chez Xmile"
+ },
+ {
+  "ordre": 7,
+  "id": "ali",
+  "prenom": "Ali",
+  "role": "Coach",
+  "disciplines": [
+   "crossfit",
+   "hyrox"
+  ],
+  "tags": [
+   "CrossFit",
+   "Hyrox"
+  ],
+  "certification": "CrossFit - Level 1",
+  "bio": null,
+  "photo": "photos/coach-ali.webp",
+  "photoAlt": "Portrait de Ali, coach chez Xmile"
+ },
+ {
+  "ordre": 8,
+  "id": "maxime",
+  "prenom": "Maxime",
+  "role": "Coach",
+  "disciplines": [
+   "crossfit",
+   "hyrox"
+  ],
+  "tags": [
+   "CrossFit",
+   "Hyrox"
+  ],
+  "certification": "CrossFit - Level 2",
+  "bio": null,
+  "photo": "photos/coach-maxime.webp",
+  "photoAlt": "Portrait de Maxime, coach chez Xmile"
+ },
+ {
+  "ordre": 9,
+  "id": "natsuko",
+  "prenom": "Natsuko",
+  "role": "Coach",
+  "disciplines": [
+   "crossfit",
+   "hyrox"
+  ],
+  "tags": [
+   "CrossFit",
+   "Hyrox"
+  ],
+  "certification": "CrossFit - Level 2",
+  "bio": null,
+  "photo": "photos/coach-natsuko.webp",
+  "photoAlt": "Portrait de Natsuko, coach chez Xmile"
+ },
+ {
+  "ordre": 10,
+  "id": "mathieu",
+  "prenom": "Mathieu",
+  "role": "Coach",
+  "disciplines": [
+   "crossfit",
+   "hyrox"
+  ],
+  "tags": [
+   "CrossFit",
+   "Hyrox"
+  ],
+  "certification": "CrossFit - Level 1",
+  "bio": null,
+  "photo": "photos/coach-mathieu.webp",
+  "photoAlt": "Portrait de Mathieu, coach chez Xmile"
+ },
+ {
+  "ordre": 11,
+  "id": "alizee",
+  "prenom": "Alizée",
+  "role": "Coach",
+  "disciplines": [
+   "crossfit",
+   "hyrox",
+   "kids"
+  ],
+  "tags": [
+   "CrossFit",
+   "Hyrox",
+   "Kids & Teens"
+  ],
+  "certification": "CrossFit - Level 1",
+  "bio": null,
+  "photo": "photos/coach-alizee.webp",
+  "photoAlt": "Portrait de Alizée, coach chez Xmile"
+ },
+ {
+  "ordre": 12,
+  "id": "alexander",
+  "prenom": "Alexander",
+  "role": "Coach",
+  "disciplines": [
+   "crossfit"
+  ],
+  "tags": [
+   "CrossFit"
+  ],
+  "certification": "CrossFit - Level 2",
+  "bio": null,
+  "photo": "photos/coach-alexander.webp",
+  "photoAlt": "Portrait de Alexander, coach chez Xmile"
+ },
+ {
+  "ordre": 13,
+  "id": "quentin-k",
+  "prenom": "Quentin K.",
+  "role": "Coach",
+  "disciplines": [
+   "crossfit",
+   "hyrox"
+  ],
+  "tags": [
+   "CrossFit",
+   "Hyrox"
+  ],
+  "certification": "CrossFit - Level 1",
+  "bio": null,
+  "photo": "photos/coach-quentin-k.webp",
+  "photoAlt": "Portrait de Quentin K., coach chez Xmile"
+ },
+ {
+  "ordre": 14,
+  "id": "valeria",
+  "prenom": "Valéria",
+  "role": "Coach",
+  "disciplines": [
+   "hyrox",
+   "kids"
+  ],
+  "tags": [
+   "Hyrox",
+   "Kids & Teens"
+  ],
+  "certification": "CrossFit - Level 1",
+  "bio": null,
+  "photo": "photos/coach-valeria.webp",
+  "photoAlt": "Portrait de Valéria, coach chez Xmile"
+ },
+ {
+  "ordre": 15,
+  "id": "oualid",
+  "prenom": "Oualid",
+  "role": "Coach",
+  "disciplines": [
+   "hyrox"
+  ],
+  "tags": [
+   "Hyrox"
+  ],
+  "certification": "CrossFit - Level 1",
+  "bio": null,
+  "photo": null,
+  "photoAlt": "Portrait de Oualid, coach chez Xmile"
+ },
+ {
+  "ordre": 16,
+  "id": "philippe",
+  "prenom": "Philippe",
+  "role": "Coach",
+  "disciplines": [
+   "halterophilie"
+  ],
+  "tags": [
+   "Haltérophilie",
+   "Programmation individuelle"
+  ],
+  "certification": null,
+  "bio": null,
+  "photo": "photos/coach-philippe.webp",
+  "photoAlt": "Portrait de Philippe, coach chez Xmile"
+ },
+ {
+  "ordre": 17,
+  "id": "fe",
+  "prenom": "Fe",
+  "role": "Coach",
+  "disciplines": [
+   "pilates"
+  ],
+  "tags": [
+   "Pilates"
+  ],
+  "certification": null,
+  "bio": null,
+  "photo": "photos/coach-fe.webp",
+  "photoAlt": "Portrait de Fe, coach chez Xmile"
+ }
+]
