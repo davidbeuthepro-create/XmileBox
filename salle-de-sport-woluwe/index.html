@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.09f0f004.css">
+<link rel="stylesheet" href="/assets/css/main.8a66e2aa.css">
 <script>
 document.documentElement.classList.add('js');
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
@@ -188,50 +188,6 @@ window.xmConsent=(function(){
   </div>
   <p class="spg-legal">Tes coordonnées servent uniquement à organiser ta séance. <a href="/politique-de-confidentialite/">Politique de confidentialité</a></p>
 </div>
-<script>
-// Écouteur des événements du widget Sportigo vers le dataLayer (sportigo.click, sportigo.formSubmit, sportigo.custom)
-  document.addEventListener('shadowDomClick', function(event) {
-    const clickData = event.detail;
-    if (window.dataLayer) {
-      window.dataLayer.push({
-        'event': 'sportigo.click',
-        'element_tag': clickData.tagName,
-        'element_id': clickData.id,
-        'element_class': clickData.className,
-        'element_text': clickData.textContent,
-        'element_href': clickData.href,
-        'element_path': clickData.elementPath,
-        'click_timestamp': clickData.timestamp,
-        'click_x': clickData.clientX,
-        'click_y': clickData.clientY,
-        'element_dataset': clickData.dataset
-      });
-    }
-  });
-  document.addEventListener('sportigoFormSubmit', function(event) {
-    const formData = event.detail;
-    if (window.dataLayer) {
-      window.dataLayer.push({
-        'event': 'sportigo.formSubmit',
-        'form_type': formData.formType,
-        'form_action': formData.formAction,
-        'form_data': formData.formData,
-        'form_timestamp': formData.timestamp
-      });
-    }
-  });
-  document.addEventListener('sportigoCustomEvent', function(event) {
-    const eventData = event.detail;
-    if (window.dataLayer) {
-      window.dataLayer.push({
-        'event': 'sportigo.custom',
-        'custom_event_type': eventData.eventType,
-        'custom_event_data': eventData.eventData,
-        'custom_timestamp': eventData.timestamp
-      });
-    }
-  });
-</script>
 
     </div>
   </div>
@@ -610,7 +566,72 @@ window.xmConsent=(function(){
   </div>
 </div>
 
-<script src="/assets/js/main.b0f7ce41.js" defer></script>
+<div class="trial-dlg" id="trial-dlg" data-widget-id="b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc" hidden>
+  <div class="trial-scrim">
+    <div class="trial-panel" role="dialog" aria-modal="true" aria-labelledby="trial-t">
+      <div class="ck-panel-head">
+        <h2 id="trial-t">Réserve ta séance d'essai</h2>
+        <button type="button" class="ibtn ibtn-outline" data-trial-close aria-label="Fermer"><svg class="ic" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></svg></button>
+      </div>
+      <p class="trial-hint"><svg class="ic ic-acc" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4" />
+  <path d="M12 8h.01" /></svg><span>Gratuite et sans engagement. Choisis un cours encadré : CrossFit, Hyrox ou Haltérophilie. Pas un créneau Free Access, qui se fait sans coach.</span></p>
+      <div class="spg-box trial-box">
+        <div class="spg-ph"><span class="slot-tag">Planning Sportigo</span><span>Le planning et la réservation s'affichent ici.</span></div>
+        <div id="sportigo-popup"></div>
+      </div>
+      <p class="trial-fallback" data-trial-fallback hidden>Le planning ne s'affiche pas ? <a href="/seance-essai/?page=1">Ouvre la page de réservation</a>.</p>
+      <p class="spg-legal">Tes coordonnées servent uniquement à organiser ta séance. <a href="/politique-de-confidentialite/">Politique de confidentialité</a></p>
+    </div>
+  </div>
+</div>
+<script>
+// Écouteur des événements du widget Sportigo vers le dataLayer (sportigo.click, sportigo.formSubmit, sportigo.custom)
+  document.addEventListener('shadowDomClick', function(event) {
+    const clickData = event.detail;
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        'event': 'sportigo.click',
+        'element_tag': clickData.tagName,
+        'element_id': clickData.id,
+        'element_class': clickData.className,
+        'element_text': clickData.textContent,
+        'element_href': clickData.href,
+        'element_path': clickData.elementPath,
+        'click_timestamp': clickData.timestamp,
+        'click_x': clickData.clientX,
+        'click_y': clickData.clientY,
+        'element_dataset': clickData.dataset
+      });
+    }
+  });
+  document.addEventListener('sportigoFormSubmit', function(event) {
+    const formData = event.detail;
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        'event': 'sportigo.formSubmit',
+        'form_type': formData.formType,
+        'form_action': formData.formAction,
+        'form_data': formData.formData,
+        'form_timestamp': formData.timestamp
+      });
+    }
+  });
+  document.addEventListener('sportigoCustomEvent', function(event) {
+    const eventData = event.detail;
+    if (window.dataLayer) {
+      window.dataLayer.push({
+        'event': 'sportigo.custom',
+        'custom_event_type': eventData.eventType,
+        'custom_event_data': eventData.eventData,
+        'custom_timestamp': eventData.timestamp
+      });
+    }
+  });
+</script>
+
+<script src="/assets/js/main.c819f9b8.js" defer></script>
 <script src="/assets/js/v2.16cfdb21.js" defer></script>
 </body>
 </html>
