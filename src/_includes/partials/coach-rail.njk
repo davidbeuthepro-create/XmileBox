@@ -20,7 +20,7 @@
     <ul class="coach-rail" data-rail-list tabindex="0" aria-label="Coachs">
       {%- for c in coachList %}
       <li class="coach">
-        <div class="coach-pic slot">{% slot { slot: "coach-" + c.id, src: c.photo, alt: c.photoAlt, todo: "portrait de " + c.prenom + ", cadrage poitrine, fond mur de la box", widths: [320, 640], sizes: "(min-width: 1100px) 352px, 176px" } %}</div>
+        <div class="coach-pic slot">{% slot { slot: "coach-" + c.id, src: c.photo, pos: c.photoPos, alt: c.photoAlt, todo: "portrait de " + c.prenom + ", cadrage poitrine, fond mur de la box", widths: [320, 640], sizes: "(min-width: 1100px) 352px, 176px" } %}</div>
         <h3 class="coach-name">{{ c.prenom }}</h3>
         <span class="coach-role">{{ c.role }}</span>
         {%- if coachTags %}

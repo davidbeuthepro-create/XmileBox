@@ -2,7 +2,7 @@
 <ul class="cgrid">
   {%- for c in coachs | sort(false, false, "ordre") %}
   <li class="ccard">
-    <div class="coach-pic slot">{% slot { slot: "coach-" + c.id, src: c.photo, alt: c.photoAlt, todo: "portrait de " + c.prenom + ", cadrage poitrine, fond mur de la box", widths: [320, 640], sizes: "(min-width: 961px) 25vw, 50vw" } %}</div>
+    <div class="coach-pic slot">{% slot { slot: "coach-" + c.id, src: c.photo, pos: c.photoPos, alt: c.photoAlt, todo: "portrait de " + c.prenom + ", cadrage poitrine, fond mur de la box", widths: [320, 640], sizes: "(min-width: 961px) 25vw, 50vw" } %}</div>
     <div class="ccard-txt">
       <h3 class="coach-name">{{ c.prenom }}</h3>
       <span class="coach-role">{{ c.role }}</span>

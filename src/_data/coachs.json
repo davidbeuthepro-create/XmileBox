@@ -80,8 +80,9 @@
   ],
   "certification": "CrossFit - Level 1",
   "bio": null,
-  "photo": "photos/coach-amal.webp",
-  "photoAlt": "Portrait de Amal, coach chez Xmile"
+  "photo": "coachs/amal.jpg",
+  "photoAlt": "Portrait de Amal, coach chez Xmile",
+  "photoPos": "50% 62%"
  },
  {
   "ordre": 6,
@@ -97,8 +98,9 @@
   ],
   "certification": "CrossFit - Level 1",
   "bio": null,
-  "photo": "photos/coach-sinan.webp",
-  "photoAlt": "Portrait de Sinan, coach chez Xmile"
+  "photo": "coachs/sinan.jpg",
+  "photoAlt": "Portrait de Sinan, coach chez Xmile",
+  "photoPos": "50% 62%"
  },
  {
   "ordre": 7,
@@ -133,8 +135,9 @@
   ],
   "certification": "CrossFit - Level 2",
   "bio": null,
-  "photo": "photos/coach-maxime.webp",
-  "photoAlt": "Portrait de Maxime, coach chez Xmile"
+  "photo": "coachs/maxime.jpg",
+  "photoAlt": "Portrait de Maxime, coach chez Xmile",
+  "photoPos": "50% 90%"
  },
  {
   "ordre": 9,
@@ -151,8 +154,9 @@
   ],
   "certification": "CrossFit - Level 2",
   "bio": null,
-  "photo": "photos/coach-natsuko.webp",
-  "photoAlt": "Portrait de Natsuko, coach chez Xmile"
+  "photo": "coachs/natsuko.jpg",
+  "photoAlt": "Portrait de Natsuko, coach chez Xmile",
+  "photoPos": "50% 74%"
  },
  {
   "ordre": 10,
@@ -169,8 +173,9 @@
   ],
   "certification": "CrossFit - Level 1",
   "bio": null,
-  "photo": "photos/coach-mathieu.webp",
-  "photoAlt": "Portrait de Mathieu, coach chez Xmile"
+  "photo": "coachs/mathieu.jpg",
+  "photoAlt": "Portrait de Mathieu, coach chez Xmile",
+  "photoPos": "50% 14%"
  },
  {
   "ordre": 11,
@@ -189,8 +194,9 @@
   ],
   "certification": "CrossFit - Level 1",
   "bio": null,
-  "photo": "photos/coach-alizee.webp",
-  "photoAlt": "Portrait de Alizée, coach chez Xmile"
+  "photo": "coachs/alizee.jpg",
+  "photoAlt": "Portrait de Alizée, coach chez Xmile",
+  "photoPos": "50% 70%"
  },
  {
   "ordre": 12,
@@ -223,8 +229,9 @@
   ],
   "certification": "CrossFit - Level 1",
   "bio": null,
-  "photo": "photos/coach-quentin-k.webp",
-  "photoAlt": "Portrait de Quentin K., coach chez Xmile"
+  "photo": "coachs/quentin-k.jpg",
+  "photoAlt": "Portrait de Quentin K., coach chez Xmile",
+  "photoPos": "50% 62%"
  },
  {
   "ordre": 14,

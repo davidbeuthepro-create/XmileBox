@@ -17,26 +17,8 @@
   "x": 0,
   "y": 0
  },
- "coach-sinan": {
-  "file": "photos/coach-sinan.webp",
-  "s": 1,
-  "x": 0,
-  "y": 0
- },
  "coach-ali": {
   "file": "photos/coach-ali.webp",
-  "s": 1,
-  "x": 0,
-  "y": 0
- },
- "coach-natsuko": {
-  "file": "photos/coach-natsuko.webp",
-  "s": 1,
-  "x": 0,
-  "y": 0
- },
- "coach-mathieu": {
-  "file": "photos/coach-mathieu.webp",
   "s": 1,
   "x": 0,
   "y": 0
@@ -143,32 +125,8 @@
   "x": 9.32,
   "y": -1.68
  },
- "coach-alizee": {
-  "file": "photos/coach-alizee.webp",
-  "s": 1.379,
-  "x": -1.51,
-  "y": -27.77
- },
- "coach-amal": {
-  "file": "photos/coach-amal.webp",
-  "s": 1,
-  "x": 0,
-  "y": 0
- },
  "coach-fe": {
   "file": "photos/coach-fe.webp",
-  "s": 1,
-  "x": 0,
-  "y": 0
- },
- "coach-maxime": {
-  "file": "photos/coach-maxime.webp",
-  "s": 1.205,
-  "x": 4.88,
-  "y": 3.43
- },
- "coach-quentin-k": {
-  "file": "photos/coach-quentin-k.webp",
   "s": 1,
   "x": 0,
   "y": 0
