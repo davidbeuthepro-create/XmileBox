@@ -36,6 +36,7 @@
 </main>
 <div id="ftr-root">{% include "partials/footer.njk" %}</div>
 {% include "partials/consent.njk" %}
+{% include "partials/trial-modal.njk" %}
 <script src="{{ assets.js_main }}" defer></script>
 {%- for s in scripts %}
 <script src="{{ assets['js_' + s] }}" defer></script>

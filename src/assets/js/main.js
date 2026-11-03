@@ -97,6 +97,18 @@
     if (document.readyState === 'complete') afterLoad(); else addEventListener('load', afterLoad);
   }
 
+  // Script Sportigo : chargé une seule fois par page, que ce soit pour le planning de la page ou pour le pop-up
+  var spgQueue = [], spgLoading = false;
+  function loadSportigo(cb) {
+    if (window.initComponent) { cb(); return; }
+    spgQueue.push(cb);
+    if (spgLoading) return; spgLoading = true;
+    var sc = document.createElement('script');
+    sc.src = 'https://standalone.api.sportigo.fr/component-standalone.js';
+    sc.onload = function () { spgQueue.splice(0).forEach(function (f) { f(); }); };
+    document.body.appendChild(sc);
+  }
+
   var spg = $('[data-sportigo]');
   if (spg) {
     var box = $('#sportigo-planning', spg);
@@ -113,20 +125,51 @@
       return null;
     };
     var load = function () {
-      var s = document.createElement('script');
-      s.src = 'https://standalone.api.sportigo.fr/component-standalone.js';
-      s.onload = function () {
+      loadSportigo(function () {
         var o = { colored: true, readonly: false }, a = spg.getAttribute('data-activities'), f = nextDate();
         if (a) o.activities = JSON.parse(a);
         if (f) o.fromDate = f;
         try { window.initComponent('Appointment', 'sportigo-planning', spg.getAttribute('data-widget-id'), o); } catch (e) {}
-      };
-      document.body.appendChild(s);
+      });
     };
     var mo = new MutationObserver(function () { if (box.childElementCount) { spg.setAttribute('data-ready', ''); mo.disconnect(); } });
     mo.observe(box, { childList: true, subtree: true });
     if (spg.hasAttribute('data-eager')) load(); else whenNear(spg, load);
   }
+
+  /* ---------- Pop-up « séance d'essai » : le planning Sportigo s'ouvre sur la page, sans changer de page ---------- */
+  (function () {
+    var dlg = $('#trial-dlg'); if (!dlg || location.pathname === '/seance-essai/') return;
+    var box = $('#sportigo-popup', dlg), inited = false, last = null, wait = 0;
+    function close() {
+      dlg.hidden = true; document.documentElement.style.overflow = ''; clearTimeout(wait);
+      if (last && last.focus) last.focus();
+    }
+    function open(from) {
+      last = from || document.activeElement;
+      var mn = $('#mnav'); if (mn && mn.getAttribute('data-open') === 'true') { mn.setAttribute('data-open', 'false'); mn.setAttribute('aria-hidden', 'true'); mn.setAttribute('inert', ''); document.body.style.overflow = ''; }
+      dlg.hidden = false; document.documentElement.style.overflow = 'hidden';
+      var c = $('[data-trial-close]', dlg); if (c) c.focus({ preventScroll: true });
+      if (!inited) {
+        inited = true;
+        loadSportigo(function () {
+          try { window.initComponent('Appointment', 'sportigo-popup', dlg.getAttribute('data-widget-id'), { colored: true, readonly: false }); } catch (e) {}
+        });
+        // Si le planning ne s'affiche pas (réseau, bloqueur), on propose la page dédiée
+        wait = setTimeout(function () { if (!box.childElementCount) $('[data-trial-fallback]', dlg).hidden = false; }, 9000);
+        var mo = new MutationObserver(function () { if (box.childElementCount) { dlg.setAttribute('data-ready', ''); clearTimeout(wait); mo.disconnect(); } });
+        mo.observe(box, { childList: true, subtree: true });
+      }
+    }
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest && e.target.closest('a[href="/seance-essai/"]');
+      if (a) { e.preventDefault(); open(a); return; }
+      if (!dlg.hidden && (e.target.closest('[data-trial-close]') || e.target === $('.trial-scrim', dlg))) close();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !dlg.hidden) close(); });
+    if (location.hash === '#essai') open(null);
+  })();
 
   /* ---------- Vidéos lues au clic (lecteur auto-hébergé) ---------- */
   $$('[data-cvid]').forEach(function (w) {
