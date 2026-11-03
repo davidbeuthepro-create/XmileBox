@@ -72,13 +72,22 @@
     var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); fn(); } }, { rootMargin: margin || '600px 0px' });
     io.observe(el);
   }
-  $$('[data-trustindex]').forEach(function (el) {
-    whenNear(el, function () {
+  // Trustindex : connexion préparée dès le chargement de la page, widget chargé quand le navigateur est au repos
+  // (donc prêt avant que le visiteur n'arrive au bloc), ou plus tôt s'il s'en approche vite.
+  var ti = $$('[data-trustindex]');
+  if (ti.length) {
+    var pc = document.createElement('link'); pc.rel = 'preconnect'; pc.href = 'https://cdn.trustindex.io'; pc.crossOrigin = ''; document.head.appendChild(pc);
+    var tiLoad = function (el) {
+      if (el.hasAttribute('data-ti-done')) return; el.setAttribute('data-ti-done', '');
       var s = document.createElement('script');
       s.src = 'https://cdn.trustindex.io/loader.js?' + el.getAttribute('data-trustindex'); s.defer = true; s.async = true;
       el.appendChild(s);
-    });
-  });
+    };
+    ti.forEach(function (el) { whenNear(el, function () { tiLoad(el); }, '2500px 0px'); });
+    var idle = function () { ti.forEach(tiLoad); };
+    var afterLoad = function () { if ('requestIdleCallback' in window) requestIdleCallback(idle, { timeout: 1500 }); else setTimeout(idle, 800); };
+    if (document.readyState === 'complete') afterLoad(); else addEventListener('load', afterLoad);
+  }
 
   var spg = $('[data-sportigo]');
   if (spg) {
