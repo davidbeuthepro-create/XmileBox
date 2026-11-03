@@ -28,6 +28,14 @@
     }
   })();
 
+  /* ---------- En-tête mobile : compact et légèrement transparent dès qu'on descend ---------- */
+  (function () {
+    var root = document.documentElement, raf = 0;
+    function upd() { raf = 0; root.classList.toggle('hdr-compact', window.scrollY > 40); }
+    addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(upd); }, { passive: true });
+    upd();
+  })();
+
   /* ---------- Bandeau cookies + panneau « Gérer mes cookies » ---------- */
   (function () {
     var C = window.xmConsent, pop = $('#ck-pop'), dlg = $('#ck-dlg'); if (!C || !pop || !dlg) return;
