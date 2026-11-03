@@ -112,7 +112,6 @@ ul{margin:0;padding:0;list-style:none}
 .mnav .mnav-sub{padding-left:0}
 .mnav .mnav-sub a{font:600 18px/1 var(--font-ui);letter-spacing:.05em;padding:14px 0 14px 16px;color:var(--text-on-dark-muted)}
 .mnav-label{font:600 13px/1 var(--font-ui);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--xm-orange-500);margin:24px 0 4px}
-.sticky-cta{display:none}
 
 /* Hero : vidéo en fond */
 .hero{padding:0}
@@ -384,7 +383,6 @@ ul{margin:0;padding:0;list-style:none}
 .burger{display:inline-flex}
 .hdr-in{justify-content:space-between;height:72px}
 .hdr-logo img{height:62px}
-.sticky-cta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:50;gap:8px;padding:8px;border-radius:var(--radius-pill);background:var(--surface-dark);box-shadow:var(--shadow-lg)}
 body{padding-bottom:0}.ftr{padding-bottom:84px}
 .sec-head,.doors,.faq,.duo,.final,.story{grid-template-columns:1fr}
 .sec-head-r{justify-self:start}
