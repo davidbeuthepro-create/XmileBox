@@ -390,7 +390,7 @@ body{padding-bottom:0}.ftr{padding-bottom:84px}
 .first{grid-template-columns:1fr;grid-template-areas:"head" "steps" "cta"}
 .hero-badge{margin-left:0}
 .stk-card{display:flex;flex-direction:column;height:auto;top:calc(84px + var(--i) * 12px)}
-.stk-ph{order:-1;flex:none;height:clamp(134px,21svh,214px)}
+.stk-ph{order:-1;flex:none;height:clamp(200px,62vw,300px)}
 .stk-copy{padding:24px 26px 28px;gap:20px}
 .lx-head{grid-template-columns:1fr;gap:18px}
 .lx-head .lead{justify-self:start}
@@ -418,7 +418,7 @@ body{padding-bottom:0}.ftr{padding-bottom:84px}
 .coach{flex-basis:148px}
 .stk{gap:16px}
 .stk-card{border-radius:var(--radius-lg)}
-.stk-ph{height:134px}
+.stk-ph{height:clamp(200px,62vw,260px)}
 .stk-copy{padding:20px 20px 24px}
 .stk-n{font-size:24px}
 .stk-meta{font-size:12px}
