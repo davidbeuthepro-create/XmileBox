@@ -26,7 +26,7 @@ date: git Last Modified
 {%- set tuiles = [
   { nom: "CrossFit", href: "/crossfit/", ton: "g", sub: "Box affiliée CrossFit · Plan d'entraînement officiel", d: "Que tu débutes ou que tu sois expert, tu trouveras le challenge que tu cherches.", cle: "crossfit" },
   { nom: "Hyrox", href: "/preparation-hyrox/", ton: "o", sub: "Partenaire officiel Hyrox Training Club", d: "Tu viens t'entraîner pour ton premier Hyrox ou pour performer sur les suivants.", cle: "hyrox" },
-  { nom: "Haltérophilie", href: "/halterophilie/", ton: "g", meta: "Lun, mer, ven 17h30 · sam 10h", d: "Des cours pour perfectionner ta technique et, pourquoi pas, te lancer en compétition.", cle: "halterophilie", pos: "50% 40%" },
+  { nom: "Haltérophilie", href: "/halterophilie/", ton: "g", meta: "Lun, mer, ven 17h30 · sam 10h", d: "Des cours pour perfectionner ta technique et, pourquoi pas, te lancer en compétition.", cle: "halterophilie", src: "halterophilie-cours.jpg", alt: "Une membre en position de départ du soulevé, la barre au sol, concentrée avant de tirer", pos: "50% 40%" },
   { nom: "Pilates", href: "/pilates/", ton: "o", meta: "Mar et jeu · avec Coach Fe", d: "Gainage, posture, mobilité et respiration.", cle: "pilates", sansImage: true, alt: "Un cours de Pilates à la box avec Coach Fe", todo: "photo d'un cours de Pilates à la box avec Coach Fe" },
   { nom: "Kids & Teens", href: "/kids-teens/", ton: "g", meta: "6-10 ans · 11-16 ans · mer et sam", d: "Qui a dit que le CrossFit ne pouvait pas s'apprendre tôt ? Encadrés par des pros du début à la fin, ils retrouvent leurs copains et copines chaque semaine.", cle: "kids" }
 ] -%}
@@ -42,7 +42,7 @@ date: git Last Modified
           <h3 class="disp stk-name" style="--len:13">{{ t.nom }}</h3>
           <div class="stk-foot"><p>{{ t.d }}</p><span class="stk-cta"><span class="stk-tag">Essai gratuit</span>Découvrir le cours{% icon "chevron-right", 18 %}</span></div>
         </a>
-        <div class="stk-ph" data-stk-ph>{% slot { slot: slotsCours[t.cle], src: (nc.img.src if not t.sansImage), alt: (t.alt or nc.img.alt), pos: (t.pos or nc.img.pos), todo: t.todo, widths: [640, 1100, 1600], sizes: "(min-width: 961px) 58vw, 100vw" } %}</div>
+        <div class="stk-ph" data-stk-ph>{% slot { slot: slotsCours[t.cle], src: (t.src or (nc.img.src if not t.sansImage)), alt: (t.alt or nc.img.alt), pos: (t.pos or nc.img.pos), todo: t.todo, widths: [640, 1100, 1600], sizes: "(min-width: 961px) 58vw, 100vw" } %}</div>
       </div>
       {%- endfor %}
     </div>
