@@ -1,12 +1,12 @@
 {#- Pop-up « séance d'essai » : tous les liens vers /seance-essai/ l'ouvrent (main.js). La page /seance-essai/ reste en place pour les liens directs et les anciennes adresses. -#}
-<div class="trial-dlg" id="trial-dlg" data-widget-id="{{ site.sportigoWidgetId }}" hidden>
+<div class="trial-dlg" id="trial-dlg" data-widget-id="{{ site.sportigoWidgetId }}" data-activities="{{ horaires.sportigo.essai | json | esc }}" hidden>
   <div class="trial-scrim">
     <div class="trial-panel" role="dialog" aria-modal="true" aria-labelledby="trial-t">
       <div class="ck-panel-head">
         <h2 id="trial-t">Réserve ta séance d'essai</h2>
         <button type="button" class="ibtn ibtn-outline" data-trial-close aria-label="Fermer">{% icon "x", 15 %}</button>
       </div>
-      <p class="trial-hint">{% icon "info", 18, "ic-acc" %}<span>Gratuite et sans engagement. Choisis un cours encadré : CrossFit, Hyrox ou Haltérophilie. Pas un créneau Free Access, qui se fait sans coach.</span></p>
+      <p class="trial-hint">{% icon "info", 18, "ic-acc" %}<span>Gratuite et sans engagement. Choisis un cours encadré et clique sur un créneau pour réserver.</span></p>
       <div class="spg-box trial-box">
         <div class="spg-ph"><span class="slot-tag">Planning Sportigo</span><span>Le planning et la réservation s'affichent ici.</span></div>
         <div id="sportigo-popup"></div>

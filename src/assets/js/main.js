@@ -153,7 +153,7 @@
       if (!inited) {
         inited = true;
         loadSportigo(function () {
-          try { window.initComponent('Appointment', 'sportigo-popup', dlg.getAttribute('data-widget-id'), { colored: true, readonly: false }); } catch (e) {}
+          try { window.initComponent('Appointment', 'sportigo-popup', dlg.getAttribute('data-widget-id'), { colored: true, readonly: false, activities: JSON.parse(dlg.getAttribute('data-activities') || '[]') }); } catch (e) {}
         });
         // Si le planning ne s'affiche pas (réseau, bloqueur), on propose la page dédiée
         wait = setTimeout(function () { if (!box.childElementCount) $('[data-trial-fallback]', dlg).hidden = false; }, 9000);
