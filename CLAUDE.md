@@ -81,9 +81,15 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
 - **Sportigo** (planning + réservation de l'essai), un seul par page, sans le restyler (soigner seulement le cadre autour) :
 
   ```html
-  <div id="sportigo-planning"></div>
+  <div id="sportigo-appointment-container"></div>
   <script src="https://standalone.api.sportigo.fr/component-standalone.js"></script>
-  <script>initComponent("Appointment", "sportigo-planning", "b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc", {colored: true, readonly: false})</script>
+  <script>
+    initComponent("Appointment", "sportigo-appointment-container", "b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc", {
+      "theme": { "googleFont": { "name": "Inter" } },
+      "source": { "kind": "widget", "ref": "appointment" },
+      "readonly": false, "forceBookBtn": true, "colored": true, "planning": 2143, "displayMode": "slide"
+    });
+  </script>
   ```
 
   Sur chaque page cours, le planning est filtré par discipline comme dans la maquette (option `activities`, ids de `XM_SPG` dans `xm-shared.jsx`). Bouton « Je m'abonne » : https://xmile-crossfit.sportigo.fr/buy. Les horaires existent aussi en texte : le widget est invisible pour Google.

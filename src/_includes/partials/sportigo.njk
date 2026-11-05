@@ -1,11 +1,11 @@
 {#- Cadre du widget Sportigo (un seul par page). Le script Sportigo et initComponent sont chargés par main.js
-    avec les mêmes paramètres que le code d'intégration : initComponent("Appointment", "sportigo-planning", <id>, {colored: true, readonly: false, activities, fromDate}).
+    avec les mêmes paramètres que le code d'intégration : initComponent("Appointment", "sportigo-appointment-container", <id>, <options du code officiel + activities, fromDate>).
     Variables : spgCourse (clé du cours, filtre le planning), spgTitle, spgHint, spgEager -#}
-<div class="spg" data-sportigo data-widget-id="{{ site.sportigoWidgetId }}"{% if spgCourse %} data-activities="{{ horaires.sportigo[spgCourse] | json | esc }}" data-slots="{{ spgCourse | planningJours(horaires) | esc }}"{% endif %}{% if spgEager %} data-eager{% endif %}>
+<div class="spg" data-sportigo data-widget-id="{{ site.sportigoWidgetId }}" data-planning="{{ site.sportigoPlanning }}"{% if spgCourse %} data-activities="{{ horaires.sportigo[spgCourse] | json | esc }}" data-slots="{{ spgCourse | planningJours(horaires) | esc }}"{% endif %}{% if spgEager %} data-eager{% endif %}>
   <div class="spg-head"><h3 class="disp h3">{{ spgTitle or "Réserve ton créneau" }}</h3><p class="spg-hint">{% icon "mouse-pointer-click", 18, "ic-acc" %}{{ spgHint or "Clique sur un créneau pour réserver." }}</p></div>
   <div class="spg-box">
     <div class="spg-ph"><span class="slot-tag">Planning Sportigo</span><span>Le planning et la réservation s'affichent ici.</span></div>
-    <div id="sportigo-planning"></div>
+    <div id="sportigo-appointment-container"></div>
   </div>
   <p class="spg-legal">Tes coordonnées servent uniquement à organiser ta séance. <a href="/politique-de-confidentialite/">Politique de confidentialité</a></p>
 </div>

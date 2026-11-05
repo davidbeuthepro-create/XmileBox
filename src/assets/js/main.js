@@ -99,6 +99,13 @@
 
   // Script Sportigo : chargé une seule fois par page, que ce soit pour le planning de la page ou pour le pop-up
   var spgQueue = [], spgLoading = false;
+  // Options du code d'intégration officiel Sportigo (réservation des cours d'essai) ; activities et fromDate s'y ajoutent selon la page
+  function spgOptions(el, extra) {
+    var o = { theme: { googleFont: { name: 'Inter' } }, source: { kind: 'widget', ref: 'appointment' }, readonly: false, forceBookBtn: true, colored: true, displayMode: 'slide' };
+    var pl = parseInt(el.getAttribute('data-planning'), 10); if (pl) o.planning = pl;
+    for (var k in extra) o[k] = extra[k];
+    return o;
+  }
   function loadSportigo(cb) {
     if (window.initComponent) { cb(); return; }
     spgQueue.push(cb);
@@ -111,7 +118,7 @@
 
   var spg = $('[data-sportigo]');
   if (spg) {
-    var box = $('#sportigo-planning', spg);
+    var box = $('#sportigo-appointment-container', spg);
     var nextDate = function () {
       try {
         var slots = JSON.parse(spg.getAttribute('data-slots') || '{}'), now = new Date(), nowMin = now.getHours() * 60 + now.getMinutes();
@@ -126,10 +133,10 @@
     };
     var load = function () {
       loadSportigo(function () {
-        var o = { colored: true, readonly: false }, a = spg.getAttribute('data-activities'), f = nextDate();
-        if (a) o.activities = JSON.parse(a);
-        if (f) o.fromDate = f;
-        try { window.initComponent('Appointment', 'sportigo-planning', spg.getAttribute('data-widget-id'), o); } catch (e) {}
+        var x = {}, a = spg.getAttribute('data-activities'), f = nextDate();
+        if (a) x.activities = JSON.parse(a);
+        if (f) x.fromDate = f;
+        try { window.initComponent('Appointment', 'sportigo-appointment-container', spg.getAttribute('data-widget-id'), spgOptions(spg, x)); } catch (e) {}
       });
     };
     var mo = new MutationObserver(function () { if (box.childElementCount) { spg.setAttribute('data-ready', ''); mo.disconnect(); } });
@@ -153,7 +160,7 @@
       if (!inited) {
         inited = true;
         loadSportigo(function () {
-          try { window.initComponent('Appointment', 'sportigo-popup', dlg.getAttribute('data-widget-id'), { colored: true, readonly: false, activities: JSON.parse(dlg.getAttribute('data-activities') || '[]') }); } catch (e) {}
+          try { window.initComponent('Appointment', 'sportigo-popup', dlg.getAttribute('data-widget-id'), spgOptions(dlg, { activities: JSON.parse(dlg.getAttribute('data-activities') || '[]') })); } catch (e) {}
         });
         // Si le planning ne s'affiche pas (réseau, bloqueur), on propose la page dédiée
         wait = setTimeout(function () { if (!box.childElementCount) $('[data-trial-fallback]', dlg).hidden = false; }, 9000);

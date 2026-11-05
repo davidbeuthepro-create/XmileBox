@@ -95,7 +95,7 @@
 .spg-hint{display:inline-flex;align-items:center;gap:8px;font:500 15px/1.4 var(--font-body);color:var(--text-strong)}
 .spg-box{position:relative;overflow-x:auto;min-height:640px;border-radius:14px;background:var(--bg-page)}
 .spg-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;border:1.5px dashed var(--xm-sand-400);border-radius:14px;font:500 14px/1.4 var(--font-body);color:var(--text-muted);pointer-events:none}
-#sportigo-planning{position:relative}
+#sportigo-appointment-container,#sportigo-popup{position:relative}
 
 /* Tarifs */
 .price-main{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
