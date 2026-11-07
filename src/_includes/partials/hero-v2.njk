@@ -7,6 +7,7 @@
     <div class="hero-main">
       <h1 class="disp hero-h1 vh" id="h1">{{ hero.h1 | safe }}</h1>
       {% if hero.sub %}<p class="hero-sub">{{ hero.sub }}</p>{% endif %}
+      <div class="hero-badge-row">{% include "partials/badge-google.njk" %}</div>
       <div class="hero-bar">
         {{ btn(hero.cta.href, hero.cta.label, "primary", "lg", hero.cta.icon or "arrow-up-right") }}
         <a class="tlink" href="{{ hero.link.href }}">{{ hero.link.label }}{% icon hero.link.icon or "arrow-down", 16 %}</a>

@@ -20,6 +20,7 @@ date: git Last Modified
     <div class="hero-main">
       <h1 class="disp hero-h1 vh" id="h1">{{ hero.h1 | safe }}</h1>
       <p class="hero-sub">{{ hero.sub }}</p>
+      <div class="hero-badge-row">{% include "partials/badge-google.njk" %}</div>
       <div class="hero-bar">
         {{ btn("#reserver", "Choisir mon créneau", "primary", "lg", "arrow-down") }}
         <ul class="vh-facts">{% for f in hero.facts %}<li><strong>{{ f[0] }}</strong><span>{{ f[1] }}</span></li>{% endfor %}</ul>
