@@ -80,6 +80,13 @@
     var io = new IntersectionObserver(function (es) { if (es.some(function (e) { return e.isIntersecting; })) { io.disconnect(); fn(); } }, { rootMargin: margin || '600px 0px' });
     io.observe(el);
   }
+
+  /* ---------- « Nos autres cours » : photos chargées dès l'approche de la section ---------- */
+  // En loading="lazy", les cartes cachées sur le côté du carrousel mobile ne se chargeaient qu'au glissement (Safari surtout).
+  $$('.nx').forEach(function (row) {
+    var imgs = $$('img[loading="lazy"]', row); if (!imgs.length) return;
+    whenNear(row, function () { imgs.forEach(function (i) { i.loading = 'eager'; }); }, '800px 0px');
+  });
   // Trustindex : connexion préparée dès le chargement de la page, widget chargé quand le navigateur est au repos
   // (donc prêt avant que le visiteur n'arrive au bloc), ou plus tôt s'il s'en approche vite.
   var ti = $$('[data-trustindex]');

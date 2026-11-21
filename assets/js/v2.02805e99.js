@@ -17,6 +17,9 @@
     ['head', '.pq-head,.pq-it,.sec-head,.vals-head,.val,.faq-list details,.tips li,.incl li,.price-notes li'],
   ];
   const GROUP = '.coach-rail,.nx,.lpills,.smile-row';
+  // Sur téléphone, « Nos autres cours » est un carrousel horizontal : cartes affichées tout de suite, sans entrée 3D ni parallaxe
+  const PHONE_STILL = '.nx';
+  const phoneStill = el => matchMedia('(max-width:640px)').matches && el.closest(PHONE_STILL);
   const SKIP = '.hero,.dr,.lx,.stk,.coach-pic,.hdr,[data-m-skip]';
   const pars = new Map(), groups = new Map(), seen = new WeakSet();
   let vh = innerHeight, f = 1, raf = 0, heroes = [];
@@ -36,7 +39,7 @@
     if (RM.matches && !io) return;
     heroes = [...document.querySelectorAll('[data-m="hero"]')];
     if (io) RULES.forEach(([type, sel]) => document.querySelectorAll(sel).forEach(el => {
-      if (seen.has(el) || el.closest(SKIP)) return;
+      if (seen.has(el) || el.closest(SKIP) || phoneStill(el)) return;
       seen.add(el);
       if (el.parentElement.closest('[data-e]')) return;
       if (el.getBoundingClientRect().top < innerHeight * .88) return;
@@ -51,7 +54,7 @@
       else io.observe(el);
     }));
     if (!RM.matches) document.querySelectorAll('.ph,.slot').forEach(el => {
-      if (pars.has(el) || el.closest(SKIP)) return;
+      if (pars.has(el) || el.closest(SKIP) || phoneStill(el)) return;
       const t = el.querySelector(':scope > picture, :scope > img'); if (t) pars.set(el, { t });
     });
     measure();
