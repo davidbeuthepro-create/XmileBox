@@ -178,6 +178,13 @@
     if (location.hash === '#essai') open(null);
   })();
 
+  /* ---------- Boutons de contact : l'adresse ou le numéro s'affiche au clic, et l'email ou l'appel se lance ---------- */
+  $$('a[data-reveal]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var t = $('span', a); if (t) t.textContent = a.getAttribute('data-reveal');
+    });
+  });
+
   /* ---------- Vidéos lues au clic (lecteur auto-hébergé) ---------- */
   $$('[data-cvid]').forEach(function (w) {
     var v = $('video', w), start = $('[data-cvid-start]', w), bar = $('.cvid-bar', w), pl = $('[data-cvid-play]', w), mu = $('[data-cvid-mute]', w), vol = $('[data-cvid-vol]', w);

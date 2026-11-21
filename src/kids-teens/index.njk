@@ -81,10 +81,30 @@ date: git Last Modified
 {%- set coachLink = false -%}{%- set coachTags = true -%}{%- set coachAlt = false -%}
 {% include "partials/coach-rail.njk" %}
 
-{%- set schedId = "inscription" -%}{%- set schedEyebrow = "Inscription" -%}
-{%- set schedTitle = "Inscrire <span class=\"acc\">mon enfant</span>" -%}{%- set schedLead = "" -%}
-{%- set schedBlocs = ["kids", "teens"] -%}{%- set spgCourse = "kids" -%}{%- set spgTitle = "Réserve son créneau" -%}{%- set spgHint = "Clique sur un créneau Kids ou Teens pour réserver." -%}{%- set spgEager = false -%}
-{% include "partials/schedule-section.njk" %}
+{#- Inscription Kids & Teens : par email ou par téléphone (pas de réservation Sportigo) -#}
+<section class="sec" id="inscription" aria-labelledby="t-inscription" style="background:var(--bg-alt)">
+  <div class="wrap">
+    {{ secHead("Inscription", "Inscrire <span class=\"acc\">mon enfant</span>", "t-inscription", "L'inscription se fait par email ou par téléphone, pour qu'on puisse te donner plus d'informations sur les groupes et les places disponibles.") }}
+    <div class="sched-grid">
+      <div class="sched-list">
+        {%- for b in ["kids", "teens"] %}{% set bloc = horaires.blocs[b] %}
+        <div class="tt">
+          <h3 class="tt-h">{{ bloc.titre }}</h3>
+          <dl>{% for l in bloc.lignes %}<div class="tt-row"><dt>{{ l.jour }}</dt><dd>{% for h in l.heures %}<span class="{{ 'tt-t' if h | match('\\d') else 'tt-k' }}">{{ h }}</span>{% endfor %}</dd></div>{% endfor %}</dl>
+        </div>
+        {%- endfor %}
+      </div>
+      <div class="kidcontact">
+        <h3 class="disp h3">Contacte-nous</h3>
+        <p>Dis-nous l'âge de ton enfant et le créneau qui t'intéresse (mercredi, samedi, ou les deux). On te répond avec les places disponibles et la suite des démarches.</p>
+        <div class="kidcontact-btns">
+          <a class="btn btn-primary btn-lg" href="mailto:{{ site.email }}?subject=Inscription%20Kids%20%26%20Teens" data-reveal="{{ site.email }}">{% icon "mail", 20 %}<span>Nous contacter par email</span></a>
+          <a class="btn btn-dark btn-lg" href="{{ site.telephoneHref }}" data-reveal="{{ site.telephone }}">{% icon "phone", 20 %}<span>Nous contacter par téléphone</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="sec" id="tarifs" aria-labelledby="t-tarifs">
   <div class="wrap">
