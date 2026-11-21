@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/bebas-neue-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/main.3a669b34.css">
+<link rel="stylesheet" href="/assets/css/main.61379bf3.css">
 <script>
 document.documentElement.classList.add('js');
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
@@ -419,7 +419,7 @@ window.xmConsent=(function(){
               <th scope="row">Pilates</th>
               <td><span class="cmp-no" aria-hidden="true"></span><span class="sr">Non inclus</span></td>
               <td><span class="cmp-txt">1 / semaine</span></td>
-              <td class="hl"><span class="todo">[À confirmer]</span></td>
+              <td class="hl"><span class="cmp-txt">1 / semaine</span></td>
               <td><span class="cmp-no" aria-hidden="true"></span><span class="sr">Non inclus</span></td>
               <td><span class="cmp-no" aria-hidden="true"></span><span class="sr">Non inclus</span></td>
               <td><span class="cmp-yes" aria-hidden="true"></span><span class="sr">Inclus</span></td>
@@ -448,8 +448,8 @@ window.xmConsent=(function(){
               <td><span class="cmp-price">115 €<small>/ mois</small></span></td>
               <td class="hl"><span class="cmp-price">199 €<small>/ mois</small></span></td>
               <td><span class="cmp-price">130 €</span></td>
-              <td><span class="cmp-price">20 €</span></td>
-              <td><span class="todo">[À compléter : prix]</span></td>
+              <td><span class="cmp-price">20 €</span><button type="button" class="btn btn-dark btn-sm cmp-drop" data-drop-open>Réserver mon drop in</button></td>
+              <td><span class="cmp-txt"></span></td>
             </tr>
           </tbody>
         </table>
@@ -751,7 +751,24 @@ window.xmConsent=(function(){
   });
 </script>
 
-<script src="/assets/js/main.fa14dd80.js" defer></script>
+<div class="trial-dlg" id="drop-dlg" data-widget-id="b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc" data-activities="[12379]" hidden>
+  <div class="trial-scrim">
+    <div class="trial-panel" role="dialog" aria-modal="true" aria-labelledby="drop-t">
+      <div class="ck-panel-head">
+        <h2 id="drop-t">Réserve ton drop in</h2>
+        <button type="button" class="ibtn ibtn-outline" data-drop-close aria-label="Fermer"><svg class="ic" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></svg></button>
+      </div>
+      <div class="spg-box trial-box">
+        <div class="spg-ph"><span class="slot-tag">Planning Sportigo</span><span>Le planning et la réservation s'affichent ici.</span></div>
+        <div id="sportigo-appointment-full-container"></div>
+      </div>
+      <p class="spg-legal">Tes coordonnées servent uniquement à organiser ta séance. <a href="/politique-de-confidentialite/">Politique de confidentialité</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/main.2e81dfd8.js" defer></script>
 <script src="/assets/js/v2.16cfdb21.js" defer></script>
 </body>
 </html>
