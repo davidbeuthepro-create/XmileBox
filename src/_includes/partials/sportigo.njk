@@ -1,8 +1,10 @@
-{#- Cadre du widget Sportigo (un seul par page). Le script Sportigo et initComponent sont chargés par main.js
-    avec les mêmes paramètres que le code d'intégration : initComponent("Appointment", "sportigo-appointment-container", <id>, <options du code officiel + activities, fromDate>).
-    Variables : spgCourse (clé du cours, filtre le planning), spgTitle, spgHint, spgEager -#}
-<div class="spg" data-sportigo data-widget-id="{{ site.sportigoWidgetId }}" data-planning="{{ site.sportigoPlanning }}"{% if spgCourse %} data-activities="{{ horaires.sportigo[spgCourse] | json | esc }}" data-slots="{{ spgCourse | planningJours(horaires) | esc }}"{% endif %}{% if spgEager %} data-eager{% endif %}>
-  <div class="spg-head"><h3 class="disp h3">{{ spgTitle or "Réserve ton créneau" }}</h3><p class="spg-hint">{% icon "mouse-pointer-click", 18, "ic-acc" %}{{ spgHint or "Clique sur un créneau pour réserver." }}</p></div>
+{#- Cadre du widget Sportigo de réservation d'essai (un seul par page). main.js charge le script et appelle le code officiel,
+    sans rien y ajouter : initComponent("Appointment", "sportigo-appointment-container", <id>, { theme, source appointment, readonly: false,
+    forceBookBtn: true, colored: true, planning: 2143, displayMode: "slide" }). Pas de filtre activities : avec lui, le widget affiche la réservation payante.
+    Le même conteneur est déplacé dans le pop-up « séance d'essai » quand on l'ouvre depuis cette page.
+    Variables : spgTitle, spgHint, spgEager -#}
+<div class="spg" data-sportigo data-widget-id="{{ site.sportigoWidgetId }}" data-planning="{{ site.sportigoPlanning }}"{% if spgEager %} data-eager{% endif %}>
+  <div class="spg-head"><h3 class="disp h3">{{ spgTitle or "Réserve ta séance d'essai" }}</h3><p class="spg-hint">{% icon "mouse-pointer-click", 18, "ic-acc" %}{{ spgHint or "Clique sur un créneau pour réserver ta séance d'essai gratuite." }}</p></div>
   <div class="spg-box">
     <div class="spg-ph"><span class="slot-tag">Planning Sportigo</span><span>Le planning et la réservation s'affichent ici.</span></div>
     <div id="sportigo-appointment-container"></div>

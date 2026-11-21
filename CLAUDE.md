@@ -49,9 +49,9 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
 - Pipeline : push sur `main` → GitHub Action `.github/workflows/deploy.yml` (`permissions: contents: write`) → `npm ci` + build → contenu de `_site/` publié à la racine de la branche `deploy`, fichiers commençant par un point compris (le `.htaccess` doit y être) → Hostinger tire la branche `deploy` (déploiement Git hPanel + webhook).
 - Ne jamais modifier la branche `deploy` à la main.
 - Variable `SITE_ENV`, définie dans le workflow :
-  - `test` (valeur actuelle) : `<meta name="robots" content="noindex, nofollow">` sur toutes les pages et `Header set X-Robots-Tag "noindex, nofollow"` en tête du `.htaccess`. Le `robots.txt` ne bloque rien d'autre que `/api/`, sinon Google ne verrait pas le noindex.
-  - `production` (à la bascule) : comportement normal du pack, sans noindex.
-- Domaine de test : `lightsalmon-partridge-472537.hostingersite.com` (domaine temporaire Hostinger, site PHP/HTML vide).
+  - `test` : `<meta name="robots" content="noindex, nofollow">` sur toutes les pages et `Header set X-Robots-Tag "noindex, nofollow"` en tête du `.htaccess`. Le `robots.txt` ne bloque rien d'autre que `/api/`, sinon Google ne verrait pas le noindex.
+  - `production` (valeur actuelle depuis la bascule de novembre 2026 : le site est en ligne sur https://crossfitxmile.com) : comportement normal du pack, sans noindex.
+- Domaine de production : `crossfitxmile.com`. L'ancien domaine de test (`lightsalmon-partridge-472537.hostingersite.com`) n'est plus utilisé.
 - Le site doit fonctionner sur n'importe quel domaine : liens internes et ressources en chemins racine (`/crossfit/`, `/assets/...`), jamais en URL absolue. Les règles du `.htaccess` propres au domaine (www vers sans www, etc.) ne s'appliquent qu'à `crossfitxmile.com` : le domaine de test ne doit jamais être redirigé vers la production.
 - Canonical toujours absolues vers `https://crossfitxmile.com/.../`, même en test.
 
@@ -92,7 +92,20 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
   </script>
   ```
 
-  Sur chaque page cours, le planning est filtré par discipline comme dans la maquette (option `activities`, ids de `XM_SPG` dans `xm-shared.jsx`). Bouton « Je m'abonne » : https://xmile-crossfit.sportigo.fr/buy. Les horaires existent aussi en texte : le widget est invisible pour Google.
+  Ce code d'essai est appelé à l'identique partout (pages cours, pages locales, `/seance-essai/`, pop-up ouvert par tous les liens « séance d'essai »), sans filtre `activities` ni `fromDate` : avec un filtre, le widget affiche la réservation payante. Un seul widget d'essai par page : le pop-up reprend le conteneur du planning de la page s'il existe. Bouton « Je m'abonne » : https://xmile-crossfit.sportigo.fr/buy. Les horaires existent aussi en texte : le widget est invisible pour Google.
+- **Sportigo drop in** (réservation payante, uniquement le bouton « Réserver mon drop in » du tableau des formules, dans un pop-up) :
+
+  ```html
+  <div id="sportigo-appointment-full-container"></div>
+  <script src="https://standalone.api.sportigo.fr/component-standalone.js"></script>
+  <script>
+    initComponent("AppointmentFull", "sportigo-appointment-full-container", "b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc", {
+      "source": { "kind": "widget", "ref": "appointment-full" }, "activities": [12379], "displayMode": "slide"
+    });
+  </script>
+  ```
+
+  Kids & Teens : pas de widget, inscription par email ou téléphone.
 - **Avis Google** : badge statique depuis `avis.json` ; bloc avis = widget Trustindex (code dans le README du pack), avec une hauteur minimale réservée pour éviter le décalage au chargement.
 - **GTM + écouteur Sportigo** : `_migration/tracking/tracking-snippets.html`, repris tel quel.
 - **Consentement** : bandeau et panneau selon `brief-pages-legales.md`. Cookie `xmile_consent` 6 mois. Consent Mode v2 basique : `analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization` à `denied` par défaut ; GA4, Google Ads et Meta ne se déclenchent qu'après accord. Bouton « Gérer mes cookies » dans le pied de page.
