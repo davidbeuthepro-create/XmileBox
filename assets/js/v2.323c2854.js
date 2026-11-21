@@ -131,41 +131,7 @@
   }
 })();
 
-/* Formulaire de devis Team building : envoi vers api/devis.php, confirmation sans rechargement */
-(() => {
-  const wrap = document.querySelector('[data-quote]'); if (!wrap) return;
-  const form = wrap.querySelector('[data-quote-form]'), done = wrap.querySelector('[data-quote-done]'), err = wrap.querySelector('[data-quote-error]');
-  const stamp = form.elements.t; stamp.value = Date.now(); // heure d'ouverture : le serveur refuse un envoi trop rapide
-  const clear = () => { form.querySelectorAll('.fld[data-invalid]').forEach(f => { f.removeAttribute('data-invalid'); const m = f.querySelector('.fld-msg'); if (m) m.remove(); }); err.hidden = true; };
-  const mark = (name, msg) => {
-    const input = form.elements[name]; const f = input && input.closest('.fld'); if (!f) return;
-    f.setAttribute('data-invalid', ''); input.setAttribute('aria-invalid', 'true');
-    const m = document.createElement('span'); m.className = 'fld-msg'; m.textContent = msg; f.appendChild(m);
-  };
-  form.addEventListener('submit', async e => {
-    e.preventDefault(); clear();
-    const bad = {};
-    ['company', 'name', 'email', 'size'].forEach(k => { if (!form.elements[k].value.trim()) bad[k] = 'Champ requis'; });
-    if (form.elements.email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.elements.email.value)) bad.email = 'Adresse email invalide';
-    if (Object.keys(bad).length) { Object.entries(bad).forEach(([k, m]) => mark(k, m)); form.elements[Object.keys(bad)[0]].focus(); return; }
-    const btn = form.querySelector('button[type=submit]'); btn.disabled = true;
-    try {
-      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-      const data = await res.json().catch(() => ({}));
-      if (res.ok && data.ok) {
-        done.querySelector('[data-q-name]').textContent = form.elements.name.value.trim().split(' ')[0];
-        done.querySelector('[data-q-email]').textContent = form.elements.email.value.trim();
-        done.querySelector('[data-q-company]').textContent = form.elements.company.value.trim();
-        form.hidden = true; done.hidden = false; done.focus && done.setAttribute('tabindex', '-1'); done.focus();
-        window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'devis_team_building' });
-      } else if (data.errors) {
-        Object.entries(data.errors).forEach(([k, m]) => mark(k, m));
-      } else {
-        err.textContent = data.error || 'L\'envoi a échoué. Réessaie dans un instant ou écris-nous directement par email.'; err.hidden = false;
-      }
-    } catch (x) {
-      err.textContent = 'L\'envoi a échoué. Vérifie ta connexion ou écris-nous directement par email.'; err.hidden = false;
-    }
-    btn.disabled = false;
-  });
-})();
+/* Demande de devis Team building par email : mesure du clic (l'envoi se fait dans la messagerie du visiteur) */
+document.querySelectorAll('[data-devis-mail]').forEach(a => a.addEventListener('click', () => {
+  window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'devis_team_building' });
+}));

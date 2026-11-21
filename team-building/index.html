@@ -312,37 +312,15 @@ window.xmConsent=(function(){
       <div class="quote-intro" style="display:flex;flex-direction:column;gap:20px">
         <span class="eyebrow">Demande de devis</span>
         <h2 class="disp h2" id="t-quote">Parle-nous de <span class="acc">ton équipe</span></h2>
-        <p class="lead">Pas de prix affiché : chaque devis dépend du format, du nombre de participants et de la date. Remplis le formulaire, on revient vers toi avec une proposition.</p>
-        <div class="faq-contact">
-          <a href="tel:+32473551286"><svg class="ic ic-acc" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>+32 473 55 12 86</a>
-          <a href="mailto:xmileconcept@gmail.com"><svg class="ic ic-acc" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2" />
-  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>xmileconcept@gmail.com</a>
-        </div>
+        <p class="lead">Pas de prix affiché : chaque devis dépend du format, du nombre de participants et de la date. Écris-nous, on revient vers toi avec une proposition.</p>
       </div>
-      <div data-quote>
-        <form class="qform" method="post" action="/api/devis.php" novalidate data-quote-form>
-          <div class="qgrid">
-            <label class="fld"><span>Entreprise *</span><input type="text" name="company" autocomplete="organization" required></label>
-            <label class="fld"><span>Nom et prénom *</span><input type="text" name="name" autocomplete="name" required></label>
-            <label class="fld"><span>Fonction</span><input type="text" name="role" placeholder="RH, office manager…" autocomplete="organization-title"></label>
-            <label class="fld"><span>Email professionnel *</span><input type="email" name="email" autocomplete="email" required></label>
-            <label class="fld"><span>Téléphone</span><input type="tel" name="phone" autocomplete="tel"></label>
-            <label class="fld"><span>Nombre de participants *</span><input type="number" name="size" min="1" max="1000" inputmode="numeric" required></label>
-            <label class="fld"><span>Période ou date souhaitée</span><input type="text" name="when" placeholder="Ex. un jeudi soir en mars"></label>
-            <label class="fld"><span>Format envisagé</span><span class="fld-sel"><select name="format"><option>WOD par équipes</option><option>Simulation Hyrox en relais</option><option>Initiation et lounge</option><option selected>Je ne sais pas encore</option></select></span></label>
-          </div>
-          <label class="qarea"><span>Message</span><textarea rows="4" name="msg" placeholder="Ce que tu veux pour ton équipe, contraintes, questions"></textarea></label>
-          <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-          <input type="hidden" name="t" value="">
-          <p class="qlegal">Ces informations servent uniquement à répondre à cette demande. Elles partent par e-mail et ne sont pas enregistrées sur le site. <a href="/politique-de-confidentialite/">Politique de confidentialité</a></p>
-          <p class="fld-err" role="alert" data-quote-error hidden></p>
-          <div class="qfoot"><button type="submit" class="btn btn-primary btn-lg">Envoyer ma demande de devis<svg class="ic" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6" /></svg></button><span class="muted">* champs requis</span></div>
-        </form>
-        <div class="qform qform-done" role="status" data-quote-done hidden>
-          <span class="disc" style="width:56px;height:56px"><svg class="ic" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg></span>
-          <h3 class="disp h3">Merci <span data-q-name></span>, c'est envoyé</h3>
-          <p>On revient vers toi à <span data-q-email></span> sous <span class="todo">[À VALIDER : 2 jours ouvrables]</span> avec une proposition pour <span data-q-company></span>.</p>
-          <p class="muted">Une question urgente ? Appelle-nous au <a href="tel:+32473551286">+32 473 55 12 86</a>.</p>
+      <div class="kidcontact">
+        <h3 class="disp h3">Ta demande en un email</h3>
+        <p>Le modèle s'ouvre déjà rempli dans ta messagerie. Indique l'entreprise, le nombre de participants, la période et le format qui t'intéresse, on s'occupe du reste.</p>
+        <div class="kidcontact-btns">
+          <a class="btn btn-primary btn-lg" href="mailto:xmileconcept@gmail.com?subject=Demande%20de%20devis%20Team%20building&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20recevoir%20un%20devis%20pour%20un%20team%20building.%0A%0AEntreprise%20%3A%0ANom%20et%20fonction%20%3A%0AT%C3%A9l%C3%A9phone%20%3A%0ANombre%20de%20participants%20%3A%0AP%C3%A9riode%20ou%20date%20souhait%C3%A9e%20%3A%0AFormat%20envisag%C3%A9%20%3A%0AMessage%20%3A" data-reveal="xmileconcept@gmail.com" data-devis-mail><svg class="ic" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2" />
+  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg><span>Demander un devis par email</span></a>
+          <a class="btn btn-dark btn-lg" href="tel:+32473551286" data-reveal="+32 473 55 12 86"><svg class="ic" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg><span>Nous appeler</span></a>
         </div>
       </div>
     </div>
@@ -531,6 +509,6 @@ window.xmConsent=(function(){
 </div>
 
 <script src="/assets/js/main.2e81dfd8.js" defer></script>
-<script src="/assets/js/v2.16cfdb21.js" defer></script>
+<script src="/assets/js/v2.323c2854.js" defer></script>
 </body>
 </html>
