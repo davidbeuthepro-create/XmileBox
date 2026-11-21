@@ -253,22 +253,6 @@
  },
  {
   "ordre": 15,
-  "id": "oualid",
-  "prenom": "Oualid",
-  "role": "Coach",
-  "disciplines": [
-   "hyrox"
-  ],
-  "tags": [
-   "Hyrox"
-  ],
-  "certification": "CrossFit - Level 1",
-  "bio": null,
-  "photo": null,
-  "photoAlt": "Portrait de Oualid, coach chez Xmile"
- },
- {
-  "ordre": 16,
   "id": "philippe",
   "prenom": "Philippe",
   "role": "Coach",
@@ -285,7 +269,7 @@
   "photoAlt": "Portrait de Philippe, coach chez Xmile"
  },
  {
-  "ordre": 17,
+  "ordre": 16,
   "id": "fe",
   "prenom": "Fe",
   "role": "Coach",
