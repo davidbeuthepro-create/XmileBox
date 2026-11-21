@@ -104,15 +104,8 @@
     if (document.readyState === 'complete') afterLoad(); else addEventListener('load', afterLoad);
   }
 
-  // Script Sportigo : chargé une seule fois par page, que ce soit pour le planning de la page ou pour le pop-up
+  // Script Sportigo : chargé une seule fois par page, que ce soit pour le planning de la page ou pour un pop-up
   var spgQueue = [], spgLoading = false;
-  // Options du code d'intégration officiel Sportigo (réservation des cours d'essai) ; activities et fromDate s'y ajoutent selon la page
-  function spgOptions(el, extra) {
-    var o = { theme: { googleFont: { name: 'Inter' } }, source: { kind: 'widget', ref: 'appointment' }, readonly: false, forceBookBtn: true, colored: true, displayMode: 'slide' };
-    var pl = parseInt(el.getAttribute('data-planning'), 10); if (pl) o.planning = pl;
-    for (var k in extra) o[k] = extra[k];
-    return o;
-  }
   function loadSportigo(cb) {
     if (window.initComponent) { cb(); return; }
     spgQueue.push(cb);
@@ -123,57 +116,63 @@
     document.body.appendChild(sc);
   }
 
+  // Réservation de la séance d'essai : code officiel Sportigo, à l'identique, une seule fois par page.
+  // Aucun filtre ajouté (activities, fromDate) : avec un filtre, le widget affichait la réservation payante.
+  var TRIAL_ID = 'sportigo-appointment-container', trialStarted = false;
+  function startTrial(el) {
+    if (trialStarted) return; trialStarted = true;
+    loadSportigo(function () {
+      try {
+        window.initComponent('Appointment', TRIAL_ID, el.getAttribute('data-widget-id'), {
+          theme: { googleFont: { name: 'Inter' } },
+          source: { kind: 'widget', ref: 'appointment' },
+          readonly: false,
+          forceBookBtn: true,
+          colored: true,
+          planning: parseInt(el.getAttribute('data-planning'), 10),
+          displayMode: 'slide'
+        });
+      } catch (e) {}
+    });
+  }
+
   var spg = $('[data-sportigo]');
   if (spg) {
-    var box = $('#sportigo-appointment-container', spg);
-    var nextDate = function () {
-      try {
-        var slots = JSON.parse(spg.getAttribute('data-slots') || '{}'), now = new Date(), nowMin = now.getHours() * 60 + now.getMinutes();
-        for (var i = 0; i < 8; i++) {
-          var d = new Date(now); d.setDate(now.getDate() + i);
-          var s = slots[d.getDay()]; if (!s || !s.length) continue;
-          if (i === 0 && !s.some(function (m) { return m > nowMin; })) continue;
-          return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
-        }
-      } catch (e) {}
-      return null;
-    };
-    var load = function () {
-      loadSportigo(function () {
-        var x = {}, a = spg.getAttribute('data-activities'), f = nextDate();
-        if (a) x.activities = JSON.parse(a);
-        if (f) x.fromDate = f;
-        try { window.initComponent('Appointment', 'sportigo-appointment-container', spg.getAttribute('data-widget-id'), spgOptions(spg, x)); } catch (e) {}
-      });
-    };
+    var box = $('#' + TRIAL_ID, spg);
     var mo = new MutationObserver(function () { if (box.childElementCount) { spg.setAttribute('data-ready', ''); mo.disconnect(); } });
     mo.observe(box, { childList: true, subtree: true });
+    var load = function () { startTrial(spg); };
     if (spg.hasAttribute('data-eager')) load(); else whenNear(spg, load);
   }
 
   /* ---------- Pop-up « séance d'essai » : le planning Sportigo s'ouvre sur la page, sans changer de page ---------- */
   (function () {
     var dlg = $('#trial-dlg'); if (!dlg || location.pathname === '/seance-essai/') return;
-    var box = $('#sportigo-popup', dlg), inited = false, last = null, wait = 0;
+    var slot = $('[data-trial-slot]', dlg), last = null, wait = 0, home = null, watched = false;
     function close() {
       dlg.hidden = true; document.documentElement.style.overflow = ''; clearTimeout(wait);
+      // Le planning de la page retourne à sa place
+      if (home) { var c = document.getElementById(TRIAL_ID); if (c) home.parent.insertBefore(c, home.next); home = null; }
       if (last && last.focus) last.focus();
     }
     function open(from) {
       last = from || document.activeElement;
       var mn = $('#mnav'); if (mn && mn.getAttribute('data-open') === 'true') { mn.setAttribute('data-open', 'false'); mn.setAttribute('aria-hidden', 'true'); mn.setAttribute('inert', ''); document.body.style.overflow = ''; }
+      // Un seul widget d'essai par page : on reprend celui du planning de la page s'il existe, sinon on en crée un
+      var c = document.getElementById(TRIAL_ID);
+      if (c && !slot.contains(c)) { home = { parent: c.parentNode, next: c.nextSibling }; slot.appendChild(c); }
+      else if (!c) { c = document.createElement('div'); c.id = TRIAL_ID; slot.appendChild(c); }
       dlg.hidden = false; document.documentElement.style.overflow = 'hidden';
-      var c = $('[data-trial-close]', dlg); if (c) c.focus({ preventScroll: true });
-      if (!inited) {
-        inited = true;
-        loadSportigo(function () {
-          try { window.initComponent('Appointment', 'sportigo-popup', dlg.getAttribute('data-widget-id'), spgOptions(dlg, { activities: JSON.parse(dlg.getAttribute('data-activities') || '[]') })); } catch (e) {}
-        });
+      var x = $('[data-trial-close]', dlg); if (x) x.focus({ preventScroll: true });
+      if (c.childElementCount) dlg.setAttribute('data-ready', '');
+      else if (!watched) {
+        watched = true;
         // Si le planning ne s'affiche pas (réseau, bloqueur), on propose la page dédiée
-        wait = setTimeout(function () { if (!box.childElementCount) $('[data-trial-fallback]', dlg).hidden = false; }, 9000);
-        var mo = new MutationObserver(function () { if (box.childElementCount) { dlg.setAttribute('data-ready', ''); clearTimeout(wait); mo.disconnect(); } });
-        mo.observe(box, { childList: true, subtree: true });
+        wait = setTimeout(function () { var cc = document.getElementById(TRIAL_ID); if (!cc || !cc.childElementCount) $('[data-trial-fallback]', dlg).hidden = false; }, 9000);
+        var mo = new MutationObserver(function () { if (c.childElementCount) { dlg.setAttribute('data-ready', ''); clearTimeout(wait); mo.disconnect(); } });
+        mo.observe(c, { childList: true, subtree: true });
       }
+      startTrial(dlg);
     }
     document.addEventListener('click', function (e) {
       if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;

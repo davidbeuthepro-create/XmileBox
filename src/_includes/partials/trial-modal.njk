@@ -1,5 +1,6 @@
-{#- Pop-up « séance d'essai » : tous les liens vers /seance-essai/ l'ouvrent (main.js). La page /seance-essai/ reste en place pour les liens directs et les anciennes adresses. -#}
-<div class="trial-dlg" id="trial-dlg" data-widget-id="{{ site.sportigoWidgetId }}" data-planning="{{ site.sportigoPlanning }}" data-activities="{{ horaires.sportigo.essai | json | esc }}" hidden>
+{#- Pop-up « séance d'essai » : tous les liens vers /seance-essai/ l'ouvrent (main.js). La page /seance-essai/ reste en place pour les liens directs et les anciennes adresses.
+    Le conteneur officiel #sportigo-appointment-container y est placé à l'ouverture : celui du planning de la page s'il existe (déplacé puis remis en place), sinon un nouveau. -#}
+<div class="trial-dlg" id="trial-dlg" data-widget-id="{{ site.sportigoWidgetId }}" data-planning="{{ site.sportigoPlanning }}" hidden>
   <div class="trial-scrim">
     <div class="trial-panel" role="dialog" aria-modal="true" aria-labelledby="trial-t">
       <div class="ck-panel-head">
@@ -9,7 +10,7 @@
       <p class="trial-hint">{% icon "info", 18, "ic-acc" %}<span>Gratuite et sans engagement. Choisis un cours encadré et clique sur un créneau pour réserver.</span></p>
       <div class="spg-box trial-box">
         <div class="spg-ph"><span class="slot-tag">Planning Sportigo</span><span>Le planning et la réservation s'affichent ici.</span></div>
-        <div id="sportigo-popup"></div>
+        <div class="trial-slot" data-trial-slot></div>
       </div>
       <p class="trial-fallback" data-trial-fallback hidden>Le planning ne s'affiche pas ? <a href="/seance-essai/?page=1">Ouvre la page de réservation</a>.</p>
       <p class="spg-legal">Tes coordonnées servent uniquement à organiser ta séance. <a href="/politique-de-confidentialite/">Politique de confidentialité</a></p>

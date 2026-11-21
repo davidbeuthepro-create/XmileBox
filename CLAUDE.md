@@ -92,7 +92,20 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
   </script>
   ```
 
-  Sur chaque page cours, le planning est filtré par discipline comme dans la maquette (option `activities`, ids de `XM_SPG` dans `xm-shared.jsx`). Bouton « Je m'abonne » : https://xmile-crossfit.sportigo.fr/buy. Les horaires existent aussi en texte : le widget est invisible pour Google.
+  Ce code d'essai est appelé à l'identique partout (pages cours, pages locales, `/seance-essai/`, pop-up ouvert par tous les liens « séance d'essai »), sans filtre `activities` ni `fromDate` : avec un filtre, le widget affiche la réservation payante. Un seul widget d'essai par page : le pop-up reprend le conteneur du planning de la page s'il existe. Bouton « Je m'abonne » : https://xmile-crossfit.sportigo.fr/buy. Les horaires existent aussi en texte : le widget est invisible pour Google.
+- **Sportigo drop in** (réservation payante, uniquement le bouton « Réserver mon drop in » du tableau des formules, dans un pop-up) :
+
+  ```html
+  <div id="sportigo-appointment-full-container"></div>
+  <script src="https://standalone.api.sportigo.fr/component-standalone.js"></script>
+  <script>
+    initComponent("AppointmentFull", "sportigo-appointment-full-container", "b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc", {
+      "source": { "kind": "widget", "ref": "appointment-full" }, "activities": [12379], "displayMode": "slide"
+    });
+  </script>
+  ```
+
+  Kids & Teens : pas de widget, inscription par email ou téléphone.
 - **Avis Google** : badge statique depuis `avis.json` ; bloc avis = widget Trustindex (code dans le README du pack), avec une hauteur minimale réservée pour éviter le décalage au chargement.
 - **GTM + écouteur Sportigo** : `_migration/tracking/tracking-snippets.html`, repris tel quel.
 - **Consentement** : bandeau et panneau selon `brief-pages-legales.md`. Cookie `xmile_consent` 6 mois. Consent Mode v2 basique : `analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization` à `denied` par défaut ; GA4, Google Ads et Meta ne se déclenchent qu'après accord. Bouton « Gérer mes cookies » dans le pied de page.

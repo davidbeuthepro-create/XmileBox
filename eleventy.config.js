@@ -142,25 +142,6 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter('match', (s, re) => new RegExp(re).test(s));
   eleventyConfig.addFilter('json', v => JSON.stringify(v));
   eleventyConfig.addFilter('esc', esc);
-  // Jours (0 = dimanche) -> minutes de début des cours, pour ouvrir le widget Sportigo sur le prochain créneau
-  eleventyConfig.addFilter('planningJours', (cle, horaires) => {
-    const D = ['dim', 'lun', 'mar', 'mer', 'jeu', 'ven', 'sam'];
-    const slots = {};
-    for (const bloc of horaires.planning[cle] || []) {
-      for (const { jour, heures } of horaires.blocs[bloc].lignes) {
-        const l = jour.toLowerCase();
-        const found = D.filter(d => l.includes(d)).map(d => D.indexOf(d));
-        let days = found;
-        if (found.length === 2 && /\s-\s/.test(l)) {
-          days = [];
-          for (let i = found[0]; i !== (found[1] + 1) % 7; i = (i + 1) % 7) days.push(i);
-        }
-        const mins = heures.map(t => { const m = /^(\d{1,2})h(\d{2})?/.exec(t); return m ? +m[1] * 60 + +(m[2] || 0) : null; }).filter(v => v != null);
-        days.forEach(d => { slots[d] = (slots[d] || []).concat(mins); });
-      }
-    }
-    return JSON.stringify(slots);
-  });
   eleventyConfig.addFilter('isoDate', d => new Date(d).toISOString().slice(0, 10));
 
   eleventyConfig.addPassthroughCopy({ 'src/assets/fonts': 'assets/fonts' });
