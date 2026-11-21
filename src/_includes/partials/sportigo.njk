@@ -1,9 +1,9 @@
-{#- Cadre du widget Sportigo de réservation d'essai (un seul par page). main.js charge le script et appelle le code officiel,
-    sans rien y ajouter : initComponent("Appointment", "sportigo-appointment-container", <id>, { theme, source appointment, readonly: false,
-    forceBookBtn: true, colored: true, planning: 2143, displayMode: "slide" }). Pas de filtre activities : avec lui, le widget affiche la réservation payante.
-    Le même conteneur est déplacé dans le pop-up « séance d'essai » quand on l'ouvre depuis cette page.
-    Variables : spgTitle, spgHint, spgEager -#}
-<div class="spg" data-sportigo data-widget-id="{{ site.sportigoWidgetId }}" data-planning="{{ site.sportigoPlanning }}"{% if spgEager %} data-eager{% endif %}>
+{#- Cadre du widget Sportigo de réservation d'essai. main.js charge le script et appelle le code officiel
+    (initComponent("Appointment", "sportigo-appointment-container", <id>, { theme, source appointment, readonly: false, forceBookBtn: true,
+    colored: true, planning: 2143, displayMode: "slide" })) en ajoutant seulement activities : les cours de la page (horaires.json),
+    ou tous les cours sauf Free Access sur une page sans cours. Les boutons d'essai de la page ouvrent ce même planning dans le pop-up.
+    Variables : spgCourse (clé du cours dans horaires.sportigo), spgTitle, spgHint, spgEager -#}
+<div class="spg" data-sportigo data-widget-id="{{ site.sportigoWidgetId }}" data-planning="{{ site.sportigoPlanning }}" data-activities="{{ (horaires.sportigo[spgCourse] or horaires.sportigo.tout) | json | esc }}"{% if spgEager %} data-eager{% endif %}>
   <div class="spg-head"><h3 class="disp h3">{{ spgTitle or "Réserve ta séance d'essai" }}</h3><p class="spg-hint">{% icon "mouse-pointer-click", 18, "ic-acc" %}{{ spgHint or "Clique sur un créneau pour réserver ta séance d'essai gratuite." }}</p></div>
   <div class="spg-box">
     <div class="spg-ph"><span class="slot-tag">Planning Sportigo</span><span>Le planning et la réservation s'affichent ici.</span></div>

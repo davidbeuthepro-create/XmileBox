@@ -92,7 +92,7 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
   </script>
   ```
 
-  Ce code d'essai est appelé à l'identique partout (pages cours, pages locales, `/seance-essai/`, pop-up ouvert par tous les liens « séance d'essai »), sans filtre `activities` ni `fromDate` : avec un filtre, le widget affiche la réservation payante. Un seul widget d'essai par page : le pop-up reprend le conteneur du planning de la page s'il existe. Bouton « Je m'abonne » : https://xmile-crossfit.sportigo.fr/buy. Les horaires existent aussi en texte : le widget est invisible pour Google.
+  Ce code d'essai est appelé partout (pages cours, pages locales, `/seance-essai/`, pop-up ouvert par tous les liens « séance d'essai ») avec un seul ajout, l'option `activities` (ids dans `horaires.json` → `sportigo`), décidé avec David le 21/11/2026 : sur une page cours, le planning et les boutons d'essai de la page n'affichent que ce cours ; le bouton « Séance d'essai » du menu et du pied de page, et les pages sans cours, affichent tous les cours sauf Free Access (`sportigo.tout`). Pas de `fromDate`. Bouton « Je m'abonne » : https://xmile-crossfit.sportigo.fr/buy. Les horaires existent aussi en texte : le widget est invisible pour Google.
 - **Sportigo drop in** (réservation payante, uniquement le bouton « Réserver mon drop in » du tableau des formules, dans un pop-up) :
 
   ```html
@@ -105,7 +105,7 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
   </script>
   ```
 
-  Kids & Teens : pas de widget, inscription par email ou téléphone.
+  Pour le drop in, `activities` = tous les cours sauf Free Access (`sportigo.dropin`), à la demande de David. Kids & Teens : pas de widget, inscription par email ou téléphone.
 - **Avis Google** : badge statique depuis `avis.json` ; bloc avis = widget Trustindex (code dans le README du pack), avec une hauteur minimale réservée pour éviter le décalage au chargement.
 - **GTM + écouteur Sportigo** : `_migration/tracking/tracking-snippets.html`, repris tel quel.
 - **Consentement** : bandeau et panneau selon `brief-pages-legales.md`. Cookie `xmile_consent` 6 mois. Consent Mode v2 basique : `analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization` à `denied` par défaut ; GA4, Google Ads et Meta ne se déclenchent qu'après accord. Bouton « Gérer mes cookies » dans le pied de page.

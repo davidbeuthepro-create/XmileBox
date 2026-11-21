@@ -116,63 +116,76 @@
     document.body.appendChild(sc);
   }
 
-  // Réservation de la séance d'essai : code officiel Sportigo, à l'identique, une seule fois par page.
-  // Aucun filtre ajouté (activities, fromDate) : avec un filtre, le widget affichait la réservation payante.
-  var TRIAL_ID = 'sportigo-appointment-container', trialStarted = false;
-  function startTrial(el) {
-    if (trialStarted) return; trialStarted = true;
+  // Réservation de la séance d'essai : code officiel Sportigo, plus le filtre activities selon la page
+  // (cours de la page, ou tous les cours sauf Free Access). Chaque conteneur n'est initialisé qu'une fois.
+  var TRIAL_ID = 'sportigo-appointment-container', trialDone = {};
+  function startTrial(id, el, activities) {
+    if (trialDone[id]) return; trialDone[id] = true;
     loadSportigo(function () {
-      try {
-        window.initComponent('Appointment', TRIAL_ID, el.getAttribute('data-widget-id'), {
-          theme: { googleFont: { name: 'Inter' } },
-          source: { kind: 'widget', ref: 'appointment' },
-          readonly: false,
-          forceBookBtn: true,
-          colored: true,
-          planning: parseInt(el.getAttribute('data-planning'), 10),
-          displayMode: 'slide'
-        });
-      } catch (e) {}
+      var o = {
+        theme: { googleFont: { name: 'Inter' } },
+        source: { kind: 'widget', ref: 'appointment' },
+        readonly: false,
+        forceBookBtn: true,
+        colored: true,
+        planning: parseInt(el.getAttribute('data-planning'), 10),
+        displayMode: 'slide'
+      };
+      if (activities && activities.length) o.activities = activities;
+      try { window.initComponent('Appointment', id, el.getAttribute('data-widget-id'), o); } catch (e) {}
     });
   }
+  var actsOf = function (el) { try { return JSON.parse(el.getAttribute('data-activities') || '[]'); } catch (e) { return []; } };
 
   var spg = $('[data-sportigo]');
   if (spg) {
     var box = $('#' + TRIAL_ID, spg);
     var mo = new MutationObserver(function () { if (box.childElementCount) { spg.setAttribute('data-ready', ''); mo.disconnect(); } });
     mo.observe(box, { childList: true, subtree: true });
-    var load = function () { startTrial(spg); };
+    var load = function () { startTrial(TRIAL_ID, spg, actsOf(spg)); };
     if (spg.hasAttribute('data-eager')) load(); else whenNear(spg, load);
   }
 
   /* ---------- Pop-up « séance d'essai » : le planning Sportigo s'ouvre sur la page, sans changer de page ---------- */
+  // Boutons du menu et du pied de page (data-essai-general), ou page sans planning : planning général (tous les cours sauf Free Access).
+  // Boutons d'essai d'une page cours : le planning de la page (filtré sur ce cours) est déplacé dans le pop-up, puis remis en place.
   (function () {
     var dlg = $('#trial-dlg'); if (!dlg || location.pathname === '/seance-essai/') return;
-    var slot = $('[data-trial-slot]', dlg), last = null, wait = 0, home = null, watched = false;
+    var slot = $('[data-trial-slot]', dlg), last = null, home = null, waits = {};
+    var inline = $('[data-sportigo]');
+    var GENERAL_ID = inline ? 'sportigo-essai-tous-les-cours' : TRIAL_ID;
     function close() {
-      dlg.hidden = true; document.documentElement.style.overflow = ''; clearTimeout(wait);
-      // Le planning de la page retourne à sa place
+      dlg.hidden = true; document.documentElement.style.overflow = '';
       if (home) { var c = document.getElementById(TRIAL_ID); if (c) home.parent.insertBefore(c, home.next); home = null; }
       if (last && last.focus) last.focus();
+    }
+    function watch(c) {
+      dlg.toggleAttribute('data-ready', c.childElementCount > 0);
+      $('[data-trial-fallback]', dlg).hidden = true;
+      if (c.childElementCount || waits[c.id]) return;
+      // Si le planning ne s'affiche pas (réseau, bloqueur), on propose la page dédiée
+      waits[c.id] = setTimeout(function () { if (!c.childElementCount && !dlg.hidden) $('[data-trial-fallback]', dlg).hidden = false; }, 9000);
+      var mo = new MutationObserver(function () { if (c.childElementCount) { if (slot.contains(c)) dlg.setAttribute('data-ready', ''); clearTimeout(waits[c.id]); mo.disconnect(); } });
+      mo.observe(c, { childList: true, subtree: true });
     }
     function open(from) {
       last = from || document.activeElement;
       var mn = $('#mnav'); if (mn && mn.getAttribute('data-open') === 'true') { mn.setAttribute('data-open', 'false'); mn.setAttribute('aria-hidden', 'true'); mn.setAttribute('inert', ''); document.body.style.overflow = ''; }
-      // Un seul widget d'essai par page : on reprend celui du planning de la page s'il existe, sinon on en crée un
-      var c = document.getElementById(TRIAL_ID);
-      if (c && !slot.contains(c)) { home = { parent: c.parentNode, next: c.nextSibling }; slot.appendChild(c); }
-      else if (!c) { c = document.createElement('div'); c.id = TRIAL_ID; slot.appendChild(c); }
+      var general = !inline || !from || from.hasAttribute('data-essai-general');
+      var g = document.getElementById(GENERAL_ID), c;
+      if (general) {
+        if (!g) { g = document.createElement('div'); g.id = GENERAL_ID; slot.appendChild(g); }
+        g.hidden = false; c = g;
+        startTrial(GENERAL_ID, dlg, actsOf(dlg));
+      } else {
+        if (g) g.hidden = true;
+        c = document.getElementById(TRIAL_ID);
+        if (!slot.contains(c)) { home = { parent: c.parentNode, next: c.nextSibling }; slot.appendChild(c); }
+        startTrial(TRIAL_ID, inline, actsOf(inline));
+      }
       dlg.hidden = false; document.documentElement.style.overflow = 'hidden';
       var x = $('[data-trial-close]', dlg); if (x) x.focus({ preventScroll: true });
-      if (c.childElementCount) dlg.setAttribute('data-ready', '');
-      else if (!watched) {
-        watched = true;
-        // Si le planning ne s'affiche pas (réseau, bloqueur), on propose la page dédiée
-        wait = setTimeout(function () { var cc = document.getElementById(TRIAL_ID); if (!cc || !cc.childElementCount) $('[data-trial-fallback]', dlg).hidden = false; }, 9000);
-        var mo = new MutationObserver(function () { if (c.childElementCount) { dlg.setAttribute('data-ready', ''); clearTimeout(wait); mo.disconnect(); } });
-        mo.observe(c, { childList: true, subtree: true });
-      }
-      startTrial(dlg);
+      watch(c);
     }
     document.addEventListener('click', function (e) {
       if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;

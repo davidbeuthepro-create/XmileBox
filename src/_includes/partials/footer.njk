@@ -25,7 +25,7 @@
           <h2 class="ftr-h-gap">Le site</h2>
           <ul>
             {%- for l in navigation.piedDePage %}
-            <li><a href="{{ l.href }}">{{ l.label }}</a></li>
+            <li><a href="{{ l.href }}"{% if l.href == "/seance-essai/" %} data-essai-general{% endif %}>{{ l.label }}</a></li>
             {%- endfor %}
             <li><a href="{{ site.boutiqueSportigo }}" target="_blank" rel="noopener">Je m'abonne</a></li>
           </ul>

@@ -28,7 +28,7 @@
         <a href="{{ site.instagram }}" target="_blank" rel="noopener" aria-label="Instagram de Xmile">{% icon "instagram", 18 %}</a>
         <a href="{{ site.facebook }}" target="_blank" rel="noopener" aria-label="Facebook de Xmile">{% icon "facebook", 18 %}</a>
       </div>
-      <a class="btn btn-primary" href="/seance-essai/">Séance d'essai</a>
+      <a class="btn btn-primary" href="/seance-essai/" data-essai-general>Séance d'essai</a>
       <span class="burger"><button type="button" class="ibtn ibtn-dark" data-mnav-open aria-label="Ouvrir le menu" aria-controls="mnav" aria-expanded="false">{% icon "menu", 20 %}</button></span>
     </div>
   </div>
@@ -41,7 +41,7 @@
   <a href="{{ m.href }}">{{ m.label }}</a>
   {%- endfor %}
   <a href="{{ site.healthLab }}" target="_blank" rel="noopener">Health Lab{% icon "arrow-up-right", 26 %}</a>
-  <a href="/seance-essai/">Séance d'essai<span style="color:var(--xm-orange-500)">{% icon "arrow-up-right", 26 %}</span></a>
+  <a href="/seance-essai/" data-essai-general>Séance d'essai<span style="color:var(--xm-orange-500)">{% icon "arrow-up-right", 26 %}</span></a>
   <div class="mnav-social">
     <a href="{{ site.instagram }}" target="_blank" rel="noopener">{% icon "instagram", 20 %}Instagram</a>
     <a href="{{ site.facebook }}" target="_blank" rel="noopener">{% icon "facebook", 20 %}Facebook</a>
