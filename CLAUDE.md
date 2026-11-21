@@ -26,7 +26,7 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
 
 ## Stack (décidée, ne pas changer)
 
-- Eleventy 3, templates Nunjucks. Sources dans `src/`, sortie dans `_site/`. HTML statique, aucun framework JS : JavaScript vanilla seulement là où il le faut (menu mobile, bandeau cookies, façade vidéo, façade carte, formulaire de devis).
+- Eleventy 3, templates Nunjucks. Sources dans `src/`, sortie dans `_site/`. HTML statique, aucun framework JS : JavaScript vanilla seulement là où il le faut (menu mobile, bandeau cookies, façade vidéo, façade carte, mesure du clic sur l'email de devis).
 - CSS repris de la maquette (design system), en CSS simple. Pas de Tailwind, pas de préprocesseur.
 - Une source unique pour tout ce qui se répète, dans `src/_data/` :
   - `site.json` : nom, adresse, téléphone, email, réseaux, numéro d'entreprise, horaires d'ouverture, URL boutique Sportigo, URL Health Lab, ID GTM
@@ -35,11 +35,11 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
   - `tarifs.json` : grille adultes et grille Kids & Teens
   - `avis.json` : note Google, nombre d'avis arrondi, lien vers la fiche
   - `navigation.json` : menu et liste des pages locales du pied de page
-- Composants en partials dans `src/_includes/` : en-tête, pied de page, carte coach, carte cours, grille tarifs adultes, grille tarifs Kids & Teens, cadre Sportigo, badge note Google, bloc avis, façade vidéo, FAQ, bandeau CTA, carte format team building, formulaire de devis, bandeau cookies.
+- Composants en partials dans `src/_includes/` : en-tête, pied de page, carte coach, carte cours, grille tarifs adultes, grille tarifs Kids & Teens, cadre Sportigo, badge note Google, bloc avis, façade vidéo, FAQ, bandeau CTA, carte format team building, bandeau cookies.
 - Images : `@11ty/eleventy-img`, AVIF + WebP + JPEG, `srcset`, `width`/`height` toujours renseignés, `loading="lazy"` sauf l'image du hero.
 - Polices auto-hébergées en woff2 (la politique de cookies l'annonce). Aucun appel à Google Fonts.
 - Vidéo de Yannick et Marine : fichier mp4 + sous-titres .vtt auto-hébergés, lecteur en façade. Jamais d'embed YouTube ou Vimeo. Tant que le fichier manque : vignette + [À COMPLÉTER].
-- Copiés tels quels dans `_site/` : `robots.txt` (celui du pack) et `api/`.
+- Copié tel quel dans `_site/` : `robots.txt` (celui du pack).
 - `.htaccess` généré au build à partir de `_migration/site/.htaccess` (voir Déploiement pour l'ajout en test).
 - `sitemap.xml` généré au build depuis toutes les pages indexables (voir URLs), avec `<lastmod>`. Il remplace celui du pack. Pages légales exclues.
 - `_migration/` n'est jamais copié dans `_site/`.
@@ -97,11 +97,11 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
 - **GTM + écouteur Sportigo** : `_migration/tracking/tracking-snippets.html`, repris tel quel.
 - **Consentement** : bandeau et panneau selon `brief-pages-legales.md`. Cookie `xmile_consent` 6 mois. Consent Mode v2 basique : `analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization` à `denied` par défaut ; GA4, Google Ads et Meta ne se déclenchent qu'après accord. Bouton « Gérer mes cookies » dans le pied de page.
 - **Carte Google Maps** : façade, chargée seulement au clic sur « Afficher la carte ».
-- **Formulaire de devis** : `api/devis.php` selon le README du pack. PHPMailer copié dans le dépôt (pas de Composer sur le serveur). Si `xmile-config.php` est absent, réponse JSON d'erreur propre, sans planter.
+- **Demande de devis Team building** (décidé avec David le 21/11/2026) : pas de formulaire ni de PHP. Bouton `mailto:` vers `site.email` avec objet et modèle de message préremplis (entreprise, participants, période, format), plus le téléphone. Clic mesuré par `dataLayer.push({event: 'devis_team_building'})`.
 
 ## Secrets
 
-`xmile-config.php` (identifiants SMTP) vit au-dessus de `public_html` sur Hostinger, jamais dans le dépôt.
+Aucun secret nécessaire au site depuis l'abandon du formulaire PHP. Si un secret apparaît un jour, il vit au-dessus de `public_html` sur Hostinger, jamais dans le dépôt.
 `.gitignore` : `node_modules/`, `_site/`, `xmile-config.php`, `.env`, `*.local.*`.
 
 ## Façon de travailler

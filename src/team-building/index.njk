@@ -104,36 +104,28 @@ date: git Last Modified
       <div class="quote-intro" style="display:flex;flex-direction:column;gap:20px">
         <span class="eyebrow">Demande de devis</span>
         <h2 class="disp h2" id="t-quote">Parle-nous de <span class="acc">ton équipe</span></h2>
-        <p class="lead">Pas de prix affiché : chaque devis dépend du format, du nombre de participants et de la date. Remplis le formulaire, on revient vers toi avec une proposition.</p>
-        <div class="faq-contact">
-          <a href="{{ site.telephoneHref }}">{% icon "phone", 18, "ic-acc" %}{{ site.telephone }}</a>
-          <a href="mailto:{{ site.email }}">{% icon "mail", 18, "ic-acc" %}{{ site.email }}</a>
-        </div>
+        <p class="lead">Pas de prix affiché : chaque devis dépend du format, du nombre de participants et de la date. Écris-nous, on revient vers toi avec une proposition.</p>
       </div>
-      <div data-quote>
-        <form class="qform" method="post" action="/api/devis.php" novalidate data-quote-form>
-          <div class="qgrid">
-            <label class="fld"><span>Entreprise *</span><input type="text" name="company" autocomplete="organization" required></label>
-            <label class="fld"><span>Nom et prénom *</span><input type="text" name="name" autocomplete="name" required></label>
-            <label class="fld"><span>Fonction</span><input type="text" name="role" placeholder="RH, office manager…" autocomplete="organization-title"></label>
-            <label class="fld"><span>Email professionnel *</span><input type="email" name="email" autocomplete="email" required></label>
-            <label class="fld"><span>Téléphone</span><input type="tel" name="phone" autocomplete="tel"></label>
-            <label class="fld"><span>Nombre de participants *</span><input type="number" name="size" min="1" max="1000" inputmode="numeric" required></label>
-            <label class="fld"><span>Période ou date souhaitée</span><input type="text" name="when" placeholder="Ex. un jeudi soir en mars"></label>
-            <label class="fld"><span>Format envisagé</span><span class="fld-sel"><select name="format">{% for f in formats %}<option>{{ f.t }}</option>{% endfor %}<option selected>Je ne sais pas encore</option></select></span></label>
-          </div>
-          <label class="qarea"><span>Message</span><textarea rows="4" name="msg" placeholder="Ce que tu veux pour ton équipe, contraintes, questions"></textarea></label>
-          <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-          <input type="hidden" name="t" value="">
-          <p class="qlegal">Ces informations servent uniquement à répondre à cette demande. Elles partent par e-mail et ne sont pas enregistrées sur le site. <a href="/politique-de-confidentialite/">Politique de confidentialité</a></p>
-          <p class="fld-err" role="alert" data-quote-error hidden></p>
-          <div class="qfoot"><button type="submit" class="btn btn-primary btn-lg">Envoyer ma demande de devis{% icon "arrow-up-right", 20 %}</button><span class="muted">* champs requis</span></div>
-        </form>
-        <div class="qform qform-done" role="status" data-quote-done hidden>
-          <span class="disc" style="width:56px;height:56px">{% icon "check", 26 %}</span>
-          <h3 class="disp h3">Merci <span data-q-name></span>, c'est envoyé</h3>
-          <p>On revient vers toi à <span data-q-email></span> sous {% todo "À VALIDER : 2 jours ouvrables" %} avec une proposition pour <span data-q-company></span>.</p>
-          <p class="muted">Une question urgente ? Appelle-nous au <a href="{{ site.telephoneHref }}">{{ site.telephone }}</a>.</p>
+{%- set devisSujet = "Demande de devis Team building" %}
+{%- set devisCorps -%}
+Bonjour,
+
+Je souhaite recevoir un devis pour un team building.
+
+Entreprise :
+Nom et fonction :
+Téléphone :
+Nombre de participants :
+Période ou date souhaitée :
+Format envisagé :
+Message :
+{%- endset %}
+      <div class="kidcontact">
+        <h3 class="disp h3">Ta demande en un email</h3>
+        <p>Le modèle s'ouvre déjà rempli dans ta messagerie. Indique l'entreprise, le nombre de participants, la période et le format qui t'intéresse, on s'occupe du reste.</p>
+        <div class="kidcontact-btns">
+          <a class="btn btn-primary btn-lg" href="mailto:{{ site.email }}?subject={{ devisSujet | urlencode }}&amp;body={{ devisCorps | trim | urlencode }}" data-reveal="{{ site.email }}" data-devis-mail>{% icon "mail", 20 %}<span>Demander un devis par email</span></a>
+          <a class="btn btn-dark btn-lg" href="{{ site.telephoneHref }}" data-reveal="{{ site.telephone }}">{% icon "phone", 20 %}<span>Nous appeler</span></a>
         </div>
       </div>
     </div>

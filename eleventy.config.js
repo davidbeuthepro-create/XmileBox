@@ -166,9 +166,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 'src/assets/fonts': 'assets/fonts' });
   eleventyConfig.addPassthroughCopy({ 'src/assets/video': 'assets/video' });
   eleventyConfig.addPassthroughCopy({ 'src/assets/img/favicon': 'assets/img/favicon' });
-  // robots.txt du pack et dossier api/ : copiés tels quels
+  // robots.txt du pack : copié tel quel
   eleventyConfig.addPassthroughCopy('src/robots.txt');
-  eleventyConfig.addPassthroughCopy('src/api');
 
   eleventyConfig.on('eleventy.before', () => { pending.length = 0; used.clear(); });
   eleventyConfig.on('eleventy.after', async () => {

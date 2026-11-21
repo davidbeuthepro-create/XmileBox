@@ -49,6 +49,9 @@ Non corrigé, à trancher avec le client :
 
 ## Formulaire de devis Team building : `api/devis.php`
 
+**Abandonné le 2026-11-21** : remplacé par un bouton email prérempli (voir CLAUDE.md). Section gardée pour l'historique.
+
+
 - PHP + PHPMailer en SMTP authentifié (`smtp.hostinger.com`, port 465, SSL), expédié depuis une boîte technique du domaine (ex. `site@crossfitxmile.com`, que personne ne lit).
 - Destinataire : `xmileconcept@gmail.com` (boîte unique pour toutes les demandes). `Reply-To` = email du demandeur, pour répondre directement depuis Gmail.
 - Objet de l'email explicite et filtrable : `[Team building] Entreprise · nombre de participants`.

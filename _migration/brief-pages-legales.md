@@ -90,7 +90,7 @@ Nous traitons vos données conformément au Règlement (UE) 2016/679 (RGPD) et �
 | Kids & Teens | Nom, prénom et groupe d'âge de l'enfant, coordonnées du parent | Inscrire l'enfant dans son groupe et joindre le parent | Exécution du contrat conclu avec le parent (art. 6.1.b) | Durée de l'inscription, puis 3 ans |
 | Comptabilité | Factures et paiements | Respecter nos obligations comptables et fiscales | Obligation légale (art. 6.1.c) | 10 ans |
 | Attestation de remboursement de votre mutualité | Données que vous inscrivez sur le formulaire de votre mutualité | Compléter et signer l'attestation à votre demande | Exécution du contrat (art. 6.1.b) | Aucune copie conservée [À VALIDER] |
-| Demande de devis Team building | Entreprise, nom, fonction, e-mail professionnel, téléphone, nombre de participants, période, format, message | Répondre à la demande et établir un devis | Mesures précontractuelles (art. 6.1.b) | 3 ans après le dernier échange |
+| Demande de devis Team building par e-mail | Ce que vous nous écrivez : entreprise, nom, fonction, coordonnées, nombre de participants, période, format, message | Répondre à la demande et établir un devis | Mesures précontractuelles (art. 6.1.b) | 3 ans après le dernier échange |
 | Contact par e-mail, téléphone ou réseaux sociaux | Vos coordonnées et ce que vous nous écrivez | Vous répondre | Intérêt légitime (art. 6.1.f) | 3 ans après le dernier échange |
 | Notifications de l'application Sportigo | Identifiant de notification de votre appareil | Vous prévenir : cours, changements d'horaire, actualités de la box | Exécution du contrat et intérêt légitime (art. 6.1.b et f) | Tant que les notifications sont activées. Vous les coupez à tout moment dans l'application ou les réglages du téléphone |
 | Caméras de surveillance | Images des personnes présentes dans les zones filmées | Sécurité des personnes et du matériel | Intérêt légitime (art. 6.1.f) et loi du 21 mars 2007 réglant l'installation et l'utilisation de caméras de surveillance | 1 mois maximum, sauf si les images servent de preuve d'un incident |
@@ -104,7 +104,6 @@ Nous traitons vos données conformément au Règlement (UE) 2016/679 (RGPD) et �
 
 **Santé.** Nous ne demandons aucune information médicale. N'en envoyez pas par e-mail ni dans l'application : signalez une blessure directement à votre coach avant le cours, il adaptera les exercices.
 
-**Formulaire de devis.** Rien n'est enregistré sur le site : la demande part directement par e-mail.
 
 ### 3. Qui reçoit vos données ?
 
@@ -113,7 +112,7 @@ Vos données ne sont **ni vendues, ni louées**. Les responsables et les coachs 
 | Prestataire | Rôle | Localisation des données |
 | --- | --- | --- |
 | Sportigo | Réservations, abonnements, paiements, application membres | France |
-| Hostinger International Ltd | Hébergement du site et envoi des e-mails du formulaire de devis | Union européenne |
+| Hostinger International Ltd | Hébergement du site | Union européenne |
 | Google Ireland Ltd | Messagerie Gmail. Google Analytics et Google Ads, après votre consentement | UE, transferts possibles vers les États-Unis |
 | Meta Platforms Ireland Ltd | Publicités Facebook et Instagram, après votre consentement | UE, transferts possibles vers les États-Unis |
 | Trustindex | Affichage des avis Google sur le site | Autriche |
@@ -218,7 +217,6 @@ Le bandeau tutoie, comme le reste du site. Les trois boutons ont la même taille
 ### Micro-textes à placer
 
 - **Sous le widget Sportigo** (séance d'essai et pages cours) : « Tes coordonnées servent uniquement à organiser ta séance. » + lien Politique de confidentialité.
-- **Au-dessus du bouton d'envoi du formulaire de devis** (Team building) : « Ces informations servent uniquement à répondre à cette demande. Elles partent par e-mail et ne sont pas enregistrées sur le site. » + lien Politique de confidentialité.
 - **Façade de la carte** (plan d'accès) : bouton « Afficher la carte » + « Google déposera ses propres cookies. » La carte n'est chargée qu'au clic.
 
 ## Conditions générales · /conditions-generales/
