@@ -1,8 +1,3 @@
-# SITE_ENV=test : le site ne doit pas être indexé
-<IfModule mod_headers.c>
-  Header set X-Robots-Tag "noindex, nofollow"
-</IfModule>
-
 # CrossFit Xmile : crossfitxmile.com
 # Hébergement Hostinger (LiteSpeed, compatible Apache).
 # Pages en dossiers : /crossfit-woluwe/index.html sert l'URL /crossfit-woluwe/
@@ -13,6 +8,13 @@ DirectorySlash On
 ErrorDocument 404 /404.html
 
 RewriteEngine On
+
+# ---------------------------------------------------------------
+# 0. Domaine temporaire Hostinger (*.hostingersite.com) vers la production
+# ---------------------------------------------------------------
+RewriteCond %{HTTP_HOST} \.hostingersite\.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule ^ https://crossfitxmile.com%{REQUEST_URI} [L,R=301,NE]
 
 # ---------------------------------------------------------------
 # 1. Une seule version du site : https, sans www (une seule redirection)
