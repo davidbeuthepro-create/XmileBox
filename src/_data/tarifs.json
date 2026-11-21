@@ -143,7 +143,7 @@
      "v": {
       "easy": false,
       "unlimited": "1 / semaine",
-      "duo": "todo:À confirmer",
+      "duo": "1 / semaine",
       "card10": false,
       "drop": false,
       "pilates10": true
@@ -196,7 +196,7 @@
       "drop": [
        "20 €"
       ],
-      "pilates10": "todo:À compléter : prix"
+      "pilates10": ""
      }
     }
    ]

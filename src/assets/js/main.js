@@ -178,6 +178,35 @@
     if (location.hash === '#essai') open(null);
   })();
 
+  /* ---------- Pop-up « drop in » : widget Sportigo AppointmentFull (code officiel) ---------- */
+  (function () {
+    var dlg = $('#drop-dlg'); if (!dlg) return;
+    var box = $('#sportigo-appointment-full-container', dlg), inited = false, last = null;
+    function close() { dlg.hidden = true; document.documentElement.style.overflow = ''; if (last && last.focus) last.focus(); }
+    function open(from) {
+      last = from; dlg.hidden = false; document.documentElement.style.overflow = 'hidden';
+      var c = $('[data-drop-close]', dlg); if (c) c.focus({ preventScroll: true });
+      if (inited) return; inited = true;
+      loadSportigo(function () {
+        try {
+          window.initComponent('AppointmentFull', 'sportigo-appointment-full-container', dlg.getAttribute('data-widget-id'), {
+            source: { kind: 'widget', ref: 'appointment-full' },
+            activities: JSON.parse(dlg.getAttribute('data-activities') || '[]'),
+            displayMode: 'slide'
+          });
+        } catch (e) {}
+      });
+      var mo = new MutationObserver(function () { if (box.childElementCount) { dlg.setAttribute('data-ready', ''); mo.disconnect(); } });
+      mo.observe(box, { childList: true, subtree: true });
+    }
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest && e.target.closest('[data-drop-open]');
+      if (b) { e.preventDefault(); open(b); return; }
+      if (!dlg.hidden && (e.target.closest('[data-drop-close]') || e.target === $('.trial-scrim', dlg))) close();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !dlg.hidden) close(); });
+  })();
+
   /* ---------- Boutons de contact : l'adresse ou le numéro s'affiche au clic, et l'email ou l'appel se lance ---------- */
   $$('a[data-reveal]').forEach(function (a) {
     a.addEventListener('click', function () {

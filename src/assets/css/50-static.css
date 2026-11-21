@@ -147,6 +147,10 @@ html.hdr-compact .burger .ibtn{width:38px;height:38px}
 @media (max-width:640px){.trial-scrim{padding:0;align-items:flex-end}.trial-panel{width:100%;max-height:94svh;border-radius:var(--radius-xl) var(--radius-xl) 0 0;padding:20px 16px}.trial-box{min-height:360px}}
 @media (prefers-reduced-motion:reduce){.trial-panel{animation-name:ck-fade}}
 
+/* Tableau des formules : bouton « Réserver mon drop in » sous le prix */
+.cmp-drop{display:flex;margin:10px auto 0;height:auto;min-height:34px;padding:8px 12px;font-size:13px;line-height:1.15;white-space:normal;text-align:center}
+.trial-dlg[data-ready] .spg-ph{display:none}
+
 /* Kids & Teens : inscription par email ou téléphone */
 .kidcontact{display:flex;flex-direction:column;gap:18px;padding:32px;border-radius:var(--radius-xl);background:var(--surface-card);border:1px solid var(--border-subtle);align-self:start}
 .kidcontact p{font:400 17px/1.55 var(--font-body);color:var(--text-body);max-width:48ch}

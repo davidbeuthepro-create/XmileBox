@@ -44,7 +44,7 @@
               <td{% if c == priceHighlight %} class="hl"{% endif %}>
                 {%- if v === true %}<span class="cmp-yes" aria-hidden="true"></span><span class="sr">Inclus</span>
                 {%- elif v === false %}<span class="cmp-no" aria-hidden="true"></span><span class="sr">Non inclus</span>
-                {%- elif v | isArray %}<span class="cmp-price">{{ v[0] }}{% if v[1] %}<small>{{ v[1] }}</small>{% endif %}</span>
+                {%- elif v | isArray %}<span class="cmp-price">{{ v[0] }}{% if v[1] %}<small>{{ v[1] }}</small>{% endif %}</span>{% if c == "drop" %}<button type="button" class="btn btn-dark btn-sm cmp-drop" data-drop-open>Réserver mon drop in</button>{% endif %}
                 {%- elif v.startsWith("todo:") %}{% todo v.slice(5) %}
                 {%- else %}<span class="cmp-txt">{{ v }}</span>{% endif -%}
               </td>

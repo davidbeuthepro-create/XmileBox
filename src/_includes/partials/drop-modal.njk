@@ -1,0 +1,16 @@
+{#- Pop-up « drop in » : widget Sportigo AppointmentFull (code officiel), ouvert par les boutons [data-drop-open] -#}
+<div class="trial-dlg" id="drop-dlg" data-widget-id="{{ site.sportigoWidgetId }}" data-activities="{{ horaires.sportigo.dropin | json | esc }}" hidden>
+  <div class="trial-scrim">
+    <div class="trial-panel" role="dialog" aria-modal="true" aria-labelledby="drop-t">
+      <div class="ck-panel-head">
+        <h2 id="drop-t">Réserve ton drop in</h2>
+        <button type="button" class="ibtn ibtn-outline" data-drop-close aria-label="Fermer">{% icon "x", 15 %}</button>
+      </div>
+      <div class="spg-box trial-box">
+        <div class="spg-ph"><span class="slot-tag">Planning Sportigo</span><span>Le planning et la réservation s'affichent ici.</span></div>
+        <div id="sportigo-appointment-full-container"></div>
+      </div>
+      <p class="spg-legal">Tes coordonnées servent uniquement à organiser ta séance. <a href="/politique-de-confidentialite/">Politique de confidentialité</a></p>
+    </div>
+  </div>
+</div>
