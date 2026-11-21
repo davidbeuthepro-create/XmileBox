@@ -131,8 +131,8 @@
 .s3-t{font-size:clamp(38px,10.5vw,52px)}
 .s3.compact .s3-t{font-size:30px}
 .s3-card p{font-size:16px}
-.nx{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--gutter) * -1);padding:0 var(--gutter) 4px;scrollbar-width:none}
-.nx-card{flex:0 0 78%;scroll-snap-align:start}
+.nx{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gutter);margin:0 calc(var(--gutter) * -1);padding:0 var(--gutter) 4px;scrollbar-width:none}
+.nx > li{flex:0 0 78%;min-width:0;scroll-snap-align:start}
 .nx-media{height:210px}
 .lacc{padding:26px 22px;border-radius:var(--radius-lg)}
 .v2 .feature,.v2 .feature .ph,.v2 .feature .slot{min-height:300px}
