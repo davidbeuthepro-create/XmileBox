@@ -78,34 +78,45 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
 
 ## Intégrations
 
-- **Sportigo** (planning + réservation de l'essai), un seul par page, sans le restyler (soigner seulement le cadre autour) :
+- **Sportigo** : codes officiels donnés par David le 21/11/2026, à reprendre **à l'identique** (ne rien ajouter : ni `planning`, ni `theme`, ni `displayMode`, ni `fromDate` ; avec ces ajouts, le widget affichait la réservation payante). Ne pas restyler le widget, soigner seulement le cadre autour.
+  - Séance d'essai, même code pour tous les cours, seule la liste `activities` change (`src/_data/horaires.json` → `sportigo`) :
 
-  ```html
-  <div id="sportigo-appointment-container"></div>
-  <script src="https://standalone.api.sportigo.fr/component-standalone.js"></script>
-  <script>
-    initComponent("Appointment", "sportigo-appointment-container", "b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc", {
-      "theme": { "googleFont": { "name": "Inter" } },
-      "source": { "kind": "widget", "ref": "appointment" },
-      "readonly": false, "forceBookBtn": true, "colored": true, "planning": 2143, "displayMode": "slide"
-    });
-  </script>
-  ```
+    ```html
+    <div id="sportigo-appointment-container"></div>
+    <script src="https://standalone.api.sportigo.fr/component-standalone.js"></script>
+    <script>
+      initComponent("Appointment", "sportigo-appointment-container", "b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc", {
+        "source": { "kind": "widget", "ref": "appointment" },
+        "readonly": false, "forceBookBtn": true, "colored": true,
+        "activities": [ ... ]
+      });
+    </script>
+    ```
 
-  Ce code d'essai est appelé partout (pages cours, pages locales, `/seance-essai/`, pop-up ouvert par tous les liens « séance d'essai ») avec un seul ajout, l'option `activities` (ids dans `horaires.json` → `sportigo`), décidé avec David le 21/11/2026 : sur une page cours, le planning et les boutons d'essai de la page n'affichent que ce cours ; le bouton « Séance d'essai » du menu et du pied de page, et les pages sans cours, affichent tous les cours sauf Free Access (`sportigo.tout`). Pas de `fromDate`. Bouton « Je m'abonne » : https://xmile-crossfit.sportigo.fr/buy. Les horaires existent aussi en texte : le widget est invisible pour Google.
-- **Sportigo drop in** (réservation payante, uniquement le bouton « Réserver mon drop in » du tableau des formules, dans un pop-up) :
+    | Où | `activities` |
+    |---|---|
+    | Pages CrossFit (`/crossfit/`, pages locales CrossFit, `/cours-crossfit-debutant/`, les 7 pages conservées du pack) | `[12379, 14019]` |
+    | Pages Hyrox (`/preparation-hyrox/`, pages locales Hyrox) | `[12382]` |
+    | `/halterophilie/` (haltérophilie et powerlifting) | `[13945, 13269]` |
+    | `/pilates/` | `[30741]` |
+    | Bouton « Séance d'essai » du menu et du pied de page, pages sans cours (accueil, Notre vision, Team building, `/seance-essai/`) | `[30741, 13269, 12382, 13945, 12379, 14019]` |
 
-  ```html
-  <div id="sportigo-appointment-full-container"></div>
-  <script src="https://standalone.api.sportigo.fr/component-standalone.js"></script>
-  <script>
-    initComponent("AppointmentFull", "sportigo-appointment-full-container", "b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc", {
-      "source": { "kind": "widget", "ref": "appointment-full" }, "activities": [12379], "displayMode": "slide"
-    });
-  </script>
-  ```
+    Sur une page cours, le planning de la page et ses boutons d'essai utilisent la liste du cours (le pop-up reprend le conteneur du planning de la page) ; le bouton du menu ouvre la liste complète dans un second conteneur. Tous les liens « séance d'essai » ouvrent le pop-up ; la page `/seance-essai/` reste pour les liens directs.
+  - Drop in (réservation payante), uniquement le bouton « Réserver mon drop in » du tableau des formules, dans un pop-up :
 
-  Pour le drop in, `activities` = tous les cours sauf Free Access (`sportigo.dropin`), à la demande de David. Kids & Teens : pas de widget, inscription par email ou téléphone.
+    ```html
+    <div id="sportigo-appointment-full-container"></div>
+    <script src="https://standalone.api.sportigo.fr/component-standalone.js"></script>
+    <script>
+      initComponent("AppointmentFull", "sportigo-appointment-full-container", "b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc", {
+        "source": { "kind": "widget", "ref": "appointment-full" },
+        "activities": [12379, 14019, 12382]
+      });
+    </script>
+    ```
+
+  - Kids & Teens : pas de widget, inscription par email ou téléphone.
+  - Bouton « Je m'abonne » : https://xmile-crossfit.sportigo.fr/buy. Les horaires existent aussi en texte : le widget est invisible pour Google.
 - **Avis Google** : badge statique depuis `avis.json` ; bloc avis = widget Trustindex (code dans le README du pack), avec une hauteur minimale réservée pour éviter le décalage au chargement.
 - **GTM + écouteur Sportigo** : `_migration/tracking/tracking-snippets.html`, repris tel quel.
 - **Consentement** : bandeau et panneau selon `brief-pages-legales.md`. Cookie `xmile_consent` 6 mois. Consent Mode v2 basique : `analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization` à `denied` par défaut ; GA4, Google Ads et Meta ne se déclenchent qu'après accord. Bouton « Gérer mes cookies » dans le pied de page.

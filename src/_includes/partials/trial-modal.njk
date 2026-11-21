@@ -1,7 +1,7 @@
 {#- Pop-up « séance d'essai » : tous les liens vers /seance-essai/ l'ouvrent (main.js). La page /seance-essai/ reste en place pour les liens directs et les anciennes adresses.
     Boutons du menu et du pied de page (data-essai-general), ou page sans planning : tous les cours sauf Free Access (data-activities ci-dessous).
     Boutons d'essai d'une page cours : le planning de la page (filtré sur ce cours) est déplacé dans le pop-up puis remis en place. -#}
-<div class="trial-dlg" id="trial-dlg" data-widget-id="{{ site.sportigoWidgetId }}" data-planning="{{ site.sportigoPlanning }}" data-activities="{{ horaires.sportigo.tout | json | esc }}" hidden>
+<div class="trial-dlg" id="trial-dlg" data-widget-id="{{ site.sportigoWidgetId }}" data-activities="{{ horaires.sportigo.tout | json | esc }}" hidden>
   <div class="trial-scrim">
     <div class="trial-panel" role="dialog" aria-modal="true" aria-labelledby="trial-t">
       <div class="ck-panel-head">

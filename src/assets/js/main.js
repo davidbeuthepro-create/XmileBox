@@ -116,23 +116,21 @@
     document.body.appendChild(sc);
   }
 
-  // Réservation de la séance d'essai : code officiel Sportigo, plus le filtre activities selon la page
-  // (cours de la page, ou tous les cours sauf Free Access). Chaque conteneur n'est initialisé qu'une fois.
+  // Réservation de la séance d'essai : codes officiels Sportigo donnés par David (un par cours), à l'identique.
+  // Seule la liste activities change selon le cours (src/_data/horaires.json -> sportigo). Chaque conteneur n'est initialisé qu'une fois.
   var TRIAL_ID = 'sportigo-appointment-container', trialDone = {};
   function startTrial(id, el, activities) {
     if (trialDone[id]) return; trialDone[id] = true;
     loadSportigo(function () {
-      var o = {
-        theme: { googleFont: { name: 'Inter' } },
-        source: { kind: 'widget', ref: 'appointment' },
-        readonly: false,
-        forceBookBtn: true,
-        colored: true,
-        planning: parseInt(el.getAttribute('data-planning'), 10),
-        displayMode: 'slide'
-      };
-      if (activities && activities.length) o.activities = activities;
-      try { window.initComponent('Appointment', id, el.getAttribute('data-widget-id'), o); } catch (e) {}
+      try {
+        window.initComponent('Appointment', id, el.getAttribute('data-widget-id'), {
+          source: { kind: 'widget', ref: 'appointment' },
+          readonly: false,
+          forceBookBtn: true,
+          colored: true,
+          activities: activities
+        });
+      } catch (e) {}
     });
   }
   var actsOf = function (el) { try { return JSON.parse(el.getAttribute('data-activities') || '[]'); } catch (e) { return []; } };
@@ -197,7 +195,7 @@
     if (location.hash === '#essai') open(null);
   })();
 
-  /* ---------- Pop-up « drop in » : widget Sportigo AppointmentFull (code officiel) ---------- */
+  /* ---------- Pop-up « drop in » : widget Sportigo AppointmentFull (code officiel donné par David, à l'identique) ---------- */
   (function () {
     var dlg = $('#drop-dlg'); if (!dlg) return;
     var box = $('#sportigo-appointment-full-container', dlg), inited = false, last = null;
@@ -210,8 +208,7 @@
         try {
           window.initComponent('AppointmentFull', 'sportigo-appointment-full-container', dlg.getAttribute('data-widget-id'), {
             source: { kind: 'widget', ref: 'appointment-full' },
-            activities: JSON.parse(dlg.getAttribute('data-activities') || '[]'),
-            displayMode: 'slide'
+            activities: JSON.parse(dlg.getAttribute('data-activities') || '[]')
           });
         } catch (e) {}
       });
