@@ -194,6 +194,19 @@ export default function (eleventyConfig) {
     if (!ht.includes('^(www\\.)?crossfitxmile\\.com$')) throw new Error('.htaccess : bloc https/www du pack non reconnu');
     if (env.isTest) {
       ht = '# SITE_ENV=test : le site ne doit pas être indexé\n<IfModule mod_headers.c>\n  Header set X-Robots-Tag "noindex, nofollow"\n</IfModule>\n\n' + ht;
+    } else {
+      // Production : l'ancien domaine temporaire Hostinger renvoie vers crossfitxmile.com (sinon copie indexable du site)
+      ht = ht.replace(
+        'RewriteEngine On\n',
+        'RewriteEngine On\n\n' +
+        '# ---------------------------------------------------------------\n' +
+        '# 0. Domaine temporaire Hostinger (*.hostingersite.com) vers la production\n' +
+        '# ---------------------------------------------------------------\n' +
+        'RewriteCond %{HTTP_HOST} \\.hostingersite\\.com$ [NC]\n' +
+        'RewriteCond %{REQUEST_URI} !^/\\.well-known/\n' +
+        'RewriteRule ^ https://crossfitxmile.com%{REQUEST_URI} [L,R=301,NE]\n'
+      );
+      if (!ht.includes('hostingersite')) throw new Error('.htaccess : règle du domaine temporaire non insérée');
     }
     fs.writeFileSync(path.join(OUT, '.htaccess'), ht);
   });

@@ -15,8 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # test : noindex partout (meta + en-tête HTTP). À passer à `production` le jour de la bascule du domaine.
-  SITE_ENV: test
+  # production depuis la bascule du domaine (test = noindex partout, meta + en-tête HTTP).
+  SITE_ENV: production
 
 jobs:
   build-and-deploy:

@@ -49,10 +49,10 @@ Refonte du site WordPress actuel en site statique. Source du design et des texte
 - Pipeline : push sur `main` → GitHub Action `.github/workflows/deploy.yml` (`permissions: contents: write`) → `npm ci` + build → contenu de `_site/` publié à la racine de la branche `deploy`, fichiers commençant par un point compris (le `.htaccess` doit y être) → Hostinger tire la branche `deploy` (déploiement Git hPanel + webhook).
 - Ne jamais modifier la branche `deploy` à la main.
 - Variable `SITE_ENV`, définie dans le workflow :
-  - `test` (valeur actuelle) : `<meta name="robots" content="noindex, nofollow">` sur toutes les pages et `Header set X-Robots-Tag "noindex, nofollow"` en tête du `.htaccess`. Le `robots.txt` ne bloque rien d'autre que `/api/`, sinon Google ne verrait pas le noindex.
-  - `production` (à la bascule) : comportement normal du pack, sans noindex.
-- Domaine de test : `lightsalmon-partridge-472537.hostingersite.com` (domaine temporaire Hostinger, site PHP/HTML vide).
-- Le site doit fonctionner sur n'importe quel domaine : liens internes et ressources en chemins racine (`/crossfit/`, `/assets/...`), jamais en URL absolue. Les règles du `.htaccess` propres au domaine (www vers sans www, etc.) ne s'appliquent qu'à `crossfitxmile.com` : le domaine de test ne doit jamais être redirigé vers la production.
+  - `test` : `<meta name="robots" content="noindex, nofollow">` sur toutes les pages et `Header set X-Robots-Tag "noindex, nofollow"` en tête du `.htaccess`. Le `robots.txt` ne bloque rien d'autre que `/api/`, sinon Google ne verrait pas le noindex.
+  - `production` (valeur actuelle, depuis la bascule du 21/11/2026) : comportement normal du pack, sans noindex. En plus, le domaine temporaire `*.hostingersite.com` est redirigé en 301 vers `https://crossfitxmile.com` (règle 0 ajoutée au `.htaccess` par `eleventy.config.js`).
+- Ancien domaine de test : `lightsalmon-partridge-472537.hostingersite.com` (domaine temporaire Hostinger), redirigé vers la production depuis la bascule.
+- Le site doit fonctionner sur n'importe quel domaine : liens internes et ressources en chemins racine (`/crossfit/`, `/assets/...`), jamais en URL absolue. Les règles du `.htaccess` propres au domaine (www vers sans www, etc.) ne s'appliquent qu'à `crossfitxmile.com`. En `SITE_ENV=test`, le domaine temporaire n'est jamais redirigé vers la production.
 - Canonical toujours absolues vers `https://crossfitxmile.com/.../`, même en test.
 
 ## Règles de contenu
