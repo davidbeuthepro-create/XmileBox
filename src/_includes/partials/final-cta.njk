@@ -9,7 +9,6 @@
         {%- if finalCta != false %}
         <div class="final-act">
           {{ btn(finalHref or "/seance-essai/", finalLabel or "Réserve ta séance d'essai", "dark", "lg", ("arrow-down" if (finalHref and finalHref.startsWith("#")) else "arrow-up-right")) }}
-          {% set dark = false %}{% include "partials/badge-google.njk" %}
         </div>
         {%- endif %}
         <div class="final-facts">
