@@ -6,6 +6,7 @@
     Variables : spgCourse (clé du cours dans horaires.sportigo), spgTitle, spgHint, spgEager -#}
 <div class="spg" data-sportigo data-widget-id="{{ site.sportigoWidgetId }}" data-activities="{{ (horaires.sportigo[spgCourse] or horaires.sportigo.tout) | json | esc }}"{% if spgEager %} data-eager{% endif %}>
   <div class="spg-head"><h3 class="disp h3">{{ spgTitle or "Réserve ta séance d'essai" }}</h3><p class="spg-hint">{% icon "mouse-pointer-click", 18, "ic-acc" %}{{ spgHint or "Clique sur un créneau pour réserver ta séance d'essai gratuite." }}</p></div>
+  <p class="spg-price">{% icon "info", 18 %}<span>{{ site.essaiMention }}</span></p>
   <div class="spg-box">
     <div class="spg-ph"><span class="slot-tag">Planning Sportigo</span><span>Le planning et la réservation s'affichent ici.</span></div>
     <div id="sportigo-appointment-container"></div>
