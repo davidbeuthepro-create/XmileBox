@@ -118,6 +118,9 @@
 
   // Réservation de la séance d'essai : codes officiels Sportigo donnés par David (un par cours), à l'identique.
   // Seule la liste activities change selon le cours (src/_data/horaires.json -> sportigo). Chaque conteneur n'est initialisé qu'une fois.
+  // Mesure (GTM) : sportigo_widget et essai_cours restent dans la couche de données, donc les événements
+  // sportigo.formSubmit qui suivent disent si la réservation vient d'un essai (et de quel cours) ou d'un drop in.
+  function mesure(o) { window.dataLayer = window.dataLayer || []; window.dataLayer.push(o); }
   var TRIAL_ID = 'sportigo-appointment-container', trialDone = {};
   function startTrial(id, el, activities) {
     if (trialDone[id]) return; trialDone[id] = true;
@@ -140,7 +143,7 @@
     var box = $('#' + TRIAL_ID, spg);
     var mo = new MutationObserver(function () { if (box.childElementCount) { spg.setAttribute('data-ready', ''); mo.disconnect(); } });
     mo.observe(box, { childList: true, subtree: true });
-    var load = function () { startTrial(TRIAL_ID, spg, actsOf(spg)); };
+    var load = function () { mesure({ sportigo_widget: 'essai', essai_cours: spg.getAttribute('data-cours') }); startTrial(TRIAL_ID, spg, actsOf(spg)); };
     if (spg.hasAttribute('data-eager')) load(); else whenNear(spg, load);
   }
 
@@ -174,11 +177,13 @@
       if (general) {
         if (!g) { g = document.createElement('div'); g.id = GENERAL_ID; slot.appendChild(g); }
         g.hidden = false; c = g;
+        mesure({ event: 'essai_ouverture', sportigo_widget: 'essai', essai_cours: 'tous', essai_bouton: from && from.hasAttribute('data-essai-general') ? 'menu' : 'page' });
         startTrial(GENERAL_ID, dlg, actsOf(dlg));
       } else {
         if (g) g.hidden = true;
         c = document.getElementById(TRIAL_ID);
         if (!slot.contains(c)) { home = { parent: c.parentNode, next: c.nextSibling }; slot.appendChild(c); }
+        mesure({ event: 'essai_ouverture', sportigo_widget: 'essai', essai_cours: inline.getAttribute('data-cours'), essai_bouton: 'page' });
         startTrial(TRIAL_ID, inline, actsOf(inline));
       }
       dlg.hidden = false; document.documentElement.style.overflow = 'hidden';
@@ -202,6 +207,7 @@
     function close() { dlg.hidden = true; document.documentElement.style.overflow = ''; if (last && last.focus) last.focus(); }
     function open(from) {
       last = from; dlg.hidden = false; document.documentElement.style.overflow = 'hidden';
+      mesure({ event: 'drop_in_ouverture', sportigo_widget: 'drop_in' });
       var c = $('[data-drop-close]', dlg); if (c) c.focus({ preventScroll: true });
       if (inited) return; inited = true;
       loadSportigo(function () {
