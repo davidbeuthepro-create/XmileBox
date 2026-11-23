@@ -61,4 +61,11 @@
       });
     }
   });
+
+  // Réservation envoyée dans un widget Sportigo : événement « reservation_sportigo » pour GA4,
+  // avec le widget d'origine (essai ou drop_in) et le cours, retenus quand le planning a été ouvert.
+  document.addEventListener('sportigoFormSubmit', function() {
+    var s = window.xmSpg || {};
+    if (window.xmEvent) window.xmEvent('reservation_sportigo', { type: s.widget || 'inconnu', essai_cours: s.cours || '' });
+  });
 </script>

@@ -120,7 +120,11 @@
   // Seule la liste activities change selon le cours (src/_data/horaires.json -> sportigo). Chaque conteneur n'est initialisé qu'une fois.
   // Mesure (GTM) : sportigo_widget et essai_cours restent dans la couche de données, donc les événements
   // sportigo.formSubmit qui suivent disent si la réservation vient d'un essai (et de quel cours) ou d'un drop in.
-  function mesure(o) { window.dataLayer = window.dataLayer || []; window.dataLayer.push(o); }
+  function mesure(o) {
+    window.xmSpg = { widget: o.sportigo_widget, cours: o.essai_cours || '' };
+    if (o.event && window.xmEvent) { var p = {}; for (var k in o) if (k !== 'event') p[k] = o[k]; window.xmEvent(o.event, p); }
+    else { window.dataLayer = window.dataLayer || []; window.dataLayer.push(o); }
+  }
   var TRIAL_ID = 'sportigo-appointment-container', trialDone = {};
   function startTrial(id, el, activities) {
     if (trialDone[id]) return; trialDone[id] = true;

@@ -1,21 +1,28 @@
-{#- Consent Mode v2 (basique) : tout est refusé par défaut. GTM ({{ site.gtmId }} et {{ site.gtmId2 }}) n'est chargé qu'après accord (mesure ou publicité),
-    donc aucun tag GA4, Google Ads ou Meta avant consentement. Le choix est lu dans le cookie xmile_consent (6 mois). -#}
+{#- Consent Mode v2 (basique) : tout est refusé par défaut. Aucun outil Google avant accord dans le bandeau cookies :
+    - GTM ({{ site.gtmId }}, code fourni par David) : chargé après accord « mesure d'audience » ou « publicité » ;
+    - GA4 ({{ site.ga4Id }}, balise Google directement dans le site) : chargé après accord « mesure d'audience » seulement.
+    Le choix est lu dans le cookie xmile_consent (6 mois).
+    window.xmEvent(nom, paramètres) : envoie un événement à GTM (couche de données) et à GA4 s'il est chargé. -#}
 <script>
 document.documentElement.classList.add('js');
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
 window.xmConsent=(function(){
-  var DAYS=182,KEY='xmile_consent',loaded=false;
+  var DAYS=182,KEY='xmile_consent',GA='{{ site.ga4Id }}',jsDone=false,gtmLoaded=false,gaLoaded=false;
   function read(){try{var m=document.cookie.match(/(?:^|; )xmile_consent=([^;]*)/);var raw=m?decodeURIComponent(m[1]):localStorage.getItem(KEY);var c=raw?JSON.parse(raw):null;return c&&c.t&&Date.now()-c.t<DAYS*864e5?c:null}catch(e){return null}}
-  function loadGtm(){if(loaded)return;loaded=true;
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','{{ site.gtmId }}');
-    // Seconde balise ({{ site.gtmId2 }}), code fourni par David le 23/11/2026, chargée elle aussi seulement après accord
-    var t=document.createElement('script');t.async=true;t.src='https://www.googletagmanager.com/gtm.js?id={{ site.gtmId2 }}';document.head.appendChild(t);
-    gtag('js',new Date());}
+  function js(){if(!jsDone){jsDone=true;gtag('js',new Date());}}
+  function script(src){var t=document.createElement('script');t.async=true;t.src=src;document.head.appendChild(t);}
+  function loadGtm(){if(gtmLoaded)return;gtmLoaded=true;
+    script('https://www.googletagmanager.com/gtm.js?id={{ site.gtmId }}');js();}
+  function loadGa(){if(gaLoaded)return;gaLoaded=true;
+    script('https://www.googletagmanager.com/gtag/js?id='+GA);js();
+    // Pages vues automatiques ; cookies GA4 de 13 mois, comme annoncé dans la politique de cookies
+    gtag('config',GA,{cookie_expires:34128000});}
   function apply(c){
     var a=c&&c.analytics?'granted':'denied',p=c&&c.ads?'granted':'denied';
     gtag('consent','update',{analytics_storage:a,ad_storage:p,ad_user_data:p,ad_personalization:p});
     if(c&&(c.analytics||c.ads))loadGtm();
+    if(c&&c.analytics)loadGa();
   }
   function save(analytics,ads){
     var c={v:1,t:Date.now(),analytics:!!analytics,ads:!!ads},s=JSON.stringify(c);
@@ -25,6 +32,12 @@ window.xmConsent=(function(){
     window.dispatchEvent(new CustomEvent('xm:consent',{detail:c}));
     return c;
   }
+  window.xmEvent=function(name,params){
+    params=params||{};
+    var o={event:name};for(var k in params)o[k]=params[k];
+    window.dataLayer.push(o);
+    if(gaLoaded){var g={send_to:GA};for(var j in params)g[j]=params[j];gtag('event',name,g);}
+  };
   var stored=read();if(stored)apply(stored);
   return {read:read,save:save};
 })();

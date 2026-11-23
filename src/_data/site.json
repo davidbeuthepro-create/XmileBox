@@ -24,7 +24,7 @@
   "boutiqueSportigo": "https://xmile-crossfit.sportigo.fr/buy",
   "sportigoWidgetId": "b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc",
   "trustindexId": "9c3d3dc82f36816164268db70cf",
-  "gtmId": "GTM-53R2TNZJ",
+  "gtmId": "GTM-TM8N3SQC",
   "googleFiche": "https://www.google.com/maps/search/?api=1&query=CrossFit+Xmile+Avenue+du+P%C3%A9age+63+1932+Sint-Stevens-Woluwe",
   "googleMapsEmbedQuery": "Avenue du Péage 63, 1932 Sint-Stevens-Woluwe",
   "ouverture": [
@@ -75,5 +75,5 @@
   "trustindexBadgeId": "80a24de85fe728926656ee888aa",
   "trustindexHeroId": "8ba8a35863bc302ba9764cbca8a",
   "essaiMention": "1 essai offert, le suivant au prix de 20 €.",
-  "gtmId2": "GTM-TM8N3SQC"
+  "ga4Id": "G-W0DGSZQKTD"
 }
