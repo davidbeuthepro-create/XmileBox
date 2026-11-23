@@ -136,5 +136,5 @@
 
 /* Demande de devis Team building par email : mesure du clic (l'envoi se fait dans la messagerie du visiteur) */
 document.querySelectorAll('[data-devis-mail]').forEach(a => a.addEventListener('click', () => {
-  window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'devis_team_building' });
+  if (window.xmEvent) window.xmEvent('devis_team_building'); else { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'devis_team_building' }); }
 }));

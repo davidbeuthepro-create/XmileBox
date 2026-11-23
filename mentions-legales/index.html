@@ -24,17 +24,21 @@ document.documentElement.classList.add('js');
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
 window.xmConsent=(function(){
-  var DAYS=182,KEY='xmile_consent',loaded=false;
+  var DAYS=182,KEY='xmile_consent',GA='G-W0DGSZQKTD',jsDone=false,gtmLoaded=false,gaLoaded=false;
   function read(){try{var m=document.cookie.match(/(?:^|; )xmile_consent=([^;]*)/);var raw=m?decodeURIComponent(m[1]):localStorage.getItem(KEY);var c=raw?JSON.parse(raw):null;return c&&c.t&&Date.now()-c.t<DAYS*864e5?c:null}catch(e){return null}}
-  function loadGtm(){if(loaded)return;loaded=true;
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-53R2TNZJ');
-    // Seconde balise (GTM-TM8N3SQC), code fourni par David le 23/11/2026, chargée elle aussi seulement après accord
-    var t=document.createElement('script');t.async=true;t.src='https://www.googletagmanager.com/gtm.js?id=GTM-TM8N3SQC';document.head.appendChild(t);
-    gtag('js',new Date());}
+  function js(){if(!jsDone){jsDone=true;gtag('js',new Date());}}
+  function script(src){var t=document.createElement('script');t.async=true;t.src=src;document.head.appendChild(t);}
+  function loadGtm(){if(gtmLoaded)return;gtmLoaded=true;
+    script('https://www.googletagmanager.com/gtm.js?id=GTM-TM8N3SQC');js();}
+  function loadGa(){if(gaLoaded)return;gaLoaded=true;
+    script('https://www.googletagmanager.com/gtag/js?id='+GA);js();
+    // Pages vues automatiques ; cookies GA4 de 13 mois, comme annoncé dans la politique de cookies
+    gtag('config',GA,{cookie_expires:34128000});}
   function apply(c){
     var a=c&&c.analytics?'granted':'denied',p=c&&c.ads?'granted':'denied';
     gtag('consent','update',{analytics_storage:a,ad_storage:p,ad_user_data:p,ad_personalization:p});
     if(c&&(c.analytics||c.ads))loadGtm();
+    if(c&&c.analytics)loadGa();
   }
   function save(analytics,ads){
     var c={v:1,t:Date.now(),analytics:!!analytics,ads:!!ads},s=JSON.stringify(c);
@@ -44,6 +48,12 @@ window.xmConsent=(function(){
     window.dispatchEvent(new CustomEvent('xm:consent',{detail:c}));
     return c;
   }
+  window.xmEvent=function(name,params){
+    params=params||{};
+    var o={event:name};for(var k in params)o[k]=params[k];
+    window.dataLayer.push(o);
+    if(gaLoaded){var g={send_to:GA};for(var j in params)g[j]=params[j];gtag('event',name,g);}
+  };
   var stored=read();if(stored)apply(stored);
   return {read:read,save:save};
 })();
@@ -334,6 +344,13 @@ window.xmConsent=(function(){
       });
     }
   });
+
+  // Réservation envoyée dans un widget Sportigo : événement « reservation_sportigo » pour GA4,
+  // avec le widget d'origine (essai ou drop_in) et le cours, retenus quand le planning a été ouvert.
+  document.addEventListener('sportigoFormSubmit', function() {
+    var s = window.xmSpg || {};
+    if (window.xmEvent) window.xmEvent('reservation_sportigo', { type: s.widget || 'inconnu', essai_cours: s.cours || '' });
+  });
 </script>
 
 <div class="trial-dlg" id="drop-dlg" data-widget-id="b59ceb43-2ed3-4ac2-9f6d-ed5e9c9e9bcc" data-activities="[12379,14019,12382]" hidden>
@@ -353,7 +370,7 @@ window.xmConsent=(function(){
   </div>
 </div>
 
-<script src="/assets/js/main.70500574.js" defer></script>
+<script src="/assets/js/main.199df5e9.js" defer></script>
 <script src="/assets/js/legal.6de0bf07.js" defer></script>
 </body>
 </html>
