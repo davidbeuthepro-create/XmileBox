@@ -42,9 +42,14 @@
     var pinEl = $('.lx-pin', s), mq = matchMedia('(min-width: 961px) and (min-height: 720px) and (prefers-reduced-motion: no-preference)');
     var raf = 0, dist = 0, top = 0, pin = false;
     function show(p) { bar.style.transform = 'scaleX(' + p.toFixed(3) + ')'; }
+    // Le texte d'une carte ne doit jamais être coupé : si l'écran est trop bas pour l'afficher en entier, pas d'épinglage
+    function cut() {
+      return $$('.lx-card', t).some(function (c) { var b = $('.lx-body', c); return b.getBoundingClientRect().top + b.scrollHeight > c.getBoundingClientRect().bottom + 1; });
+    }
     function measure() {
       pin = mq.matches; s.setAttribute('data-pin', pin ? 'true' : 'false');
       t.style.transform = ''; s.style.height = '';
+      if (pin && cut()) { pin = false; s.setAttribute('data-pin', 'false'); }
       if (!pin) return;
       top = parseFloat(getComputedStyle(pinEl).top) || 0;
       var last = t.lastElementChild;
